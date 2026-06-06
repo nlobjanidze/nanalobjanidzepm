@@ -51,14 +51,14 @@ const PROJECTS = [
 
 export function Projects() {
   return (
-    <section id="projects" className="section-y bg-gradient-to-b from-transparent via-navy/40 to-transparent">
+    <section id="projects" className="section-y bg-surface">
       <div className="container-x">
         <div className="max-w-2xl">
           <span className="eyebrow">პროექტების პორტფოლიო</span>
           <h2 className="heading-lg mt-4 text-balance">
-            შერჩეული ქეისები — <span className="text-mint">გაზომვადი შედეგებით</span>
+            შერჩეული ქეისები — <span className="text-navy">გაზომვადი შედეგებით</span>
           </h2>
-          <p className="mt-4 text-foreground/75 text-base md:text-lg">
+          <p className="mt-4 text-ink-soft text-base md:text-lg">
             EU, GIZ, UNDP, Embassy of Japan, Slovak ODA — და კერძო სექტორი.
             ყველა პროექტი იწყება გამოწვევით, მთავრდება შედეგით.
           </p>
@@ -66,26 +66,26 @@ export function Projects() {
 
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {PROJECTS.map((p) => (
-            <article key={p.title} className="surface-card p-6 md:p-7 flex flex-col hover:border-mint/40 transition">
+            <article key={p.title} className="surface-card p-6 md:p-7 flex flex-col hover:-translate-y-1">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-black tracking-widest uppercase bg-mint/10 text-mint border border-mint/30 px-2.5 py-1 rounded-full">
+                <span className="text-[10px] font-black tracking-widest uppercase bg-navy-deep text-white px-2.5 py-1 rounded-full">
                   {p.donor}
                 </span>
-                <span className="text-xs font-bold text-foreground/60">{p.impact}</span>
+                <span className="text-xs font-black text-navy tabular-nums">{p.impact}</span>
               </div>
-              <h3 className="mt-4 text-lg font-extrabold leading-tight">{p.title}</h3>
+              <h3 className="mt-4 text-lg font-extrabold leading-tight text-ink">{p.title}</h3>
               <dl className="mt-4 space-y-3 text-sm flex-1">
                 <div>
-                  <dt className="text-[11px] font-bold uppercase tracking-widest text-mint/80">გამოწვევა</dt>
-                  <dd className="mt-1 text-foreground/80">{p.challenge}</dd>
+                  <dt className="text-[10px] font-black uppercase tracking-widest text-navy-soft">გამოწვევა</dt>
+                  <dd className="mt-1 text-ink-soft">{p.challenge}</dd>
                 </div>
                 <div>
-                  <dt className="text-[11px] font-bold uppercase tracking-widest text-mint/80">მიდგომა</dt>
-                  <dd className="mt-1 text-foreground/80">{p.approach}</dd>
+                  <dt className="text-[10px] font-black uppercase tracking-widest text-navy-soft">მიდგომა</dt>
+                  <dd className="mt-1 text-ink-soft">{p.approach}</dd>
                 </div>
-                <div>
-                  <dt className="text-[11px] font-bold uppercase tracking-widest text-mint/80">შედეგი</dt>
-                  <dd className="mt-1 text-foreground/90 font-semibold">{p.outcome}</dd>
+                <div className="pt-3 border-t border-line">
+                  <dt className="text-[10px] font-black uppercase tracking-widest text-navy-soft">შედეგი</dt>
+                  <dd className="mt-1 text-ink font-semibold">{p.outcome}</dd>
                 </div>
               </dl>
             </article>

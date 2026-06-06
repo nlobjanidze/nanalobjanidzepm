@@ -30,34 +30,38 @@ const ITEMS = [
 export function FAQ() {
   const [open, setOpen] = useState(0);
   return (
-    <section id="faq" className="section-y bg-gradient-to-b from-transparent via-navy/40 to-transparent">
+    <section id="faq" className="section-y bg-surface">
       <div className="container-x grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
           <span className="eyebrow">ხშირი კითხვები</span>
           <h2 className="heading-lg mt-4 text-balance">
-            გაქვს კითხვა? <span className="text-mint">აქ ნახე პასუხი.</span>
+            გაქვს კითხვა? <span className="text-navy">აქ ნახე პასუხი.</span>
           </h2>
-          <p className="mt-4 text-foreground/75">
+          <p className="mt-4 text-ink-soft">
             თუ პასუხს ვერ პოულობ — დაგვიკავშირდი პირდაპირ ფორმის გავლით.
           </p>
+          <a href="#contact" className="mt-6 inline-flex items-center rounded-full bg-navy-deep px-5 py-3 font-bold text-white hover:bg-navy transition text-sm">
+            დასვი კითხვა →
+          </a>
         </div>
         <div className="lg:col-span-8">
           <ul className="space-y-3">
             {ITEMS.map((it, i) => {
               const isOpen = open === i;
               return (
-                <li key={it.q} className={`surface-card transition-all ${isOpen ? "border-mint/40" : ""}`}>
+                <li key={it.q} className={`surface-card overflow-hidden ${isOpen ? "border-mint shadow-[var(--shadow-soft)]" : ""}`}>
                   <button
                     onClick={() => setOpen(isOpen ? -1 : i)}
                     className="w-full flex items-start justify-between gap-6 text-left p-5 md:p-6"
+                    aria-expanded={isOpen}
                   >
-                    <span className="font-extrabold text-base md:text-lg">{it.q}</span>
-                    <span className={`shrink-0 h-8 w-8 rounded-full border border-mint/40 inline-flex items-center justify-center text-mint font-bold transition ${isOpen ? "rotate-45 bg-mint text-navy-deep" : ""}`}>
+                    <span className="font-extrabold text-base md:text-lg text-ink">{it.q}</span>
+                    <span className={`shrink-0 h-8 w-8 rounded-full border inline-flex items-center justify-center font-bold transition ${isOpen ? "rotate-45 bg-navy-deep text-mint border-navy-deep" : "border-line text-navy bg-white"}`}>
                       +
                     </span>
                   </button>
                   {isOpen && (
-                    <div className="px-5 md:px-6 pb-6 text-foreground/80 text-sm md:text-base leading-relaxed -mt-1">
+                    <div className="px-5 md:px-6 pb-6 text-ink-soft text-sm md:text-base leading-relaxed -mt-1">
                       {it.a}
                     </div>
                   )}

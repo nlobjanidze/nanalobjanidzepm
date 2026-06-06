@@ -27,28 +27,28 @@ const ROLES = [
 
 export function Experience() {
   return (
-    <section id="experience" className="section-y">
+    <section id="experience" className="section-y bg-white">
       <div className="container-x">
         <div className="max-w-2xl">
           <span className="eyebrow">სამუშაო გამოცდილება</span>
           <h2 className="heading-lg mt-4 text-balance">
-            15+ წელი — <span className="text-mint">პროექტების ხაზზე</span>
+            15+ წელი — <span className="text-navy">პროექტების ხაზზე</span>
           </h2>
         </div>
 
         <div className="mt-12 relative">
-          <div className="absolute left-4 md:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-mint/0 via-mint/40 to-mint/0" aria-hidden />
-          <ol className="space-y-10">
-            {ROLES.map((r, i) => (
-              <li key={r.period} className="relative md:grid md:grid-cols-2 md:gap-12">
-                <div className={`md:${i % 2 === 0 ? "text-right md:pr-12" : "col-start-2 md:pl-12"}`}>
-                  <div className={`pl-12 md:pl-0 ${i % 2 === 0 ? "" : "md:pl-12"}`}>
-                    <span className="absolute left-2.5 md:left-1/2 top-1.5 -translate-x-1/2 h-3 w-3 rounded-full bg-mint ring-4 ring-mint/20" />
-                    <p className="text-xs font-black tracking-widest uppercase text-mint">{r.period}</p>
-                    <h3 className="mt-2 text-lg md:text-xl font-extrabold">{r.role}</h3>
-                    <p className="mt-1 text-sm font-semibold text-foreground/70">{r.org}</p>
-                    <p className="mt-3 text-sm md:text-base text-foreground/75 leading-relaxed">{r.desc}</p>
+          <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-line to-transparent" aria-hidden />
+          <ol className="space-y-6">
+            {ROLES.map((r) => (
+              <li key={r.period} className="relative pl-12">
+                <span className="absolute left-2.5 top-2 -translate-x-1/2 h-4 w-4 rounded-full bg-white border-2 border-mint shadow-[0_0_0_4px_oklch(0.95_0.04_168)]" />
+                <div className="surface-card p-6 md:p-7 hover:-translate-y-0.5">
+                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+                    <h3 className="text-lg md:text-xl font-extrabold text-ink">{r.role}</h3>
+                    <p className="text-xs font-black tracking-widest uppercase text-navy-soft tabular-nums">{r.period}</p>
                   </div>
+                  <p className="mt-1 text-sm font-semibold text-navy">{r.org}</p>
+                  <p className="mt-3 text-sm md:text-base text-ink-soft leading-relaxed">{r.desc}</p>
                 </div>
               </li>
             ))}
