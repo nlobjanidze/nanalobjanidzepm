@@ -7,19 +7,19 @@ export function ContactForm() {
   const [interest, setInterest] = useState(INTERESTS[0]);
 
   return (
-    <section id="contact" className="section-y">
+    <section id="contact" className="section-y bg-white">
       <div className="container-x grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
           <span className="eyebrow">დაკავშირება</span>
           <h2 className="heading-lg mt-4 text-balance">
-            დავიწყოთ <span className="text-mint">საუბრით.</span>
+            დავიწყოთ <span className="text-navy">საუბრით.</span>
           </h2>
-          <p className="mt-4 text-foreground/75 text-base md:text-lg">
+          <p className="mt-4 text-ink-soft text-base md:text-lg">
             შეავსე ფორმა — 24 საათში დაგიკავშირდები. პირველი 30-წუთიანი
             დიაგნოსტიკური ზარი — უფასოა.
           </p>
 
-          <div className="mt-8 space-y-4">
+          <div className="mt-8 space-y-3">
             {[
               { l: "ელფოსტა", v: "nana@lobjanidze.ge", href: "mailto:nana@lobjanidze.ge" },
               { l: "ტელეფონი", v: "+995 555 00 00 00", href: "tel:+995555000000" },
@@ -29,10 +29,10 @@ export function ContactForm() {
               <a
                 key={c.l}
                 href={c.href || "#"}
-                className="block surface-card px-5 py-4 hover:border-mint/40 transition"
+                className="block surface-card px-5 py-4 hover:border-navy/30 hover:-translate-y-0.5"
               >
-                <p className="text-[11px] uppercase tracking-widest font-bold text-mint">{c.l}</p>
-                <p className="mt-1 font-semibold text-sm md:text-base">{c.v}</p>
+                <p className="text-[10px] uppercase tracking-widest font-black text-navy-soft">{c.l}</p>
+                <p className="mt-1 font-bold text-sm md:text-base text-ink">{c.v}</p>
               </a>
             ))}
           </div>
@@ -49,12 +49,12 @@ export function ContactForm() {
             <div className="text-center py-12">
               <div className="mx-auto h-14 w-14 rounded-full bg-mint text-navy-deep inline-flex items-center justify-center font-black text-2xl">✓</div>
               <h3 className="mt-5 heading-md">გმადლობთ!</h3>
-              <p className="mt-2 text-foreground/75">თქვენი მოთხოვნა მიღებულია. 24 საათში დაგიკავშირდები.</p>
+              <p className="mt-2 text-ink-soft">თქვენი მოთხოვნა მიღებულია. 24 საათში დაგიკავშირდები.</p>
             </div>
           ) : (
             <>
               <h3 className="heading-md">დაჯავშნე უფასო კონსულტაცია</h3>
-              <p className="mt-2 text-sm text-foreground/65">30 წუთი · გაირკვევა შენი მიზნები და მომდევნო ნაბიჯები</p>
+              <p className="mt-2 text-sm text-ink-soft">30 წუთი · გაირკვევა შენი მიზნები და მომდევნო ნაბიჯები</p>
 
               <div className="mt-7 grid sm:grid-cols-2 gap-4">
                 <Field label="სახელი და გვარი" name="name" required />
@@ -64,7 +64,7 @@ export function ContactForm() {
               </div>
 
               <div className="mt-5">
-                <p className="text-xs font-bold uppercase tracking-widest text-mint mb-3">დაინტერესება</p>
+                <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft mb-3">დაინტერესება</p>
                 <div className="flex flex-wrap gap-2">
                   {INTERESTS.map((i) => (
                     <button
@@ -73,8 +73,8 @@ export function ContactForm() {
                       onClick={() => setInterest(i)}
                       className={`px-4 py-2 rounded-full text-sm font-semibold border transition ${
                         interest === i
-                          ? "bg-mint text-navy-deep border-mint"
-                          : "border-white/15 text-foreground/80 hover:border-mint/50"
+                          ? "bg-navy-deep text-white border-navy-deep"
+                          : "bg-white border-line text-ink hover:border-navy/40"
                       }`}
                     >
                       {i}
@@ -84,23 +84,23 @@ export function ContactForm() {
               </div>
 
               <div className="mt-5">
-                <label className="block text-xs font-bold uppercase tracking-widest text-foreground/65 mb-2">
+                <label className="block text-[11px] font-black uppercase tracking-widest text-navy-soft mb-2">
                   მოგვწერე შენი მიზნის შესახებ
                 </label>
                 <textarea
                   rows={4}
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm focus:border-mint focus:outline-none focus:ring-2 focus:ring-mint/30 transition"
+                  className="w-full rounded-xl bg-white border border-line px-4 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:border-navy focus:outline-none focus:ring-2 focus:ring-mint/30 transition"
                   placeholder="რა გამოწვევაა შენი გუნდის წინაშე?"
                 />
               </div>
 
               <button
                 type="submit"
-                className="mt-7 w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-mint px-7 py-4 font-extrabold text-navy-deep hover:bg-mint-bright transition shadow-[var(--shadow-mint)]"
+                className="mt-7 w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-navy-deep px-7 py-4 font-extrabold text-white hover:bg-navy transition shadow-[var(--shadow-soft)]"
               >
                 გაგზავნა →
               </button>
-              <p className="mt-3 text-xs text-foreground/55">
+              <p className="mt-3 text-xs text-ink-soft/80">
                 შენი მონაცემები გამოყენებული იქნება მხოლოდ ჩვენი კომუნიკაციისთვის.
               </p>
             </>
@@ -114,7 +114,7 @@ export function ContactForm() {
 function Field({ label, name, type = "text", required }: { label: string; name: string; type?: string; required?: boolean }) {
   return (
     <div>
-      <label htmlFor={name} className="block text-xs font-bold uppercase tracking-widest text-foreground/65 mb-2">
+      <label htmlFor={name} className="block text-[11px] font-black uppercase tracking-widest text-navy-soft mb-2">
         {label}{required && <span className="text-mint ml-0.5">*</span>}
       </label>
       <input
@@ -122,7 +122,7 @@ function Field({ label, name, type = "text", required }: { label: string; name: 
         name={name}
         type={type}
         required={required}
-        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm focus:border-mint focus:outline-none focus:ring-2 focus:ring-mint/30 transition"
+        className="w-full rounded-xl bg-white border border-line px-4 py-3 text-sm text-ink focus:border-navy focus:outline-none focus:ring-2 focus:ring-mint/30 transition"
       />
     </div>
   );

@@ -63,14 +63,14 @@ const TRAININGS = [
 
 export function Trainings() {
   return (
-    <section id="trainings" className="section-y bg-gradient-to-b from-transparent via-navy/40 to-transparent">
+    <section id="trainings" className="section-y bg-surface">
       <div className="container-x">
         <div className="max-w-2xl">
           <span className="eyebrow">ტრენინგები</span>
           <h2 className="heading-lg mt-4 text-balance">
-            ოთხი პროგრამა — <span className="text-mint">საფუძვლებიდან PMP®-მდე</span>
+            ოთხი პროგრამა — <span className="text-navy">საფუძვლებიდან PMP®-მდე</span>
           </h2>
-          <p className="mt-4 text-foreground/75 text-base md:text-lg">
+          <p className="mt-4 text-ink-soft text-base md:text-lg">
             ყველა ტრენინგი დაფუძნებულია რეალურ პროექტებზე — არა მხოლოდ სლაიდებზე.
             სწავლა მუშაობს მაშინ, როცა მეორე დღეს უკვე გამოიყენე.
           </p>
@@ -80,47 +80,47 @@ export function Trainings() {
           {TRAININGS.map((t) => (
             <article
               key={t.code}
-              className={`surface-card p-7 md:p-9 relative ${t.featured ? "ring-mint" : ""}`}
+              className={`surface-card p-7 md:p-9 relative hover:-translate-y-1 ${t.featured ? "ring-2 ring-mint border-mint" : ""}`}
             >
               {t.featured && (
-                <span className="absolute top-5 right-5 text-[10px] font-black tracking-widest uppercase bg-mint text-navy-deep px-2.5 py-1 rounded-full">
+                <span className="absolute -top-3 right-6 text-[10px] font-black tracking-widest uppercase bg-navy-deep text-mint px-3 py-1.5 rounded-full shadow-[var(--shadow-soft)]">
                   მოთხოვნადი
                 </span>
               )}
-              <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest">
-                <span className="text-mint">{t.code}</span>
-                <span className="text-foreground/40">·</span>
-                <span className="text-foreground/60">{t.duration}</span>
-                <span className="text-foreground/40">·</span>
-                <span className="text-foreground/60">{t.level}</span>
+              <div className="flex items-center gap-3 text-xs font-black uppercase tracking-widest">
+                <span className="text-navy">{t.code}</span>
+                <span className="text-line">·</span>
+                <span className="text-ink-soft">{t.duration}</span>
+                <span className="text-line">·</span>
+                <span className="text-ink-soft">{t.level}</span>
               </div>
               <h3 className="heading-md mt-3">{t.title}</h3>
 
               <div className="mt-5">
-                <p className="text-xs uppercase tracking-widest font-bold text-mint mb-2">ვისთვისაა</p>
-                <p className="text-sm md:text-[0.95rem] text-foreground/80 leading-relaxed">{t.who}</p>
+                <p className="text-[11px] uppercase tracking-widest font-black text-navy-soft mb-2">ვისთვისაა</p>
+                <p className="text-sm md:text-[0.95rem] text-ink-soft leading-relaxed">{t.who}</p>
               </div>
 
               <div className="mt-5">
-                <p className="text-xs uppercase tracking-widest font-bold text-mint mb-2">რას ისწავლი</p>
+                <p className="text-[11px] uppercase tracking-widest font-black text-navy-soft mb-2">რას ისწავლი</p>
                 <ul className="space-y-2">
                   {t.learn.map((l) => (
-                    <li key={l} className="flex gap-3 text-sm md:text-[0.95rem] text-foreground/85">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-mint shrink-0" />
+                    <li key={l} className="flex gap-3 text-sm md:text-[0.95rem] text-ink">
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-mint shrink-0 ring-4 ring-mint/15" />
                       <span>{l}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="mt-6 pt-5 border-t border-white/5">
-                <p className="text-xs uppercase tracking-widest font-bold text-mint mb-2">შედეგი</p>
-                <p className="text-sm md:text-base text-foreground/90">{t.result}</p>
+              <div className="mt-6 pt-5 border-t border-line">
+                <p className="text-[11px] uppercase tracking-widest font-black text-navy-soft mb-2">შედეგი</p>
+                <p className="text-sm md:text-base text-ink font-medium">{t.result}</p>
               </div>
 
               <a
                 href="#contact"
-                className="mt-6 inline-flex items-center rounded-full bg-white/5 border border-white/10 px-5 py-2.5 font-semibold text-sm hover:bg-mint hover:text-navy-deep hover:border-mint transition"
+                className="mt-6 inline-flex items-center rounded-full bg-white border border-line px-5 py-2.5 font-bold text-sm text-ink hover:bg-navy-deep hover:text-white hover:border-navy-deep transition"
               >
                 დარეგისტრირდი →
               </a>

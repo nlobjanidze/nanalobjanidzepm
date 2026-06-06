@@ -27,29 +27,29 @@ const QUOTES = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="section-y">
+    <section id="testimonials" className="section-y bg-white">
       <div className="container-x">
         <div className="max-w-2xl">
           <span className="eyebrow">კლიენტთა შეფასებები</span>
           <h2 className="heading-lg mt-4 text-balance">
-            ხმები იმათგან, ვინც <span className="text-mint">პროექტი დაამთავრა</span>
+            ხმები იმათგან, ვინც <span className="text-navy">პროექტი დაამთავრა</span>
           </h2>
         </div>
 
         <div className="mt-12 grid md:grid-cols-2 gap-6">
           {QUOTES.map((q) => (
-            <figure key={q.name} className="surface-card p-7 md:p-9 relative">
-              <span className="absolute top-5 right-6 text-6xl leading-none text-mint/30 font-serif">”</span>
-              <blockquote className="text-base md:text-lg leading-relaxed text-foreground/90">
+            <figure key={q.name} className="surface-card p-7 md:p-9 relative hover:-translate-y-0.5">
+              <span className="absolute top-4 right-6 text-7xl leading-none text-mint/40 font-serif select-none" aria-hidden>"</span>
+              <blockquote className="text-base md:text-lg leading-relaxed text-ink">
                 {q.text}
               </blockquote>
-              <figcaption className="mt-6 pt-5 border-t border-white/5 flex items-center gap-4">
-                <span className="h-11 w-11 rounded-full bg-gradient-to-br from-mint to-azure inline-flex items-center justify-center font-black text-navy-deep">
+              <figcaption className="mt-6 pt-5 border-t border-line flex items-center gap-4">
+                <span className="h-12 w-12 rounded-full bg-navy-deep text-mint inline-flex items-center justify-center font-black text-lg">
                   {q.name.charAt(0)}
                 </span>
                 <div>
-                  <p className="font-extrabold text-sm">{q.name}</p>
-                  <p className="text-xs text-foreground/65">{q.role} · {q.org}</p>
+                  <p className="font-extrabold text-sm text-ink">{q.name}</p>
+                  <p className="text-xs text-ink-soft mt-0.5">{q.role} · {q.org}</p>
                 </div>
               </figcaption>
             </figure>
