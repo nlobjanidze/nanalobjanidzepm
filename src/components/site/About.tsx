@@ -11,59 +11,36 @@ export function About() {
   return (
     <section id="about" className="section-y relative bg-white">
       <div className="container-x grid lg:grid-cols-12 gap-12 items-center">
-        {/* Photo composition — frame-free, blended with brand shapes */}
-        <div className="lg:col-span-5 relative min-h-[460px] md:min-h-[540px]">
-          {/* Color anchor blob (mint) */}
+        {/* Frameless photo — soft brand wash, feathered edges fade to background */}
+        <div className="lg:col-span-5 relative min-h-[460px] md:min-h-[560px]">
           <div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[86%] h-[88%] -z-10"
+            className="absolute inset-0 -z-10"
             style={{
               background:
-                "linear-gradient(160deg, oklch(0.78 0.16 165) 0%, oklch(0.55 0.13 235 / 0.7) 100%)",
-              borderRadius: "55% 45% 60% 40% / 45% 55% 45% 55%",
-              opacity: 0.85,
+                "radial-gradient(55% 50% at 50% 50%, oklch(0.78 0.16 165 / 0.16), transparent 75%)",
             }}
             aria-hidden
           />
-          {/* Dot pattern */}
           <div
-            className="absolute -bottom-2 right-0 h-28 w-28 -z-10 opacity-70"
+            className="absolute inset-0 -z-10"
             style={{
-              backgroundImage:
-                "radial-gradient(var(--navy) 1.2px, transparent 1.4px)",
-              backgroundSize: "12px 12px",
-              maskImage: "radial-gradient(closest-side, black, transparent)",
+              background:
+                "radial-gradient(40% 35% at 20% 80%, oklch(0.55 0.13 235 / 0.12), transparent 70%)",
             }}
             aria-hidden
           />
-          {/* Outline ring echoing poster */}
-          <svg
-            className="absolute top-4 -right-2 h-24 w-24 text-navy -z-10"
-            viewBox="0 0 100 100"
-            fill="none"
-            aria-hidden
-          >
-            <circle cx="50" cy="50" r="48" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 5" opacity="0.45" />
-          </svg>
 
-          {/* Portrait — masked, no frame */}
           <img
             src={about.url}
             alt="ნანა ლობჯანიძე — სამუშაო პროცესში"
-            className="relative z-10 mx-auto block h-[460px] md:h-[540px] w-auto max-w-full object-cover object-top drop-shadow-[0_24px_36px_oklch(0.20_0.05_250/0.15)]"
+            className="relative z-10 mx-auto block h-[460px] md:h-[560px] w-auto max-w-full object-cover object-top"
             style={{
               WebkitMaskImage:
-                "radial-gradient(115% 95% at 50% 45%, black 65%, transparent 85%)",
+                "radial-gradient(75% 80% at 50% 45%, black 35%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.4) 75%, transparent 92%)",
               maskImage:
-                "radial-gradient(115% 95% at 50% 45%, black 65%, transparent 85%)",
+                "radial-gradient(75% 80% at 50% 45%, black 35%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.4) 75%, transparent 92%)",
             }}
           />
-
-          {/* Floating credibility chip */}
-          <div className="absolute bottom-6 right-0 z-20 flex items-center gap-2.5 rounded-full bg-white/90 backdrop-blur-md px-4 py-2 border border-line shadow-[var(--shadow-soft)]">
-            <span className="text-[11px] font-black tracking-widest uppercase text-navy-soft">15+ წელი</span>
-            <span className="h-1 w-1 rounded-full bg-mint" />
-            <span className="text-[11px] font-black tracking-widest uppercase text-ink">პრაქტიკა</span>
-          </div>
         </div>
 
         <div className="lg:col-span-7">
