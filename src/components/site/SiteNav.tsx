@@ -79,7 +79,8 @@ export function SiteNav() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-navy-deep px-5 py-3 font-bold text-white"
+              className="mt-2 inline-flex items-center justify-center rounded-full px-5 py-3 font-bold"
+              style={{ background: "var(--mint)", color: "var(--navy-deep)" }}
             >
               დაჯავშნე კონსულტაცია
             </a>
