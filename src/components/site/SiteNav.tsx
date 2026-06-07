@@ -6,7 +6,8 @@ const NAV = [
   { href: "#services", label: "სერვისები" },
   { href: "#trainings", label: "ტრენინგები" },
   { href: "#projects", label: "პროექტები" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#certifications", label: "სერტიფიკატები" },
+  { href: "#recognition", label: "აღიარება" },
   { href: "#contact", label: "კონტაქტი" },
 ];
 
@@ -49,7 +50,8 @@ export function SiteNav() {
         </nav>
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center rounded-full bg-navy-deep px-5 py-2.5 text-sm font-bold text-white hover:bg-navy transition-colors"
+          className="hidden md:inline-flex items-center rounded-full px-5 py-2.5 text-sm font-bold transition"
+          style={{ background: "var(--mint)", color: "var(--navy-deep)" }}
         >
           დაჯავშნე კონსულტაცია
         </a>
@@ -77,7 +79,8 @@ export function SiteNav() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-navy-deep px-5 py-3 font-bold text-white"
+              className="mt-2 inline-flex items-center justify-center rounded-full px-5 py-3 font-bold"
+              style={{ background: "var(--mint)", color: "var(--navy-deep)" }}
             >
               დაჯავშნე კონსულტაცია
             </a>

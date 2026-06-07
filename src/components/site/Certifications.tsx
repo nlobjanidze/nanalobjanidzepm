@@ -1,79 +1,97 @@
-const GROUPS = [
-  {
-    title: "PMI სერტიფიკატები",
-    accent: "mint",
-    items: [
-      { name: "PMP® — Project Management Professional", issuer: "Project Management Institute", year: "2024" },
-      { name: "PMI Member · PMI Chapter Tbilisi", issuer: "PMI", year: "2020 — Present" },
-    ],
-  },
-  {
-    title: "პროფესიული სერტიფიკატები",
-    accent: "navy",
-    items: [
-      { name: "Agile Project Management", issuer: "International Training", year: "2023" },
-      { name: "Risk Management Professional", issuer: "Professional Body", year: "2022" },
-      { name: "Stakeholder Engagement", issuer: "GIZ Academy", year: "2021" },
-    ],
-  },
-  {
-    title: "ტრენინგ სერტიფიკატები",
-    accent: "mint",
-    items: [
-      { name: "Training of Trainers (ToT)", issuer: "UNDP", year: "2022" },
-      { name: "Facilitation Skills", issuer: "International", year: "2021" },
-      { name: "Coaching & Mentoring", issuer: "EU Programme", year: "2020" },
-    ],
-  },
-  {
-    title: "უმაღლესი განათლება",
-    accent: "navy",
-    items: [
-      { name: "MBA / Public Administration", issuer: "Tbilisi State University", year: "" },
-      { name: "Bachelor of Business", issuer: "Georgian University", year: "" },
-    ],
-  },
+const PMI = [
+  { name: "PMP® — Project Management Professional", issuer: "Project Management Institute", year: "2024–2027" },
+  { name: "Business Continuity", issuer: "Project Management Institute", year: "2025" },
+  { name: "Data Landscape of GenAI for Project Managers", issuer: "Project Management Institute", year: "2024" },
+  { name: "Generative AI Overview for Project Managers", issuer: "Project Management Institute", year: "2023" },
+  { name: "Project Management for Beginners", issuer: "Project Management Institute", year: "2023" },
 ];
+
+const PROFESSIONAL = [
+  { name: "Mastering the Art of Cross-Functional Collaboration", issuer: "University of Colorado System", year: "2026" },
+  { name: "Executive Leadership", issuer: "LinkedIn", year: "2025" },
+  { name: "Becoming an Agile Coach", issuer: "LinkedIn Learning", year: "2025" },
+  { name: "Leveraging Generative AI for Project Management", issuer: "LinkedIn", year: "2025" },
+  { name: "Radical Product Thinking: Vision Setting", issuer: "Pendo.io", year: "2025" },
+  { name: "Megaprojects Conference 2025", issuer: "P3GQA", year: "2025" },
+  { name: "Scrum for Beginners + Scrum Master Certification Prep", issuer: "Udemy", year: "2023" },
+  { name: "General Management", issuer: "Georgian Institute of Public Affairs (GIPA)", year: "2018–2019" },
+  { name: "Communication Psychology & Interpersonal Relationships", issuer: "GIPA", year: "2022" },
+  { name: "Personal & Professional Competence Development", issuer: "Academy of the Ministry of Finance", year: "2023" },
+  { name: "Standards of Investors Service", issuer: "Ministry of Development Funds, Republic of Poland", year: "2023" },
+  { name: "საზოგადოებრივი მონაწილეობა ადგილობრივი განვითარებისთვის", issuer: "სამოქალაქო საზოგადოების ინსტიტუტი", year: "2022–2023" },
+  { name: "Inventory Management in Public Organizations", issuer: "Public Audit Institute", year: "2022" },
+];
+
+const EDUCATION = [
+  { name: "საერთაშორისო ბიზნესის მენეჯმენტი — მაგისტრი", issuer: "Caucasus International University", year: "2025 – დღემდე" },
+  { name: "ბიზნეს ადმინისტრირება და ფინანსები — ბაკალავრი", issuer: "Gori State Teaching University", year: "2007–2011" },
+];
+
+function Group({ title, items, accent }: { title: string; items: { name: string; issuer: string; year: string }[]; accent: "mint" | "navy" }) {
+  return (
+    <div className="surface-card p-7 md:p-8 hover:-translate-y-0.5">
+      <div className="flex items-center gap-3">
+        <span
+          className="h-8 w-8 rounded-lg inline-flex items-center justify-center text-xs font-black border"
+          style={
+            accent === "mint"
+              ? { background: "var(--mint-soft)", color: "var(--navy-deep)", borderColor: "var(--mint)" }
+              : { background: "var(--navy-deep)", color: "white", borderColor: "var(--navy-deep)" }
+          }
+        >
+          ✦
+        </span>
+        <h3 className="font-extrabold text-lg md:text-xl text-ink">{title}</h3>
+      </div>
+      <ul className="mt-5 divide-y divide-line">
+        {items.map((i) => (
+          <li key={i.name} className="py-3.5 flex items-start justify-between gap-4">
+            <div>
+              <p className="font-semibold text-sm md:text-base text-ink">{i.name}</p>
+              <p className="text-xs md:text-sm text-ink-soft mt-0.5">{i.issuer}</p>
+            </div>
+            {i.year && (
+              <span className="shrink-0 text-xs font-black mt-1 tabular-nums" style={{ color: "var(--navy)" }}>{i.year}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export function Certifications() {
   return (
     <section id="certifications" className="section-y bg-surface">
       <div className="container-x">
         <div className="max-w-2xl">
-          <span className="eyebrow">სერტიფიკატები</span>
+          <span className="eyebrow">განათლება &amp; სერტიფიკატები</span>
           <h2 className="heading-lg mt-4 text-balance">
             საერთაშორისო კვალიფიკაცია — <span className="text-navy">დადასტურებული</span>
           </h2>
           <p className="mt-4 text-ink-soft text-base md:text-lg">
-            PMI-ს მიერ აღიარებული PMP® სერტიფიკატი, საერთაშორისო ტრენინგები
-            და უმაღლესი განათლება — ერთ პროფესიულ პროფილში.
+            PMP® სერტიფიკატი, PMI-ის და სხვა საერთაშორისო ინსტიტუტების სასწავლო პროგრამები,
+            უმაღლესი განათლება — ერთ პროფესიულ პროფილში.
           </p>
         </div>
 
         <div className="mt-12 grid md:grid-cols-2 gap-6">
-          {GROUPS.map((g) => (
-            <div key={g.title} className="surface-card p-7 md:p-8 hover:-translate-y-0.5">
-              <div className="flex items-center gap-3">
-                <span className={`h-8 w-8 rounded-lg inline-flex items-center justify-center text-xs font-black ${g.accent === "mint" ? "bg-mint-soft text-navy-deep border border-mint/40" : "bg-navy-deep text-white"}`}>
-                  ✦
-                </span>
-                <h3 className="font-extrabold text-lg md:text-xl text-ink">{g.title}</h3>
-              </div>
-              <ul className="mt-5 divide-y divide-line">
-                {g.items.map((i) => (
-                  <li key={i.name} className="py-3.5 flex items-start justify-between gap-4">
-                    <div>
-                      <p className="font-semibold text-sm md:text-base text-ink">{i.name}</p>
-                      <p className="text-xs md:text-sm text-ink-soft mt-0.5">{i.issuer}</p>
-                    </div>
-                    {i.year && (
-                      <span className="shrink-0 text-xs font-black text-navy mt-1 tabular-nums">{i.year}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
+          <Group title="PMI სერტიფიკატები" items={PMI} accent="mint" />
+          <Group title="უმაღლესი განათლება" items={EDUCATION} accent="navy" />
+          <Group title="საერთაშორისო პროფესიული სერტიფიკატები" items={PROFESSIONAL} accent="navy" />
+          <div className="surface-card p-7 md:p-8 flex flex-col justify-between" style={{ background: "var(--gradient-brand)" }}>
+            <div>
+              <p className="text-xs font-black tracking-widest uppercase text-white/80">PMP® · 2024–2027</p>
+              <h3 className="mt-3 text-2xl md:text-3xl font-black text-white leading-tight">
+                Project Management Professional
+              </h3>
+              <p className="mt-4 text-white/90 text-sm md:text-base leading-relaxed">
+                PMP® არის მსოფლიოში ერთ-ერთი ყველაზე პრესტიჟული და ფართოდ აღიარებული
+                სერტიფიკაცია პროექტების მართვის სფეროში — გაცემული Project Management Institute-ის მიერ.
+              </p>
             </div>
-          ))}
+            <p className="mt-6 text-white/80 text-xs tracking-widest uppercase font-black">PMI · Global Standard</p>
+          </div>
         </div>
       </div>
     </section>

@@ -7,6 +7,7 @@ import { Services } from "@/components/site/Services";
 import { Trainings } from "@/components/site/Trainings";
 import { Experience } from "@/components/site/Experience";
 import { Projects } from "@/components/site/Projects";
+import { Recognition } from "@/components/site/Recognition";
 import { Testimonials } from "@/components/site/Testimonials";
 import { FAQ } from "@/components/site/FAQ";
 import { ContactForm } from "@/components/site/ContactForm";
@@ -23,11 +24,12 @@ function Index() {
       <main>
         <Hero />
         <About />
-        <Certifications />
         <Services />
         <Trainings />
         <Experience />
         <Projects />
+        <Certifications />
+        <Recognition />
         <Testimonials />
         <FAQ />
         <ContactForm />

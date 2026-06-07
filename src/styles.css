@@ -39,6 +39,7 @@
   --color-mint-bright: var(--mint-bright);
   --color-mint-soft: var(--mint-soft);
   --color-azure: var(--azure);
+  --color-sky: var(--sky);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-line: var(--line);
@@ -52,14 +53,15 @@
 :root {
   --radius: 0.75rem;
 
-  /* Brand palette — pulled from poster but applied as accents on white */
-  --navy-deep: oklch(0.20 0.05 250);
-  --navy: oklch(0.28 0.07 252);
-  --navy-soft: oklch(0.42 0.08 252);
-  --azure: oklch(0.55 0.13 235);
-  --mint: oklch(0.72 0.14 168);
-  --mint-bright: oklch(0.78 0.16 165);
-  --mint-soft: oklch(0.95 0.04 168);
+  /* Brand palette — Primary #17E3B2, Secondary #145DA0, Accent Light Sky Blue */
+  --navy-deep: #0E3D6B;
+  --navy: #145DA0;
+  --navy-soft: #2E7BBF;
+  --azure: #2E7BBF;
+  --sky: #87CEEB;
+  --mint: #17E3B2;
+  --mint-bright: #2BF2C2;
+  --mint-soft: #E6FBF5;
 
   --ink: oklch(0.20 0.04 250);
   --ink-soft: oklch(0.45 0.03 250);
@@ -73,28 +75,30 @@
   --card-foreground: oklch(0.20 0.04 250);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.20 0.04 250);
-  --primary: oklch(0.20 0.05 250);
-  --primary-foreground: oklch(1 0 0);
+  --primary: #17E3B2;
+  --primary-foreground: #0E3D6B;
   --secondary: oklch(0.97 0.005 250);
   --secondary-foreground: oklch(0.20 0.04 250);
   --muted: oklch(0.97 0.005 250);
   --muted-foreground: oklch(0.45 0.03 250);
-  --accent: oklch(0.72 0.14 168);
-  --accent-foreground: oklch(0.20 0.05 250);
+  --accent: #87CEEB;
+  --accent-foreground: #0E3D6B;
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.92 0.01 250);
   --input: oklch(0.92 0.01 250);
-  --ring: oklch(0.72 0.14 168);
+  --ring: #17E3B2;
 
   --gradient-hero:
-    radial-gradient(60% 50% at 85% 10%, oklch(0.72 0.14 168 / 0.18), transparent 60%),
-    radial-gradient(50% 40% at 5% 95%, oklch(0.55 0.13 235 / 0.12), transparent 60%),
-    linear-gradient(180deg, oklch(0.985 0.003 250), oklch(1 0 0));
-  --gradient-mint: linear-gradient(135deg, var(--mint), var(--mint-bright));
-  --shadow-soft: 0 1px 2px oklch(0.20 0.05 250 / 0.04), 0 12px 32px -16px oklch(0.20 0.05 250 / 0.12);
-  --shadow-card: 0 1px 2px oklch(0.20 0.05 250 / 0.04), 0 8px 24px -12px oklch(0.20 0.05 250 / 0.08);
-  --shadow-mint: 0 8px 24px -8px oklch(0.72 0.14 168 / 0.45);
+    radial-gradient(80% 60% at 100% 0%, rgba(23, 227, 178, 0.22), transparent 60%),
+    radial-gradient(70% 60% at 0% 100%, rgba(20, 93, 160, 0.18), transparent 60%),
+    radial-gradient(60% 50% at 50% 50%, rgba(135, 206, 235, 0.18), transparent 65%),
+    linear-gradient(135deg, #ffffff 0%, #F2FBF8 45%, #EAF3FB 100%);
+  --gradient-brand: linear-gradient(135deg, #17E3B2 0%, #87CEEB 50%, #145DA0 100%);
+  --gradient-mint: linear-gradient(135deg, #17E3B2, #2BF2C2);
+  --shadow-soft: 0 1px 2px rgba(14, 61, 107, 0.05), 0 12px 32px -16px rgba(14, 61, 107, 0.18);
+  --shadow-card: 0 1px 2px rgba(14, 61, 107, 0.04), 0 8px 24px -12px rgba(14, 61, 107, 0.12);
+  --shadow-mint: 0 10px 28px -10px rgba(23, 227, 178, 0.55);
 }
 
 @layer base {
