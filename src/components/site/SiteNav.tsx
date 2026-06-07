@@ -50,7 +50,8 @@ export function SiteNav() {
         </nav>
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center rounded-full bg-navy-deep px-5 py-2.5 text-sm font-bold text-white hover:bg-navy transition-colors"
+          className="hidden md:inline-flex items-center rounded-full px-5 py-2.5 text-sm font-bold transition"
+          style={{ background: "var(--mint)", color: "var(--navy-deep)" }}
         >
           დაჯავშნე კონსულტაცია
         </a>
