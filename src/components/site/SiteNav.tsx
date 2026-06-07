@@ -6,7 +6,8 @@ const NAV = [
   { href: "#services", label: "სერვისები" },
   { href: "#trainings", label: "ტრენინგები" },
   { href: "#projects", label: "პროექტები" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#certifications", label: "სერტიფიკატები" },
+  { href: "#recognition", label: "აღიარება" },
   { href: "#contact", label: "კონტაქტი" },
 ];
 

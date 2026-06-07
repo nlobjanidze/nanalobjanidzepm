@@ -1,10 +1,43 @@
 import { useState } from "react";
 
-const INTERESTS = ["კონსულტაცია", "PMP® Prep", "Agile", "კორპორატიული ტრენინგი", "PMO დანერგვა", "სხვა"];
+const INTERESTS = [
+  "კონსულტაცია",
+  "ტრენინგი / კურსი",
+  "PMO დანერგვა",
+  "გრანტების მართვა",
+  "კორპორატიული ტრენინგი",
+  "მენტორინგი",
+  "სხვა",
+];
+
+const TO_EMAIL = "nanalobjanidze.pm@gmail.com";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
   const [interest, setInterest] = useState(INTERESTS[0]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const name = String(fd.get("name") ?? "");
+    const email = String(fd.get("email") ?? "");
+    const phone = String(fd.get("phone") ?? "");
+    const org = String(fd.get("org") ?? "");
+    const message = String(fd.get("message") ?? "");
+    const subject = `ვებსაიტიდან: ${interest} — ${name}`;
+    const body = [
+      `სახელი: ${name}`,
+      `ელფოსტა: ${email}`,
+      `ტელეფონი: ${phone}`,
+      `ორგანიზაცია: ${org}`,
+      `დაინტერესება: ${interest}`,
+      "",
+      "შეტყობინება:",
+      message,
+    ].join("\n");
+    window.location.href = `mailto:${TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSent(true);
+  };
 
   return (
     <section id="contact" className="section-y bg-white">
@@ -21,35 +54,39 @@ export function ContactForm() {
 
           <div className="mt-8 space-y-3">
             {[
-              { l: "ელფოსტა", v: "nana@lobjanidze.ge", href: "mailto:nana@lobjanidze.ge" },
-              { l: "ტელეფონი", v: "+995 555 00 00 00", href: "tel:+995555000000" },
-              { l: "მდებარეობა", v: "თბილისი, საქართველო" },
-              { l: "LinkedIn", v: "linkedin.com/in/nana-lobjanidze", href: "#" },
+              { l: "ელფოსტა", v: TO_EMAIL, href: `mailto:${TO_EMAIL}` },
+              { l: "ტელეფონი", v: "+995 599 18 36 35", href: "tel:+995599183635" },
+              { l: "LinkedIn", v: "linkedin.com/in/nana-lobjanidze", href: "https://www.linkedin.com/in/nana-lobjanidze/" },
+              { l: "Facebook", v: "facebook.com/nanuka.lobjanidze.7", href: "https://www.facebook.com/nanuka.lobjanidze.7/" },
+              { l: "Instagram", v: "@lobjanidzenanukaa", href: "https://www.instagram.com/lobjanidzenanukaa" },
             ].map((c) => (
               <a
                 key={c.l}
-                href={c.href || "#"}
+                href={c.href}
+                target={c.href.startsWith("http") ? "_blank" : undefined}
+                rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="block surface-card px-5 py-4 hover:border-navy/30 hover:-translate-y-0.5"
               >
-                <p className="text-[10px] uppercase tracking-widest font-black text-navy-soft">{c.l}</p>
-                <p className="mt-1 font-bold text-sm md:text-base text-ink">{c.v}</p>
+                <p className="text-[10px] uppercase tracking-widest font-black" style={{ color: "var(--navy-soft)" }}>{c.l}</p>
+                <p className="mt-1 font-bold text-sm md:text-base text-ink break-all">{c.v}</p>
               </a>
             ))}
           </div>
         </div>
 
-        <form
-          className="lg:col-span-7 surface-card p-7 md:p-10"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
-        >
+        <form className="lg:col-span-7 surface-card p-7 md:p-10" onSubmit={handleSubmit}>
           {sent ? (
             <div className="text-center py-12">
-              <div className="mx-auto h-14 w-14 rounded-full bg-mint text-navy-deep inline-flex items-center justify-center font-black text-2xl">✓</div>
+              <div
+                className="mx-auto h-14 w-14 rounded-full inline-flex items-center justify-center font-black text-2xl"
+                style={{ background: "var(--mint)", color: "var(--navy-deep)" }}
+              >
+                ✓
+              </div>
               <h3 className="mt-5 heading-md">გმადლობთ!</h3>
-              <p className="mt-2 text-ink-soft">თქვენი მოთხოვნა მიღებულია. 24 საათში დაგიკავშირდები.</p>
+              <p className="mt-2 text-ink-soft">
+                შენი ფოსტის კლიენტი გაიხსნა — დაადასტურე გაგზავნა. 24 საათში დაგიკავშირდები.
+              </p>
             </div>
           ) : (
             <>
@@ -64,18 +101,19 @@ export function ContactForm() {
               </div>
 
               <div className="mt-5">
-                <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft mb-3">დაინტერესება</p>
+                <p className="text-[11px] font-black uppercase tracking-widest mb-3" style={{ color: "var(--navy-soft)" }}>დაინტერესება</p>
                 <div className="flex flex-wrap gap-2">
                   {INTERESTS.map((i) => (
                     <button
                       type="button"
                       key={i}
                       onClick={() => setInterest(i)}
-                      className={`px-4 py-2 rounded-full text-sm font-semibold border transition ${
+                      className="px-4 py-2 rounded-full text-sm font-semibold border transition"
+                      style={
                         interest === i
-                          ? "bg-navy-deep text-white border-navy-deep"
-                          : "bg-white border-line text-ink hover:border-navy/40"
-                      }`}
+                          ? { background: "var(--navy-deep)", color: "white", borderColor: "var(--navy-deep)" }
+                          : { background: "white", borderColor: "var(--line)", color: "var(--ink)" }
+                      }
                     >
                       {i}
                     </button>
@@ -84,19 +122,23 @@ export function ContactForm() {
               </div>
 
               <div className="mt-5">
-                <label className="block text-[11px] font-black uppercase tracking-widest text-navy-soft mb-2">
+                <label className="block text-[11px] font-black uppercase tracking-widest mb-2" style={{ color: "var(--navy-soft)" }}>
                   მოგვწერე შენი მიზნის შესახებ
                 </label>
                 <textarea
+                  name="message"
                   rows={4}
-                  className="w-full rounded-xl bg-white border border-line px-4 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:border-navy focus:outline-none focus:ring-2 focus:ring-mint/30 transition"
+                  maxLength={1000}
+                  className="w-full rounded-xl bg-white border border-line px-4 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 transition"
+                  style={{ borderColor: "var(--line)" }}
                   placeholder="რა გამოწვევაა შენი გუნდის წინაშე?"
                 />
               </div>
 
               <button
                 type="submit"
-                className="mt-7 w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-navy-deep px-7 py-4 font-extrabold text-white hover:bg-navy transition shadow-[var(--shadow-soft)]"
+                className="mt-7 w-full sm:w-auto inline-flex items-center justify-center rounded-full px-7 py-4 font-extrabold transition"
+                style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
               >
                 გაგზავნა →
               </button>
@@ -114,15 +156,17 @@ export function ContactForm() {
 function Field({ label, name, type = "text", required }: { label: string; name: string; type?: string; required?: boolean }) {
   return (
     <div>
-      <label htmlFor={name} className="block text-[11px] font-black uppercase tracking-widest text-navy-soft mb-2">
-        {label}{required && <span className="text-mint ml-0.5">*</span>}
+      <label htmlFor={name} className="block text-[11px] font-black uppercase tracking-widest mb-2" style={{ color: "var(--navy-soft)" }}>
+        {label}
+        {required && <span className="ml-0.5" style={{ color: "var(--mint)" }}>*</span>}
       </label>
       <input
         id={name}
         name={name}
         type={type}
         required={required}
-        className="w-full rounded-xl bg-white border border-line px-4 py-3 text-sm text-ink focus:border-navy focus:outline-none focus:ring-2 focus:ring-mint/30 transition"
+        maxLength={255}
+        className="w-full rounded-xl bg-white border border-line px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 transition"
       />
     </div>
   );
