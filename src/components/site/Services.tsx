@@ -18,9 +18,9 @@ const CATEGORIES: Category[] = [
     subs: [
       {
         code: "A",
-        title: "სრული ციკლის პროექტების მართვა (End-to-End Delivery)",
+        title: "პროექტების სრული ციკლის მართვა (End-to-End Delivery)",
         details: [
-          "პროექტის ინიცირება და სკოპის განსაზღვრა",
+          "პროექტის ინიცირება და სქოუფის განსაზღვრა",
           "Project Charter, Roadmap, WBS / Task Breakdown",
           "Timeline და რესურსების დაგეგმვა, ბიუჯეტის კონტროლი",
           "Risk &amp; Issue Management (RAID Log)",
@@ -28,7 +28,7 @@ const CATEGORIES: Category[] = [
           "Agile / Waterfall / Hybrid მეთოდოლოგია",
           "Delivery, Closure + Lessons Learned",
         ],
-        price: "800–2,500 ₾ / თვე",
+        price: "800-2,500 ₾ / თვე",
       },
       {
         code: "B",
@@ -216,11 +216,11 @@ export function Services() {
           <div className="max-w-2xl">
             <span className="eyebrow">სერვისები</span>
             <h2 className="heading-lg mt-4 text-balance">
-              კონსულტაცია, რომელიც <span className="text-navy">შედეგად აისახება</span>
+              კონსულტაცია, რომელიც <span className="text-navy">შედეგად გარდაიქმნება</span>
             </h2>
             <p className="mt-4 text-ink-soft text-base md:text-lg">
-              ოთხი ფოკუსირებული მიმართულება — ბიზნესის, NGO-სა და საჯარო სექტორისთვის.
-              ყველა სერვისი იწყება დიაგნოსტიკით — და მთავრდება გაზომვადი შედეგით.
+              რა მხარდაჭერას მიიღებთ — პრაქტიკული სერვისები, რომლებიც პრობლემას სისტემად აქცევს
+              და სისტემას შედეგად. ოთხი ფოკუსირებული მიმართულება ბიზნესის, NGO-სა და საჯარო სექტორისთვის.
             </p>
           </div>
           <a
@@ -242,10 +242,10 @@ export function Services() {
           <div className="lg:col-span-8 p-8 md:p-12">
             <span className="eyebrow" style={{ color: "var(--mint-bright)" }}>დიაგნოსტიკა</span>
             <h3 className="heading-md mt-4 text-balance" style={{ color: "white" }}>
-              გჭირდებათ შერეული მიდგომა? <span style={{ color: "var(--mint)" }}>მოვამზადოთ ერთად.</span>
+              გჭირდებათ თქვენზე მორგებული ინდივიდუალური მიდგომა? <span style={{ color: "var(--mint)" }}>ვიმუშაოთ ერთად.</span>
             </h3>
             <p className="mt-4 text-white/75 max-w-xl">
-              დავიწყოთ უფასო 30-წუთიანი დიაგნოსტიკით — გავარკვიოთ, რომელი მიდგომა მუშაობს თქვენთვის.
+              დავიწყოთ უფასო 30-წუთიანი დიაგნოსტიკით - გავარკვიოთ, რომელი მიდგომა მუშაობს თქვენთვის.
             </p>
             <a
               href="#contact"

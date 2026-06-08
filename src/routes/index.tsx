@@ -7,9 +7,8 @@ import { Services } from "@/components/site/Services";
 import { Trainings } from "@/components/site/Trainings";
 import { Experience } from "@/components/site/Experience";
 import { Projects } from "@/components/site/Projects";
-import { Recognition } from "@/components/site/Recognition";
+import { LeadershipRecognition } from "@/components/site/LeadershipRecognition";
 import { Testimonials } from "@/components/site/Testimonials";
-import { FAQ } from "@/components/site/FAQ";
 import { ContactForm } from "@/components/site/ContactForm";
 import { SiteFooter } from "@/components/site/SiteFooter";
 
@@ -28,10 +27,9 @@ function Index() {
         <Trainings />
         <Experience />
         <Projects />
+        <LeadershipRecognition />
         <Certifications />
-        <Recognition />
         <Testimonials />
-        <FAQ />
         <ContactForm />
       </main>
       <SiteFooter />
