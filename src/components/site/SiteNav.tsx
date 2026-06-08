@@ -5,9 +5,10 @@ const NAV = [
   { href: "#about", label: "შესახებ" },
   { href: "#services", label: "სერვისები" },
   { href: "#trainings", label: "ტრენინგები" },
+  { href: "#experience", label: "გამოცდილება" },
   { href: "#projects", label: "პროექტები" },
+  { href: "#leadership", label: "ლიდერობა" },
   { href: "#certifications", label: "სერტიფიკატები" },
-  { href: "#recognition", label: "აღიარება" },
   { href: "#contact", label: "კონტაქტი" },
 ];
 
@@ -31,11 +32,8 @@ export function SiteNav() {
       }`}
     >
       <div className="container-x flex h-16 md:h-20 items-center justify-between">
-        <a href="#top" className="flex items-center gap-3">
-          <img src={logo.url} alt="LN logo" className="h-9 w-9 md:h-10 md:w-10 object-contain" />
-          <span className="hidden sm:block font-extrabold tracking-tight text-sm md:text-base text-ink">
-            ნანა ლობჯანიძე
-          </span>
+        <a href="#top" className="flex items-center" aria-label="ნანა ლობჯანიძე">
+          <img src={logo.url} alt="ნანა ლობჯანიძე" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
         </a>
         <nav className="hidden lg:flex items-center gap-8">
           {NAV.map((n) => (
