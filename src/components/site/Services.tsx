@@ -1,67 +1,106 @@
 import { useState } from "react";
 
-type SubService = { code: string; title: string; details: string[]; price: string };
+type SubService = {
+  code: string;
+  title: string;
+  includes: string[];
+  outcomes: string[];
+  price: string;
+};
 type Category = {
   num: string;
+  key: string;
   tag: string;
   title: string;
   audience: string;
+  intro?: string;
+  accent: "mint" | "navy" | "blend" | "deep";
   subs: SubService[];
 };
 
 const CATEGORIES: Category[] = [
   {
     num: "01",
-    tag: "Project Delivery · Execution · Leadership",
-    title: "პროექტების მართვა, სტრატეგიული შესრულება &amp; ლიდერობა",
-    audience: "კომპანიები, NGO-ები, სტარტაპები, სახელმწიფო სტრუქტურები, საერთაშორისო PM-ები.",
+    key: "delivery",
+    tag: "Project Management & Strategic Delivery",
+    title: "პროექტების მართვა, სტრატეგიული შესრულება და ლიდერშიფი",
+    audience: "ორგანიზაციები, NGO-ები, სტარტაპები, სახელმწიფო სტრუქტურები, ინდივიდუალური PM-ები, დონორებთან მომუშავე ორგანიზაციები.",
+    accent: "mint",
     subs: [
       {
         code: "A",
-        title: "პროექტების სრული ციკლის მართვა (End-to-End Delivery)",
-        details: [
-          "პროექტის ინიცირება და სქოუფის განსაზღვრა",
-          "Project Charter, Roadmap, WBS / Task Breakdown",
-          "Timeline და რესურსების დაგეგმვა, ბიუჯეტის კონტროლი",
-          "Risk &amp; Issue Management (RAID Log)",
-          "Stakeholder Management &amp; Communication Plan",
-          "Agile / Waterfall / Hybrid მეთოდოლოგია",
-          "Delivery, Closure + Lessons Learned",
+        title: "სრული ციკლის პროექტების მართვა (End-to-End Delivery)",
+        includes: [
+          "პროექტის ინიცირება და სკოპის განსაზღვრა",
+          "Project Charter და Roadmap-ის შექმნა",
+          "WBS / Task Breakdown",
+          "Timeline და რესურსების დაგეგმვა",
+          "ბიუჯეტის კონტროლი და მონიტორინგი",
+          "Risk & Issue Management (RAID Log)",
+          "Stakeholder Management & Communication Plan",
+          "ყოველდღიური / კვირეული პროგრესის კონტროლი",
+          "Agile / Waterfall / Hybrid მეთოდოლოგიის გამოყენება",
+          "Delivery და Closure + Lessons Learned",
         ],
-        price: "800-2,500 ₾ / თვე",
+        outcomes: [
+          "პროექტი ხდება კონტროლირებადი და პროგნოზირებადი",
+          "მცირდება დაგვიანებები და ბიუჯეტის გადაჭარბება",
+          "იზრდება სტეიკჰოლდერების ნდობა და ხილვადობა",
+        ],
+        price: "1,200–2,800 ₾ / თვეში · ონლაინ / ოფლაინ (თბილისი)",
       },
       {
         code: "B",
         title: "პროექტის აუდიტი და დიაგნოსტიკა",
-        details: [
+        includes: [
           "მიმდინარე პროცესების ანალიზი",
-          "Root cause იდენტიფიკაცია",
+          "პრობლემების root cause იდენტიფიკაცია",
           "დროის, ბიუჯეტისა და რესურსების გადახედვა",
+          "კომუნიკაციისა და სტრუქტურის შეფასება",
           "Risk gaps და bottlenecks",
           "კონკრეტული Improvement Plan",
+        ],
+        outcomes: [
+          "ზუსტად ჩანს სად „იჭედება“ პროექტი",
+          "მიიღებთ გამოსწორების კონკრეტულ გზას",
+          "სწრაფი ეფექტი მინიმალურ დროში",
         ],
         price: "600–1,200 ₾ (ერთჯერადი)",
       },
       {
         code: "C",
-        title: "გრანტების მართვა",
-        details: [
+        title: "გრანტების მართვა და განვითარება (End-to-End Delivery)",
+        includes: [
           "Grant Proposal Writing",
-          "Donor requirements alignment, Budget structuring",
-          "Compliance &amp; reporting framework",
-          "Implementation plan, M&amp;E",
-          "Sub-grant management სისტემა",
+          "Donor requirements alignment",
+          "Budget structuring",
+          "Compliance & reporting framework",
+          "Implementation plan",
+          "Monitoring & Evaluation (M&E)",
+          "Sub-grant management სისტემის შექმნა",
         ],
-        price: "800–2,000 ₾ (წერა) / 500–1,000 ₾ თვე (მართვა)",
+        outcomes: [
+          "უფრო მაღალი შანსი გრანტის მიღებაზე",
+          "გამართული დონორული ანგარიშგება",
+          "ფინანსურად და სტრუქტურულად ძლიერი პროექტი",
+        ],
+        price: "800–2,000 ₾ (წერა) · 500–1,000 ₾ / თვე (მართვა)",
       },
       {
         code: "D",
         title: "ღონისძიებებისა და პროექტული ინიციატივების მართვა",
-        details: [
-          "კონცეფცია, სრული ღონისძიების დაგეგმვა",
+        includes: [
+          "კონცეფციის შექმნა",
+          "სრული ღონისძიების დაგეგმვა",
           "სპიკერების / პარტნიორების კოორდინაცია",
-          "ლოჯისტიკა, ოპერაციები, კომუნიკაცია, მარკეტინგი",
-          "Run of Show, execution, post-event analysis",
+          "ლოჯისტიკა და ოპერაციები",
+          "კომუნიკაცია და მარკეტინგი",
+          "Run of Show და execution",
+          "Post-event analysis",
+        ],
+        outcomes: [
+          "სტრუქტურირებული, პროფესიონალური ღონისძიება",
+          "ნაკლები ქაოსი და უკეთესი გამოცდილება მონაწილეებისთვის",
         ],
         price: "500–2,500 ₾",
       },
@@ -69,51 +108,82 @@ const CATEGORIES: Category[] = [
   },
   {
     num: "02",
-    tag: "Team Performance · Process Optimization · Organizational Design",
-    title: "გუნდის მენტორინგი, პროცესების დალაგება &amp; საოპერაციო სისტემები",
-    audience: "კომპანიები, NGO-ები, HR განყოფილებები, მენეჯერები.",
+    key: "ops",
+    tag: "Process Improvement & Operational Systems",
+    title: "გუნდის მენტორინგი, პროცესების დალაგება და საოპერაციო სისტემები",
+    audience: "კომპანიები, გუნდები, HR დეპარტამენტები, მენეჯერები.",
+    accent: "navy",
     subs: [
       {
         code: "A",
         title: "PM სისტემის დანერგვა (Jira / Asana / ClickUp / Trello)",
-        details: [
-          "სისტემის დაყენება, workflow კონფიგურაცია",
+        includes: [
+          "პროექტების მართვის სისტემის დაყენება",
+          "Workflow-ის კონფიგურაცია",
           "Task structure და board setup",
           "გუნდის ტრენინგი",
-          "Dashboard, reporting, KPI tracking",
+          "Dashboard & reporting სისტემები",
+          "KPI tracking setup",
         ],
-        price: "400–1,200 ₾",
+        outcomes: [
+          "ყველა პროექტი ჩანს ერთ სივრცეში",
+          "გუნდი მუშაობს სისტემურად, არა ქაოსურად",
+          "იზრდება კონტროლი და პროგნოზირება",
+        ],
+        price: "500–1,300 ₾",
       },
       {
         code: "B",
         title: "საოპერაციო მოდელის გამართვა",
-        details: [
+        includes: [
           "არსებული პროცესების ანალიზი",
           "ორგანიზაციული სტრუქტურის დალაგება",
-          "RACI მატრიცა, გადაწყვეტილებების მოდელი",
-          "Workflow optimization, escalation სისტემა",
+          "როლებისა და პასუხისმგებლობების განსაზღვრა (RACI)",
+          "გადაწყვეტილების მიღების მოდელი",
+          "Workflow optimization",
+          "Escalation სისტემა",
+        ],
+        outcomes: [
+          "ნაკლები გადატვირთვა და დაბნეულობა",
+          "მკაფიო პასუხისმგებლობები",
+          "ეფექტური შიდა კომუნიკაცია",
         ],
         price: "1,000–2,500 ₾",
       },
       {
         code: "C",
         title: "გუნდის მენტორინგი და Performance Coaching",
-        details: [
+        includes: [
           "თანამშრომლების სამუშაო პროცესის ანალიზი",
           "ინდივიდუალური მენტორინგი (1-on-1)",
-          "Time &amp; Task management",
-          "რეალურ პროექტებზე coaching, Leadership transition",
+          "Time & Task management",
+          "რეალურ პროექტებზე coaching",
+          "პრიორიტეტიზაცია და delivery მხარდაჭერა",
+          "შეხვედრების და კომუნიკაციის გაუმჯობესება",
+          "Leadership transition support",
         ],
-        price: "150–250 ₾/სესია · 500–850 ₾/4 სესია · 800–2,500 ₾/თვე",
+        outcomes: [
+          "გუნდი უფრო დამოუკიდებლად მუშაობს",
+          "მცირდება მიკრო-მენეჯმენტი",
+          "იზრდება შესრულების ხარისხი",
+        ],
+        price: "150–250 ₾ / სესია · 500–850 ₾ / 4 სესია · 800–2,500 ₾ / თვე (ორგანიზაცია)",
       },
       {
         code: "D",
         title: "კომუნიკაციისა და სტეიკჰოლდერების მართვის სისტემა",
-        details: [
+        includes: [
           "კომუნიკაციის სტრატეგია",
-          "Internal/External communication flow",
-          "Reporting structure, meeting system design",
-          "Escalation policy, stakeholder mapping",
+          "Internal / External communication flow",
+          "Reporting structure",
+          "Meeting system design",
+          "Escalation policy",
+          "Stakeholder mapping",
+        ],
+        outcomes: [
+          "ნაკლები გაუგებრობა გუნდში",
+          "გამართული ინფორმაციის ნაკადი",
+          "სწრაფი გადაწყვეტილებები",
         ],
         price: "400–900 ₾",
       },
@@ -121,52 +191,85 @@ const CATEGORIES: Category[] = [
   },
   {
     num: "03",
-    tag: "Training · Leadership · Capability Building",
-    title: "ტრენინგი, ლიდერობა &amp; შესრულების გაუმჯობესება",
-    audience: "კომპანიები, NGO-ები, გუნდები, მენეჯერები, Team Lead-ები, თანამშრომლები.",
+    key: "mentoring",
+    tag: "Mentoring & Leadership Development",
+    title: "გუნდის მენტორინგი, ლიდერობა და შესრულების გაუმჯობესება",
+    audience: "Junior/Middle PM-ები, Team Lead-ები, მენეჯერები, ლიდერულ პოზიციებზე გადასვლის პროცესში მყოფი თანამშრომლები.",
+    accent: "blend",
     subs: [
       {
         code: "A",
         title: "PM მენტორინგი (1-on-1)",
-        details: [
+        includes: [
           "სამუშაო პროცესის ანალიზი",
           "Task და პრიორიტეტების მართვა",
-          "Jira/Asana/ClickUp workflow-ის გაუმჯობესება",
+          "რეალურ პროექტებზე პრაქტიკული guidance",
+          "Jira / Asana / ClickUp workflow-ის გაუმჯობესება",
+          "შეხვედრების და კომუნიკაციის სტრუქტურა",
           "Deadline და delivery management",
-          "ინდივიდუალური განვითარება, კარიერული მიმართულება",
+          "პრობლემების და ბლოკერების გარჩევა რეალურ ქეისებზე",
+          "ინდივიდუალური განვითარება და კარიერული მიმართულება",
         ],
-        price: "150–250 ₾/სესია (60–90 წთ) · 500–850 ₾/4 სესია",
+        outcomes: [
+          "თანამშრომელი უფრო დამოუკიდებლად მუშაობს",
+          "მცირდება შეცდომები და გადატვირთვა",
+          "იზრდება შესრულების ხარისხი და სტაბილურობა",
+        ],
+        price: "150–250 ₾ / სესია (60–90 წთ) · 500–850 ₾ / პაკეტი (4 სესია)",
       },
       {
         code: "B",
         title: "გუნდის Performance მენტორინგი",
-        details: [
+        includes: [
           "გუნდის workflow ანალიზი",
-          "როლების და პასუხისმგებლობების დაზუსტება",
-          "Weekly planning, task tracking, delivery monitoring",
+          "როლებისა და პასუხისმგებლობების დაზუსტება",
+          "Weekly planning სისტემის აწყობა",
+          "Task tracking და delivery monitoring",
+          "შეხვედრების სტრუქტურის გაუმჯობესება",
+          "კომუნიკაციის და კოორდინაციის ოპტიმიზაცია",
           "ბლოკერების იდენტიფიკაცია და გადაწყვეტა",
+        ],
+        outcomes: [
+          "გუნდი მუშაობს უფრო სტრუქტურულად",
+          "ნაკლები ქაოსი და გადაცდენები",
+          "იზრდება შესრულების პროგნოზირება და კონტროლი",
         ],
         price: "800–2,500 ₾ / თვე",
       },
       {
         code: "C",
         title: "ლიდერობისა და მენეჯერული მენტორინგი",
-        details: [
+        includes: [
           "ლიდერული გადაწყვეტილებების მხარდაჭერა",
           "დელეგირების გაუმჯობესება",
           "რთული საუბრები და კონფლიქტების მართვა",
-          "Performance feedback, გუნდის engagement",
+          "Performance feedback სისტემის განვითარება",
+          "მოლოდინების მართვა ხელმძღვანელობასთან",
+          "გუნდის მოტივაცია და engagement",
         ],
-        price: "150–300 ₾/სესია",
+        outcomes: [
+          "უფრო ძლიერი ლიდერული უნარები",
+          "უკეთესი გუნდის მართვა",
+          "ნაკლები მიკრო-მენეჯმენტი",
+        ],
+        price: "150–300 ₾ / სესია",
       },
       {
         code: "D",
         title: "ორგანიზაციული Performance Improvement პროგრამა",
-        details: [
+        includes: [
           "ორგანიზაციული პროცესების ანალიზი",
+          "გუნდის სტრუქტურის შეფასება",
           "Workflow redesign",
+          "Communication flow სისტემის აწყობა",
           "KPI და accountability სისტემის შექმნა",
-          "Project delivery სისტემის გაუმჯობესება, მენეჯერების coaching",
+          "Project delivery სისტემის გაუმჯობესება",
+          "მენეჯერების coaching",
+        ],
+        outcomes: [
+          "ორგანიზაცია მუშაობს როგორც სისტემა",
+          "იზრდება შესრულების ხარისხი",
+          "გუნდი ხდება უფრო ეფექტური და scalable",
         ],
         price: "1,000–2,500 ₾ / თვე",
       },
@@ -174,39 +277,77 @@ const CATEGORIES: Category[] = [
   },
   {
     num: "04",
-    tag: "Grant Management &amp; Grant Giving Systems",
+    key: "grants",
+    tag: "Grant Management & Grantmaking Systems",
     title: "გრანტების მართვა და გრანტების გაცემა",
-    audience: "NGO-ები, საჯარო და კერძო სტრუქტურები, საერთაშორისო ორგანიზაციები.",
+    audience: "NGO-ები, საჯარო და კერძო სტრუქტურები, საერთაშორისო ორგანიზაციები, ფონდები.",
+    accent: "deep",
     subs: [
       {
         code: "A",
         title: "გრანტების მიღება და მართვა",
-        details: [
-          "Grant Proposal Writing (EU / UNDP / GIZ / Embassy)",
+        includes: [
+          "Grant Proposal Writing (EU / UNDP / GIZ / Embassy programs)",
           "Donor requirements ანალიზი და alignment",
           "Budget structuring და justification",
-          "Compliance &amp; eligibility check",
-          "M&amp;E framework, reporting (narrative + financial)",
+          "Implementation plan და timeline",
+          "Compliance & eligibility check",
+          "Monitoring & Evaluation (M&E) framework",
+          "Reporting system (narrative + financial)",
           "Sub-grant management",
         ],
-        price: "800–2,000 ₾ (application) · 500–1,000 ₾/თვე (management)",
+        outcomes: [
+          "ძლიერი, კონკურენტული განაცხადები",
+          "დონორული მოთხოვნების სრული შესაბამისობა",
+          "გამართული პროექტის შესრულება და ანგარიშგება",
+        ],
+        price: "800–2,000 ₾ (application) · 500–1,000 ₾ / თვე (management)",
       },
       {
         code: "B",
-        title: "გრანტების გაცემა და გრანტ-სისტემის შექმნა",
-        details: [
-          "Grant Program Design",
-          "Evaluation Framework",
+        title: "გრანტების გაცემა და გრანტ-სისტემის შექმნა (Grantmaking Systems)",
+        includes: [
+          "გრანტების პროგრამის დიზაინი (Grant Program Design)",
+          "შეფასების კრიტერიუმების შექმნა (Evaluation Framework)",
           "აპლიკაციის პროცესის სტრუქტურირება",
           "შერჩევის კომიტეტებისა და პროცესების აწყობა",
-          "Monitoring &amp; Reporting სისტემის დიზაინი",
-          "Impact measurement",
+          "კონტრაქტებისა და compliance framework-ის შექმნა",
+          "Disbursement (ფინანსების გაცემის) პროცესი",
+          "Monitoring & Reporting სისტემის დიზაინი",
+          "Impact measurement (შედეგების გაზომვა)",
+        ],
+        outcomes: [
+          "ორგანიზაციას აქვს საკუთარი გრანტების სისტემა",
+          "გამჭვირვალე და სტანდარტიზებული შერჩევის პროცესი",
+          "კონტროლირებადი ფინანსური და შედეგობრივი მართვა",
         ],
         price: "1,000–2,500 ₾ (პროექტის მიხედვით)",
       },
     ],
   },
 ];
+
+const PROBLEMS = [
+  "პროექტები იგვიანებს და ბიუჯეტი იზრდება",
+  "გუნდი არ არის დალაგებული და პასუხისმგებლობები ბუნდოვანია",
+  "კომუნიკაცია ქაოსურია (Excel, Chat, გაუგებარი updates)",
+  "გრანტები იკარგება ან არ სრულდება სწორად",
+  "შედეგი არ ჩანს მკაფიოდ დონორებისთვის ან მენეჯმენტისთვის",
+  "ლიდერობის ნაკლებობა",
+];
+
+function accentStyle(a: Category["accent"]) {
+  switch (a) {
+    case "mint":
+      return { bg: "var(--mint-soft)", border: "var(--mint)", text: "var(--navy-deep)", dot: "var(--mint)" };
+    case "navy":
+      return { bg: "color-mix(in oklab, var(--navy) 8%, white)", border: "color-mix(in oklab, var(--navy) 35%, white)", text: "var(--navy-deep)", dot: "var(--navy)" };
+    case "blend":
+      return { bg: "color-mix(in oklab, var(--mint) 18%, white)", border: "color-mix(in oklab, var(--mint) 55%, white)", text: "var(--navy-deep)", dot: "var(--navy)" };
+    case "deep":
+      return { bg: "var(--navy-deep)", border: "var(--navy-deep)", text: "white", dot: "var(--mint)" };
+  }
+}
 
 export function Services() {
   return (
@@ -216,11 +357,11 @@ export function Services() {
           <div className="max-w-2xl">
             <span className="eyebrow">სერვისები</span>
             <h2 className="heading-lg mt-4 text-balance">
-              კონსულტაცია, რომელიც <span className="text-navy">შედეგად გარდაიქმნება</span>
+              ჩვენი მიდგომა — <span className="text-navy">სისტემა, შესრულება, შედეგი</span>
             </h2>
             <p className="mt-4 text-ink-soft text-base md:text-lg">
-              რა მხარდაჭერას მიიღებთ — პრაქტიკული სერვისები, რომლებიც პრობლემას სისტემად აქცევს
-              და სისტემას შედეგად. ოთხი ფოკუსირებული მიმართულება ბიზნესის, NGO-სა და საჯარო სექტორისთვის.
+              ჩვენ არ ვაკეთებთ უბრალოდ კონსულტაციას — ვაშენებთ სისტემას, ვმართავთ შესრულებას და ვქმნით შედეგს.
+              ოთხი ფოკუსირებული მიმართულება ბიზნესის, NGO-სა და საჯარო სექტორისთვის.
             </p>
           </div>
           <a
@@ -232,20 +373,39 @@ export function Services() {
           </a>
         </div>
 
-        <div className="mt-14 space-y-6">
+        {/* Problem framing */}
+        <div className="mt-10 surface-card p-6 md:p-7">
+          <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: "var(--navy-soft)" }}>
+            თქვენი პრობლემა გამოიყურება ასე
+          </p>
+          <ul className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2.5">
+            {PROBLEMS.map((p) => (
+              <li key={p} className="flex gap-2.5 text-sm md:text-[0.95rem] text-ink">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: "var(--mint)" }} />
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-12 space-y-6">
           {CATEGORIES.map((c) => (
-            <CategoryCard key={c.num} c={c} />
+            <CategoryCard key={c.key} c={c} />
           ))}
         </div>
 
-        <div className="mt-16 grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden border border-line shadow-[var(--shadow-soft)]" style={{ background: "var(--navy-deep)", color: "white" }}>
+        <div
+          className="mt-16 grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden border border-line shadow-[var(--shadow-soft)]"
+          style={{ background: "var(--navy-deep)", color: "white" }}
+        >
           <div className="lg:col-span-8 p-8 md:p-12">
             <span className="eyebrow" style={{ color: "var(--mint-bright)" }}>დიაგნოსტიკა</span>
             <h3 className="heading-md mt-4 text-balance" style={{ color: "white" }}>
-              გჭირდებათ თქვენზე მორგებული ინდივიდუალური მიდგომა? <span style={{ color: "var(--mint)" }}>ვიმუშაოთ ერთად.</span>
+              გჭირდებათ თქვენზე მორგებული ინდივიდუალური მიდგომა?{" "}
+              <span style={{ color: "var(--mint)" }}>ვიმუშაოთ ერთად.</span>
             </h3>
             <p className="mt-4 text-white/75 max-w-xl">
-              დავიწყოთ უფასო 30-წუთიანი დიაგნოსტიკით - გავარკვიოთ, რომელი მიდგომა მუშაობს თქვენთვის.
+              დავიწყოთ უფასო 30-წუთიანი დიაგნოსტიკით — გავარკვიოთ, რომელი მიდგომა მუშაობს თქვენთვის.
             </p>
             <a
               href="#contact"
@@ -271,69 +431,181 @@ export function Services() {
 }
 
 function CategoryCard({ c }: { c: Category }) {
-  const [open, setOpen] = useState<string | null>(c.subs[0]?.code ?? null);
+  const [open, setOpen] = useState(false);
+  const [activeCode, setActiveCode] = useState<string | null>(null);
+  const s = accentStyle(c.accent);
+  const dark = c.accent === "deep";
+
   return (
-    <article className="surface-card p-7 md:p-9">
-      <div className="flex items-start justify-between gap-6">
-        <div>
-          <span className="text-[11px] font-black tracking-[0.2em] uppercase" style={{ color: "var(--navy-soft)" }}>
-            {c.num} · {c.tag}
-          </span>
-          <h3 className="heading-md mt-3" dangerouslySetInnerHTML={{ __html: c.title }} />
-          <p className="mt-2 text-sm md:text-base text-ink-soft">
-            <span className="font-bold text-ink">ვისთვის:</span> {c.audience}
+    <article
+      className="rounded-3xl border overflow-hidden shadow-[var(--shadow-soft)]"
+      style={{
+        background: dark ? "var(--navy-deep)" : "white",
+        color: dark ? "white" : undefined,
+        borderColor: "var(--line)",
+      }}
+    >
+      <header className="p-7 md:p-9 grid lg:grid-cols-12 gap-6 items-end">
+        <div className="lg:col-span-9">
+          <div className="flex items-center gap-3 flex-wrap">
+            <span
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-xs font-black"
+              style={{ background: s.bg, color: s.text, border: `1px solid ${s.border}` }}
+            >
+              {c.num}
+            </span>
+            <span
+              className="text-[10px] font-black tracking-[0.22em] uppercase"
+              style={{ color: dark ? "var(--mint-bright)" : "var(--navy-soft)" }}
+            >
+              {c.tag}
+            </span>
+            <span
+              className="text-[11px] font-black px-2.5 py-1 rounded-full"
+              style={{ background: dark ? "rgba(255,255,255,0.08)" : "var(--surface)", color: dark ? "white" : "var(--navy-deep)" }}
+            >
+              {c.subs.length} სერვისი
+            </span>
+          </div>
+          <h3
+            className="heading-md mt-4"
+            style={{ color: dark ? "white" : "var(--navy-deep)" }}
+          >
+            {c.title}
+          </h3>
+          <p
+            className="mt-3 text-sm md:text-base"
+            style={{ color: dark ? "rgba(255,255,255,0.82)" : "var(--ink-soft)" }}
+          >
+            <span className="font-bold" style={{ color: dark ? "white" : "var(--ink)" }}>ვისთვის:</span> {c.audience}
           </p>
         </div>
-      </div>
+        <div className="lg:col-span-3 flex lg:justify-end">
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex items-center gap-2 rounded-full px-5 py-3 font-bold transition"
+            style={{
+              background: dark ? "var(--mint)" : "var(--navy-deep)",
+              color: dark ? "var(--navy-deep)" : "white",
+            }}
+            aria-expanded={open}
+          >
+            {open ? "დახურე" : "ნახე ყველა სერვისი"} <span className={`transition ${open ? "rotate-90" : ""}`}>→</span>
+          </button>
+        </div>
+      </header>
 
-      <div className="mt-6 divide-y divide-line border-t border-line">
-        {c.subs.map((s) => {
-          const isOpen = open === s.code;
-          return (
-            <div key={s.code} className="py-3">
-              <button
-                onClick={() => setOpen(isOpen ? null : s.code)}
-                className="w-full flex items-start justify-between gap-4 text-left py-2"
-                aria-expanded={isOpen}
+      {open && (
+        <div
+          className="px-7 md:px-9 pb-9 space-y-3"
+          style={{ borderTop: `1px solid ${dark ? "rgba(255,255,255,0.1)" : "var(--line)"}` }}
+        >
+          {c.subs.map((sub) => {
+            const isOpen = activeCode === sub.code;
+            return (
+              <div
+                key={sub.code}
+                className="rounded-2xl border"
+                style={{
+                  background: dark ? "rgba(255,255,255,0.04)" : "white",
+                  borderColor: dark ? "rgba(255,255,255,0.12)" : "var(--line)",
+                }}
               >
-                <span className="flex items-start gap-3">
-                  <span
-                    className="shrink-0 h-7 w-7 rounded-md inline-flex items-center justify-center text-xs font-black"
-                    style={{ background: "var(--mint-soft)", color: "var(--navy-deep)", border: "1px solid var(--mint)" }}
-                  >
-                    {s.code}
-                  </span>
-                  <span className="font-extrabold text-base md:text-lg text-ink" dangerouslySetInnerHTML={{ __html: s.title }} />
-                </span>
-                <span
-                  className={`shrink-0 h-8 w-8 rounded-full border inline-flex items-center justify-center font-bold transition ${
-                    isOpen ? "rotate-45" : ""
-                  }`}
-                  style={isOpen ? { background: "var(--navy-deep)", color: "var(--mint)", borderColor: "var(--navy-deep)" } : { borderColor: "var(--line)", color: "var(--navy)" }}
+                <button
+                  onClick={() => setActiveCode(isOpen ? null : sub.code)}
+                  className="w-full flex items-start justify-between gap-4 text-left p-5 md:p-6"
+                  aria-expanded={isOpen}
                 >
-                  +
-                </span>
-              </button>
-              {isOpen && (
-                <div className="pl-10 pt-2 pb-3">
-                  <ul className="space-y-2">
-                    {s.details.map((d) => (
-                      <li key={d} className="flex gap-2.5 text-sm md:text-[0.95rem] text-ink">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: "var(--mint)" }} />
-                        <span dangerouslySetInnerHTML={{ __html: d }} />
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold" style={{ color: "var(--navy)" }}>
-                    <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--navy-soft)" }}>ფასი</span>
-                    <span dangerouslySetInnerHTML={{ __html: s.price }} />
-                  </p>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
+                  <span className="flex items-start gap-3">
+                    <span
+                      className="shrink-0 h-8 w-8 rounded-md inline-flex items-center justify-center text-xs font-black"
+                      style={{ background: s.bg, color: s.text, border: `1px solid ${s.border}` }}
+                    >
+                      {sub.code}
+                    </span>
+                    <span>
+                      <span
+                        className="block font-extrabold text-base md:text-lg"
+                        style={{ color: dark ? "white" : "var(--ink)" }}
+                      >
+                        {sub.title}
+                      </span>
+                      <span
+                        className="block mt-1 text-[12px] font-extrabold tabular-nums"
+                        style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}
+                      >
+                        {sub.price}
+                      </span>
+                    </span>
+                  </span>
+                  <span
+                    className={`shrink-0 h-8 w-8 rounded-full border inline-flex items-center justify-center font-bold transition ${
+                      isOpen ? "rotate-45" : ""
+                    }`}
+                    style={
+                      isOpen
+                        ? dark
+                          ? { background: "var(--mint)", color: "var(--navy-deep)", borderColor: "var(--mint)" }
+                          : { background: "var(--navy-deep)", color: "var(--mint)", borderColor: "var(--navy-deep)" }
+                        : { borderColor: dark ? "rgba(255,255,255,0.3)" : "var(--line)", color: dark ? "white" : "var(--navy)" }
+                    }
+                  >
+                    +
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div
+                    className="grid md:grid-cols-2 gap-5 px-5 md:px-6 pb-6"
+                    style={{ borderTop: `1px dashed ${dark ? "rgba(255,255,255,0.18)" : "var(--line)"}` }}
+                  >
+                    <div className="pt-5">
+                      <p
+                        className="text-[11px] font-black tracking-widest uppercase"
+                        style={{ color: dark ? "rgba(255,255,255,0.65)" : "var(--navy-soft)" }}
+                      >
+                        რას მოიცავს
+                      </p>
+                      <ul className="mt-3 space-y-2">
+                        {sub.includes.map((d) => (
+                          <li
+                            key={d}
+                            className="flex gap-2.5 text-[13px] md:text-sm leading-relaxed"
+                            style={{ color: dark ? "rgba(255,255,255,0.9)" : "var(--ink)" }}
+                          >
+                            <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: s.dot }} />
+                            <span>{d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="pt-5">
+                      <p
+                        className="text-[11px] font-black tracking-widest uppercase"
+                        style={{ color: dark ? "rgba(255,255,255,0.65)" : "var(--navy-soft)" }}
+                      >
+                        მოსალოდნელი შედეგი
+                      </p>
+                      <ul className="mt-3 space-y-2">
+                        {sub.outcomes.map((d) => (
+                          <li
+                            key={d}
+                            className="flex gap-2.5 text-[13px] md:text-sm leading-relaxed"
+                            style={{ color: dark ? "rgba(255,255,255,0.9)" : "var(--ink)" }}
+                          >
+                            <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: s.dot }} />
+                            <span>{d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
     </article>
   );
 }
