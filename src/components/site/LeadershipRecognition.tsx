@@ -1,13 +1,13 @@
 import { useState } from "react";
 import limPortrait from "@/assets/lim-portrait.asset.json";
-import limBadges from "@/assets/lim-badges.asset.json";
+import limPassStage from "@/assets/lim-pass-stage.asset.json";
 import limScreen from "@/assets/lim-screen.asset.json";
+import limGroup from "@/assets/lim-group.asset.json";
 import chapterLeaderBadge from "@/assets/chapter-leader-badge.asset.json";
 import sageLogo from "@/assets/sage-logo.asset.json";
 
 const ROLES = [
   { org: "PMI Tbilisi, Georgia Chapter", title: "Board Member · Director of Marketing, Communications & Social Media", period: "2024 — დღემდე" },
-  { org: "PMI Chapter Leader 2026", title: "Chapter Leadership Program Participant — LIM Lisbon", period: "2026", badge: chapterLeaderBadge.url },
   { org: "SAGE Georgia", title: "Mentor · National Finals Jury Member", period: "2024 — დღემდე" },
   { org: "Junior Achievement Georgia", title: "Student Company Mentor — Company of the Year Competition", period: "2024" },
 ];
@@ -19,10 +19,11 @@ const AWARDS = [
 ];
 
 const GALLERY = [
-  { src: limPortrait.url, caption: "Europe LIM 2026 · ლისაბონი" },
-  { src: limBadges.url, caption: "Europe Leadership Institute Meeting 2026 — Pass" },
+  { src: limGroup.url, caption: "Europe Leadership Institute Meeting 2026 · ჯგუფური ფოტო" },
+  { src: limPassStage.url, caption: "Europe Leadership Institute Meeting 2026 — სცენა" },
   { src: limScreen.url, caption: "„We maximize project success to elevate our world.“ — PMI" },
 ];
+
 
 export function LeadershipRecognition() {
   const [lightbox, setLightbox] = useState<string | null>(null);
