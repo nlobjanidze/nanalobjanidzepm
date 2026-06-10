@@ -81,15 +81,16 @@ export function Certifications() {
           <Group title="PMI სერტიფიკატები" items={PMI} accent="mint" />
           <Group title="უმაღლესი განათლება" items={EDUCATION} accent="navy" />
           <Group title="საერთაშორისო პროფესიული სერტიფიკატები" items={PROFESSIONAL} accent="navy" />
-          <div className="surface-card p-7 md:p-8 flex flex-col items-center justify-center text-center" style={{ background: "var(--gradient-brand)" }}>
-            <p className="text-xs font-black tracking-widest uppercase text-white/80 mb-6">PMP® · 2024–2027 · Project Management Professional</p>
+          <div className="surface-card p-7 md:p-8 flex flex-col items-center justify-center text-center bg-white">
+            <p className="text-xs font-black tracking-widest uppercase text-navy-soft mb-6">PMP® · 2024–2027 · Project Management Professional</p>
             <img
               src={pmpBadge.url}
               alt="PMP® Professional Certification — Project Management Institute"
-              className="block max-w-[260px] md:max-w-[300px] w-full h-auto drop-shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+              className="block w-40 md:w-48 h-auto mix-blend-multiply"
               loading="lazy"
             />
           </div>
+
         </div>
       </div>
     </section>
