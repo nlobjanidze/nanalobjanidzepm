@@ -1,13 +1,13 @@
-import limPortrait from "@/assets/lim-nana-portrait.asset.json";
-import limBanner from "@/assets/lim-banner.asset.json";
-import limMission from "@/assets/lim-mission.asset.json";
-import limStage from "@/assets/lim-stage.asset.json";
-import limColleague from "@/assets/lim-colleague.asset.json";
-import limGroup from "@/assets/lim-group.asset.json";
+import { useState } from "react";
+import limPortrait from "@/assets/lim-portrait.asset.json";
+import limBadges from "@/assets/lim-badges.asset.json";
+import limScreen from "@/assets/lim-screen.asset.json";
+import chapterLeaderBadge from "@/assets/chapter-leader-badge.asset.json";
+import sageLogo from "@/assets/sage-logo.asset.json";
 
 const ROLES = [
   { org: "PMI Tbilisi, Georgia Chapter", title: "Board Member · Director of Marketing, Communications & Social Media", period: "2024 — დღემდე" },
-  { org: "PMI Chapter Leader 2026", title: "Chapter Leadership Program Participant — LIM Lisbon", period: "2026" },
+  { org: "PMI Chapter Leader 2026", title: "Chapter Leadership Program Participant — LIM Lisbon", period: "2026", badge: chapterLeaderBadge.url },
   { org: "SAGE Georgia", title: "Mentor · National Finals Jury Member", period: "2024 — დღემდე" },
   { org: "Junior Achievement Georgia", title: "Student Company Mentor — Company of the Year Competition", period: "2024" },
 ];
@@ -19,13 +19,14 @@ const AWARDS = [
 ];
 
 const GALLERY = [
-  { src: limStage.url, caption: "LIM 2026 · მთავარი დარბაზი, ლისაბონი" },
-  { src: limMission.url, caption: "„We maximize project success to elevate our world“ — PMI Mission" },
-  { src: limColleague.url, caption: "PMI Tbilisi, Georgia Chapter — დელეგაცია" },
-  { src: limGroup.url, caption: "Europe LIM 2026 — Chapter Leaders მთელი მსოფლიოდან" },
+  { src: limPortrait.url, caption: "Europe LIM 2026 · ლისაბონი" },
+  { src: limBadges.url, caption: "Europe Leadership Institute Meeting 2026 — Pass" },
+  { src: limScreen.url, caption: "„We maximize project success to elevate our world.“ — PMI" },
 ];
 
 export function LeadershipRecognition() {
+  const [lightbox, setLightbox] = useState<string | null>(null);
+
   return (
     <section id="leadership" className="section-y bg-white">
       <div className="container-x">
@@ -65,18 +66,26 @@ export function LeadershipRecognition() {
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-5 relative min-h-[320px]">
-            <img src={limBanner.url} alt="PMI Europe LIM 2026 — ლისაბონი, Nana Lobjanidze" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="lg:col-span-5 relative min-h-[320px] bg-white/5">
+            <img src={limPortrait.url} alt="Nana Lobjanidze — Europe LIM 2026, Lisbon" className="absolute inset-0 h-full w-full object-cover object-center" />
           </div>
         </article>
 
-        {/* Gallery */}
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* Gallery — clickable */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
           {GALLERY.map((g) => (
-            <figure key={g.src} className="rounded-2xl overflow-hidden border border-line bg-surface">
-              <img src={g.src} alt={g.caption} className="w-full h-44 md:h-56 object-cover" />
-              <figcaption className="px-3 py-2 text-[11px] text-ink-soft">{g.caption}</figcaption>
-            </figure>
+            <button
+              key={g.src}
+              type="button"
+              onClick={() => setLightbox(g.src)}
+              className="group text-left rounded-2xl overflow-hidden border border-line bg-surface focus:outline-none focus:ring-2 focus:ring-offset-2"
+              style={{ outlineColor: "var(--mint)" }}
+            >
+              <div className="overflow-hidden">
+                <img src={g.src} alt={g.caption} className="w-full h-56 md:h-64 object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+              </div>
+              <figcaption className="px-4 py-3 text-xs text-ink-soft">{g.caption}</figcaption>
+            </button>
           ))}
         </div>
 
@@ -87,9 +96,14 @@ export function LeadershipRecognition() {
             <ul className="mt-5 divide-y divide-line surface-card p-2">
               {ROLES.map((r) => (
                 <li key={r.org + r.title} className="p-5 flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">{r.org}</p>
-                    <p className="mt-1 font-extrabold text-ink">{r.title}</p>
+                  <div className="flex items-start gap-4">
+                    {r.badge && (
+                      <img src={r.badge} alt={r.org} className="h-14 w-14 object-contain shrink-0" />
+                    )}
+                    <div>
+                      <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">{r.org}</p>
+                      <p className="mt-1 font-extrabold text-ink">{r.title}</p>
+                    </div>
                   </div>
                   <span className="shrink-0 text-xs font-black tabular-nums mt-1" style={{ color: "var(--navy)" }}>{r.period}</span>
                 </li>
@@ -97,9 +111,14 @@ export function LeadershipRecognition() {
             </ul>
 
             <div className="mt-6 surface-card p-6">
-              <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">SAGE Georgia</p>
-              <h4 className="mt-2 font-extrabold text-lg text-ink">საერთაშორისო საგანმანათლებლო და სამეწარმეო პლატფორმა</h4>
-              <p className="mt-2 text-sm md:text-[0.95rem] text-ink-soft leading-relaxed">
+              <div className="flex items-start gap-5">
+                <img src={sageLogo.url} alt="SAGE Georgia" className="h-14 w-auto object-contain shrink-0" />
+                <div>
+                  <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">SAGE Georgia</p>
+                  <h4 className="mt-1 font-extrabold text-lg text-ink">საერთაშორისო საგანმანათლებლო და სამეწარმეო პლატფორმა</h4>
+                </div>
+              </div>
+              <p className="mt-3 text-sm md:text-[0.95rem] text-ink-soft leading-relaxed">
                 SAGE Georgia ხელს უწყობს ახალგაზრდულ მეწარმეობას, ინოვაციას, ლიდერობას და
                 SDG-ზე დაფუძნებულ პროექტურ ინიციატივებს. ორგანიზაცია აერთიანებს მენტორებს,
                 ახალგაზრდებსა და საერთაშორისო პარტნიორებს ლოკალური და გლობალური ინიციატივების მეშვეობით.
@@ -125,14 +144,29 @@ export function LeadershipRecognition() {
                 </article>
               ))}
             </div>
-
-            <figure className="mt-6 rounded-2xl overflow-hidden border border-line">
-              <img src={limPortrait.url} alt="Nana Lobjanidze — PMI LIM 2026, Lisbon" className="w-full h-72 object-cover object-top" />
-              <figcaption className="px-4 py-3 text-xs text-ink-soft bg-surface">PMI LIM 2026 · Lisbon, Portugal</figcaption>
-            </figure>
           </div>
         </div>
       </div>
+
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 cursor-zoom-out"
+          style={{ background: "rgba(8, 22, 40, 0.92)" }}
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <img src={lightbox} alt="" className="max-h-[92vh] max-w-[95vw] object-contain rounded-xl shadow-2xl" />
+          <button
+            type="button"
+            onClick={() => setLightbox(null)}
+            aria-label="Close"
+            className="absolute top-5 right-5 h-10 w-10 rounded-full bg-white/10 text-white text-2xl font-bold hover:bg-white/20"
+          >
+            ×
+          </button>
+        </div>
+      )}
     </section>
   );
 }

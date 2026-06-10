@@ -1,5 +1,3 @@
-import about from "@/assets/about-portrait.asset.json";
-
 const PILLARS = [
   { t: "PMP® სერტიფიცირებული", d: "Project Management Institute · 2024–2027" },
   { t: "Agile · Waterfall · Hybrid", d: "სამივე მეთოდოლოგია — სიტუაციის შესაბამისად." },
@@ -10,38 +8,8 @@ const PILLARS = [
 export function About() {
   return (
     <section id="about" className="section-y relative bg-white">
-      <div className="container-x grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-5 relative min-h-[460px] md:min-h-[560px] order-2 lg:order-1">
-          <div
-            className="absolute inset-0 -z-10"
-            style={{
-              background:
-                "radial-gradient(55% 50% at 50% 50%, rgba(23, 227, 178, 0.18), transparent 75%)",
-            }}
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 -z-10"
-            style={{
-              background:
-                "radial-gradient(40% 35% at 20% 80%, rgba(20, 93, 160, 0.14), transparent 70%)",
-            }}
-            aria-hidden
-          />
-          <img
-            src={about.url}
-            alt="ნანა ლობჯანიძე — სამუშაო პროცესში"
-            className="relative z-10 mx-auto block h-[460px] md:h-[560px] w-auto max-w-full object-cover object-top"
-            style={{
-              WebkitMaskImage:
-                "radial-gradient(75% 80% at 50% 45%, black 35%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.4) 75%, transparent 92%)",
-              maskImage:
-                "radial-gradient(75% 80% at 50% 45%, black 35%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.4) 75%, transparent 92%)",
-            }}
-          />
-        </div>
-
-        <div className="lg:col-span-7 order-1 lg:order-2">
+      <div className="container-x">
+        <div className="max-w-3xl">
           <span className="eyebrow">ჩემს შესახებ</span>
           <h2 className="heading-lg mt-4 text-balance">
             პროექტის მართვა — <span className="text-navy">ადამიანებისა და ღირებულების სწორი დაკავშირება</span>

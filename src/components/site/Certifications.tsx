@@ -1,3 +1,5 @@
+import pmpBadge from "@/assets/pmp-badge.asset.json";
+
 const PMI = [
   { name: "PMP® — Project Management Professional", issuer: "Project Management Institute", year: "2024–2027" },
   { name: "Business Continuity", issuer: "Project Management Institute", year: "2025" },
@@ -79,18 +81,14 @@ export function Certifications() {
           <Group title="PMI სერტიფიკატები" items={PMI} accent="mint" />
           <Group title="უმაღლესი განათლება" items={EDUCATION} accent="navy" />
           <Group title="საერთაშორისო პროფესიული სერტიფიკატები" items={PROFESSIONAL} accent="navy" />
-          <div className="surface-card p-7 md:p-8 flex flex-col justify-between" style={{ background: "var(--gradient-brand)" }}>
-            <div>
-              <p className="text-xs font-black tracking-widest uppercase text-white/80">PMP® · 2024–2027</p>
-              <h3 className="mt-3 text-2xl md:text-3xl font-black text-white leading-tight">
-                Project Management Professional
-              </h3>
-              <p className="mt-4 text-white/90 text-sm md:text-base leading-relaxed">
-                PMP® არის მსოფლიოში ერთ-ერთი ყველაზე პრესტიჟული და ფართოდ აღიარებული
-                სერტიფიკაცია პროექტების მართვის სფეროში — გაცემული Project Management Institute-ის მიერ.
-              </p>
-            </div>
-            <p className="mt-6 text-white/80 text-xs tracking-widest uppercase font-black">PMI · Global Standard</p>
+          <div className="surface-card p-7 md:p-8 flex flex-col items-center justify-center text-center" style={{ background: "var(--gradient-brand)" }}>
+            <p className="text-xs font-black tracking-widest uppercase text-white/80 mb-6">PMP® · 2024–2027 · Project Management Professional</p>
+            <img
+              src={pmpBadge.url}
+              alt="PMP® Professional Certification — Project Management Institute"
+              className="block max-w-[260px] md:max-w-[300px] w-full h-auto drop-shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
