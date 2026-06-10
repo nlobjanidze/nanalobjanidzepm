@@ -1,4 +1,4 @@
-import hero from "@/assets/hero-portrait.asset.json";
+import hero from "@/assets/nana-portrait-v2.asset.json";
 
 const STATS = [
   { k: "+8", v: "წლის მენეჯერული გამოცდილება" },
@@ -36,12 +36,10 @@ export function Hero() {
             ნანა ლობჯანიძე
           </h1>
           <p className="mt-4 text-lg md:text-xl font-semibold text-navy">
-            PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი
-            <br className="hidden md:block" />
-            ტრენერი &amp; მენტორი
+            PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი | ტრენერი &amp; მენტორი
           </p>
           <blockquote className="mt-6 max-w-xl border-l-4 pl-5 italic text-base md:text-lg leading-relaxed text-ink-soft" style={{ borderColor: "var(--mint)" }}>
-            „პროექტის მართვა უნდა ქმნიდეს რეალურ შედეგს — არა მხოლოდ პროცესს“
+            „პროექტის მენეჯერი აერთიანებს — ადამიანებს, პროცესსა და პროდუქტს — შედეგის მისაღწევად“
           </blockquote>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -92,13 +90,7 @@ export function Hero() {
             src={hero.url}
             alt="ნანა ლობჯანიძე — PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
             loading="eager"
-            className="relative z-10 mx-auto block h-[460px] md:h-[600px] w-auto max-w-full object-cover object-top"
-            style={{
-              WebkitMaskImage:
-                "radial-gradient(75% 80% at 50% 45%, black 35%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.4) 75%, transparent 92%)",
-              maskImage:
-                "radial-gradient(75% 80% at 50% 45%, black 35%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.4) 75%, transparent 92%)",
-            }}
+            className="relative z-10 mx-auto block h-[460px] md:h-[600px] w-auto max-w-full object-cover object-top rounded-2xl"
           />
         </div>
       </div>
