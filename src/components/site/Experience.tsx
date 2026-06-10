@@ -54,7 +54,7 @@ export function Experience() {
         <div className="max-w-2xl">
           <span className="eyebrow">სამუშაო გამოცდილება</span>
           <h2 className="heading-lg mt-4 text-balance">
-            10+ წელი — <span className="text-navy">პროექტებისა და გუნდების ხაზზე</span>
+            10+ წელი — <span className="text-navy">პროექტებისა და გუნდების მართვა</span>
           </h2>
         </div>
 
