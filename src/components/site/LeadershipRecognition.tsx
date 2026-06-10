@@ -1,13 +1,13 @@
 import { useState } from "react";
 import limPortrait from "@/assets/lim-portrait.asset.json";
-import limBadges from "@/assets/lim-badges.asset.json";
+import limPassStage from "@/assets/lim-pass-stage.asset.json";
 import limScreen from "@/assets/lim-screen.asset.json";
+import limGroup from "@/assets/lim-group.asset.json";
 import chapterLeaderBadge from "@/assets/chapter-leader-badge.asset.json";
 import sageLogo from "@/assets/sage-logo.asset.json";
 
 const ROLES = [
   { org: "PMI Tbilisi, Georgia Chapter", title: "Board Member · Director of Marketing, Communications & Social Media", period: "2024 — დღემდე" },
-  { org: "PMI Chapter Leader 2026", title: "Chapter Leadership Program Participant — LIM Lisbon", period: "2026", badge: chapterLeaderBadge.url },
   { org: "SAGE Georgia", title: "Mentor · National Finals Jury Member", period: "2024 — დღემდე" },
   { org: "Junior Achievement Georgia", title: "Student Company Mentor — Company of the Year Competition", period: "2024" },
 ];
@@ -19,10 +19,11 @@ const AWARDS = [
 ];
 
 const GALLERY = [
-  { src: limPortrait.url, caption: "Europe LIM 2026 · ლისაბონი" },
-  { src: limBadges.url, caption: "Europe Leadership Institute Meeting 2026 — Pass" },
+  { src: limGroup.url, caption: "Europe Leadership Institute Meeting 2026 · ჯგუფური ფოტო" },
+  { src: limPassStage.url, caption: "Europe Leadership Institute Meeting 2026 — სცენა" },
   { src: limScreen.url, caption: "„We maximize project success to elevate our world.“ — PMI" },
 ];
+
 
 export function LeadershipRecognition() {
   const [lightbox, setLightbox] = useState<string | null>(null);
@@ -96,19 +97,29 @@ export function LeadershipRecognition() {
             <ul className="mt-5 divide-y divide-line surface-card p-2">
               {ROLES.map((r) => (
                 <li key={r.org + r.title} className="p-5 flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-4">
-                    {r.badge && (
-                      <img src={r.badge} alt={r.org} className="h-14 w-14 object-contain shrink-0" />
-                    )}
-                    <div>
-                      <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">{r.org}</p>
-                      <p className="mt-1 font-extrabold text-ink">{r.title}</p>
-                    </div>
+                  <div>
+                    <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">{r.org}</p>
+                    <p className="mt-1 font-extrabold text-ink">{r.title}</p>
                   </div>
                   <span className="shrink-0 text-xs font-black tabular-nums mt-1" style={{ color: "var(--navy)" }}>{r.period}</span>
                 </li>
               ))}
             </ul>
+
+            {/* PMI Chapter Leader — dedicated section */}
+            <div className="mt-6 surface-card p-6">
+              <div className="flex items-start gap-5">
+                <img src={chapterLeaderBadge.url} alt="PMI Chapter Leader 2026" className="h-20 w-20 object-contain shrink-0" />
+                <div>
+                  <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">PMI Chapter Leader · 2026</p>
+                  <h4 className="mt-1 font-extrabold text-lg text-ink">PMI Chapter Leadership Program — LIM Lisbon</h4>
+                  <p className="mt-2 text-sm text-ink-soft leading-relaxed">
+                    PMI-ის გლობალური Chapter Leader ბეიჯი 2026 წლისთვის — PMI Europe Leadership Institute Meeting-ის ფარგლებში მიღებული ფორმალური აღიარება Chapter-ის ლიდერული როლისთვის.
+                  </p>
+                </div>
+              </div>
+            </div>
+
 
             <div className="mt-6 surface-card p-6">
               <div className="flex items-start gap-5">
