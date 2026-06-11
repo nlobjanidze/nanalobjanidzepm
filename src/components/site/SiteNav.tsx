@@ -8,6 +8,8 @@ const NAV = [
   { href: "#experience", label: "გამოცდილება" },
   { href: "#projects", label: "პროექტები" },
   { href: "#leadership", label: "ლიდერობა" },
+  { href: "#engagement", label: "გლობალური" },
+
   { href: "#certifications", label: "სერტიფიკატები" },
   { href: "#contact", label: "კონტაქტი" },
 ];
