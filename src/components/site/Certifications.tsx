@@ -77,20 +77,37 @@ export function Certifications() {
           </p>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-6">
-          <Group title="PMI სერტიფიკატები" items={PMI} accent="mint" />
-          <Group title="უმაღლესი განათლება" items={EDUCATION} accent="navy" />
-          <Group title="საერთაშორისო პროფესიული სერტიფიკატები" items={PROFESSIONAL} accent="navy" />
-          <div className="surface-card p-7 md:p-8 flex flex-col items-center justify-center text-center bg-white">
-            <p className="text-xs font-black tracking-widest uppercase text-navy-soft mb-6">PMP® · 2024–2027 · Project Management Professional</p>
+        <div
+          className="mt-12 grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden border border-line shadow-[var(--shadow-soft)]"
+          style={{ background: "var(--navy-deep)", color: "white" }}
+        >
+          <div className="lg:col-span-8 p-8 md:p-10">
+            <span className="eyebrow" style={{ color: "var(--mint-bright)" }}>PMP® სერტიფიკაცია</span>
+            <h3 className="heading-md mt-4 text-balance" style={{ color: "white" }}>
+              Project Management Professional <span style={{ color: "var(--mint)" }}>(PMI)</span>
+            </h3>
+            <p className="mt-3 text-white/80 max-w-xl">
+              მოქმედების პერიოდი: <span className="font-bold" style={{ color: "var(--mint-bright)" }}>2024–2027</span> — გლობალურად აღიარებული პროექტების მართვის კვალიფიკაცია.
+            </p>
+          </div>
+          <div
+            className="lg:col-span-4 relative min-h-[180px] flex items-center justify-center p-8"
+            style={{ background: "var(--gradient-brand)" }}
+          >
             <img
               src={pmpBadge.url}
               alt="PMP® Professional Certification — Project Management Institute"
-              className="block w-40 md:w-48 h-auto mix-blend-multiply"
+              className="block h-auto w-[120px] md:w-[140px] drop-shadow-xl"
+              style={{ mixBlendMode: "multiply" }}
               loading="lazy"
             />
           </div>
+        </div>
 
+        <div className="mt-8 grid md:grid-cols-2 gap-6">
+          <Group title="PMI სერტიფიკატები" items={PMI} accent="mint" />
+          <Group title="უმაღლესი განათლება" items={EDUCATION} accent="navy" />
+          <Group title="საერთაშორისო პროფესიული სერტიფიკატები" items={PROFESSIONAL} accent="navy" />
         </div>
       </div>
     </section>
