@@ -8,6 +8,8 @@ import { Trainings } from "@/components/site/Trainings";
 import { Experience } from "@/components/site/Experience";
 import { Projects } from "@/components/site/Projects";
 import { LeadershipRecognition } from "@/components/site/LeadershipRecognition";
+import { GlobalEngagement } from "@/components/site/GlobalEngagement";
+
 import { Testimonials } from "@/components/site/Testimonials";
 import { ContactForm } from "@/components/site/ContactForm";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -28,6 +30,8 @@ function Index() {
         <Experience />
         <Projects />
         <LeadershipRecognition />
+        <GlobalEngagement />
+
         <Certifications />
         <Testimonials />
         <ContactForm />

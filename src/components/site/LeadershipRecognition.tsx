@@ -13,10 +13,12 @@ const ROLES = [
 ];
 
 const AWARDS = [
+  { year: "2026", title: "PMI Certificate of Appreciation", org: "Project Management Institute — PMI Tbilisi, Georgia Chapter-ის განვითარებაში შეტანილი წვლილისთვის" },
   { year: "2024", title: "Dedication, Outstanding Volunteering & Support of the Marketing Team", org: "PMI Tbilisi, Georgia Chapter" },
   { year: "2024", title: "Student Company Mentor Recognition", org: "JA Georgia" },
   { year: "2023", title: "Successful Organization of „Kahoot Season 2“", org: "PMI Tbilisi, Georgia Chapter" },
 ];
+
 
 const GALLERY = [
   { src: limGroup.url, caption: "Europe Leadership Institute Meeting 2026 · ჯგუფური ფოტო" },
@@ -108,17 +110,24 @@ export function LeadershipRecognition() {
 
             {/* PMI Chapter Leader — dedicated section */}
             <div className="mt-6 surface-card p-6">
-              <div className="flex items-start gap-5">
-                <img src={chapterLeaderBadge.url} alt="PMI Chapter Leader 2026" className="h-20 w-20 object-contain shrink-0" />
-                <div>
-                  <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">PMI Chapter Leader · 2026</p>
-                  <h4 className="mt-1 font-extrabold text-lg text-ink">PMI Chapter Leadership Program — LIM Lisbon</h4>
-                  <p className="mt-2 text-sm text-ink-soft leading-relaxed">
-                    PMI-ის გლობალური Chapter Leader ბეიჯი 2026 წლისთვის — PMI Europe Leadership Institute Meeting-ის ფარგლებში მიღებული ფორმალური აღიარება Chapter-ის ლიდერული როლისთვის.
-                  </p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">PMI Chapter Leader · 2025 — 2026</p>
+              <h4 className="mt-1 font-extrabold text-lg text-ink">PMI Chapter Leadership Program</h4>
+              <p className="mt-2 text-sm text-ink-soft leading-relaxed">
+                PMI-ის გლობალური Chapter Leader ბეიჯები ზედიზედ ორი წლისთვის — ლიდერობის, ზრდისა და
+                გავლენის ფორმალური აღიარება PMI Tbilisi, Georgia Chapter-ის სამმართველოს დირექტორის როლისთვის.
+              </p>
+              <div className="mt-5 flex flex-wrap items-center gap-6">
+                <div className="flex flex-col items-center">
+                  <img src={chapterLeaderBadge.url} alt="PMI Chapter Leader 2026" className="h-24 w-24 object-contain" />
+                  <span className="mt-2 text-xs font-black tabular-nums" style={{ color: "var(--navy)" }}>2026</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <img src={chapterLeaderBadge.url} alt="PMI Chapter Leader 2025" className="h-24 w-24 object-contain opacity-90" style={{ filter: "hue-rotate(-15deg)" }} />
+                  <span className="mt-2 text-xs font-black tabular-nums" style={{ color: "var(--navy)" }}>2025</span>
                 </div>
               </div>
             </div>
+
 
 
             <div className="mt-6 surface-card p-6">
