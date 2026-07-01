@@ -40,7 +40,7 @@ export function Hero() {
         <div className="lg:col-span-7 relative z-10">
           <span className="eyebrow">ნანა ლობჯანიძე · PMP® Certified Project Management Consultant</span>
 
-          <h1 className="mt-6 text-balance" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 4.2vw, 3.25rem)', lineHeight: 1.08, fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
+          <h1 className="mt-6 text-balance" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem, 2.6vw, 2.1rem)', lineHeight: 1.12, fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
             ქაოსური პროექტებიდან — მკაფიო, დაგეგმილ და მართვად პროცესებამდე
           </h1>
 
