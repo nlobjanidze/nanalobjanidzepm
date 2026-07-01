@@ -40,15 +40,12 @@ export function Hero() {
         <div className="lg:col-span-7 relative z-10">
           <span className="eyebrow">ნანა ლობჯანიძე · PMP® Certified Project Management Consultant</span>
 
-          <h1 className="heading-xl mt-6 text-balance">
+          <h1 className="mt-6 text-balance" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 4.2vw, 3.25rem)', lineHeight: 1.08, fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
             ქაოსური პროექტებიდან — მკაფიო, დაგეგმილ და მართვად პროცესებამდე
           </h1>
 
-          <p className="mt-5 text-lg md:text-xl font-semibold text-navy leading-relaxed">
+          <p className="mt-5 text-lg md:text-xl font-semibold text-navy leading-relaxed max-w-xl">
             ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში, დაგეგმვასა და ეფექტურად შესრულებაში Project Management-ის პრაქტიკული მიდგომებით.
-          </p>
-          <p className="mt-2 text-base md:text-lg text-ink-soft leading-relaxed">
-            ასევე ვთავაზობ პრაქტიკულ ტრენინგებს პროექტების მართვით დაინტერესებულ პირებს.
           </p>
 
           <ul className="mt-6 grid sm:grid-cols-2 gap-3 max-w-2xl">
@@ -75,7 +72,7 @@ export function Hero() {
               href="#services"
               className="inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur px-6 py-3.5 font-semibold text-ink hover:border-navy/40 transition-colors"
             >
-              მიიღე სიცხადე →
+              გაიგე მეტი →
             </a>
           </div>
 
@@ -83,11 +80,11 @@ export function Hero() {
             PMP® Certified · Project Management Practitioner · PMI Leadership Experience
           </p>
 
-          <dl className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-5 max-w-2xl">
+          <dl className="mt-10 grid grid-cols-3 gap-4 max-w-2xl">
             {STATS.map((s) => (
-              <div key={s.v} className="border-l-2 pl-4" style={{ borderColor: "var(--mint)" }}>
-                <dt className="text-xl md:text-2xl font-black text-ink">{s.k}</dt>
-                <dd className="mt-1 text-[11px] md:text-xs text-ink-soft leading-snug">{s.v}</dd>
+              <div key={s.v} className="text-center px-3 py-4 rounded-xl" style={{ background: 'var(--surface)', border: '1px solid var(--line)' }}>
+                <dt className="text-2xl md:text-3xl font-black" style={{ color: 'var(--navy-deep)' }}>{s.k}</dt>
+                <dd className="mt-1.5 text-xs md:text-sm text-ink-soft leading-snug">{s.v}</dd>
               </div>
             ))}
           </dl>
