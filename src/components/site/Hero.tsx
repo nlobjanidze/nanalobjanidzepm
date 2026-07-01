@@ -9,6 +9,13 @@ const STATS = [
   { k: "₾1.75M+", v: "მართული პროექტები" },
 ];
 
+const VALUE_BULLETS = [
+  "გაურკვეველი ვადების და პასუხისმგებლობების მოწესრიგება",
+  "ქაოსური პროექტების სტრუქტურირებული გეგმებად გადაყვანა",
+  "პროცესების გამართვა და კონტროლის სისტემის შექმნა",
+  "გუნდების ეფექტურობის გაზრდა და შესრულების გაუმჯობესება",
+];
+
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-28 md:pt-36 pb-20 md:pb-28">
@@ -31,16 +38,30 @@ export function Hero() {
 
       <div className="container-x grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <div className="lg:col-span-7 relative z-10">
-          <span className="eyebrow">PMP® · Project Management Consultant</span>
+          <span className="eyebrow">ნანა ლობჯანიძე · PMP® Certified Project Management Consultant</span>
+
           <h1 className="heading-xl mt-6 text-balance">
-            ნანა ლობჯანიძე
+            ქაოსური პროექტებიდან — მკაფიო, დაგეგმილ და მართვად პროცესებამდე
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-semibold text-navy">
-            PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი | ტრენერი &amp; მენტორი
+
+          <p className="mt-5 text-lg md:text-xl font-semibold text-navy leading-relaxed">
+            ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში, დაგეგმვასა და ეფექტურად შესრულებაში Project Management-ის პრაქტიკული მიდგომებით.
           </p>
-          <blockquote className="mt-6 max-w-xl border-l-4 pl-5 italic text-base md:text-lg leading-relaxed text-ink-soft" style={{ borderColor: "var(--mint)" }}>
-            „პროექტის მენეჯერი აერთიანებს — ადამიანებს, პროცესსა და პროდუქტს — შედეგის მისაღწევად“
-          </blockquote>
+          <p className="mt-2 text-base md:text-lg text-ink-soft leading-relaxed">
+            ასევე ვთავაზობ პრაქტიკულ ტრენინგებს პროექტების მართვით დაინტერესებულ პირებს.
+          </p>
+
+          <ul className="mt-6 grid sm:grid-cols-2 gap-3 max-w-2xl">
+            {VALUE_BULLETS.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span
+                  className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full"
+                  style={{ background: "var(--mint)" }}
+                />
+                <span className="text-sm md:text-base text-ink-soft leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -48,17 +69,21 @@ export function Hero() {
               className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all"
               style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
             >
-              დაჯავშნე უფასო კონსულტაცია
+              დაჯავშნე კონსულტაცია
             </a>
             <a
               href="#services"
               className="inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur px-6 py-3.5 font-semibold text-ink hover:border-navy/40 transition-colors"
             >
-              ნახე სერვისები →
+              მიიღე სიცხადე →
             </a>
           </div>
 
-          <dl className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-5 max-w-2xl">
+          <p className="mt-4 text-xs text-ink-soft/80 tracking-wide">
+            PMP® Certified · Project Management Practitioner · PMI Leadership Experience
+          </p>
+
+          <dl className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-5 max-w-2xl">
             {STATS.map((s) => (
               <div key={s.v} className="border-l-2 pl-4" style={{ borderColor: "var(--mint)" }}>
                 <dt className="text-xl md:text-2xl font-black text-ink">{s.k}</dt>
