@@ -36,11 +36,11 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="container-x grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="container-x grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         <div className="lg:col-span-7 relative z-10">
           <span className="eyebrow">ნანა ლობჯანიძე · PMP® Certified Project Management Consultant</span>
 
-          <h1 className="mt-4 text-balance" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 5vw, 4.2rem)', lineHeight: 1.08, fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
+          <h1 className="mt-4 text-balance" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)', lineHeight: 1.08, fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
             ქაოსური პროექტებიდან — მკაფიო, დაგეგმილ და მართვად პროცესებამდე
           </h1>
 
