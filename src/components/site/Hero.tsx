@@ -18,7 +18,7 @@ const VALUE_BULLETS = [
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-28 md:pt-36 pb-20 md:pb-28">
+    <section id="top" className="relative overflow-hidden pt-20 md:pt-28 pb-16 md:pb-20">
       {/* Brand gradient background */}
       <div
         className="absolute inset-0 -z-10"
@@ -36,19 +36,19 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="container-x grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div className="container-x grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         <div className="lg:col-span-7 relative z-10">
           <span className="eyebrow">ნანა ლობჯანიძე · PMP® Certified Project Management Consultant</span>
 
-          <h1 className="mt-6 text-balance" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem, 2.6vw, 2.1rem)', lineHeight: 1.12, fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
+          <h1 className="mt-4 text-balance" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)', lineHeight: 1.08, fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
             ქაოსური პროექტებიდან — მკაფიო, დაგეგმილ და მართვად პროცესებამდე
           </h1>
 
-          <p className="mt-5 text-lg md:text-xl font-semibold text-navy leading-relaxed max-w-xl">
-            ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში, დაგეგმვასა და ეფექტურად შესრულებაში Project Management-ის პრაქტიკული მიდგომებით.
+          <p className="mt-4 text-sm md:text-base text-ink-soft leading-relaxed max-w-xl">
+            ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში, დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული მიდგომებით.
           </p>
 
-          <ul className="mt-6 grid sm:grid-cols-2 gap-3 max-w-2xl">
+          <ul className="mt-5 grid sm:grid-cols-2 gap-2.5 max-w-2xl">
             {VALUE_BULLETS.map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <span
@@ -60,7 +60,7 @@ export function Hero() {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="#contact"
               className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all"
@@ -76,22 +76,22 @@ export function Hero() {
             </a>
           </div>
 
-          <p className="mt-4 text-xs text-ink-soft/80 tracking-wide">
+          <p className="mt-3 text-xs text-ink-soft/80 tracking-wide">
             PMP® Certified · Project Management Practitioner · PMI Leadership Experience
           </p>
 
-          <dl className="mt-10 grid grid-cols-3 gap-4 max-w-2xl">
+          <dl className="mt-8 grid grid-cols-3 gap-3 max-w-2xl">
             {STATS.map((s) => (
-              <div key={s.v} className="text-center px-3 py-4 rounded-xl" style={{ background: 'var(--surface)', border: '1px solid var(--line)' }}>
-                <dt className="text-2xl md:text-3xl font-black" style={{ color: 'var(--navy-deep)' }}>{s.k}</dt>
-                <dd className="mt-1.5 text-xs md:text-sm text-ink-soft leading-snug">{s.v}</dd>
+              <div key={s.v} className="text-center px-3 py-3.5 rounded-xl" style={{ background: 'var(--surface)', border: '1px solid var(--line)' }}>
+                <dt className="text-xl md:text-2xl font-black" style={{ color: 'var(--navy-deep)' }}>{s.k}</dt>
+                <dd className="mt-1 text-xs md:text-sm text-ink-soft leading-snug">{s.v}</dd>
               </div>
             ))}
           </dl>
         </div>
 
         {/* Photo — right side, no frame, feathered into gradient */}
-        <div className="lg:col-span-5 relative min-h-[460px] md:min-h-[600px]">
+        <div className="lg:col-span-5 relative">
           <div
             className="absolute inset-0 -z-10"
             style={{
@@ -112,7 +112,7 @@ export function Hero() {
             src={hero.url}
             alt="ნანა ლობჯანიძე — PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
             loading="eager"
-            className="relative z-10 mx-auto block h-[460px] md:h-[600px] w-auto max-w-full object-cover object-top rounded-2xl"
+            className="relative z-10 mx-auto block h-[380px] md:h-[480px] lg:h-[540px] w-auto max-w-full object-cover object-top rounded-2xl"
           />
         </div>
       </div>
