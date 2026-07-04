@@ -709,15 +709,34 @@ export function Trainings() {
   return (
     <section id="trainings" className="section-y bg-surface">
       <div className="container-x">
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           <span className="eyebrow">ტრენინგ პროგრამები</span>
           <h2 className="heading-lg mt-4 text-balance">
-            ოთხი კატეგორია — <span className="text-navy">სრული PM სასწავლო ბილიკი</span>
+            პროფესიული ტრენინგები - <span className="text-navy">პროექტების მართვა, ლიდერობა, Agile და გუნდის განვითარება</span>
           </h2>
           <p className="mt-4 text-ink-soft text-base md:text-lg">
-            ფორმატი: ონლაინ (Google Meet / MS Teams / Zoom) ან ფიზიკურად (თბილისი). ენა: ქართული.
-            ყველა კურსი ეფუძნება PMBOK® Guide 8th-ს, Scrum Guide 2020-ს და რეალურ ქართულ Case Study-ებს.
+            პრაქტიკული სასწავლო პროგრამები პროექტების მენეჯერებისთვის, ლიდერებისთვის, გუნდის ხელმძღვანელებისთვის, Agile პრაქტიკოსებისთვის და პროფესიული განვითარების მსურველებისთვის. კურსები აერთიანებს პროექტების მართვას, ლიდერობას, გუნდის მართვას, Agile მიდგომებსა და პროფესიული ზრდის ინსტრუმენტებს.
           </p>
+          <p className="mt-3 text-ink-soft text-base md:text-lg">
+            ფორმატი: ონლაინ (Google Meet / MS Teams / Zoom) ან ფიზიკურად (თბილისი). რეგიონებში ჩატარება შესაძლებელია წინასწარი შეთანხმებით. ენა: ქართული.
+          </p>
+          <div className="mt-6 rounded-2xl border p-5 md:p-6" style={{ borderColor: "var(--line)", background: "white" }}>
+            <h3 className="text-sm font-black tracking-[0.18em] uppercase" style={{ color: "var(--navy-deep)" }}>
+              სასწავლო მასალები და რესურსები
+            </h3>
+            <p className="mt-3 text-sm md:text-base text-ink-soft leading-relaxed">
+              სასწავლო პროგრამები ეფუძნება საერთაშორისო სტანდარტებს, ავტორიტეტულ პროფესიულ ლიტერატურას, პრაქტიკულ მაგალითებსა და ტრენერის მრავალწლიან გამოცდილებას. აქცენტი კეთდება პრაქტიკულ სწავლებაზე, რეალურ სამუშაო გარემოსთან კავშირსა და დაუყოვნებლივ გამოყენებად უნარებზე.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm md:text-base text-ink-soft leading-relaxed list-disc pl-5">
+              <li><strong>PMBOK® Guide - Eighth Edition</strong> — Project Management Institute (PMI)</li>
+              <li><strong>PMP® Exam Prep, 10th Edition</strong> — Rita Mulcahy</li>
+              <li><strong>PMI-ACP® Exam Prep, 2nd Edition</strong> — Mike Griffiths</li>
+              <li><strong>Agile Practice Guide</strong> — Project Management Institute (PMI)</li>
+              <li>ტრენერის მიერ მომზადებული სალექციო მასალები</li>
+              <li>რეკომენდებული პროფესიული რესურსები, სასარგებლო ბმულები და ელექტრონული სასწავლო მასალები</li>
+              <li>რეალურ პრაქტიკაზე დაფუძნებული ქართული და საერთაშორისო Case Study-ები, ბიზნეს-სცენარები, სიმულაციები, ჯგუფური სავარჯიშოები და პრაქტიკული დავალებები, რომლებიც მონაწილეებს ეხმარება მიღებული ცოდნის რეალურ სამუშაო გარემოში გამოყენებაში</li>
+            </ul>
+          </div>
         </div>
 
         <div className="mt-14 space-y-6">
