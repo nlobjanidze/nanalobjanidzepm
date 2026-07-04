@@ -33,16 +33,16 @@ export function SiteNav() {
           : "bg-white/0"
       }`}
     >
-      <div className="container-x flex h-16 md:h-20 items-center justify-between">
+      <div className="container-x flex h-20 md:h-24 items-center justify-between">
         <a href="#top" className="flex items-center" aria-label="ნანა ლობჯანიძე">
-          <img src={logo.url} alt="ნანა ლობჯანიძე" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
+          <img src={logo.url} alt="ნანა ლობჯანიძე" className="h-11 w-11 md:h-14 md:w-14 object-contain" />
         </a>
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-10 xl:gap-12">
           {NAV.map((n) => (
             <a
               key={n.href}
               href={n.href}
-              className="text-sm font-semibold text-ink-soft hover:text-ink transition-colors"
+              className="text-[13px] font-semibold tracking-wide text-ink-soft hover:text-ink transition-colors"
             >
               {n.label}
             </a>
