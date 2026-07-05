@@ -20,51 +20,72 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-28 md:pt-36 lg:pt-44 pb-20 md:pb-28 lg:pb-32"
+      className="relative overflow-hidden pt-28 md:pt-36 lg:pt-40 pb-20 md:pb-24 lg:pb-28"
+      style={{
+        background:
+          "radial-gradient(120% 90% at 100% 50%, rgba(23,227,178,0.10), transparent 55%), radial-gradient(90% 80% at 0% 0%, rgba(46,123,191,0.18), transparent 60%), linear-gradient(135deg, #0A2748 0%, #0E3D6B 55%, #103F70 100%)",
+      }}
     >
-      {/* Brand gradient background */}
-      <div
-        className="absolute inset-0 -z-20"
-        style={{ background: "var(--gradient-hero)" }}
-        aria-hidden
-      />
-
-      {/* Abstract geometric shapes — brand palette, low opacity */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
-        {/* Large mint circle top-left */}
+      {/* Unified decorative canvas — spans full hero */}
+      <div className="absolute inset-0 -z-0 overflow-hidden pointer-events-none" aria-hidden>
+        {/* Large mint arc, top-left */}
         <div
-          className="absolute -top-40 -left-32 h-[520px] w-[520px] rounded-full opacity-[0.18]"
-          style={{ background: "radial-gradient(circle at center, var(--mint), transparent 70%)" }}
+          className="absolute -top-[22%] -left-[14%] h-[720px] w-[720px] rounded-full opacity-90"
+          style={{
+            background:
+              "radial-gradient(circle at 55% 45%, rgba(23,227,178,0.55), rgba(23,227,178,0.18) 45%, transparent 70%)",
+            filter: "blur(2px)",
+          }}
         />
-        {/* Navy soft blob bottom-right */}
+        {/* Solid mint blob near portrait — creates continuity */}
         <div
-          className="absolute -bottom-52 -right-40 h-[640px] w-[640px] rounded-full opacity-[0.14]"
-          style={{ background: "radial-gradient(circle at center, var(--navy-deep), transparent 70%)" }}
+          className="absolute -top-[10%] right-[-8%] h-[560px] w-[560px] rounded-full"
+          style={{
+            background: "linear-gradient(140deg, #17E3B2 0%, #14C79C 60%, #0E3D6B 120%)",
+            opacity: 0.9,
+          }}
         />
-        {/* Outlined ring behind portrait area */}
+        {/* Azure circle overlap — layered depth */}
         <div
-          className="hidden md:block absolute top-24 right-[8%] h-[380px] w-[380px] rounded-full opacity-[0.10]"
-          style={{ border: "1.5px solid var(--navy-deep)" }}
+          className="absolute top-[18%] right-[-18%] h-[680px] w-[680px] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle at 40% 50%, rgba(46,123,191,0.85), rgba(20,93,160,0.35) 55%, transparent 78%)",
+          }}
         />
+        {/* Small mint bottom-left accent */}
         <div
-          className="hidden md:block absolute top-56 right-[22%] h-[220px] w-[220px] rounded-full opacity-[0.08]"
-          style={{ border: "1.5px solid var(--mint)" }}
+          className="absolute bottom-[-10%] left-[-6%] h-[320px] w-[320px] rounded-full opacity-60"
+          style={{
+            background:
+              "radial-gradient(circle at center, rgba(23,227,178,0.45), transparent 70%)",
+          }}
         />
-        {/* Subtle grid overlay */}
+        {/* Fine grid overlay for texture */}
         <div
-          className="absolute inset-0 opacity-[0.16]"
+          className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage:
-              "linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-            maskImage: "radial-gradient(65% 55% at 50% 35%, black, transparent 82%)",
+              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+            maskImage: "radial-gradient(70% 60% at 50% 40%, black, transparent 85%)",
           }}
         />
       </div>
 
-      <div className="container-x grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <div className="lg:col-span-7 relative z-10">
-          <span className="eyebrow">ნანა ლობჯანიძე · PMP® Certified Project Management Consultant</span>
+      <div className="container-x relative z-10 grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        {/* LEFT — text */}
+        <div className="lg:col-span-7">
+          <span
+            className="inline-flex items-center gap-2 text-[0.72rem] font-extrabold tracking-[0.22em] uppercase"
+            style={{ color: "#7BE9C8" }}
+          >
+            <span
+              className="inline-block h-[2px] w-7 rounded"
+              style={{ background: "var(--mint)" }}
+            />
+            ნანა ლობჯანიძე · PMP® Certified Project Management Consultant
+          </span>
 
           <h1
             className="mt-6 text-balance"
@@ -74,13 +95,16 @@ export function Hero() {
               lineHeight: 1.04,
               fontWeight: 800,
               letterSpacing: "-0.025em",
-              color: "var(--ink)",
+              color: "#FFFFFF",
             }}
           >
             ქაოსური პროექტებიდან — მკაფიო, დაგეგმილ და მართვად პროცესებამდე
           </h1>
 
-          <p className="mt-6 text-base md:text-lg text-ink-soft leading-relaxed max-w-xl">
+          <p
+            className="mt-6 text-base md:text-lg leading-relaxed max-w-xl"
+            style={{ color: "rgba(230, 242, 252, 0.82)" }}
+          >
             ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში, დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული მიდგომებით.
           </p>
 
@@ -89,9 +113,14 @@ export function Hero() {
               <li key={item} className="flex items-start gap-3">
                 <span
                   className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full"
-                  style={{ background: "var(--mint)" }}
+                  style={{ background: "var(--mint)", boxShadow: "0 0 0 4px rgba(23,227,178,0.15)" }}
                 />
-                <span className="text-sm md:text-base text-ink-soft leading-relaxed">{item}</span>
+                <span
+                  className="text-sm md:text-base leading-relaxed"
+                  style={{ color: "rgba(220, 236, 250, 0.85)" }}
+                >
+                  {item}
+                </span>
               </li>
             ))}
           </ul>
@@ -106,76 +135,78 @@ export function Hero() {
             </a>
             <a
               href="#services"
-              className="inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur px-7 py-4 font-semibold text-ink hover:border-navy/40 transition-colors"
+              className="inline-flex items-center rounded-full border px-7 py-4 font-semibold transition-colors"
+              style={{
+                borderColor: "rgba(255,255,255,0.25)",
+                color: "#FFFFFF",
+                background: "rgba(255,255,255,0.06)",
+                backdropFilter: "blur(6px)",
+              }}
             >
               გაიგე მეტი →
             </a>
           </div>
 
-          <p className="mt-4 text-xs text-ink-soft/80 tracking-wide">
+          <p
+            className="mt-4 text-xs tracking-wide"
+            style={{ color: "rgba(220, 236, 250, 0.6)" }}
+          >
             PMP® Certified · Project Management Practitioner · PMI Leadership Experience
           </p>
         </div>
 
-        {/* Portrait — integrated with decorative background */}
-        <div className="lg:col-span-5 relative">
-          <div className="relative mx-auto max-w-md lg:max-w-none">
-            {/* Mint halo behind */}
+        {/* RIGHT — integrated portrait, no card */}
+        <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
+          <div className="relative">
+            {/* Soft glow behind portrait */}
             <div
-              className="absolute -inset-6 -z-10 rounded-[2rem] opacity-90"
+              className="absolute inset-0 -z-10 rounded-full"
               style={{
                 background:
-                  "radial-gradient(60% 55% at 50% 45%, rgba(23, 227, 178, 0.28), transparent 75%)",
+                  "radial-gradient(55% 55% at 50% 45%, rgba(23,227,178,0.35), transparent 70%)",
+                transform: "scale(1.15)",
+                filter: "blur(20px)",
               }}
-              aria-hidden
-            />
-            {/* Navy accent */}
-            <div
-              className="absolute -inset-2 -z-10"
-              style={{
-                background:
-                  "radial-gradient(45% 40% at 80% 15%, rgba(20, 93, 160, 0.22), transparent 70%)",
-              }}
-              aria-hidden
-            />
-            {/* Offset mint block */}
-            <div
-              className="absolute -bottom-6 -left-6 h-32 w-32 rounded-2xl -z-10 opacity-70 hidden md:block"
-              style={{ background: "var(--mint)", filter: "blur(2px)" }}
               aria-hidden
             />
             <img
               src={hero.url}
               alt="ნანა ლობჯანიძე — PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
               loading="eager"
-              className="relative z-10 block h-[460px] md:h-[560px] lg:h-[640px] w-full object-cover object-top rounded-[2rem]"
-              style={{ boxShadow: "0 30px 80px -30px rgba(15, 23, 42, 0.25)" }}
+              className="relative block h-[440px] md:h-[560px] lg:h-[640px] w-auto object-contain object-bottom"
+              style={{
+                filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.35))",
+              }}
             />
           </div>
         </div>
       </div>
 
-      {/* Statistics cards — premium row */}
-      <div className="container-x mt-16 md:mt-24 relative z-10">
+      {/* Statistics — glass row on dark canvas */}
+      <div className="container-x mt-16 md:mt-20 relative z-10">
         <dl className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
           {STATS.map((s) => (
             <div
               key={s.v}
               className="text-center px-5 py-6 rounded-2xl transition-all hover:-translate-y-0.5"
               style={{
-                background: "rgba(255,255,255,0.7)",
-                border: "1px solid var(--line)",
-                backdropFilter: "blur(8px)",
-                boxShadow: "0 1px 0 rgba(15,23,42,0.02)",
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                backdropFilter: "blur(10px)",
               }}
             >
               <dt
                 className="text-2xl md:text-3xl font-black"
-                style={{ color: "var(--navy-deep)", letterSpacing: "-0.02em" }}
+                style={{ color: "var(--mint)", letterSpacing: "-0.02em" }}
               >
                 {s.k}
               </dt>
-              <dd className="mt-2 text-xs md:text-sm text-ink-soft leading-snug">{s.v}</dd>
+              <dd
+                className="mt-2 text-xs md:text-sm leading-snug"
+                style={{ color: "rgba(220, 236, 250, 0.8)" }}
+              >
+                {s.v}
+              </dd>
             </div>
           ))}
         </dl>
