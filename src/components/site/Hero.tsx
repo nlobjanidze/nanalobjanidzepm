@@ -73,9 +73,9 @@ export function Hero() {
         />
       </div>
 
-      <div className="container-x relative z-10 grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      <div className="container-x relative z-10 grid lg:grid-cols-[55fr_45fr] gap-6 lg:gap-10 items-center">
         {/* LEFT — text */}
-        <div className="lg:col-span-7">
+        <div className="lg:pr-4">
           <span
             className="inline-flex items-center gap-2 text-[0.72rem] font-extrabold tracking-[0.22em] uppercase"
             style={{ color: "#7BE9C8" }}
@@ -88,11 +88,11 @@ export function Hero() {
           </span>
 
           <h1
-            className="mt-6 text-balance"
+            className="mt-5 text-balance"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(2.75rem, 5.6vw, 4.75rem)",
-              lineHeight: 1.04,
+              fontSize: "clamp(2.25rem, 4.5vw, 3.85rem)",
+              lineHeight: 1.08,
               fontWeight: 800,
               letterSpacing: "-0.025em",
               color: "#FFFFFF",
@@ -102,13 +102,13 @@ export function Hero() {
           </h1>
 
           <p
-            className="mt-6 text-base md:text-lg leading-relaxed max-w-xl"
+            className="mt-4 text-base md:text-[17px] leading-relaxed max-w-xl"
             style={{ color: "rgba(230, 242, 252, 0.82)" }}
           >
             ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში, დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული მიდგომებით.
           </p>
 
-          <ul className="mt-7 grid sm:grid-cols-2 gap-3 max-w-2xl">
+          <ul className="mt-5 grid sm:grid-cols-2 gap-2.5 max-w-2xl">
             {VALUE_BULLETS.map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <span
@@ -116,7 +116,7 @@ export function Hero() {
                   style={{ background: "var(--mint)", boxShadow: "0 0 0 4px rgba(23,227,178,0.15)" }}
                 />
                 <span
-                  className="text-sm md:text-base leading-relaxed"
+                  className="text-sm md:text-[15px] leading-relaxed"
                   style={{ color: "rgba(220, 236, 250, 0.85)" }}
                 >
                   {item}
@@ -125,7 +125,7 @@ export function Hero() {
             ))}
           </ul>
 
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="#contact"
               className="inline-flex items-center rounded-full px-8 py-4 font-bold transition-all hover:-translate-y-0.5"
@@ -148,7 +148,7 @@ export function Hero() {
           </div>
 
           <p
-            className="mt-4 text-xs tracking-wide"
+            className="mt-3 text-xs tracking-wide"
             style={{ color: "rgba(220, 236, 250, 0.6)" }}
           >
             PMP® Certified · Project Management Practitioner · PMI Leadership Experience
@@ -156,34 +156,41 @@ export function Hero() {
         </div>
 
         {/* RIGHT — integrated portrait, no card */}
-        <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
+        <div className="relative flex justify-center">
           <div className="relative">
             {/* Soft glow behind portrait */}
             <div
               className="absolute inset-0 -z-10 rounded-full"
               style={{
                 background:
-                  "radial-gradient(55% 55% at 50% 45%, rgba(23,227,178,0.35), transparent 70%)",
-                transform: "scale(1.15)",
-                filter: "blur(20px)",
+                  "radial-gradient(55% 55% at 50% 45%, rgba(23,227,178,0.25), transparent 70%)",
+                transform: "scale(1.12)",
+                filter: "blur(18px)",
               }}
               aria-hidden
             />
-            <img
-              src={hero.url}
-              alt="ნანა ლობჯანიძე — PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
-              loading="eager"
-              className="relative block h-[440px] md:h-[560px] lg:h-[640px] w-auto object-contain object-bottom"
+            <div
               style={{
-                filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.35))",
+                maskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",
               }}
-            />
+            >
+              <img
+                src={hero.url}
+                alt="ნანა ლობჯანიძე — PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
+                loading="eager"
+                className="relative block h-[380px] md:h-[480px] lg:h-[540px] w-auto object-contain object-bottom"
+                style={{
+                  filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.25))",
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
 
       {/* Statistics — glass row on dark canvas */}
-      <div className="container-x mt-16 md:mt-20 relative z-10">
+      <div className="container-x mt-10 md:mt-14 relative z-10">
         <dl className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
           {STATS.map((s) => (
             <div
