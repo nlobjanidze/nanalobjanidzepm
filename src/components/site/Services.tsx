@@ -534,13 +534,17 @@ function CategoryCard({ c }: { c: Category }) {
                         className="block mt-1 text-[12px] font-extrabold"
                         style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}
                       >
-                        <a
-                          href="#contact"
-                          onClick={(e) => e.stopPropagation()}
-                          className="underline underline-offset-4"
+                        <span
+                          role="link"
+                          tabIndex={0}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                          }}
+                          className="underline underline-offset-4 cursor-pointer"
                         >
                           დამიკავშირდით
-                        </a>
+                        </span>
                       </span>
                     </span>
                   </span>
