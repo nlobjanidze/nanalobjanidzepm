@@ -863,9 +863,16 @@ function TrainingItem({
         >
           {t.code}
         </span>
-        <span className="text-xs font-black tabular-nums" style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}>
-          {t.price}
-        </span>
+        <a
+          href="#contact"
+          className="text-[11px] font-black uppercase tracking-widest rounded-full px-3 py-1.5 border transition"
+          style={{
+            color: dark ? "var(--mint-bright)" : "var(--navy)",
+            borderColor: dark ? "rgba(255,255,255,0.25)" : "var(--line)",
+          }}
+        >
+          დამიკავშირდით
+        </a>
       </div>
       <h4
         className="mt-3 text-base md:text-lg font-extrabold leading-tight"

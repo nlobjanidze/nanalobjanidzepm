@@ -531,10 +531,16 @@ function CategoryCard({ c }: { c: Category }) {
                         {sub.title}
                       </span>
                       <span
-                        className="block mt-1 text-[12px] font-extrabold tabular-nums"
+                        className="block mt-1 text-[12px] font-extrabold"
                         style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}
                       >
-                        {sub.price}
+                        <a
+                          href="#contact"
+                          onClick={(e) => e.stopPropagation()}
+                          className="underline underline-offset-4"
+                        >
+                          დამიკავშირდით
+                        </a>
                       </span>
                     </span>
                   </span>
