@@ -531,10 +531,20 @@ function CategoryCard({ c }: { c: Category }) {
                         {sub.title}
                       </span>
                       <span
-                        className="block mt-1 text-[12px] font-extrabold tabular-nums"
+                        className="block mt-1 text-[12px] font-extrabold"
                         style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}
                       >
-                        {sub.price}
+                        <span
+                          role="link"
+                          tabIndex={0}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                          }}
+                          className="underline underline-offset-4 cursor-pointer"
+                        >
+                          დამიკავშირდით
+                        </span>
                       </span>
                     </span>
                   </span>
