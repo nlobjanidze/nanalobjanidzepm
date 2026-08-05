@@ -1,6 +1,7 @@
 import pmdaySpeaking from "@/assets/pmday-speaking.asset.json";
 import pmdayKeynote from "@/assets/pmday-keynote.asset.json";
 import ipmDay from "@/assets/ipm-day-2025.asset.json";
+import agm2025 from "@/assets/agm-2025.asset.json";
 import sageTalk from "@/assets/sage-talk.asset.json";
 
 const INTERNATIONAL = [
