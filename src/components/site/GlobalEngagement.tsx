@@ -1,6 +1,7 @@
 import pmdaySpeaking from "@/assets/pmday-speaking.asset.json";
 import pmdayKeynote from "@/assets/pmday-keynote.asset.json";
 import ipmDay from "@/assets/ipm-day-2025.asset.json";
+import agm2025 from "@/assets/agm-2025.asset.json";
 import sageTalk from "@/assets/sage-talk.asset.json";
 
 const INTERNATIONAL = [
@@ -72,15 +73,15 @@ const SPEAKING = [
 const EVENTS = [
   {
     date: "6 ნოემბერი 2025",
-    title: "IPM Day 2025 — პროექტ-მენეჯერი & მოდერატორი",
-    desc: "260+ სტუმარი. საქართველოს პროექტის მართვის ისტორიის ყველაზე მასშტაბური ღონისძიება.",
+    title: "IPM Day 2025 - პროექტ-მენეჯერი & მოდერატორი",
+    desc: "პროექტის მართვის საერთაშორისო დღე - PMI თბილისის ყოველწლიური ფლაგმანი ღონისძიება, რომელიც 2025 წელს თემით „Project Horizon“ გაიმართა Holiday Inn Tbilisi-ში და 260+ პროფესიონალი, სტუდენტი და ინდუსტრიის ლიდერი შეკრიბა. როგორც პროექტის მენეჯერმა, ვუძღვებოდი ღონისძიების დაგეგმვას, ბიუჯეტისა და გრაფიკის კონტროლს, პარტნიორებთან და დაინტერესებულ მხარეებთან კოორდინაციას, სპიკერების შერჩევასა და მომზადებას, Exhibit Hall-ის (20-25 სტენდი), ნეთვორქინგისა და გათამაშებების ორგანიზებას. მოდერატორის როლში ვმართავდი დღის წესრიგს და აუდიტორიის ჩართულობას. მთავარი სპიკერები: Mohammed Gad (TDS-ის გენერალური დირექტორი) - „PM Beyond Borders: Leading Global Projects in a Diverse, Disruptive World“ და Ilia Revia, PMP® - „Future Fast Forward: Aligning Project Management with Organizational Strategy for Rapid Growth“. ღონისძიება ეროვნულ ტელევიზიაშიც გაშუქდა.",
     image: ipmDay.url,
   },
   {
-    date: "15 დეკემბერი 2025",
-    title: "Annual General Assembly 2025 — მოდერატორი",
-    desc: "PMI Tbilisi წლიური შეჯამება. სპიკერები: Pablo Lledó (PMI Board), Anri Jikia (Flutter CEE CIO).",
-    image: null,
+    date: "2025",
+    title: "Annual General Assembly 2025 - მოდერატორი",
+    desc: "PMI Tbilisi, Georgia Chapter-ის წლიური საერთო შეკრება - წარმომადგენლობის მმართველობის მთავარი შემაჯამებელი ღონისძიება, რომელმაც 100+ წევრი და პროფესიონალი გააერთიანა. შეხვედრაზე განიხილეს წლიური შედეგები, სტრატეგიული მიმართულებები და საორგანიზაციო გადაწყვეტილებები. მოდერატორის როლში ვუზრუნველყოფდი ღონისძიების სრულ კოორდინაციას, დღის წესრიგის წარმართვას, სესიებსა და დისკუსიებს შორის დროის მართვას და 100+ მონაწილის აქტიურ ჩართულობას. მოწვეული სპიკერები: Pablo Lledó - PMI Global-ის Board of Directors-ის წევრი, თემით „პროექტის წარმატება: ღირებულების შექმნა, გავლენის მიღწევა“, და გია კაპანაძე - Flutter-ის CIO და PMI საქართველოს წარმომადგენლობის პრეზიდენტი (2026 წლიდან), თემით „Beyond Delivery - მიწოდების მიღმა“.",
+    image: agm2025.url,
   },
 ];
 
