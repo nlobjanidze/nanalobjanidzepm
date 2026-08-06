@@ -131,11 +131,12 @@ export function ContactForm() {
                 <p className="mt-2 text-sm text-ink-soft">30 წუთი · გაირკვევა შენი მიზნები და მომდევნო ნაბიჯები</p>
 
                 <div className="mt-6 grid sm:grid-cols-2 gap-4">
-                  <Field label="სახელი და გვარი" name="name" required />
-                  <Field label="ელფოსტა" name="email" type="email" required />
-                  <Field label="ტელეფონი" name="phone" />
+                  <Field label="სახელი და გვარი" name="name" required error={errors.name} />
+                  <Field label="ელფოსტა" name="email" type="email" required error={errors.email} />
+                  <Field label="ტელეფონი" name="phone" error={errors.phone} />
                   <Field label="ორგანიზაცია (არასავალდებულო)" name="org" />
                 </div>
+
 
                 <div className="mt-5">
                   <p className="text-[11px] font-black uppercase tracking-widest mb-3" style={{ color: "var(--navy-soft)" }}>დაინტერესება</p>
