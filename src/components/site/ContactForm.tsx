@@ -1,5 +1,5 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
+import { supabase } from "@/integrations/supabase/client";
 import { Linkedin, Facebook, Instagram, Youtube, Globe } from "lucide-react";
 
 const INTERESTS = [
@@ -14,13 +14,6 @@ const INTERESTS = [
 
 const TO_EMAIL = "nanalobjanidze.pm@gmail.com";
 
-/**
- * EmailJS კონფიგურაცია — ჩაანაცვლე შენი მონაცემებით (emailjs.com → Account / Email Services / Email Templates)
- */
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
-
 const SOCIALS = [
   { name: "LinkedIn", href: "https://www.linkedin.com/in/nana-lobjanidze/", Icon: Linkedin },
   { name: "Facebook", href: "https://www.facebook.com/nanuka.lobjanidze.7/", Icon: Facebook },
@@ -29,50 +22,58 @@ const SOCIALS = [
   { name: "PMI", href: "https://pmi.ge/", Icon: Globe },
 ];
 
+type FieldErrors = Partial<Record<"name" | "email" | "phone" | "message", string>>;
+
 export function ContactForm() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [errors, setErrors] = useState<FieldErrors>({});
   const [interest, setInterest] = useState(INTERESTS[0]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const name = String(fd.get("name") ?? "").trim();
     const email = String(fd.get("email") ?? "").trim();
     const phone = String(fd.get("phone") ?? "").trim();
     const org = String(fd.get("org") ?? "").trim();
     const message = String(fd.get("message") ?? "").trim();
 
-    if (!name || !email) {
-      setError("გთხოვ შეავსო სახელი და ელფოსტა.");
-      return;
-    }
+    const nextErrors: FieldErrors = {};
+    if (!name) nextErrors.name = "გთხოვთ მიუთითოთ სახელი და გვარი.";
+    else if (name.length > 100) nextErrors.name = "სახელი ძალიან გრძელია.";
+    if (!email) nextErrors.email = "გთხოვთ მიუთითოთ ელფოსტა.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) nextErrors.email = "ელფოსტის ფორმატი არასწორია.";
+    if (phone && phone.length > 50) nextErrors.phone = "ტელეფონის ნომერი ძალიან გრძელია.";
+    if (message.length > 1000) nextErrors.message = "ტექსტი არ უნდა აღემატებოდეს 1000 სიმბოლოს.";
+
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length > 0) return;
 
     setSending(true);
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          to_email: TO_EMAIL,
-          name,
-          email,
-          subject: interest,
-          phone,
-          organization: org,
-          message,
-        },
-        { publicKey: EMAILJS_PUBLIC_KEY },
-      );
+      const { error: dbError } = await supabase.from("contact_messages").insert({
+        name,
+        email,
+        phone: phone || null,
+        organization: org || null,
+        interest,
+        message: message || null,
+      });
+      if (dbError) throw dbError;
+      form.reset();
+      setInterest(INTERESTS[0]);
       setSent(true);
     } catch {
-      setError("გაგზავნა ვერ მოხერხდა. სცადე ხელახლა ან მომწერე პირდაპირ ელფოსტაზე.");
+      setError("გაგზავნა ვერ მოხერხდა. სცადეთ ხელახლა ან მომწერეთ პირდაპირ ელფოსტაზე.");
     } finally {
       setSending(false);
     }
   };
+
 
   return (
     <section id="contact" className="section-y bg-white">
@@ -110,7 +111,7 @@ export function ContactForm() {
             </div>
           </div>
 
-          <form className="lg:col-span-7 surface-card p-7 md:p-9" onSubmit={handleSubmit}>
+          <form className="lg:col-span-7 surface-card p-7 md:p-9" onSubmit={handleSubmit} noValidate>
             {sent ? (
               <div className="text-center py-12">
                 <div
@@ -130,11 +131,12 @@ export function ContactForm() {
                 <p className="mt-2 text-sm text-ink-soft">30 წუთი · გაირკვევა შენი მიზნები და მომდევნო ნაბიჯები</p>
 
                 <div className="mt-6 grid sm:grid-cols-2 gap-4">
-                  <Field label="სახელი და გვარი" name="name" required />
-                  <Field label="ელფოსტა" name="email" type="email" required />
-                  <Field label="ტელეფონი" name="phone" />
+                  <Field label="სახელი და გვარი" name="name" required error={errors.name} />
+                  <Field label="ელფოსტა" name="email" type="email" required error={errors.email} />
+                  <Field label="ტელეფონი" name="phone" error={errors.phone} />
                   <Field label="ორგანიზაცია (არასავალდებულო)" name="org" />
                 </div>
+
 
                 <div className="mt-5">
                   <p className="text-[11px] font-black uppercase tracking-widest mb-3" style={{ color: "var(--navy-soft)" }}>დაინტერესება</p>
@@ -165,11 +167,16 @@ export function ContactForm() {
                     name="message"
                     rows={4}
                     maxLength={1000}
-                    className="w-full rounded-xl bg-white border border-line px-4 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 transition"
-                    style={{ borderColor: "var(--line)" }}
+                    aria-invalid={!!errors.message}
+                    className="w-full rounded-xl bg-white border px-4 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 transition"
+                    style={{ borderColor: errors.message ? "#c0392b" : "var(--line)" }}
                     placeholder="რა გამოწვევაა შენი გუნდის წინაშე?"
                   />
+                  {errors.message && (
+                    <p className="mt-1.5 text-xs font-semibold" style={{ color: "#c0392b" }}>{errors.message}</p>
+                  )}
                 </div>
+
 
                 {error && <p className="mt-4 text-sm font-semibold" style={{ color: "#c0392b" }}>{error}</p>}
 
@@ -211,7 +218,13 @@ export function ContactForm() {
   );
 }
 
-function Field({ label, name, type = "text", required }: { label: string; name: string; type?: string; required?: boolean }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+  error,
+}: { label: string; name: string; type?: string; required?: boolean; error?: string }) {
   return (
     <div>
       <label htmlFor={name} className="block text-[11px] font-black uppercase tracking-widest mb-2" style={{ color: "var(--navy-soft)" }}>
@@ -222,10 +235,19 @@ function Field({ label, name, type = "text", required }: { label: string; name: 
         id={name}
         name={name}
         type={type}
-        required={required}
+        aria-required={required}
+        aria-invalid={!!error}
+        aria-describedby={error ? `${name}-error` : undefined}
         maxLength={255}
-        className="w-full rounded-xl bg-white border border-line px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 transition"
+        className="w-full rounded-xl bg-white border px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 transition"
+        style={{ borderColor: error ? "#c0392b" : "var(--line)" }}
       />
+      {error && (
+        <p id={`${name}-error`} className="mt-1.5 text-xs font-semibold" style={{ color: "#c0392b" }}>
+          {error}
+        </p>
+      )}
     </div>
   );
+
 }
