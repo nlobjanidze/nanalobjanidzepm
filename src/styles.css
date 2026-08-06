@@ -123,20 +123,26 @@
 @utility container-x {
   width: 100%;
   margin-inline: auto;
-  max-width: 1200px;
+  max-width: 1440px;
   padding-inline: 1.25rem;
 }
 @media (min-width: 768px) {
   .container-x { padding-inline: 2rem; }
 }
+@media (min-width: 1280px) {
+  .container-x { padding-inline: 3rem; }
+}
 
 @utility text-balance { text-wrap: balance; }
 
 @utility section-y {
-  padding-block: 5rem;
+  padding-block: 3.5rem;
 }
 @media (min-width: 768px) {
-  .section-y { padding-block: 7rem; }
+  .section-y { padding-block: 4.5rem; }
+}
+@media (min-width: 1280px) {
+  .section-y { padding-block: 5.5rem; }
 }
 
 @utility eyebrow {

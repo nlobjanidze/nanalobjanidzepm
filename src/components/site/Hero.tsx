@@ -73,9 +73,10 @@ export function Hero() {
         />
       </div>
 
-      <div className="container-x relative z-10 grid lg:grid-cols-[55fr_45fr] gap-6 lg:gap-8 items-center">
+      <div className="container-x relative z-10 grid lg:grid-cols-[55fr_45fr] gap-6 lg:gap-12 items-center">
         {/* LEFT — text */}
-        <div className="lg:pr-2">
+        <div className="lg:pr-4">
+
           <span
             className="inline-flex items-center gap-2 text-[0.72rem] font-extrabold tracking-[0.22em] uppercase"
             style={{ color: "#7BE9C8" }}
@@ -156,8 +157,9 @@ export function Hero() {
         </div>
 
         {/* RIGHT — integrated portrait, no card, no mask */}
-        <div className="relative flex justify-center lg:justify-end">
-          <div className="relative">
+        <div className="relative flex justify-center lg:justify-end lg:self-start">
+          <div className="relative lg:-mt-10 xl:-mt-14">
+
             {/* Soft glow behind portrait */}
             <div
               className="absolute inset-0 -z-10 rounded-full"
