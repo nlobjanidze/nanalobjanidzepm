@@ -157,8 +157,9 @@ export function Hero() {
         </div>
 
         {/* RIGHT — integrated portrait, no card, no mask */}
-        <div className="relative flex justify-center lg:justify-end">
-          <div className="relative">
+        <div className="relative flex justify-center lg:justify-end lg:self-start">
+          <div className="relative lg:-mt-10 xl:-mt-14">
+
             {/* Soft glow behind portrait */}
             <div
               className="absolute inset-0 -z-10 rounded-full"
