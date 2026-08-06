@@ -171,25 +171,50 @@ export function GlobalEngagement() {
         </div>
 
         {/* Events */}
-        <div className="mt-14">
+        <div className="mt-12">
           <h3 className="text-xl md:text-2xl font-black text-navy-deep">ივენთ-მენეჯმენტი</h3>
-          <div className="mt-5 grid md:grid-cols-2 gap-5">
+          <div className="mt-5 grid md:grid-cols-2 gap-5 items-stretch">
             {EVENTS.map((e) => (
-              <article key={e.title} className="surface-card overflow-hidden hover:-translate-y-0.5 flex flex-col">
+              <article key={e.title} className="surface-card overflow-hidden hover:-translate-y-0.5 flex flex-col h-full">
                 {e.image && (
                   <div className="aspect-[16/9] overflow-hidden bg-line">
                     <img src={e.image} alt={e.title} className="w-full h-full object-cover" />
                   </div>
                 )}
-                <div className="p-6">
-                  <span className="text-xs font-black tabular-nums" style={{ color: "var(--navy)" }}>{e.date}</span>
-                  <h4 className="mt-2 font-extrabold text-ink leading-tight">{e.title}</h4>
-                  <p className="mt-2 text-sm text-ink-soft leading-relaxed">{e.desc}</p>
+                <div className="p-6 flex flex-col gap-4">
+                  <div>
+                    <span className="text-xs font-black tabular-nums" style={{ color: "var(--navy)" }}>{e.date}</span>
+                    <h4 className="mt-2 font-extrabold text-ink leading-tight">{e.title}</h4>
+                    <p className="mt-2 text-sm text-ink-soft leading-relaxed">{e.intro}</p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">პასუხისმგებლობები</p>
+                    <ul className="mt-2 space-y-1.5">
+                      {e.roles.map((r) => (
+                        <li key={r} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: "var(--mint)" }} />
+                          <span>{r}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">მიღწევები & სპიკერები</p>
+                    <ul className="mt-2 space-y-1.5">
+                      {e.highlights.map((h) => (
+                        <li key={h} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: "var(--navy)" }} />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </article>
             ))}
           </div>
         </div>
+
 
         {/* Media */}
         <div className="mt-14">
