@@ -37,12 +37,12 @@ export function SiteNav() {
         <a href="#top" className="flex items-center" aria-label="ნანა ლობჯანიძე">
           <img src={logo.url} alt="ნანა ლობჯანიძე" className="h-11 w-11 md:h-14 md:w-14 object-contain" />
         </a>
-        <nav className="hidden lg:flex items-center gap-10 xl:gap-12">
+        <nav className="hidden lg:flex min-w-0 flex-1 justify-center items-center gap-5 xl:gap-8">
           {NAV.map((n) => (
             <a
               key={n.href}
               href={n.href}
-              className="text-[13px] font-semibold tracking-wide text-ink-soft hover:text-ink transition-colors"
+              className="whitespace-nowrap text-[13px] font-semibold tracking-wide text-ink-soft hover:text-ink transition-colors"
             >
               {n.label}
             </a>
@@ -50,11 +50,12 @@ export function SiteNav() {
         </nav>
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center rounded-full px-5 py-2.5 text-sm font-bold transition"
+          className="hidden md:inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-bold transition"
           style={{ background: "var(--mint)", color: "var(--navy-deep)" }}
         >
           დაჯავშნე კონსულტაცია
         </a>
+
         <button
           aria-label="Menu"
           className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-md border border-line text-ink"
