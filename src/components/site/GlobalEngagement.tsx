@@ -130,7 +130,7 @@ export function GlobalEngagement() {
           <h3 className="text-xl md:text-2xl font-black text-navy-deep">საერთაშორისო მონაწილეობა & ლიდერობა</h3>
           <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {INTERNATIONAL.map((i) => (
-              <article key={i.title} className="surface-card p-6 hover:-translate-y-0.5">
+              <article key={i.title} className="surface-card p-6 hover:-translate-y-0.5 h-full">
                 <div className="flex items-center justify-between">
                   <span
                     className="text-[10px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full"
@@ -148,11 +148,11 @@ export function GlobalEngagement() {
         </div>
 
         {/* Speaking */}
-        <div className="mt-14">
+        <div className="mt-12">
           <h3 className="text-xl md:text-2xl font-black text-navy-deep">სპიკერობა & საუნივერსიტეტო ლექციები</h3>
           <div className="mt-5 grid md:grid-cols-2 gap-5">
             {SPEAKING.map((s) => (
-              <article key={s.title} className="surface-card overflow-hidden hover:-translate-y-0.5 flex flex-col">
+              <article key={s.title} className="surface-card overflow-hidden hover:-translate-y-0.5 flex flex-col h-full">
                 {s.image && (
                   <div className="aspect-[16/10] overflow-hidden bg-line">
                     <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]" />
@@ -217,7 +217,7 @@ export function GlobalEngagement() {
 
 
         {/* Media */}
-        <div className="mt-14">
+        <div className="mt-12">
           <h3 className="text-xl md:text-2xl font-black text-navy-deep">მედია & საჯარო გამოჩენა</h3>
           <a
             href="https://www.youtube.com/watch?v=7WEBNNZAWdE"
