@@ -111,7 +111,7 @@ export function ContactForm() {
             </div>
           </div>
 
-          <form className="lg:col-span-7 surface-card p-7 md:p-9" onSubmit={handleSubmit}>
+          <form className="lg:col-span-7 surface-card p-7 md:p-9" onSubmit={handleSubmit} noValidate>
             {sent ? (
               <div className="text-center py-12">
                 <div
