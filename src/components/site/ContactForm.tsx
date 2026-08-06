@@ -213,7 +213,13 @@ export function ContactForm() {
   );
 }
 
-function Field({ label, name, type = "text", required }: { label: string; name: string; type?: string; required?: boolean }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+  error,
+}: { label: string; name: string; type?: string; required?: boolean; error?: string }) {
   return (
     <div>
       <label htmlFor={name} className="block text-[11px] font-black uppercase tracking-widest mb-2" style={{ color: "var(--navy-soft)" }}>
@@ -224,10 +230,19 @@ function Field({ label, name, type = "text", required }: { label: string; name: 
         id={name}
         name={name}
         type={type}
-        required={required}
+        aria-required={required}
+        aria-invalid={!!error}
+        aria-describedby={error ? `${name}-error` : undefined}
         maxLength={255}
-        className="w-full rounded-xl bg-white border border-line px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 transition"
+        className="w-full rounded-xl bg-white border px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 transition"
+        style={{ borderColor: error ? "#c0392b" : "var(--line)" }}
       />
+      {error && (
+        <p id={`${name}-error`} className="mt-1.5 text-xs font-semibold" style={{ color: "#c0392b" }}>
+          {error}
+        </p>
+      )}
     </div>
   );
+
 }
