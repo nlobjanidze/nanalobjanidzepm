@@ -31,7 +31,7 @@ const EDUCATION = [
 
 function Group({ title, items, accent }: { title: string; items: { name: string; issuer: string; year: string }[]; accent: "mint" | "navy" }) {
   return (
-    <div className="surface-card p-7 md:p-8 hover:-translate-y-0.5">
+    <div className="surface-card p-7 md:p-8 hover:-translate-y-0.5 h-full">
       <div className="flex items-center gap-3">
         <span
           className="h-8 w-8 rounded-lg inline-flex items-center justify-center text-xs font-black border"
@@ -104,7 +104,7 @@ export function Certifications() {
           </div>
         </div>
 
-        <div className="mt-8 grid md:grid-cols-2 gap-6">
+        <div className="mt-8 grid md:grid-cols-2 gap-6 items-stretch">
           <Group title="PMI სერტიფიკატები" items={PMI} accent="mint" />
           <Group title="უმაღლესი განათლება" items={EDUCATION} accent="navy" />
           <Group title="საერთაშორისო პროფესიული სერტიფიკატები" items={PROFESSIONAL} accent="navy" />

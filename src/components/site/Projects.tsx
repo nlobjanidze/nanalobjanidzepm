@@ -112,9 +112,9 @@ export function Projects() {
           </p>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-6">
+        <div className="mt-12 grid md:grid-cols-2 gap-6 items-stretch">
           {PROJECTS.map((p) => (
-            <article key={p.title} className="surface-card p-6 md:p-8 flex flex-col hover:-translate-y-1">
+            <article key={p.title} className="surface-card p-6 md:p-8 flex flex-col hover:-translate-y-1 h-full">
               <div className="flex items-center justify-between">
                 <span
                   className="text-[10px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full"
