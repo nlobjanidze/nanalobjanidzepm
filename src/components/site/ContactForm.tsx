@@ -167,11 +167,16 @@ export function ContactForm() {
                     name="message"
                     rows={4}
                     maxLength={1000}
-                    className="w-full rounded-xl bg-white border border-line px-4 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 transition"
-                    style={{ borderColor: "var(--line)" }}
+                    aria-invalid={!!errors.message}
+                    className="w-full rounded-xl bg-white border px-4 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 transition"
+                    style={{ borderColor: errors.message ? "#c0392b" : "var(--line)" }}
                     placeholder="რა გამოწვევაა შენი გუნდის წინაშე?"
                   />
+                  {errors.message && (
+                    <p className="mt-1.5 text-xs font-semibold" style={{ color: "#c0392b" }}>{errors.message}</p>
+                  )}
                 </div>
+
 
                 {error && <p className="mt-4 text-sm font-semibold" style={{ color: "#c0392b" }}>{error}</p>}
 
