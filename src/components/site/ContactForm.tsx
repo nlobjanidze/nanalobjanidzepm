@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
+import { sendContactNotification } from "@/lib/contact.functions";
 import { Linkedin, Facebook, Instagram, Youtube, Globe } from "lucide-react";
+
 
 const INTERESTS = [
   "კონსულტაცია",
