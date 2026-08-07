@@ -33,6 +33,7 @@ export function ContactForm() {
   const [error, setError] = useState<string | null>(null);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [interest, setInterest] = useState(INTERESTS[0]);
+  const notify = useServerFn(sendContactNotification);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -67,15 +68,31 @@ export function ContactForm() {
         message: message || null,
       });
       if (dbError) throw dbError;
+
+      // Success is shown only after the email is actually accepted by the provider.
+      await notify({
+        data: {
+          name,
+          email,
+          phone: phone || null,
+          organization: org || null,
+          interest,
+          message: message || null,
+          submittedAt: new Date().toLocaleString("ka-GE", { timeZone: "Asia/Tbilisi" }),
+        },
+      });
+
       form.reset();
       setInterest(INTERESTS[0]);
       setSent(true);
-    } catch {
+    } catch (err) {
+      console.error("Contact form submit failed", err);
       setError("გაგზავნა ვერ მოხერხდა. სცადეთ ხელახლა ან მომწერეთ პირდაპირ ელფოსტაზე.");
     } finally {
       setSending(false);
     }
   };
+
 
 
   return (
