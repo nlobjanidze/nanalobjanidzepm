@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-16 md:pt-20 lg:pt-24 pb-14 md:pb-18 lg:pb-20"
+      className="relative overflow-hidden pt-24 md:pt-28 lg:pt-32 pb-14 md:pb-18 lg:pb-20"
       style={{
         background:
           "radial-gradient(120% 90% at 100% 50%, rgba(23,227,178,0.10), transparent 55%), radial-gradient(90% 80% at 0% 0%, rgba(46,123,191,0.18), transparent 60%), linear-gradient(135deg, #0A2748 0%, #0E3D6B 55%, #103F70 100%)",
