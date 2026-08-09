@@ -1,8 +1,9 @@
-import pmdaySpeaking from "@/assets/pmday-speaking.asset.json";
-import pmdayKeynote from "@/assets/pmday-keynote.asset.json";
 import ipmDay from "@/assets/ipm-day-2025.asset.json";
 import agm2025 from "@/assets/agm-2025.asset.json";
-import sageTalk from "@/assets/sage-talk.asset.json";
+import ciuLecture from "@/assets/ciu-lecture.asset.json";
+import pmOrBa from "@/assets/pm-or-ba.asset.json";
+import sageTraining from "@/assets/sage-training.asset.json";
+import ssuWorkshop from "@/assets/ssu-workshop.asset.json";
 
 const INTERNATIONAL = [
   {
