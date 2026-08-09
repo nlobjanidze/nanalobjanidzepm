@@ -33,9 +33,9 @@ export function SiteNav() {
           : "bg-white/0"
       }`}
     >
-      <div className="container-x flex h-20 md:h-24 items-center justify-between">
+      <div className="container-x flex h-[88px] md:h-[112px] items-center justify-between">
         <a href="#top" className="flex items-center" aria-label="ნანა ლობჯანიძე">
-          <img src={logo.url} alt="ნანა ლობჯანიძე" className="h-12 md:h-14 w-auto object-contain" />
+          <img src={logo.url} alt="ნანა ლობჯანიძე" className="h-16 md:h-20 w-auto object-contain" />
         </a>
         <nav className="hidden lg:flex min-w-0 flex-1 justify-center items-center gap-5 xl:gap-8">
           {NAV.map((n) => (
