@@ -1,4 +1,4 @@
-import logo from "@/assets/logo.asset.json";
+import logo from "@/assets/logo-v2.png.asset.json";
 
 export function SiteFooter() {
   return (
@@ -6,7 +6,7 @@ export function SiteFooter() {
       <div className="container-x py-14 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-5">
           <div className="flex items-center gap-3">
-            <img src={logo.url} alt="LN" className="h-10 w-10 object-contain" />
+            <img src={logo.url} alt="LN" className="h-9 w-auto object-contain" />
             <div>
               <p className="font-extrabold text-ink">ნანა ლობჯანიძე</p>
               <p className="text-xs text-ink-soft">PMP® · Project Management Consultant · Trainer &amp; Mentor</p>

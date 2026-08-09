@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/logo.asset.json";
+import logo from "@/assets/logo-v2.png.asset.json";
 
 const NAV = [
   { href: "#about", label: "შესახებ" },
@@ -35,7 +35,7 @@ export function SiteNav() {
     >
       <div className="container-x flex h-20 md:h-24 items-center justify-between">
         <a href="#top" className="flex items-center" aria-label="ნანა ლობჯანიძე">
-          <img src={logo.url} alt="ნანა ლობჯანიძე" className="h-11 w-11 md:h-14 md:w-14 object-contain" />
+          <img src={logo.url} alt="ნანა ლობჯანიძე" className="h-9 md:h-11 w-auto object-contain" />
         </a>
         <nav className="hidden lg:flex min-w-0 flex-1 justify-center items-center gap-5 xl:gap-8">
           {NAV.map((n) => (
