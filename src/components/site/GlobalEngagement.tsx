@@ -171,16 +171,31 @@ export function GlobalEngagement() {
             {SPEAKING.map((s) => (
               <article key={s.title} className="surface-card overflow-hidden hover:-translate-y-0.5 flex flex-col h-full">
                 {s.image && (
-                  <div className="aspect-[16/10] overflow-hidden bg-line">
-                    <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]" />
+                  <div className={`aspect-[16/10] overflow-hidden bg-line ${s.fit === "contain" ? "p-3" : ""}`}>
+                    <img
+                      src={s.image}
+                      alt={s.title}
+                      className={`w-full h-full ${s.fit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-500 hover:scale-[1.03]`}
+                    />
                   </div>
                 )}
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between">
                     <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">{s.org}</p>
                     <span className="text-xs font-black tabular-nums" style={{ color: "var(--navy)" }}>{s.date}</span>
                   </div>
                   <h4 className="mt-2 font-extrabold text-ink leading-tight">{s.title}</h4>
+                  <p className="mt-3 text-sm text-ink-soft leading-relaxed">{s.desc}</p>
+                  {s.link && (
+                    <a
+                      href={s.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex w-fit text-sm font-bold text-navy hover:underline"
+                    >
+                      იხილეთ ღონისძიება →
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
