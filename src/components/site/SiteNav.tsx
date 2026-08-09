@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/logo.asset.json";
+import logo from "@/assets/logo-v2.png.asset.json";
 
 const NAV = [
   { href: "#about", label: "შესახებ" },
