@@ -1,7 +1,6 @@
 import pmpBadge from "@/assets/pmp-badge.asset.json";
 
 const PMI = [
-  { name: "PMP® — Project Management Professional", issuer: "Project Management Institute", year: "2024–2027" },
   { name: "Business Continuity", issuer: "Project Management Institute", year: "2025" },
   { name: "Data Landscape of GenAI for Project Managers", issuer: "Project Management Institute", year: "2024" },
   { name: "Generative AI Overview for Project Managers", issuer: "Project Management Institute", year: "2023" },
@@ -29,17 +28,13 @@ const EDUCATION = [
   { name: "ბიზნეს ადმინისტრირება და ფინანსები — ბაკალავრი", issuer: "Gori State Teaching University", year: "2007–2011" },
 ];
 
-function Group({ title, items, accent }: { title: string; items: { name: string; issuer: string; year: string }[]; accent: "mint" | "navy" }) {
+function Group({ title, items }: { title: string; items: { name: string; issuer: string; year: string }[] }) {
   return (
     <div className="surface-card p-7 md:p-8 hover:-translate-y-0.5 h-full">
       <div className="flex items-center gap-3">
         <span
-          className="h-8 w-8 rounded-lg inline-flex items-center justify-center text-xs font-black border"
-          style={
-            accent === "mint"
-              ? { background: "var(--mint-soft)", color: "var(--navy-deep)", borderColor: "var(--mint)" }
-              : { background: "var(--navy-deep)", color: "white", borderColor: "var(--navy-deep)" }
-          }
+          className="h-8 w-8 shrink-0 rounded-lg inline-flex items-center justify-center text-xs font-black border"
+          style={{ background: "var(--mint-soft)", color: "var(--navy-deep)", borderColor: "var(--mint)" }}
         >
           ✦
         </span>
@@ -48,7 +43,7 @@ function Group({ title, items, accent }: { title: string; items: { name: string;
       <ul className="mt-5 divide-y divide-line">
         {items.map((i) => (
           <li key={i.name} className="py-3.5 flex items-start justify-between gap-4">
-            <div>
+            <div className="min-w-0">
               <p className="font-semibold text-sm md:text-base text-ink">{i.name}</p>
               <p className="text-xs md:text-sm text-ink-soft mt-0.5">{i.issuer}</p>
             </div>
@@ -64,50 +59,78 @@ function Group({ title, items, accent }: { title: string; items: { name: string;
 
 export function Certifications() {
   return (
-    <section id="certifications" className="section-y bg-surface">
+    <section id="certifications" className="section-y bg-surface scroll-mt-28">
       <div className="container-x">
         <div className="max-w-2xl">
           <span className="eyebrow">განათლება &amp; სერტიფიკატები</span>
           <h2 className="heading-lg mt-4 text-balance">
-            საერთაშორისო კვალიფიკაცია — <span className="text-navy">დადასტურებული</span>
+            საერთაშორისო ცოდნა, <span className="text-navy">უწყვეტი განვითარება</span> და პრაქტიკული გამოცდილება
           </h2>
           <p className="mt-4 text-ink-soft text-base md:text-lg">
-            PMP® სერტიფიკატი, PMI-ის და სხვა საერთაშორისო ინსტიტუტების სასწავლო პროგრამები,
+            PMP® სერტიფიცირება, PMI-ის და სხვა საერთაშორისო ინსტიტუტების სასწავლო პროგრამები,
             უმაღლესი განათლება — ერთ პროფესიულ პროფილში.
           </p>
         </div>
 
+        {/* PMP® main block */}
         <div
-          className="mt-12 grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden border border-line shadow-[var(--shadow-soft)]"
+          className="mt-12 grid lg:grid-cols-12 items-center gap-8 rounded-3xl overflow-hidden border border-line shadow-[var(--shadow-soft)] p-8 md:p-10"
           style={{ background: "var(--navy-deep)", color: "white" }}
         >
-          <div className="lg:col-span-8 p-8 md:p-10">
-            <span className="eyebrow" style={{ color: "var(--mint-bright)" }}>PMP® სერტიფიკაცია</span>
+          <div className="lg:col-span-4 flex items-center justify-center">
+            <div
+              className="rounded-3xl w-full max-w-[300px] flex items-center justify-center p-6"
+              style={{ background: "white" }}
+            >
+              <img
+                src={pmpBadge.url}
+                alt="PMP® Project Management Professional — Project Management Institute"
+                className="block h-auto w-[200px] md:w-[230px]"
+                style={{ mixBlendMode: "multiply" }}
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div className="lg:col-span-8">
+            <span className="eyebrow" style={{ color: "var(--mint-bright)" }}>PMP® სერტიფიცირება</span>
             <h3 className="heading-md mt-4 text-balance" style={{ color: "white" }}>
               Project Management Professional <span style={{ color: "var(--mint)" }}>(PMI)</span>
             </h3>
-            <p className="mt-3 text-white/80 max-w-xl">
-              მოქმედების პერიოდი: <span className="font-bold" style={{ color: "var(--mint-bright)" }}>2024–2027</span> — გლობალურად აღიარებული პროექტების მართვის კვალიფიკაცია.
+            <p className="mt-4 text-white/80 max-w-2xl leading-relaxed">
+              მსოფლიოში ერთ-ერთი ყველაზე პრესტიჟული და ფართოდ აღიარებული სერტიფიცირება პროექტების მართვის სფეროში.
+              ადასტურებს პროექტების დაგეგმვის, შესრულების, მონიტორინგისა და წარმატებით დასრულების უნარს
+              საერთაშორისო სტანდარტებისა და საუკეთესო პრაქტიკის შესაბამისად.
             </p>
-          </div>
-          <div
-            className="lg:col-span-4 relative min-h-[180px] flex items-center justify-center p-8"
-            style={{ background: "var(--gradient-brand)" }}
-          >
-            <img
-              src={pmpBadge.url}
-              alt="PMP® Professional Certification — Project Management Institute"
-              className="block h-auto w-[120px] md:w-[140px] drop-shadow-xl"
-              style={{ mixBlendMode: "multiply" }}
-              loading="lazy"
-            />
+            <p className="mt-4 text-sm font-bold" style={{ color: "var(--mint-bright)" }}>2024–2027</p>
           </div>
         </div>
 
-        <div className="mt-8 grid md:grid-cols-2 gap-6 items-stretch">
-          <Group title="PMI სერტიფიკატები" items={PMI} accent="mint" />
-          <Group title="უმაღლესი განათლება" items={EDUCATION} accent="navy" />
-          <Group title="საერთაშორისო პროფესიული სერტიფიკატები" items={PROFESSIONAL} accent="navy" />
+        {/* Higher education - horizontal */}
+        <div className="mt-8 surface-card p-7 md:p-8">
+          <div className="flex items-center gap-3">
+            <span
+              className="h-8 w-8 shrink-0 rounded-lg inline-flex items-center justify-center text-xs font-black border"
+              style={{ background: "var(--mint-soft)", color: "var(--navy-deep)", borderColor: "var(--mint)" }}
+            >
+              ✦
+            </span>
+            <h3 className="font-extrabold text-lg md:text-xl text-ink">უმაღლესი განათლება</h3>
+          </div>
+          <div className="mt-5 grid md:grid-cols-2 gap-4 items-stretch">
+            {EDUCATION.map((e) => (
+              <div key={e.name} className="h-full rounded-2xl border border-line bg-white p-5">
+                <p className="font-semibold text-sm md:text-base text-ink">{e.name}</p>
+                <p className="text-xs md:text-sm text-ink-soft mt-1">{e.issuer}</p>
+                <p className="mt-3 text-xs font-black tabular-nums" style={{ color: "var(--navy)" }}>{e.year}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Certifications grid */}
+        <div className="mt-8 grid lg:grid-cols-2 gap-6 items-stretch">
+          <Group title="PMI სერტიფიკატები" items={PMI} />
+          <Group title="საერთაშორისო პროფესიული სერტიფიკატები" items={PROFESSIONAL} />
         </div>
       </div>
     </section>

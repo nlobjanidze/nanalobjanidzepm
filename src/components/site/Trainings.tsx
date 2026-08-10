@@ -757,7 +757,8 @@ function CategoryCard({ c }: { c: Category }) {
 
   return (
     <article
-      className="rounded-3xl border overflow-hidden shadow-[var(--shadow-soft)]"
+      id={`tr-${c.key}`}
+      className="scroll-mt-32 rounded-3xl border overflow-hidden shadow-[var(--shadow-soft)]"
       style={{
         background: dark ? "var(--navy-deep)" : "white",
         color: dark ? "white" : undefined,
