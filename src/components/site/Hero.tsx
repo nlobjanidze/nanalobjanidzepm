@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-24 md:pt-28 lg:pt-32 pb-14 md:pb-18 lg:pb-20"
+      className="relative overflow-hidden pt-[100px] md:pt-[120px] lg:pt-[128px] pb-12 md:pb-16"
       style={{
         background:
           "radial-gradient(120% 90% at 100% 50%, rgba(23,227,178,0.10), transparent 55%), radial-gradient(90% 80% at 0% 0%, rgba(46,123,191,0.18), transparent 60%), linear-gradient(135deg, #0A2748 0%, #0E3D6B 55%, #103F70 100%)",
@@ -92,8 +92,8 @@ export function Hero() {
             className="mt-4 text-balance"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(2rem, 3.8vw, 3.2rem)",
-              lineHeight: 1.12,
+              fontSize: "clamp(1.7rem, 3.1vw, 2.7rem)",
+              lineHeight: 1.22,
               fontWeight: 800,
               letterSpacing: "-0.025em",
               color: "#FFFFFF",
@@ -175,7 +175,7 @@ export function Hero() {
               src={hero.url}
               alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
               loading="eager"
-              className="relative block h-[420px] md:h-[520px] lg:h-[580px] w-auto object-contain"
+              className="relative block h-[360px] md:h-[460px] lg:h-[520px] w-auto object-contain"
               style={{
                 filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.25))",
               }}
