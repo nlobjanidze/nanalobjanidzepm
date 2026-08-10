@@ -20,13 +20,13 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-24 md:pt-28 lg:pt-32 pb-14 md:pb-18 lg:pb-20"
+      className="relative overflow-hidden pt-[100px] md:pt-[120px] lg:pt-[128px] pb-12 md:pb-16"
       style={{
         background:
           "radial-gradient(120% 90% at 100% 50%, rgba(23,227,178,0.10), transparent 55%), radial-gradient(90% 80% at 0% 0%, rgba(46,123,191,0.18), transparent 60%), linear-gradient(135deg, #0A2748 0%, #0E3D6B 55%, #103F70 100%)",
       }}
     >
-      {/* Unified decorative canvas — spans full hero */}
+      {/* Unified decorative canvas - spans full hero */}
       <div className="absolute inset-0 -z-0 overflow-hidden pointer-events-none" aria-hidden>
         {/* Large mint arc, top-left */}
         <div
@@ -37,7 +37,7 @@ export function Hero() {
             filter: "blur(2px)",
           }}
         />
-        {/* Solid mint blob near portrait — creates continuity */}
+        {/* Solid mint blob near portrait - creates continuity */}
         <div
           className="absolute -top-[10%] right-[-8%] h-[560px] w-[560px] rounded-full"
           style={{
@@ -45,7 +45,7 @@ export function Hero() {
             opacity: 0.9,
           }}
         />
-        {/* Azure circle overlap — layered depth */}
+        {/* Azure circle overlap - layered depth */}
         <div
           className="absolute top-[18%] right-[-18%] h-[680px] w-[680px] rounded-full"
           style={{
@@ -74,7 +74,7 @@ export function Hero() {
       </div>
 
       <div className="container-x relative z-10 grid lg:grid-cols-[55fr_45fr] gap-6 lg:gap-12 items-center">
-        {/* LEFT — text */}
+        {/* LEFT - text */}
         <div className="lg:pr-4">
 
           <span
@@ -92,14 +92,14 @@ export function Hero() {
             className="mt-4 text-balance"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(2rem, 3.8vw, 3.2rem)",
-              lineHeight: 1.12,
+              fontSize: "clamp(1.7rem, 3.1vw, 2.7rem)",
+              lineHeight: 1.22,
               fontWeight: 800,
               letterSpacing: "-0.025em",
               color: "#FFFFFF",
             }}
           >
-            ქაოსური პროექტებიდან — მკაფიო, დაგეგმილ და მართვად პროცესებამდე
+            ქაოსური პროექტებიდან - მკაფიო, დაგეგმილ და მართვად პროცესებამდე
           </h1>
 
           <p
@@ -156,7 +156,7 @@ export function Hero() {
           </p>
         </div>
 
-        {/* RIGHT — integrated portrait, no card, no mask */}
+        {/* RIGHT - integrated portrait, no card, no mask */}
         <div className="relative flex justify-center lg:justify-end lg:self-start">
           <div className="relative lg:-mt-10 xl:-mt-14">
 
@@ -173,9 +173,9 @@ export function Hero() {
             />
             <img
               src={hero.url}
-              alt="ნანა ლობჯანიძე — PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
+              alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
               loading="eager"
-              className="relative block h-[420px] md:h-[520px] lg:h-[580px] w-auto object-contain"
+              className="relative block h-[360px] md:h-[460px] lg:h-[520px] w-auto object-contain"
               style={{
                 filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.25))",
               }}
@@ -184,7 +184,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Statistics — glass row on dark canvas */}
+      {/* Statistics - glass row on dark canvas */}
       <div className="container-x mt-8 md:mt-12 relative z-10">
         <dl className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
           {STATS.map((s) => (

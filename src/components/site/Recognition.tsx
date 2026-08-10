@@ -6,7 +6,7 @@ const AWARDS = [
   },
   {
     year: "2024",
-    title: "Student Company Mentor — JA Georgia Company of the Year Competition",
+    title: "Student Company Mentor - JA Georgia Company of the Year Competition",
     org: "Junior Achievement Georgia",
   },
   {

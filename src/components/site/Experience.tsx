@@ -10,7 +10,7 @@ type Role = {
 
 const PRIMARY: Role[] = [
   {
-    period: "03/2025 — მიმდინარე",
+    period: "03/2025 - მიმდინარე",
     org: "PMI Tbilisi Georgia Chapter",
     role: "კომუნიკაციის, მარკეტინგისა და სოციალური მედიის დირექტორი | Board Member",
     highlights: [
@@ -22,7 +22,7 @@ const PRIMARY: Role[] = [
     ],
   },
   {
-    period: "01/2025 — 12/2025",
+    period: "01/2025 - 12/2025",
     org: "Kursi.ge",
     role: "პროექტის მენეჯერი",
     highlights: [
@@ -58,7 +58,7 @@ const PRIMARY: Role[] = [
     ],
   },
   {
-    period: "05/2022 — 05/2025",
+    period: "05/2022 - 05/2025",
     org: "PMI Tbilisi Georgia Chapter",
     role: "პროექტის მენეჯერი | გუნდის ლიდერი",
     highlights: [
@@ -69,7 +69,7 @@ const PRIMARY: Role[] = [
     ],
   },
   {
-    period: "02/2024 — 11/2024",
+    period: "02/2024 - 11/2024",
     org: "ონის მუნიციპალიტეტის მერია",
     role: "მერის თანაშემწე",
     highlights: [
@@ -80,7 +80,7 @@ const PRIMARY: Role[] = [
     ],
   },
   {
-    period: "02/2024 — 11/2024",
+    period: "02/2024 - 11/2024",
     org: "JobDeal",
     role: "პროექტის მენეჯერი",
     highlights: [
@@ -91,7 +91,7 @@ const PRIMARY: Role[] = [
     ],
   },
   {
-    period: "03/2022 — 01/2024",
+    period: "03/2022 - 01/2024",
     org: "ონის მუნიციპალიტეტის მერია",
     role: "პროექტების მართვის სპეციალისტი",
     highlights: [
@@ -103,7 +103,7 @@ const PRIMARY: Role[] = [
     ],
   },
   {
-    period: "10/2021 — 12/2021",
+    period: "10/2021 - 12/2021",
     org: "Credo Bank",
     role: "საცალო მენეჯერი",
     highlights: [
@@ -114,7 +114,7 @@ const PRIMARY: Role[] = [
     ],
   },
   {
-    period: "11/2020 — 10/2021",
+    period: "11/2020 - 10/2021",
     org: "FINCA Bank",
     role: "საოპერაციო / კლიენტთა მომსახურების მენეჯერი",
     highlights: [
@@ -128,7 +128,7 @@ const PRIMARY: Role[] = [
 
 const ARCHIVE: Role[] = [
   {
-    period: "03/2020 — 09/2020",
+    period: "03/2020 - 09/2020",
     org: "IboStar",
     role: "გაყიდვების დეპარტამენტის უფროსი",
     highlights: [
@@ -139,7 +139,7 @@ const ARCHIVE: Role[] = [
     ],
   },
   {
-    period: "11/2019 — 03/2020",
+    period: "11/2019 - 03/2020",
     org: "IboStar",
     role: "დირექტორის მოადგილე",
     highlights: [
@@ -150,7 +150,7 @@ const ARCHIVE: Role[] = [
     ],
   },
   {
-    period: "09/2019 — 11/2019",
+    period: "09/2019 - 11/2019",
     org: "ირაო",
     role: "მცირე და საშუალო ბიზნესის დაზღვევის მენეჯერი",
     highlights: [
@@ -161,7 +161,7 @@ const ARCHIVE: Role[] = [
     ],
   },
   {
-    period: "08/2016 — 06/2018",
+    period: "08/2016 - 06/2018",
     org: "საქართველოს ბანკი",
     role: "უნივერსალური ბანკირი",
     highlights: [
@@ -172,7 +172,7 @@ const ARCHIVE: Role[] = [
     ],
   },
   {
-    period: "01/2012 — 08/2016",
+    period: "01/2012 - 08/2016",
     org: "საქართველოს ბანკი",
     role: "მოლარე-ოპერატორი",
     highlights: [
@@ -214,10 +214,10 @@ export function Experience() {
         <div className="max-w-2xl">
           <span className="eyebrow">სამუშაო გამოცდილება</span>
           <h2 className="heading-lg mt-4 text-balance">
-            10+ წელი — <span className="text-navy">პროექტების, პროგრამების და გუნდების ხელმძღვანელობა</span>
+            10+ წელი - <span className="text-navy">პროექტების, პროგრამების და გუნდების ხელმძღვანელობა</span>
           </h2>
           <p className="mt-4 text-ink-soft leading-relaxed">
-            მრავალწლიანი პრაქტიკული გამოცდილება საჯარო, კერძო, საგანმანათლებლო და პროფესიულ ორგანიზაციებში —
+            მრავალწლიანი პრაქტიკული გამოცდილება საჯარო, კერძო, საგანმანათლებლო და პროფესიულ ორგანიზაციებში -
             საერთაშორისო დონორების პროექტებიდან საბანკო სექტორის ოპერაციულ ლიდერობამდე. ჩემი ტრენინგები და
             საკონსულტაციო მომსახურება ეფუძნება ამ რეალურ გამოცდილებას.
           </p>
@@ -253,7 +253,7 @@ export function Experience() {
               onClick={() => setExpanded((v) => !v)}
               className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-navy hover:bg-[var(--surface)] transition"
             >
-              {expanded ? "დახურე სრული კარიერული გზა" : "View Full Career Journey — ნახე ადრეული გამოცდილება"}
+              {expanded ? "დახურე სრული კარიერული გზა" : "View Full Career Journey - ნახე ადრეული გამოცდილება"}
               <ChevronDown
                 className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`}
                 aria-hidden

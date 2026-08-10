@@ -24,8 +24,8 @@ const PROFESSIONAL = [
 ];
 
 const EDUCATION = [
-  { name: "საერთაშორისო ბიზნესის მენეჯმენტი — მაგისტრი", issuer: "Caucasus International University", year: "2025 – დღემდე" },
-  { name: "ბიზნეს ადმინისტრირება და ფინანსები — ბაკალავრი", issuer: "Gori State Teaching University", year: "2007–2011" },
+  { name: "საერთაშორისო ბიზნესის მენეჯმენტი - მაგისტრი", issuer: "Caucasus International University", year: "2025 – დღემდე" },
+  { name: "ბიზნეს ადმინისტრირება და ფინანსები - ბაკალავრი", issuer: "Gori State Teaching University", year: "2007–2011" },
 ];
 
 function Group({ title, items }: { title: string; items: { name: string; issuer: string; year: string }[] }) {
@@ -68,7 +68,7 @@ export function Certifications() {
           </h2>
           <p className="mt-4 text-ink-soft text-base md:text-lg">
             PMP® სერტიფიცირება, PMI-ის და სხვა საერთაშორისო ინსტიტუტების სასწავლო პროგრამები,
-            უმაღლესი განათლება — ერთ პროფესიულ პროფილში.
+            უმაღლესი განათლება - ერთ პროფესიულ პროფილში.
           </p>
         </div>
 
@@ -84,7 +84,7 @@ export function Certifications() {
             >
               <img
                 src={pmpBadge.url}
-                alt="PMP® Project Management Professional — Project Management Institute"
+                alt="PMP® Project Management Professional - Project Management Institute"
                 className="block h-auto w-[200px] md:w-[230px]"
                 style={{ mixBlendMode: "multiply" }}
                 loading="lazy"

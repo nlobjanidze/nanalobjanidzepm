@@ -357,10 +357,10 @@ export function Services() {
           <div className="max-w-2xl">
             <span className="eyebrow">სერვისები</span>
             <h2 className="heading-lg mt-4 text-balance">
-              ჩვენი მიდგომა — <span className="text-navy">სისტემა, შესრულება, შედეგი</span>
+              ჩვენი მიდგომა - <span className="text-navy">სისტემა, შესრულება, შედეგი</span>
             </h2>
             <p className="mt-4 text-ink-soft text-base md:text-lg">
-              ჩვენ არ ვაკეთებთ უბრალოდ კონსულტაციას — ვაშენებთ სისტემას, ვმართავთ შესრულებას და ვქმნით შედეგს.
+              ჩვენ არ ვაკეთებთ უბრალოდ კონსულტაციას - ვაშენებთ სისტემას, ვმართავთ შესრულებას და ვქმნით შედეგს.
               ოთხი ფოკუსირებული მიმართულება ბიზნესის, NGO-სა და საჯარო სექტორისთვის.
             </p>
           </div>
@@ -405,7 +405,7 @@ export function Services() {
               <span style={{ color: "var(--mint)" }}>ვიმუშაოთ ერთად.</span>
             </h3>
             <p className="mt-4 text-white/75 max-w-xl">
-              დავიწყოთ უფასო 30-წუთიანი დიაგნოსტიკით — გავარკვიოთ, რომელი მიდგომა მუშაობს თქვენთვის.
+              დავიწყოთ უფასო 30-წუთიანი დიაგნოსტიკით - გავარკვიოთ, რომელი მიდგომა მუშაობს თქვენთვის.
             </p>
             <a
               href="#contact"
