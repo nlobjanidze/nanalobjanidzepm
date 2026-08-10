@@ -59,20 +59,27 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const onHero = !scrolled && !open;
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "backdrop-blur-xl bg-white/85 border-b border-line shadow-[0_1px_0_rgba(15,23,42,0.04)]"
-          : "bg-white/0"
+        scrolled || open
+          ? "backdrop-blur-xl bg-white/90 border-b border-line shadow-[0_1px_0_rgba(15,23,42,0.05)]"
+          : "bg-white/0 border-b border-white/10"
       }`}
     >
-      <div className="container-x flex h-[92px] md:h-[116px] items-center justify-between gap-4">
+      <div className="container-x flex h-[76px] md:h-[92px] items-center justify-between gap-4">
         <a href="#top" className="flex shrink-0 items-center" aria-label="ნანა ლობჯანიძე">
-          <img src={logo.url} alt="ნანა ლობჯანიძე" className="h-[76px] md:h-24 w-auto object-contain" />
+          <img
+            src={logo.url}
+            alt="ნანა ლობჯანიძე"
+            className="h-14 md:h-[76px] w-auto object-contain transition-[filter] duration-300"
+            style={onHero ? { filter: "brightness(0) invert(1)" } : undefined}
+          />
         </a>
 
-        <nav className="hidden lg:flex min-w-0 flex-1 justify-center items-center gap-6 xl:gap-9">
+        <nav className="hidden lg:flex min-w-0 flex-1 justify-center items-center gap-5 xl:gap-8">
           {NAV.map((n) => (
             <div
               key={n.label}
@@ -82,7 +89,9 @@ export function SiteNav() {
             >
               <a
                 href={n.href}
-                className="inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-semibold tracking-wide text-ink-soft hover:text-ink transition-colors py-3"
+                className={`inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-semibold tracking-wide py-3 transition-colors duration-300 ${
+                  onHero ? "text-white/90 hover:text-white" : "text-ink-soft hover:text-ink"
+                }`}
               >
                 {n.label}
                 {n.items && <span aria-hidden className="text-[9px] opacity-70">▾</span>}
@@ -109,7 +118,7 @@ export function SiteNav() {
 
         <a
           href="#contact"
-          className="hidden md:inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-bold transition"
+          className="hidden md:inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-4.5 py-2 text-[13px] font-bold transition-all hover:-translate-y-0.5"
           style={{ background: "var(--mint)", color: "var(--navy-deep)" }}
         >
           დაჯავშნე კონსულტაცია
@@ -117,12 +126,15 @@ export function SiteNav() {
 
         <button
           aria-label="Menu"
-          className="lg:hidden inline-flex shrink-0 items-center justify-center h-10 w-10 rounded-md border border-line text-ink"
+          className={`lg:hidden inline-flex shrink-0 items-center justify-center h-10 w-10 rounded-md border transition-colors duration-300 ${
+            onHero ? "border-white/40 text-white" : "border-line text-ink"
+          }`}
           onClick={() => setOpen((o) => !o)}
         >
           <span>≡</span>
         </button>
       </div>
+
 
       {open && (
         <div className="lg:hidden border-t border-line bg-white/95 backdrop-blur-xl max-h-[70vh] overflow-y-auto">
