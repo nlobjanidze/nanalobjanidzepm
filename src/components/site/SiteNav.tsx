@@ -11,7 +11,7 @@ const NAV: NavEntry[] = [
     href: "#services",
     items: [
       { href: "#svc-delivery", label: "პროექტების მართვა" },
-      { href: "#svc-process", label: "პროცესების გაუმჯობესება" },
+      { href: "#svc-ops", label: "პროცესების გაუმჯობესება" },
       { href: "#svc-mentoring", label: "მენტორინგი & ლიდერობა" },
       { href: "#svc-grants", label: "გრანტების მართვა" },
     ],
