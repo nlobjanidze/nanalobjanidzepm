@@ -166,26 +166,28 @@
 
 @utility heading-xl {
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 6vw, 5rem);
-  line-height: 1.02;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-}
-@utility heading-lg {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  line-height: 1.08;
+  font-size: clamp(2.4rem, 5.1vw, 4.25rem);
+  line-height: 1.12;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--ink);
+  max-width: 20ch;
+}
+@utility heading-lg {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  max-width: 24ch;
 }
 @utility heading-md {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-  line-height: 1.18;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  line-height: 1.3;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
 
