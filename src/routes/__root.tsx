@@ -48,7 +48,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           გვერდის ჩატვირთვა ვერ მოხერხდა
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          მცირე შეცდომა — სცადე თავიდან ან დაბრუნდი მთავარ გვერდზე.
+          მცირე შეცდომა - სცადე თავიდან ან დაბრუნდი მთავარ გვერდზე.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button

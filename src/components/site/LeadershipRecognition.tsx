@@ -7,13 +7,13 @@ import chapterLeaderBadge from "@/assets/chapter-leader-badge.asset.json";
 import sageLogo from "@/assets/sage-logo.asset.json";
 
 const ROLES = [
-  { org: "PMI Tbilisi, Georgia Chapter", title: "Board Member · Director of Marketing, Communications & Social Media", period: "2024 — დღემდე" },
-  { org: "SAGE Georgia", title: "Mentor · National Finals Jury Member", period: "2024 — დღემდე" },
-  { org: "Junior Achievement Georgia", title: "Student Company Mentor — Company of the Year Competition", period: "2024" },
+  { org: "PMI Tbilisi, Georgia Chapter", title: "Board Member · Director of Marketing, Communications & Social Media", period: "2024 - დღემდე" },
+  { org: "SAGE Georgia", title: "Mentor · National Finals Jury Member", period: "2024 - დღემდე" },
+  { org: "Junior Achievement Georgia", title: "Student Company Mentor - Company of the Year Competition", period: "2024" },
 ];
 
 const AWARDS = [
-  { year: "2026", title: "PMI Certificate of Appreciation", org: "Project Management Institute — PMI Tbilisi, Georgia Chapter-ის განვითარებაში შეტანილი წვლილისთვის" },
+  { year: "2026", title: "PMI Certificate of Appreciation", org: "Project Management Institute - PMI Tbilisi, Georgia Chapter-ის განვითარებაში შეტანილი წვლილისთვის" },
   { year: "2024", title: "Dedication, Outstanding Volunteering & Support of the Marketing Team", org: "PMI Tbilisi, Georgia Chapter" },
   { year: "2024", title: "Student Company Mentor Recognition", org: "JA Georgia" },
   { year: "2023", title: "Successful Organization of „Kahoot Season 2“", org: "PMI Tbilisi, Georgia Chapter" },
@@ -22,8 +22,8 @@ const AWARDS = [
 
 const GALLERY = [
   { src: limGroup.url, caption: "Europe Leadership Institute Meeting 2026 · ჯგუფური ფოტო" },
-  { src: limPassStage.url, caption: "Europe Leadership Institute Meeting 2026 — სცენა" },
-  { src: limScreen.url, caption: "„We maximize project success to elevate our world.“ — PMI" },
+  { src: limPassStage.url, caption: "Europe Leadership Institute Meeting 2026 - სცენა" },
+  { src: limScreen.url, caption: "„We maximize project success to elevate our world.“ - PMI" },
 ];
 
 
@@ -57,7 +57,7 @@ export function LeadershipRecognition() {
             <p className="mt-4 text-white/85 leading-relaxed">
               PMI-ის გლობალური ლიდერული განვითარების ფლაგმანი ღონისძიება, რომელშიც
               მონაწილეობას იღებენ PMI Chapter-ების ლიდერები მთელი მსოფლიოდან.
-              ფოკუსი — ლიდერობა, Chapter-ის ზრდა, სტრატეგიული დაგეგმვა, მოხალისეების მართვა
+              ფოკუსი - ლიდერობა, Chapter-ის ზრდა, სტრატეგიული დაგეგმვა, მოხალისეების მართვა
               და თემის განვითარება. ლისაბონი, 2026.
             </p>
             <ul className="mt-6 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-white/85">
@@ -70,11 +70,11 @@ export function LeadershipRecognition() {
             </ul>
           </div>
           <div className="lg:col-span-5 relative min-h-[320px] bg-white/5">
-            <img src={limPortrait.url} alt="Nana Lobjanidze — Europe LIM 2026, Lisbon" className="absolute inset-0 h-full w-full object-cover object-center" />
+            <img src={limPortrait.url} alt="Nana Lobjanidze - Europe LIM 2026, Lisbon" className="absolute inset-0 h-full w-full object-cover object-center" />
           </div>
         </article>
 
-        {/* Gallery — clickable */}
+        {/* Gallery - clickable */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
           {GALLERY.map((g) => (
             <button
@@ -108,12 +108,12 @@ export function LeadershipRecognition() {
               ))}
             </ul>
 
-            {/* PMI Chapter Leader — dedicated section */}
+            {/* PMI Chapter Leader - dedicated section */}
             <div className="mt-6 surface-card p-6">
-              <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">PMI Chapter Leader · 2025 — 2026</p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">PMI Chapter Leader · 2025 - 2026</p>
               <h4 className="mt-1 font-extrabold text-lg text-ink">PMI Chapter Leadership Program</h4>
               <p className="mt-2 text-sm text-ink-soft leading-relaxed">
-                PMI-ის გლობალური Chapter Leader ბეიჯები ზედიზედ ორი წლისთვის — ლიდერობის, ზრდისა და
+                PMI-ის გლობალური Chapter Leader ბეიჯები ზედიზედ ორი წლისთვის - ლიდერობის, ზრდისა და
                 გავლენის ფორმალური აღიარება PMI Tbilisi, Georgia Chapter-ის სამმართველოს დირექტორის როლისთვის.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-6">

@@ -8,38 +8,38 @@ import ssuWorkshop from "@/assets/ssu-workshop.asset.json";
 const INTERNATIONAL = [
   {
     year: "2026",
-    title: "Agile Forum 2026 — ორგანიზატორი",
+    title: "Agile Forum 2026 - ორგანიზატორი",
     desc: "PMI Galicia Spain Chapter-ის გლობალური ონლაინ ღონისძიება 14 PMI Chapter-ის მონაწილეობით.",
     tag: "Global",
   },
   {
     year: "2025",
-    title: "Eastern Europe's First Virtual PM Summit — ორგანიზატორი",
+    title: "Eastern Europe's First Virtual PM Summit - ორგანიზატორი",
     desc: "5 ქვეყნის PMI Chapter-ის გაერთიანება: საქართველო, სომხეთი, ყაზახეთი, ლიტვა, უკრაინა.",
     tag: "Regional",
   },
   {
     year: "2026",
-    title: "Project Management Without Borders — სპიკერი & PM",
-    desc: "საერთაშორისო ვებინარი UNKLESA-სთან პარტნიორობით — „Aligning Project Communication with Corporate Culture“.",
+    title: "Project Management Without Borders - სპიკერი & PM",
+    desc: "საერთაშორისო ვებინარი UNKLESA-სთან პარტნიორობით - „Aligning Project Communication with Corporate Culture“.",
     tag: "International",
   },
   {
     year: "2025",
     title: "NATO–Georgia Professional Development Program",
-    desc: "PMI Tbilisi-ს მხრიდან ორგანიზატორი — ნატოს გუნდთან ერთობლივი შეხვედრა.",
+    desc: "PMI Tbilisi-ს მხრიდან ორგანიზატორი - ნატოს გუნდთან ერთობლივი შეხვედრა.",
     tag: "NATO",
   },
   {
     year: "2025",
-    title: "UN House — ახალი ლიდერების შეხვედრა",
+    title: "UN House - ახალი ლიდერების შეხვედრა",
     desc: "ბრიტანეთის საელჩოსა და Innovations and Reforms Center-თან ერთობლივი ღონისძიება.",
     tag: "UN",
   },
   {
     year: "2024",
     title: "Winter School on Public Administration Reform",
-    desc: "UNDP Georgia · ბორჯომი — 5-დღიანი ინტენსიური სკოლა საჯარო მმართველობის რეფორმაზე.",
+    desc: "UNDP Georgia · ბორჯომი - 5-დღიანი ინტენსიური სკოლა საჯარო მმართველობის რეფორმაზე.",
     tag: "UNDP",
   },
 ];
@@ -261,9 +261,9 @@ export function GlobalEngagement() {
               <div>
                 <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">Euronews Georgia · ნოემბერი 2025</p>
                 <h4 className="mt-2 font-extrabold text-ink leading-tight">
-                  Euronews Georgia — IPM Day-ის გაშუქება ეროვნულ ტელევიზიაზე
+                  Euronews Georgia - IPM Day-ის გაშუქება ეროვნულ ტელევიზიაზე
                 </h4>
-                <p className="mt-2 text-sm text-ink-soft">PMI Tbilisi-ის IPM Day 2025 — ეთერი Euronews Georgia-ზე.</p>
+                <p className="mt-2 text-sm text-ink-soft">PMI Tbilisi-ის IPM Day 2025 - ეთერი Euronews Georgia-ზე.</p>
               </div>
               <span className="shrink-0 text-sm font-bold text-navy">YouTube →</span>
             </div>

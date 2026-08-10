@@ -10,7 +10,7 @@ type Recommendation = {
 
 const RECOMMENDATIONS: Recommendation[] = [
   {
-    text: `Ms. Nana Lobjanidze served as a coordinator of the EU-funded project „Development of Oni Municipality via Business Cluster Creation and Investment Attraction" from the Mayor's Office of Oni Municipality. In cooperation with the PMC Research Team, Nana demonstrated impressive project management skills and strong knowledge of the local environment and major stakeholders. Her dedicated work was decisive in meeting project deadlines, conducting research activities, elaborating reports, organising prioritisation and institutionalisation workshops for business clusters, and managing study tours to Romania and Latvia. She also led the elaboration of Oni Municipality's investment-attractiveness information and the related website. The PMC Research Team had a highly productive cooperation with Nana — she deployed her experience, local knowledge, and excellent management, organisational and communication skills for the successful implementation of the project.`,
+    text: `Ms. Nana Lobjanidze served as a coordinator of the EU-funded project „Development of Oni Municipality via Business Cluster Creation and Investment Attraction" from the Mayor's Office of Oni Municipality. In cooperation with the PMC Research Team, Nana demonstrated impressive project management skills and strong knowledge of the local environment and major stakeholders. Her dedicated work was decisive in meeting project deadlines, conducting research activities, elaborating reports, organising prioritisation and institutionalisation workshops for business clusters, and managing study tours to Romania and Latvia. She also led the elaboration of Oni Municipality's investment-attractiveness information and the related website. The PMC Research Team had a highly productive cooperation with Nana - she deployed her experience, local knowledge, and excellent management, organisational and communication skills for the successful implementation of the project.`,
     name: "Mikheil Skhiereli",
     role: "Team Leader, Senior Consultant",
     org: "Policy and Management Consulting Group",
@@ -78,7 +78,7 @@ Based on our collaboration, I highly recommend Nana for roles involving project 
     initials: "TT",
   },
   {
-    text: `მქონდა შესაძლებლობა მემუშავა ნანა ლობჯანიძესთან PMI Tbilisi, Georgia Chapter-ისა და IIBA Georgia Chapter-ის ერთობლივი თანამშრომლობის ფარგლებში, სადაც მე, როგორც IIBA Georgia Chapter-ის დამფუძნებელი პრეზიდენტი, ხოლო ნანა, როგორც PMI Tbilisi, Georgia Chapter-ის კომუნიკაციის, მარკეტინგისა და სოციალური მედიის დირექტორი, ერთად ვუმასპინძლეთ ვებინარს — "PM or BA: Where Do I Begin? A Starter Guide to Two Essential Roles."
+    text: `მქონდა შესაძლებლობა მემუშავა ნანა ლობჯანიძესთან PMI Tbilisi, Georgia Chapter-ისა და IIBA Georgia Chapter-ის ერთობლივი თანამშრომლობის ფარგლებში, სადაც მე, როგორც IIBA Georgia Chapter-ის დამფუძნებელი პრეზიდენტი, ხოლო ნანა, როგორც PMI Tbilisi, Georgia Chapter-ის კომუნიკაციის, მარკეტინგისა და სოციალური მედიის დირექტორი, ერთად ვუმასპინძლეთ ვებინარს - "PM or BA: Where Do I Begin? A Starter Guide to Two Essential Roles."
 
 ეს ინიციატივა აერთიანებდა ორ წამყვან პროფესიულ საზოგადოებას საქართველოში და მიზნად ისახავდა დამწყები თუ მოქმედი პროფესიონალებისთვის პროექტის მენეჯერისა და ბიზნეს ანალიტიკოსის როლებს შორის განსხვავებების, საერთო წერტილებისა და კარიერული განვითარების შესაძლებლობების უკეთ წარმოჩენას.
 
