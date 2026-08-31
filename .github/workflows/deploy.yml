@@ -38,6 +38,17 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check build output
+        run: |
+          echo "Checking build output..."
+          ls -la
+          if [ ! -d "dist" ]; then
+            echo "ERROR: dist folder was not created."
+            exit 1
+          fi
+          echo "dist folder exists:"
+          ls -la dist
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
