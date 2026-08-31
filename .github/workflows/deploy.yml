@@ -38,14 +38,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Inspect build output
+      - name: Verify static output
         run: |
-          echo "=== ROOT ==="
-          ls -la
-          echo "=== OUTPUT ==="
-          ls -la .output || true
-          echo "=== OUTPUT PUBLIC ==="
-          ls -la .output/public || true
+          test -d .output/public
+          test -f .output/public/index.html
+          echo "Static site generated successfully."
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
