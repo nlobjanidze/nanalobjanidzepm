@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/logo-v2.png.asset.json";
-
+import logo from "@/assets/nana-logo.svg";
 type Item = { href: string; label: string };
 type NavEntry = { label: string; href?: string; items?: Item[] };
 
@@ -72,7 +71,7 @@ export function SiteNav() {
       <div className="container-x flex h-[76px] md:h-[92px] items-center justify-between gap-4">
         <a href="#top" className="flex shrink-0 items-center" aria-label="ნანა ლობჯანიძე">
           <img
-            src={logo.url}
+            src={logo}
             alt="ნანა ლობჯანიძე"
             className="h-14 md:h-[76px] w-auto object-contain transition-[filter] duration-300"
             style={onHero ? { filter: "brightness(0) invert(1)" } : undefined}
