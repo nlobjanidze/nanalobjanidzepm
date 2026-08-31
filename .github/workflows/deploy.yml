@@ -38,16 +38,14 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Check build output
+      - name: Inspect build output
         run: |
-          echo "Checking build output..."
+          echo "=== ROOT ==="
           ls -la
-          if [ ! -d "dist" ]; then
-            echo "ERROR: dist folder was not created."
-            exit 1
-          fi
-          echo "dist folder exists:"
-          ls -la dist
+          echo "=== OUTPUT ==="
+          ls -la .output || true
+          echo "=== OUTPUT PUBLIC ==="
+          ls -la .output/public || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -55,7 +53,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./.output/public
 
       - name: Deploy to GitHub Pages
         id: deployment
