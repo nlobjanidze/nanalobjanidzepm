@@ -47,6 +47,7 @@ const NAV: NavEntry[] = [
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
+  const [language, setLanguage] = useState<"ka" | "en">("ka");
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
@@ -174,6 +175,23 @@ export function SiteNav() {
                 </a>
               )
             )}
+                    <div className="hidden md:flex items-center gap-1 text-[12px] font-bold">
+          <button
+            type="button"
+            onClick={() => setLanguage("ka")}
+            className={language === "ka" ? "text-ink" : "text-ink-soft/50"}
+          >
+            KA
+          </button>
+          <span className="text-ink-soft/30">|</span>
+          <button
+            type="button"
+            onClick={() => setLanguage("en")}
+            className={language === "en" ? "text-ink" : "text-ink-soft/50"}
+          >
+            EN
+          </button>
+        </div>
             <a
               href="#contact"
               onClick={() => setOpen(false)}
