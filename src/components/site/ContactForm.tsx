@@ -57,6 +57,7 @@ export function ContactForm() {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
+    if (sending) return;
     setSending(true);
     try {
       const { error: dbError } = await supabase.from("contact_messages").insert({
@@ -67,31 +68,45 @@ export function ContactForm() {
         interest,
         message: message || null,
       });
-      if (dbError) throw dbError;
+      if (dbError) {
+        console.error("Contact form: database insert failed", dbError);
+        throw new Error("db");
+      }
 
       // Success is shown only after the email is actually accepted by the provider.
-      await notify({
-        data: {
-          name,
-          email,
-          phone: phone || null,
-          organization: org || null,
-          interest,
-          message: message || null,
-          submittedAt: new Date().toLocaleString("ka-GE", { timeZone: "Asia/Tbilisi" }),
-        },
-      });
+      try {
+        await notify({
+          data: {
+            name,
+            email,
+            phone: phone || null,
+            organization: org || null,
+            interest,
+            message: message || null,
+            submittedAt: new Date().toLocaleString("ka-GE", { timeZone: "Asia/Tbilisi" }),
+          },
+        });
+      } catch (mailErr) {
+        console.error("Contact form: email delivery failed", mailErr);
+        throw new Error("mail");
+      }
 
       form.reset();
       setInterest(INTERESTS[0]);
       setSent(true);
     } catch (err) {
       console.error("Contact form submit failed", err);
-      setError("გაგზავნა ვერ მოხერხდა. სცადეთ ხელახლა ან მომწერეთ პირდაპირ ელფოსტაზე.");
+      const reason = err instanceof Error ? err.message : "";
+      setError(
+        reason === "mail"
+          ? "თქვენი შეტყობინება მიღებულია, თუმცა ელფოსტის გაგზავნა ვერ მოხერხდა. გთხოვთ, დამატებით მომწეროთ პირდაპირ: nanalobjanidze.pm@gmail.com"
+          : "გაგზავნა ვერ მოხერხდა. სცადეთ ხელახლა ან მომწერეთ პირდაპირ ელფოსტაზე.",
+      );
     } finally {
       setSending(false);
     }
   };
+
 
 
 
