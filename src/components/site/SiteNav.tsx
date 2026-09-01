@@ -1,24 +1,135 @@
 import { useEffect, useState } from "react";
 import logo from "@/assets/nana-logo.svg";
-import { translations, type Language } from "@/lib/i18n";
+import { useLanguage } from "@/lib/LanguageContext";
 
-type Item = { href: string; label: string };
-type NavEntry = { label: string; href?: string; items?: Item[] };
+type Item = {
+  href: string;
+  label: string;
+  labelEn: string;
+};
+
+type NavEntry = {
+  label: string;
+  labelEn: string;
+  href?: string;
+  items?: Item[];
+};
+
+const NAV: NavEntry[] = [
+  {
+    label: "შესახებ",
+    labelEn: "About",
+    href: "#about",
+  },
+  {
+    label: "სერვისები",
+    labelEn: "Services",
+    href: "#services",
+    items: [
+      {
+        href: "#svc-delivery",
+        label: "პროექტების მართვა",
+        labelEn: "Project Management",
+      },
+      {
+        href: "#svc-ops",
+        label: "პროცესების გაუმჯობესება",
+        labelEn: "Process Improvement",
+      },
+      {
+        href: "#svc-mentoring",
+        label: "მენტორინგი & ლიდერობა",
+        labelEn: "Mentoring & Leadership",
+      },
+      {
+        href: "#svc-grants",
+        label: "გრანტების მართვა",
+        labelEn: "Grant Management",
+      },
+    ],
+  },
+  {
+    label: "ტრენინგები",
+    labelEn: "Trainings",
+    href: "#trainings",
+    items: [
+      {
+        href: "#tr-short",
+        label: "მოკლე ფორმატის ტრენინგები",
+        labelEn: "Short-format Trainings",
+      },
+      {
+        href: "#tr-deep",
+        label: "სიღრმისეული ტრენინგები",
+        labelEn: "In-depth Trainings",
+      },
+      {
+        href: "#tr-thematic",
+        label: "სპეციალიზებული თემატური ტრენინგები",
+        labelEn: "Specialized Thematic Trainings",
+      },
+      {
+        href: "#tr-corporate",
+        label: "კორპორატიული ტრენინგები",
+        labelEn: "Corporate Trainings",
+      },
+    ],
+  },
+  {
+    label: "გამოცდილება",
+    labelEn: "Experience",
+    href: "#experience",
+    items: [
+      {
+        href: "#experience",
+        label: "პროფესიული გამოცდილება",
+        labelEn: "Professional Experience",
+      },
+      {
+        href: "#projects",
+        label: "პროექტები",
+        labelEn: "Projects",
+      },
+      {
+        href: "#leadership",
+        label: "ლიდერობა",
+        labelEn: "Leadership",
+      },
+      {
+        href: "#engagement",
+        label: "სპიკერობა & გლობალური მონაწილეობა",
+        labelEn: "Speaking & Global Engagement",
+      },
+    ],
+  },
+  {
+    label: "პროფილი",
+    labelEn: "Profile",
+    href: "#certifications",
+    items: [
+      {
+        href: "#certifications",
+        label: "განათლება და სერტიფიკატები",
+        labelEn: "Education & Certifications",
+      },
+      {
+        href: "#recommendation",
+        label: "რეკომენდაციები",
+        labelEn: "Recommendations",
+      },
+    ],
+  },
+];
 
 export function SiteNav() {
+  const { language, setLanguage } = useLanguage();
+
   const [scrolled, setScrolled] = useState(false);
-  const [language, setLanguage] = useState<Language>("ka");
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("language") as Language | null;
-
-    if (savedLanguage === "ka" || savedLanguage === "en") {
-      setLanguage(savedLanguage);
-    }
-
     const onScroll = () => setScrolled(window.scrollY > 12);
 
     onScroll();
@@ -28,143 +139,9 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const changeLanguage = (newLanguage: Language) => {
-    setLanguage(newLanguage);
-    localStorage.setItem("language", newLanguage);
-  };
-
-  const t = translations[language];
-
-  const NAV: NavEntry[] = [
-    {
-      label: t.nav.about,
-      href: "#about",
-    },
-    {
-      label: t.nav.services,
-      href: "#services",
-      items: [
-        {
-          href: "#svc-delivery",
-          label:
-            language === "ka"
-              ? "პროექტების მართვა"
-              : "Project Management",
-        },
-        {
-          href: "#svc-ops",
-          label:
-            language === "ka"
-              ? "პროცესების გაუმჯობესება"
-              : "Process Improvement",
-        },
-        {
-          href: "#svc-mentoring",
-          label:
-            language === "ka"
-              ? "მენტორინგი & ლიდერობა"
-              : "Mentoring & Leadership",
-        },
-        {
-          href: "#svc-grants",
-          label:
-            language === "ka"
-              ? "გრანტების მართვა"
-              : "Grant Management",
-        },
-      ],
-    },
-    {
-      label: t.nav.trainings,
-      href: "#trainings",
-      items: [
-        {
-          href: "#tr-short",
-          label:
-            language === "ka"
-              ? "მოკლე ფორმატის ტრენინგები"
-              : "Short-Format Trainings",
-        },
-        {
-          href: "#tr-deep",
-          label:
-            language === "ka"
-              ? "სიღრმისეული ტრენინგები"
-              : "In-Depth Trainings",
-        },
-        {
-          href: "#tr-thematic",
-          label:
-            language === "ka"
-              ? "სპეციალიზებული თემატური ტრენინგები"
-              : "Specialized Thematic Trainings",
-        },
-        {
-          href: "#tr-corporate",
-          label:
-            language === "ka"
-              ? "კორპორატიული ტრენინგები"
-              : "Corporate Trainings",
-        },
-      ],
-    },
-    {
-      label: t.nav.experience,
-      href: "#experience",
-      items: [
-        {
-          href: "#experience",
-          label:
-            language === "ka"
-              ? "პროფესიული გამოცდილება"
-              : "Professional Experience",
-        },
-        {
-          href: "#projects",
-          label:
-            language === "ka"
-              ? "პროექტები"
-              : "Projects",
-        },
-        {
-          href: "#leadership",
-          label:
-            language === "ka"
-              ? "ლიდერობა"
-              : "Leadership",
-        },
-        {
-          href: "#engagement",
-          label:
-            language === "ka"
-              ? "სპიკერობა & გლობალური მონაწილეობა"
-              : "Speaking & Global Engagement",
-        },
-      ],
-    },
-    {
-      label: t.nav.profile,
-      href: "#certifications",
-      items: [
-        {
-          href: "#certifications",
-          label:
-            language === "ka"
-              ? "განათლება და სერტიფიკატები"
-              : "Education & Certifications",
-        },
-        {
-          href: "#recommendation",
-          label:
-            language === "ka"
-              ? "რეკომენდაციები"
-              : "Recommendations",
-        },
-      ],
-    },
-  ];
-
   const onHero = !scrolled && !open;
+
+  const isEnglish = language === "en";
 
   return (
     <header
@@ -175,8 +152,6 @@ export function SiteNav() {
       }`}
     >
       <div className="container-x flex h-[76px] md:h-[92px] items-center justify-between gap-4">
-
-        {/* LOGO */}
         <a
           href="#top"
           className="flex shrink-0 items-center"
@@ -186,15 +161,11 @@ export function SiteNav() {
             src={logo}
             alt="ნანა ლობჯანიძე"
             className="h-14 md:h-[76px] w-auto object-contain transition-[filter] duration-300"
-            style={
-              onHero
-                ? { filter: "brightness(0) invert(1)" }
-                : undefined
-            }
+            style={onHero ? { filter: "brightness(0) invert(1)" } : undefined}
           />
         </a>
 
-        {/* DESKTOP NAV */}
+        {/* Desktop navigation */}
         <nav className="hidden lg:flex min-w-0 flex-1 justify-center items-center gap-5 xl:gap-8">
           {NAV.map((n) => (
             <div
@@ -213,7 +184,7 @@ export function SiteNav() {
                     : "text-ink-soft hover:text-ink"
                 }`}
               >
-                {n.label}
+                {isEnglish ? n.labelEn : n.label}
 
                 {n.items && (
                   <span
@@ -235,7 +206,7 @@ export function SiteNav() {
                         onClick={() => setOpenMenu(null)}
                         className="block rounded-xl px-3.5 py-2.5 text-[13px] font-semibold text-ink-soft hover:text-ink hover:bg-surface transition-colors"
                       >
-                        {i.label}
+                        {isEnglish ? i.labelEn : i.label}
                       </a>
                     ))}
                   </div>
@@ -245,21 +216,19 @@ export function SiteNav() {
           ))}
         </nav>
 
-        {/* DESKTOP LANGUAGE SWITCHER */}
-        <div className="hidden lg:flex items-center gap-2 text-[12px] font-bold">
-
+        {/* Desktop language switcher */}
+        <div className="hidden lg:flex items-center gap-1 text-[12px] font-bold">
           <button
             type="button"
-            onClick={() => changeLanguage("ka")}
-            aria-label="ქართული"
-            className={`inline-flex items-center gap-1.5 transition-colors ${
+            onClick={() => setLanguage("ka")}
+            className={`inline-flex items-center gap-1.5 ${
               language === "ka"
                 ? onHero
                   ? "text-white"
                   : "text-ink"
                 : onHero
-                ? "text-white/50"
-                : "text-ink-soft/50"
+                  ? "text-white/50"
+                  : "text-ink-soft/50"
             }`}
           >
             <span>🇬🇪</span>
@@ -268,9 +237,7 @@ export function SiteNav() {
 
           <span
             className={
-              onHero
-                ? "text-white/40"
-                : "text-ink-soft/30"
+              onHero ? "text-white/40" : "text-ink-soft/30"
             }
           >
             |
@@ -278,25 +245,23 @@ export function SiteNav() {
 
           <button
             type="button"
-            onClick={() => changeLanguage("en")}
-            aria-label="English"
-            className={`inline-flex items-center gap-1.5 transition-colors ${
+            onClick={() => setLanguage("en")}
+            className={`inline-flex items-center gap-1.5 ${
               language === "en"
                 ? onHero
                   ? "text-white"
                   : "text-ink"
                 : onHero
-                ? "text-white/50"
-                : "text-ink-soft/50"
+                  ? "text-white/50"
+                  : "text-ink-soft/50"
             }`}
           >
             <span>🇬🇧</span>
             <span>EN</span>
           </button>
-
         </div>
 
-        {/* DESKTOP CTA */}
+        {/* Desktop CTA */}
         <a
           href="#contact"
           className="hidden md:inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-4.5 py-2 text-[13px] font-bold transition-all hover:-translate-y-0.5"
@@ -305,12 +270,12 @@ export function SiteNav() {
             color: "var(--navy-deep)",
           }}
         >
-          {t.nav.consultation}
+          {isEnglish ? "Book a Consultation" : "დაჯავშნე კონსულტაცია"}
         </a>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* Mobile menu button */}
         <button
-          aria-label="Menu"
+          aria-label={isEnglish ? "Menu" : "მენიუ"}
           className={`lg:hidden inline-flex shrink-0 items-center justify-center h-10 w-10 rounded-md border transition-colors duration-300 ${
             onHero
               ? "border-white/40 text-white"
@@ -322,15 +287,13 @@ export function SiteNav() {
         </button>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* Mobile navigation */}
       {open && (
         <div className="lg:hidden border-t border-line bg-white/95 backdrop-blur-xl max-h-[70vh] overflow-y-auto">
           <div className="container-x py-4 flex flex-col gap-1">
-
             {NAV.map((n) =>
               n.items ? (
                 <div key={n.label}>
-
                   <button
                     onClick={() =>
                       setMobileOpen((m) =>
@@ -339,7 +302,9 @@ export function SiteNav() {
                     }
                     className="w-full flex items-center justify-between py-3 text-base font-semibold text-ink"
                   >
-                    <span>{n.label}</span>
+                    <span>
+                      {isEnglish ? n.labelEn : n.label}
+                    </span>
 
                     <span
                       aria-hidden
@@ -358,12 +323,11 @@ export function SiteNav() {
                           onClick={() => setOpen(false)}
                           className="py-2.5 text-sm font-medium text-ink-soft"
                         >
-                          {i.label}
+                          {isEnglish ? i.labelEn : i.label}
                         </a>
                       ))}
                     </div>
                   )}
-
                 </div>
               ) : (
                 <a
@@ -372,17 +336,16 @@ export function SiteNav() {
                   onClick={() => setOpen(false)}
                   className="py-3 text-base font-semibold text-ink"
                 >
-                  {n.label}
+                  {isEnglish ? n.labelEn : n.label}
                 </a>
               )
             )}
 
-            {/* MOBILE LANGUAGE SWITCHER */}
-            <div className="flex items-center gap-2 text-[12px] font-bold pt-3">
-
+            {/* Mobile language switcher */}
+            <div className="flex items-center gap-1 text-[12px] font-bold mt-2">
               <button
                 type="button"
-                onClick={() => changeLanguage("ka")}
+                onClick={() => setLanguage("ka")}
                 className={`inline-flex items-center gap-1.5 ${
                   language === "ka"
                     ? "text-ink"
@@ -393,13 +356,11 @@ export function SiteNav() {
                 <span>KA</span>
               </button>
 
-              <span className="text-ink-soft/30">
-                |
-              </span>
+              <span className="text-ink-soft/30">|</span>
 
               <button
                 type="button"
-                onClick={() => changeLanguage("en")}
+                onClick={() => setLanguage("en")}
                 className={`inline-flex items-center gap-1.5 ${
                   language === "en"
                     ? "text-ink"
@@ -409,10 +370,9 @@ export function SiteNav() {
                 <span>🇬🇧</span>
                 <span>EN</span>
               </button>
-
             </div>
 
-            {/* MOBILE CTA */}
+            {/* Mobile CTA */}
             <a
               href="#contact"
               onClick={() => setOpen(false)}
@@ -422,9 +382,10 @@ export function SiteNav() {
                 color: "var(--navy-deep)",
               }}
             >
-              {t.nav.consultation}
+              {isEnglish
+                ? "Book a Consultation"
+                : "დაჯავშნე კონსულტაცია"}
             </a>
-
           </div>
         </div>
       )}
