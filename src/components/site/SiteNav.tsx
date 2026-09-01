@@ -115,6 +115,27 @@ export function SiteNav() {
             </div>
           ))}
         </nav>
+                <div className="hidden lg:flex items-center gap-1 text-[12px] font-bold">
+          <button
+            type="button"
+            onClick={() => setLanguage("ka")}
+            className={language === "ka"
+  ? (onHero ? "text-white" : "text-ink")
+  : (onHero ? "text-white/50" : "text-ink-soft/50")}
+          >
+            KA
+          </button>
+          <span className={onHero ? "text-white/40" : "text-ink-soft/30"}>|</span>
+          <button
+            type="button"
+            onClick={() => setLanguage("en")}
+            className={language === "en"
+  ? (onHero ? "text-white" : "text-ink")
+  : (onHero ? "text-white/50" : "text-ink-soft/50")}
+          >
+            EN
+          </button>
+        </div>
 
         <a
           href="#contact"
@@ -175,15 +196,17 @@ export function SiteNav() {
                 </a>
               )
             )}
-                    <div className="hidden md:flex items-center gap-1 text-[12px] font-bold">
+                    <div className="flex items-center gap-1 text-[12px] font-bold">
           <button
             type="button"
             onClick={() => setLanguage("ka")}
-            className={language === "ka" ? "text-ink" : "text-ink-soft/50"}
+            className={language === "ka"
+  ? (onHero ? "text-white" : "text-ink")
+  : (onHero ? "text-white/50" : "text-ink-soft/50")}
           >
             KA
           </button>
-          <span className="text-ink-soft/30">|</span>
+          <span className={onHero ? "text-white/40" : "text-ink-soft/30"}>|</span>
           <button
             type="button"
             onClick={() => setLanguage("en")}
