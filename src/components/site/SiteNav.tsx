@@ -1,59 +1,24 @@
 import { useEffect, useState } from "react";
 import logo from "@/assets/nana-logo.svg";
+import { translations, type Language } from "@/lib/i18n";
 
 type Item = { href: string; label: string };
 type NavEntry = { label: string; href?: string; items?: Item[] };
 
-const NAV: NavEntry[] = [
-  { label: "შესახებ", href: "#about" },
-  {
-    label: "სერვისები",
-    href: "#services",
-    items: [
-      { href: "#svc-delivery", label: "პროექტების მართვა" },
-      { href: "#svc-ops", label: "პროცესების გაუმჯობესება" },
-      { href: "#svc-mentoring", label: "მენტორინგი & ლიდერობა" },
-      { href: "#svc-grants", label: "გრანტების მართვა" },
-    ],
-  },
-  {
-    label: "ტრენინგები",
-    href: "#trainings",
-    items: [
-      { href: "#tr-short", label: "მოკლე ფორმატის ტრენინგები" },
-      { href: "#tr-deep", label: "სიღრმისეული ტრენინგები" },
-      { href: "#tr-thematic", label: "სპეციალიზებული თემატური ტრენინგები" },
-      { href: "#tr-corporate", label: "კორპორატიული ტრენინგები" },
-    ],
-  },
-  {
-    label: "გამოცდილება",
-    href: "#experience",
-    items: [
-      { href: "#experience", label: "პროფესიული გამოცდილება" },
-      { href: "#projects", label: "პროექტები" },
-      { href: "#leadership", label: "ლიდერობა" },
-      { href: "#engagement", label: "სპიკერობა & გლობალური მონაწილეობა" },
-    ],
-  },
-  {
-    label: "პროფილი",
-    href: "#certifications",
-    items: [
-      { href: "#certifications", label: "განათლება და სერტიფიკატები" },
-      { href: "#recommendation", label: "რეკომენდაციები" },
-    ],
-  },
-];
-
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
-  const [language, setLanguage] = useState<"ka" | "en">("ka");
+  const [language, setLanguage] = useState<Language>("ka");
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
 
   useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") as Language | null;
+
+    if (savedLanguage === "ka" || savedLanguage === "en") {
+      setLanguage(savedLanguage);
+    }
+
     const onScroll = () => setScrolled(window.scrollY > 12);
 
     onScroll();
@@ -62,6 +27,142 @@ export function SiteNav() {
 
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const changeLanguage = (newLanguage: Language) => {
+    setLanguage(newLanguage);
+    localStorage.setItem("language", newLanguage);
+  };
+
+  const t = translations[language];
+
+  const NAV: NavEntry[] = [
+    {
+      label: t.nav.about,
+      href: "#about",
+    },
+    {
+      label: t.nav.services,
+      href: "#services",
+      items: [
+        {
+          href: "#svc-delivery",
+          label:
+            language === "ka"
+              ? "პროექტების მართვა"
+              : "Project Management",
+        },
+        {
+          href: "#svc-ops",
+          label:
+            language === "ka"
+              ? "პროცესების გაუმჯობესება"
+              : "Process Improvement",
+        },
+        {
+          href: "#svc-mentoring",
+          label:
+            language === "ka"
+              ? "მენტორინგი & ლიდერობა"
+              : "Mentoring & Leadership",
+        },
+        {
+          href: "#svc-grants",
+          label:
+            language === "ka"
+              ? "გრანტების მართვა"
+              : "Grant Management",
+        },
+      ],
+    },
+    {
+      label: t.nav.trainings,
+      href: "#trainings",
+      items: [
+        {
+          href: "#tr-short",
+          label:
+            language === "ka"
+              ? "მოკლე ფორმატის ტრენინგები"
+              : "Short-Format Trainings",
+        },
+        {
+          href: "#tr-deep",
+          label:
+            language === "ka"
+              ? "სიღრმისეული ტრენინგები"
+              : "In-Depth Trainings",
+        },
+        {
+          href: "#tr-thematic",
+          label:
+            language === "ka"
+              ? "სპეციალიზებული თემატური ტრენინგები"
+              : "Specialized Thematic Trainings",
+        },
+        {
+          href: "#tr-corporate",
+          label:
+            language === "ka"
+              ? "კორპორატიული ტრენინგები"
+              : "Corporate Trainings",
+        },
+      ],
+    },
+    {
+      label: t.nav.experience,
+      href: "#experience",
+      items: [
+        {
+          href: "#experience",
+          label:
+            language === "ka"
+              ? "პროფესიული გამოცდილება"
+              : "Professional Experience",
+        },
+        {
+          href: "#projects",
+          label:
+            language === "ka"
+              ? "პროექტები"
+              : "Projects",
+        },
+        {
+          href: "#leadership",
+          label:
+            language === "ka"
+              ? "ლიდერობა"
+              : "Leadership",
+        },
+        {
+          href: "#engagement",
+          label:
+            language === "ka"
+              ? "სპიკერობა & გლობალური მონაწილეობა"
+              : "Speaking & Global Engagement",
+        },
+      ],
+    },
+    {
+      label: t.nav.profile,
+      href: "#certifications",
+      items: [
+        {
+          href: "#certifications",
+          label:
+            language === "ka"
+              ? "განათლება და სერტიფიკატები"
+              : "Education & Certifications",
+        },
+        {
+          href: "#recommendation",
+          label:
+            language === "ka"
+              ? "რეკომენდაციები"
+              : "Recommendations",
+        },
+      ],
+    },
+  ];
 
   const onHero = !scrolled && !open;
 
@@ -75,7 +176,7 @@ export function SiteNav() {
     >
       <div className="container-x flex h-[76px] md:h-[92px] items-center justify-between gap-4">
 
-        {/* Logo */}
+        {/* LOGO */}
         <a
           href="#top"
           className="flex shrink-0 items-center"
@@ -93,7 +194,7 @@ export function SiteNav() {
           />
         </a>
 
-        {/* Desktop Navigation */}
+        {/* DESKTOP NAV */}
         <nav className="hidden lg:flex min-w-0 flex-1 justify-center items-center gap-5 xl:gap-8">
           {NAV.map((n) => (
             <div
@@ -144,20 +245,21 @@ export function SiteNav() {
           ))}
         </nav>
 
-        {/* Desktop Language Selector */}
-        <div className="hidden lg:flex items-center gap-1 text-[12px] font-bold">
+        {/* DESKTOP LANGUAGE SWITCHER */}
+        <div className="hidden lg:flex items-center gap-2 text-[12px] font-bold">
 
           <button
             type="button"
-            onClick={() => setLanguage("ka")}
-            className={`inline-flex items-center gap-1.5 ${
+            onClick={() => changeLanguage("ka")}
+            aria-label="ქართული"
+            className={`inline-flex items-center gap-1.5 transition-colors ${
               language === "ka"
                 ? onHero
                   ? "text-white"
                   : "text-ink"
                 : onHero
-                  ? "text-white/50"
-                  : "text-ink-soft/50"
+                ? "text-white/50"
+                : "text-ink-soft/50"
             }`}
           >
             <span>🇬🇪</span>
@@ -176,15 +278,16 @@ export function SiteNav() {
 
           <button
             type="button"
-            onClick={() => setLanguage("en")}
-            className={`inline-flex items-center gap-1.5 ${
+            onClick={() => changeLanguage("en")}
+            aria-label="English"
+            className={`inline-flex items-center gap-1.5 transition-colors ${
               language === "en"
                 ? onHero
                   ? "text-white"
                   : "text-ink"
                 : onHero
-                  ? "text-white/50"
-                  : "text-ink-soft/50"
+                ? "text-white/50"
+                : "text-ink-soft/50"
             }`}
           >
             <span>🇬🇧</span>
@@ -193,7 +296,7 @@ export function SiteNav() {
 
         </div>
 
-        {/* Consultation Button */}
+        {/* DESKTOP CTA */}
         <a
           href="#contact"
           className="hidden md:inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-4.5 py-2 text-[13px] font-bold transition-all hover:-translate-y-0.5"
@@ -202,10 +305,10 @@ export function SiteNav() {
             color: "var(--navy-deep)",
           }}
         >
-          დაჯავშნე კონსულტაცია
+          {t.nav.consultation}
         </a>
 
-        {/* Mobile Menu Button */}
+        {/* MOBILE MENU BUTTON */}
         <button
           aria-label="Menu"
           className={`lg:hidden inline-flex shrink-0 items-center justify-center h-10 w-10 rounded-md border transition-colors duration-300 ${
@@ -219,7 +322,7 @@ export function SiteNav() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {open && (
         <div className="lg:hidden border-t border-line bg-white/95 backdrop-blur-xl max-h-[70vh] overflow-y-auto">
           <div className="container-x py-4 flex flex-col gap-1">
@@ -274,12 +377,12 @@ export function SiteNav() {
               )
             )}
 
-            {/* Mobile Language Selector */}
-            <div className="flex items-center gap-1 text-[12px] font-bold mt-2">
+            {/* MOBILE LANGUAGE SWITCHER */}
+            <div className="flex items-center gap-2 text-[12px] font-bold pt-3">
 
               <button
                 type="button"
-                onClick={() => setLanguage("ka")}
+                onClick={() => changeLanguage("ka")}
                 className={`inline-flex items-center gap-1.5 ${
                   language === "ka"
                     ? "text-ink"
@@ -296,7 +399,7 @@ export function SiteNav() {
 
               <button
                 type="button"
-                onClick={() => setLanguage("en")}
+                onClick={() => changeLanguage("en")}
                 className={`inline-flex items-center gap-1.5 ${
                   language === "en"
                     ? "text-ink"
@@ -309,7 +412,7 @@ export function SiteNav() {
 
             </div>
 
-            {/* Mobile Consultation Button */}
+            {/* MOBILE CTA */}
             <a
               href="#contact"
               onClick={() => setOpen(false)}
@@ -319,7 +422,7 @@ export function SiteNav() {
                 color: "var(--navy-deep)",
               }}
             >
-              დაჯავშნე კონსულტაცია
+              {t.nav.consultation}
             </a>
 
           </div>
