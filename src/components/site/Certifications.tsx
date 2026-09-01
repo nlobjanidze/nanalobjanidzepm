@@ -1,4 +1,4 @@
-import pmpBadge from "@/assets/pmp-badge.asset.json";
+import pmpBadge from "@/assets/pmp-badge.jpeg";
 
 const PMI = [
   { name: "Business Continuity", issuer: "Project Management Institute", year: "2025" },
@@ -83,7 +83,7 @@ export function Certifications() {
               style={{ background: "white" }}
             >
               <img
-                src={pmpBadge.url}
+                src={pmpBadge}
                 alt="PMP® Project Management Professional - Project Management Institute"
                 className="block h-auto w-[200px] md:w-[230px]"
                 style={{ mixBlendMode: "multiply" }}

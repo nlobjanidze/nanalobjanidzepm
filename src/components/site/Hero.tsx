@@ -1,4 +1,4 @@
-import hero from "@/assets/nana-portrait-transparent.png.asset.json";
+import hero from "@/assets/nana-portrait-transparent.png";
 
 const STATS = [
   { k: "+8", v: "წლის მენეჯერული გამოცდილება" },
@@ -172,7 +172,7 @@ export function Hero() {
               aria-hidden
             />
             <img
-              src={hero.url}
+              src={hero}
               alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
               loading="eager"
               className="relative block h-[360px] md:h-[460px] lg:h-[520px] w-auto object-contain"

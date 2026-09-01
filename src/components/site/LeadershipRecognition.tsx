@@ -1,10 +1,10 @@
 import { useState } from "react";
-import limPortrait from "@/assets/lim-portrait.asset.json";
-import limPassStage from "@/assets/lim-pass-stage.asset.json";
-import limScreen from "@/assets/lim-screen.asset.json";
-import limGroup from "@/assets/lim-group.asset.json";
-import chapterLeaderBadge from "@/assets/chapter-leader-badge.asset.json";
-import sageLogo from "@/assets/sage-logo.asset.json";
+import limPortrait from "@/assets/lim-portrait.jpeg";
+import limPassStage from "@/assets/lim-pass-stage.jpeg";
+import limScreen from "@/assets/lim-screen.jpg";
+import limGroup from "@/assets/lim-group.jpeg";
+import chapterLeaderBadge from "@/assets/chapter-leader-badge.png";
+import sageLogo from "@/assets/sage-logo.jpeg";
 
 const ROLES = [
   { org: "PMI Tbilisi, Georgia Chapter", title: "Board Member · Director of Marketing, Communications & Social Media", period: "2024 - დღემდე" },
@@ -21,9 +21,9 @@ const AWARDS = [
 
 
 const GALLERY = [
-  { src: limGroup.url, caption: "Europe Leadership Institute Meeting 2026 · ჯგუფური ფოტო" },
-  { src: limPassStage.url, caption: "Europe Leadership Institute Meeting 2026 - სცენა" },
-  { src: limScreen.url, caption: "„We maximize project success to elevate our world.“ - PMI" },
+  { src: limGroup, caption: "Europe Leadership Institute Meeting 2026 · ჯგუფური ფოტო" },
+  { src: limPassStage, caption: "Europe Leadership Institute Meeting 2026 - სცენა" },
+  { src: limScreen, caption: "„We maximize project success to elevate our world.“ - PMI" },
 ];
 
 
@@ -70,7 +70,7 @@ export function LeadershipRecognition() {
             </ul>
           </div>
           <div className="lg:col-span-5 relative min-h-[320px] bg-white/5">
-            <img src={limPortrait.url} alt="Nana Lobjanidze - Europe LIM 2026, Lisbon" className="absolute inset-0 h-full w-full object-cover object-center" />
+            <img src={limPortrait} alt="Nana Lobjanidze - Europe LIM 2026, Lisbon" className="absolute inset-0 h-full w-full object-cover object-center" />
           </div>
         </article>
 
@@ -118,11 +118,11 @@ export function LeadershipRecognition() {
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-6">
                 <div className="flex flex-col items-center">
-                  <img src={chapterLeaderBadge.url} alt="PMI Chapter Leader 2026" className="h-24 w-24 object-contain" />
+                  <img src={chapterLeaderBadge} alt="PMI Chapter Leader 2026" className="h-24 w-24 object-contain" />
                   <span className="mt-2 text-xs font-black tabular-nums" style={{ color: "var(--navy)" }}>2026</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src={chapterLeaderBadge.url} alt="PMI Chapter Leader 2025" className="h-24 w-24 object-contain opacity-90" style={{ filter: "hue-rotate(-15deg)" }} />
+                  <img src={chapterLeaderBadge} alt="PMI Chapter Leader 2025" className="h-24 w-24 object-contain opacity-90" style={{ filter: "hue-rotate(-15deg)" }} />
                   <span className="mt-2 text-xs font-black tabular-nums" style={{ color: "var(--navy)" }}>2025</span>
                 </div>
               </div>
@@ -132,7 +132,7 @@ export function LeadershipRecognition() {
 
             <div className="mt-6 surface-card p-6">
               <div className="flex items-start gap-5">
-                <img src={sageLogo.url} alt="SAGE Georgia" className="h-14 w-auto object-contain shrink-0" />
+                <img src={sageLogo} alt="SAGE Georgia" className="h-14 w-auto object-contain shrink-0" />
                 <div>
                   <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">SAGE Georgia</p>
                   <h4 className="mt-1 font-extrabold text-lg text-ink">საერთაშორისო საგანმანათლებლო და სამეწარმეო პლატფორმა</h4>

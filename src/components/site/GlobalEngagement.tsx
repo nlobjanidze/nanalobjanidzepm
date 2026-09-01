@@ -1,9 +1,9 @@
-import ipmDay from "@/assets/ipm-day-2025.asset.json";
-import agm2025 from "@/assets/agm-2025.asset.json";
-import ciuLecture from "@/assets/ciu-lecture.asset.json";
-import pmOrBa from "@/assets/pm-or-ba.asset.json";
-import sageTraining from "@/assets/sage-training.asset.json";
-import ssuWorkshop from "@/assets/ssu-workshop.asset.json";
+import ipmDay from "@/assets/ipm-day-2025.jpg";
+import agm2025 from "@/assets/agm-2025.jpg";
+import ciuLecture from "@/assets/ciu-lecture.jpeg";
+import pmOrBa from "@/assets/pm-or-ba.jpg";
+import sageTraining from "@/assets/sage-training.jpg";
+import ssuWorkshop from "@/assets/ssu-workshop.jpg";
 
 const INTERNATIONAL = [
   {
@@ -51,7 +51,7 @@ const SPEAKING = [
     title: "საჯარო ლექცია - „პროექტების მენეჯერი: მითები, რეალობა და შენი შანსი ამ პროფესიაში“",
     desc:
       "ლექცია კავკასიის საერთაშორისო უნივერსიტეტის ბიზნესისა და ტექნოლოგიების ფაკულტეტის ორგანიზებით გაიმართა. განვიხილეთ პროექტების მენეჯერის პროფესიის რეალური სპეციფიკა, გავრცელებული მითები და შრომით ბაზარზე არსებული შესაძლებლობები, ასევე ის უნარები და კომპეტენციები, რომლებიც კარიერის დასაწყებად და განვითარებისთვისაა საჭირო. სტუდენტებს გავუზიარე საკუთარი პროფესიული გამოცდილება და პრაქტიკული რეკომენდაციები. შეხვედრა ინტერაქციულ ფორმატში წარიმართა და კითხვა-პასუხის სესიით დასრულდა სტუდენტებთან და აკადემიურ პერსონალთან.",
-    image: ciuLecture.url,
+    image: ciuLecture,
     fit: "cover" as const,
     link: "https://www.facebook.com/share/p/183FsALfjg/",
   },
@@ -61,7 +61,7 @@ const SPEAKING = [
     title: "PM or BA: Where Do I Begin? - A Starter Guide to Two Essential Roles",
     desc:
       "PMI თბილისი, საქართველოს წარმომადგენლობისა და IIBA საქართველოს წარმომადგენლობის ერთობლივი ვებინარი, სადაც ერთ-ერთი სპიკერი ვიყავი თინათინ პაპაშვილთან ერთად. ღონისძიება დამწყებ და მოქმედ პროფესიონალებს ეხმარებოდა პროექტების მართვისა და ბიზნეს ანალიზის მიმართულებებს შორის განსხვავებებისა და კავშირების გააზრებაში. განვიხილეთ ორივე პროფესიის როლი, პასუხისმგებლობები, კარიერული შესაძლებლობები და განვითარების გზები. ვებინარის მიზანი მონაწილეებისთვის ინფორმირებული კარიერული არჩევანის მხარდაჭერა იყო.",
-    image: pmOrBa.url,
+    image: pmOrBa,
     fit: "contain" as const,
     link: null,
   },
@@ -71,7 +71,7 @@ const SPEAKING = [
     title: "ტრენერი - „Who Says What, to Whom, and How - მარკეტინგული კომუნიკაცია პროექტებში“",
     desc:
       "ტრენინგი SAGE 2026 Innovation & Entrepreneurship Championship-ის მოსამზადებელი პროგრამის ფარგლებში ჩავატარე და განკუთვნილი იყო ჩემპიონატში მონაწილე გუნდებისა და მენტორებისთვის. მთავარი თემა პროექტებში ეფექტური მარკეტინგული კომუნიკაცია იყო. მონაწილეებმა მიიღეს პრაქტიკული რეკომენდაციები მიზნობრივ აუდიტორიასთან კომუნიკაციის, შეტყობინებების ფორმირებისა და პროექტის ღირებულების ეფექტურად წარდგენის შესახებ. შეხვედრა რეალურ მაგალითებსა და პრაქტიკულ მიდგომებზე იყო ფოკუსირებული.",
-    image: sageTraining.url,
+    image: sageTraining,
     fit: "contain" as const,
     link: null,
   },
@@ -81,7 +81,7 @@ const SPEAKING = [
     title: "Workshop - „პროექტის მართვა და საპროექტო განაცხადის შედგენა“",
     desc:
       "ვორქშოპი PMI თბილისი, საქართველოს წარმომადგენლობასა და სულხან-საბა ორბელიანის უნივერსიტეტს შორის თანამშრომლობის ფარგლებში გაიმართა. მონაწილეებმა შეისწავლეს პროექტის მართვის ძირითადი ეტაპები და საპროექტო განაცხადის მომზადების პრაქტიკული პრინციპები, მათ შორის მიზნების, აქტივობებისა და ბიუჯეტის სწორად განსაზღვრის მიდგომები. სტუდენტები გაეცნენ პროექტების მართვის თანამედროვე პრაქტიკებსა და PMI-ის საქმიანობას. შეხვედრის მიზანი ახალგაზრდებისთვის პრაქტიკული ცოდნის გაზიარება და პროფესიული განვითარების ხელშეწყობა იყო.",
-    image: ssuWorkshop.url,
+    image: ssuWorkshop,
     fit: "cover" as const,
     link: null,
   },
@@ -106,7 +106,7 @@ const EVENTS = [
       "მთავარი სპიკერი: Ilia Revia, PMP® - „Future Fast Forward: Aligning Project Management with Organizational Strategy for Rapid Growth“",
       "ღონისძიება ეროვნულ ტელევიზიაშიც გაშუქდა",
     ],
-    image: ipmDay.url,
+    image: ipmDay,
   },
   {
     date: "2025",
@@ -123,7 +123,7 @@ const EVENTS = [
       "მოწვეული სპიკერი: Pablo Lledó - PMI Global-ის Board of Directors-ის წევრი, თემით „პროექტის წარმატება: ღირებულების შექმნა, გავლენის მიღწევა“",
       "მოწვეული სპიკერი: გია კაპანაძე - Flutter-ის CIO და PMI საქართველოს წარმომადგენლობის პრეზიდენტი (2026 წლიდან), თემით „Beyond Delivery - მიწოდების მიღმა“",
     ],
-    image: agm2025.url,
+    image: agm2025,
   },
 ];
 
