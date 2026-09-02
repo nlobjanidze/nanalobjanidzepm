@@ -75,7 +75,7 @@ export function SiteNav() {
       <div className="container-x flex h-[76px] md:h-[92px] items-center justify-between gap-4">
 
         {/* Logo */}
-        
+        <a
           href="#top"
           className="flex shrink-0 items-center"
           aria-label="ნანა ლობჯანიძე"
@@ -98,7 +98,7 @@ export function SiteNav() {
               }
               onMouseLeave={() => setOpenMenu(null)}
             >
-              
+              <a
                 href={n.href}
                 className="inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-semibold tracking-wide py-3 transition-colors duration-300 text-ink-soft hover:text-ink"
               >
@@ -118,7 +118,7 @@ export function SiteNav() {
                 <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50">
                   <div className="min-w-[260px] rounded-2xl border border-line bg-white shadow-[var(--shadow-soft)] p-2">
                     {n.items.map((i) => (
-                      
+                      <a
                         key={i.href + i.label}
                         href={i.href}
                         onClick={() => setOpenMenu(null)}
@@ -166,7 +166,7 @@ export function SiteNav() {
         </div>
 
         {/* Consultation Button */}
-        
+        <a
           href="#contact"
           className="hidden md:inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-4.5 py-2 text-[13px] font-bold transition-all hover:-translate-y-0.5"
           style={{
@@ -217,7 +217,7 @@ export function SiteNav() {
                   {mobileOpen === n.label && (
                     <div className="pl-3 pb-2 flex flex-col">
                       {n.items.map((i) => (
-                        
+                        <a
                           key={i.href + i.label}
                           href={i.href}
                           onClick={() => setOpen(false)}
@@ -231,7 +231,7 @@ export function SiteNav() {
 
                 </div>
               ) : (
-                
+                <a
                   key={n.label}
                   href={n.href}
                   onClick={() => setOpen(false)}
@@ -278,7 +278,7 @@ export function SiteNav() {
             </div>
 
             {/* Mobile Consultation Button */}
-            
+            <a
               href="#contact"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded-full px-5 py-3 font-bold"
