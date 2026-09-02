@@ -128,7 +128,7 @@ export function Certifications() {
         </div>
 
         {/* Certifications grid */}
-        <div className="mt-8 grid lg:grid-cols-2 gap-6 items-stretch">
+        className="mt-8 grid lg:grid-cols-2 gap-6 items-start"
           <Group title="PMI სერტიფიკატები" items={PMI} />
           <Group title="საერთაშორისო პროფესიული სერტიფიკატები" items={PROFESSIONAL} />
         </div>
