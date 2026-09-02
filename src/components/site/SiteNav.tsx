@@ -5,6 +5,7 @@ type Item = { href: string; label: string };
 type NavEntry = { label: string; href?: string; items?: Item[] };
 
 const NAV: NavEntry[] = [
+  { label: "მიმდინარე კურსი", href: "#featured-course" },
   { label: "შესახებ", href: "#about" },
   {
     label: "სერვისები",
