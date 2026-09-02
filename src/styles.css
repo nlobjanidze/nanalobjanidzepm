@@ -1,10 +1,15 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+
 @font-face {
   font-family: "Dachi The Lynx";
-src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
+  src: url("/dachi-the-lynx.woff2") format("woff2");
+  font-weight: 400 900;
   font-display: swap;
+  /* Georgian characters use Dachi The Lynx.
+     Latin/English characters fall back to Inter. */
+  unicode-range: U+10A0-10FF, U+1C90-1CBF, U+2D00-2D2F;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -51,14 +56,14 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
 
-  --font-display: "Dachi The Lynx", "Noto Serif Georgian", "BPG Nino Mtavruli", "Noto Sans Georgian", "Inter", system-ui, sans-serif;
+  --font-display: "Dachi The Lynx", "Noto Sans Georgian", "Inter", system-ui, sans-serif;
   --font-sans: "Noto Sans Georgian", "Inter", system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.75rem;
 
-  /* Brand palette - Primary #17E3B2, Secondary #145DA0, Accent Light Sky Blue */
+  /* Brand palette */
   --navy-deep: #0E3D6B;
   --navy: #145DA0;
   --navy-soft: #2E7BBF;
@@ -99,16 +104,32 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
     radial-gradient(70% 60% at 0% 100%, rgba(20, 93, 160, 0.18), transparent 60%),
     radial-gradient(60% 50% at 50% 50%, rgba(135, 206, 235, 0.18), transparent 65%),
     linear-gradient(135deg, #ffffff 0%, #F2FBF8 45%, #EAF3FB 100%);
+
   --gradient-brand: linear-gradient(135deg, #17E3B2 0%, #87CEEB 50%, #145DA0 100%);
   --gradient-mint: linear-gradient(135deg, #17E3B2, #2BF2C2);
-  --shadow-soft: 0 1px 2px rgba(14, 61, 107, 0.05), 0 12px 32px -16px rgba(14, 61, 107, 0.18);
-  --shadow-card: 0 1px 2px rgba(14, 61, 107, 0.04), 0 8px 24px -12px rgba(14, 61, 107, 0.12);
-  --shadow-mint: 0 10px 28px -10px rgba(23, 227, 178, 0.55);
+
+  --shadow-soft:
+    0 1px 2px rgba(14, 61, 107, 0.05),
+    0 12px 32px -16px rgba(14, 61, 107, 0.18);
+
+  --shadow-card:
+    0 1px 2px rgba(14, 61, 107, 0.04),
+    0 8px 24px -12px rgba(14, 61, 107, 0.12);
+
+  --shadow-mint:
+    0 10px 28px -10px rgba(23, 227, 178, 0.55);
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; scroll-padding-top: 104px; }
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 104px;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -117,12 +138,25 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4 {
+
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.015em;
     color: var(--ink);
   }
-  ::selection { background: var(--mint); color: var(--navy-deep); }
+
+  ::selection {
+    background: var(--mint);
+    color: var(--navy-deep);
+  }
+}
+
+/* Clean Latin/English typography */
+.english-text {
+  font-family: "Inter", system-ui, sans-serif;
 }
 
 @utility container-x {
@@ -131,23 +165,37 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
   max-width: 1440px;
   padding-inline: 1.25rem;
 }
+
 @media (min-width: 768px) {
-  .container-x { padding-inline: 2rem; }
-}
-@media (min-width: 1280px) {
-  .container-x { padding-inline: 3rem; }
+  .container-x {
+    padding-inline: 2rem;
+  }
 }
 
-@utility text-balance { text-wrap: balance; }
+@media (min-width: 1280px) {
+  .container-x {
+    padding-inline: 3rem;
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
 
 @utility section-y {
   padding-block: 3.5rem;
 }
+
 @media (min-width: 768px) {
-  .section-y { padding-block: 4.5rem; }
+  .section-y {
+    padding-block: 4.5rem;
+  }
 }
+
 @media (min-width: 1280px) {
-  .section-y { padding-block: 5.5rem; }
+  .section-y {
+    padding-block: 5.5rem;
+  }
 }
 
 @utility eyebrow {
@@ -160,6 +208,7 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
   text-transform: uppercase;
   color: var(--navy-soft);
 }
+
 .eyebrow::before {
   content: "";
   display: inline-block;
@@ -178,6 +227,7 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
   color: var(--ink);
   max-width: 22ch;
 }
+
 @utility heading-lg {
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 2.8vw, 2.25rem);
@@ -187,6 +237,7 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
   color: var(--ink);
   max-width: 28ch;
 }
+
 @utility heading-md {
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2vw, 1.6rem);
@@ -201,7 +252,10 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
   border: 1px solid var(--line);
   border-radius: 1.25rem;
   box-shadow: var(--shadow-card);
-  transition: box-shadow 200ms ease, border-color 200ms ease, transform 200ms ease;
+  transition:
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
 }
 
 @utility surface-soft {
@@ -211,8 +265,11 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
 }
 
 @utility ring-mint {
-  box-shadow: 0 0 0 1px var(--mint), 0 12px 32px -12px oklch(0.72 0.14 168 / 0.35);
+  box-shadow:
+    0 0 0 1px var(--mint),
+    0 12px 32px -12px oklch(0.72 0.14 168 / 0.35);
 }
+
 header {
   font-family: var(--font-display);
 }
