@@ -4,12 +4,12 @@ const REGISTER_URL = "https://forms.gle/PgG8npciSifdQgHD6";
 const SYLLABUS_URL = "/BA_PM_Integrated_Syllabus.pdf";
 
 const DETAILS = [
-  { icon: "📅", label: "ხანგრძლივობა", value: "7 ოქტომბერი - 16 დეკემბერი, 2026" },
-  { icon: "🎓", label: "შეხვედრები", value: "21 შეხვედრა | 42 საათი" },
-  { icon: "💻", label: "ფორმატი", value: "ონლაინ | Microsoft Teams" },
-  { icon: "🗓️", label: "განრიგი", value: "ყოველ ორშაბათსა და ოთხშაბათს" },
-  { icon: "🕗", label: "დრო", value: "20:00 - 22:00" },
-  { icon: "🌐", label: "ენა", value: "ქართული" },
+  { label: "ხანგრძლივობა", value: "7 ოქტომბერი - 16 დეკემბერი, 2026" },
+  { label: "შეხვედრები", value: "21 შეხვედრა | 42 საათი" },
+  { label: "ფორმატი", value: "ონლაინ | Microsoft Teams" },
+  { label: "განრიგი", value: "ყოველ ორშაბათსა და ოთხშაბათს" },
+  { label: "დრო", value: "20:00 - 22:00" },
+  { label: "ენა", value: "ქართული" },
 ];
 
 const FOR_YOU = [
@@ -66,16 +66,16 @@ export function FeaturedCourse() {
           <div>
             <span
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[12px] font-bold tracking-wide"
-              style={{ background: "rgba(220,38,38,0.08)", color: "#B91C1C", border: "1px solid rgba(220,38,38,0.25)" }}
+              style={{ background: "rgba(23, 227, 178, 0.10)", color: "#17E3B2", border: "1px solid rgba(23, 227, 178, 0.35)" }}
             >
               <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-70" style={{ background: "#DC2626" }} />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full" style={{ background: "#DC2626" }} />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-70" style={{ background: "#17E3B2" }} />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full" style={{ background: "#17E3B2" }} />
               </span>
               რეგისტრაცია მიმდინარეობს
             </span>
 
-            <h2 className="heading-lg mt-5">🚀 IT ბიზნეს ანალიზი &amp; პროექტების მართვა</h2>
+            <h2 className="heading-lg mt-5">IT ბიზნეს ანალიზი &amp; პროექტების მართვა</h2>
 
             <p className="mt-4 text-lg font-bold" style={{ color: "var(--navy)" }}>
               ბიზნეს საჭიროებიდან - ღირებულების შექმნამდე.
@@ -105,7 +105,7 @@ export function FeaturedCourse() {
               style={{ background: "var(--mint-soft)", border: "1px solid rgba(23,227,178,0.45)" }}
             >
               <p className="text-[15px] font-extrabold" style={{ color: "var(--navy-deep)" }}>
-                ⏰ EARLY BIRD - 10% ფასდაკლება
+                EARLY BIRD - 10% ფასდაკლება
               </p>
               <p className="mt-1 text-sm text-ink-soft">დარეგისტრირდი 10 სექტემბრამდე და მიიღე 10% ფასდაკლება</p>
             </div>
@@ -138,8 +138,7 @@ export function FeaturedCourse() {
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {DETAILS.map((d) => (
             <div key={d.label} className="surface-card p-5 bg-white">
-              <div className="text-2xl">{d.icon}</div>
-              <div className="mt-2 text-xs font-bold uppercase tracking-wider text-ink-soft">{d.label}</div>
+              <div className="text-xs font-bold uppercase tracking-wider text-ink-soft">{d.label}</div>
               <div className="mt-1 text-[15px] font-bold text-ink">{d.value}</div>
             </div>
           ))}
