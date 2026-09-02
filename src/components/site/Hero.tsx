@@ -1,3 +1,4 @@
+```tsx
 import hero from "@/assets/nana-hero-photo.png.jpeg";
 
 const STATS = [
@@ -20,9 +21,9 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-[100px] md:pt-[120px] lg:pt-[128px] pb-12 md:pb-16 bg-white"
+      className="relative overflow-hidden pt-[88px] md:pt-[104px] lg:pt-[112px] pb-8 md:pb-10 bg-white"
     >
-      {/* Soft mint wash, echoes the banner artwork without competing with it */}
+      {/* Soft mint wash */}
       <div
         className="absolute inset-0 -z-0 overflow-hidden pointer-events-none"
         aria-hidden
@@ -46,20 +47,20 @@ export function Hero() {
       <div className="container-x relative z-10 grid lg:grid-cols-[55fr_45fr] gap-6 lg:gap-12 items-center">
         {/* LEFT - text */}
         <div className="lg:pr-4">
-          <span className="inline-flex items-center gap-2 text-[0.72rem] font-extrabold tracking-[0.22em] uppercase text-navy-soft">
+          <span className="inline-flex items-center gap-2 text-[0.72rem] font-extrabold tracking-[0.18em] uppercase text-navy-soft">
             <span
               className="inline-block h-[2px] w-7 rounded"
               style={{ background: "var(--mint)" }}
             />
-            ნანა ლობჯანიძე · PMP® Certified Project Management Consultant
+            NANA LOBJANIDZE · PMP® CERTIFIED PROJECT MANAGEMENT CONSULTANT
           </span>
 
           <h1
-            className="mt-4 text-balance text-navy-deep"
+            className="mt-3 text-balance text-navy-deep"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(1.6rem, 2.6vw, 2.3rem)",
-              lineHeight: 1.22,
+              fontSize: "clamp(1.55rem, 2.45vw, 2.15rem)",
+              lineHeight: 1.2,
               fontWeight: 800,
               letterSpacing: "-0.025em",
             }}
@@ -67,13 +68,13 @@ export function Hero() {
             ქაოსური პროექტებიდან - მკაფიო, დაგეგმილ და მართვად პროცესებამდე
           </h1>
 
-          <p className="mt-3 text-base md:text-[16px] leading-relaxed max-w-xl text-ink-soft">
+          <p className="mt-2.5 text-base md:text-[16px] leading-relaxed max-w-xl text-ink-soft">
             ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში,
             დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული
             მიდგომებით.
           </p>
 
-          <ul className="mt-4 grid sm:grid-cols-2 gap-2 max-w-2xl">
+          <ul className="mt-3 grid sm:grid-cols-2 gap-1.5 max-w-2xl">
             {VALUE_BULLETS.map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <span
@@ -90,7 +91,7 @@ export function Hero() {
             ))}
           </ul>
 
-          <div className="mt-5 flex flex-wrap gap-3">
+          <div className="mt-4 flex flex-wrap gap-3">
             <a
               href="#contact"
               className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all hover:-translate-y-0.5 cta-btn"
@@ -111,23 +112,24 @@ export function Hero() {
             </a>
           </div>
 
-          <p className="mt-2 text-xs tracking-wide text-ink-soft/80">
+          <p className="mt-1.5 text-xs tracking-wide text-ink-soft/80">
             PMP® Certified · Project Management Practitioner · PMI Leadership Experience
           </p>
         </div>
 
+        {/* RIGHT - hero photo */}
         <div className="relative flex justify-center lg:justify-end lg:self-center">
-  <img
-    src={hero}
-    alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
-    loading="eager"
-    className="relative block w-full max-w-none h-auto object-contain lg:scale-110 lg:origin-right"
-  />
-</div>
+          <img
+            src={hero}
+            alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
+            loading="eager"
+            className="relative block w-full max-w-none h-auto object-contain lg:scale-110 lg:origin-right"
+          />
+        </div>
       </div>
 
-      {/* Statistics - light cards on white canvas */}
-      <div className="container-x mt-8 md:mt-12 relative z-10">
+      {/* Statistics */}
+      <div className="container-x mt-6 md:mt-8 relative z-10">
         <dl className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
           {STATS.map((s) => (
             <div
@@ -158,3 +160,4 @@ export function Hero() {
     </section>
   );
 }
+```
