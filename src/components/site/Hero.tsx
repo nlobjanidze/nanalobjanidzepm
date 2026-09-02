@@ -1,4 +1,4 @@
-import hero from "@/assets/nana-header-banner.png";
+import hero from "@/assets/nana-hero-photo.png.jpeg";
 
 const STATS = [
   { k: "+8", v: "წლის მენეჯერული გამოცდილება" },
@@ -116,15 +116,14 @@ export function Hero() {
           </p>
         </div>
 
-        {/* RIGHT - full banner artwork (portrait + built-in decoration) */}
         <div className="relative flex justify-center lg:justify-end lg:self-center">
-          <img
-            src={hero}
-            alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
-            loading="eager"
-            className="relative block w-full max-w-[560px] h-auto object-contain"
-          />
-        </div>
+  <img
+    src={hero}
+    alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
+    loading="eager"
+    className="relative block w-full max-w-none h-auto object-contain lg:scale-110 lg:origin-right"
+  />
+</div>
       </div>
 
       {/* Statistics - light cards on white canvas */}
