@@ -25,6 +25,7 @@ function Index() {
       <SiteNav />
       <main>
         <Hero />
+        <FeaturedCourse />
         <About />
         <Services />
         <Trainings />
