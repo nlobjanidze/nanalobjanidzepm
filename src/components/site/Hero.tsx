@@ -86,20 +86,21 @@ export function Hero() {
           </ul>
 
           <div className="mt-5 flex flex-wrap gap-3">
-            
-              href="#contact"
-              className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all hover:-translate-y-0.5 cta-btn"
-              style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
-            >
-              დაჯავშნე კონსულტაცია
-            </a>
-            
-              href="#services"
-              className="inline-flex items-center rounded-full border px-6 py-3.5 font-semibold transition-colors border-line text-navy-deep hover:bg-surface cta-btn"
-            >
-              გაიგე მეტი →
-            </a>
-          </div>
+  <a
+    href="#contact"
+    className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all hover:-translate-y-0.5 cta-btn"
+    style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
+  >
+    დაჯავშნე კონსულტაცია
+  </a>
+
+  <a
+    href="#services"
+    className="inline-flex items-center rounded-full border px-6 py-3.5 font-semibold transition-colors border-line text-navy-deep hover:bg-surface cta-btn"
+  >
+    გაიგე მეტი →
+  </a>
+</div>
 
           <p className="mt-2 text-xs tracking-wide text-ink-soft/80">
             PMP® Certified · Project Management Practitioner · PMI Leadership Experience
