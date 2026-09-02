@@ -30,7 +30,7 @@ const EDUCATION = [
 
 function Group({ title, items }: { title: string; items: { name: string; issuer: string; year: string }[] }) {
   return (
-    <div className="surface-card p-7 md:p-8 hover:-translate-y-0.5 h-full">
+    className="surface-card p-7 md:p-8 hover:-translate-y-0.5"
       <div className="flex items-center gap-3">
         <span
           className="h-8 w-8 shrink-0 rounded-lg inline-flex items-center justify-center text-xs font-black border"
