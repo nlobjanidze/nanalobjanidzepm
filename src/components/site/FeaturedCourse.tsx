@@ -75,7 +75,7 @@ export function FeaturedCourse() {
               რეგისტრაცია მიმდინარეობს
             </span>
 
-            <h2 className="heading-lg mt-5">🚀 IT ბიზნეს ანალიზი &amp; პროექტების მართვა</h2>
+            <h2 className="heading-lg mt-5">IT ბიზნეს ანალიზი &amp; პროექტების მართვა</h2>
 
             <p className="mt-4 text-lg font-bold" style={{ color: "var(--navy)" }}>
               ბიზნეს საჭიროებიდან - ღირებულების შექმნამდე.
@@ -105,7 +105,7 @@ export function FeaturedCourse() {
               style={{ background: "var(--mint-soft)", border: "1px solid rgba(23,227,178,0.45)" }}
             >
               <p className="text-[15px] font-extrabold" style={{ color: "var(--navy-deep)" }}>
-                ⏰ EARLY BIRD - 10% ფასდაკლება
+                EARLY BIRD - 10% ფასდაკლება
               </p>
               <p className="mt-1 text-sm text-ink-soft">დარეგისტრირდი 10 სექტემბრამდე და მიიღე 10% ფასდაკლება</p>
             </div>
@@ -138,8 +138,7 @@ export function FeaturedCourse() {
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {DETAILS.map((d) => (
             <div key={d.label} className="surface-card p-5 bg-white">
-              <div className="text-2xl">{d.icon}</div>
-              <div className="mt-2 text-xs font-bold uppercase tracking-wider text-ink-soft">{d.label}</div>
+              <div className="text-xs font-bold uppercase tracking-wider text-ink-soft">{d.label}</div>
               <div className="mt-1 text-[15px] font-bold text-ink">{d.value}</div>
             </div>
           ))}
