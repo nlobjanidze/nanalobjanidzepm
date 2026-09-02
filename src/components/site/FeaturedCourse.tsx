@@ -66,11 +66,11 @@ export function FeaturedCourse() {
           <div>
             <span
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[12px] font-bold tracking-wide"
-              style={{ background: "rgba(220,38,38,0.08)", color: "#B91C1C", border: "1px solid rgba(220,38,38,0.25)" }}
+              style={{ background: "rgba(23, 227, 178, 0.10)", color: "#17E3B2", border: "1px solid rgba(23, 227, 178, 0.35)" }}
             >
               <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-70" style={{ background: "#DC2626" }} />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full" style={{ background: "#DC2626" }} />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-70" style={{ background: "#17E3B2" }} />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full" style={{ background: "#17E3B2" }} />
               </span>
               რეგისტრაცია მიმდინარეობს
             </span>
