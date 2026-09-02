@@ -4,12 +4,12 @@ const REGISTER_URL = "https://forms.gle/PgG8npciSifdQgHD6";
 const SYLLABUS_URL = "/BA_PM_Integrated_Syllabus.pdf";
 
 const DETAILS = [
-  { icon: "📅", label: "ხანგრძლივობა", value: "7 ოქტომბერი - 16 დეკემბერი, 2026" },
-  { icon: "🎓", label: "შეხვედრები", value: "21 შეხვედრა | 42 საათი" },
-  { icon: "💻", label: "ფორმატი", value: "ონლაინ | Microsoft Teams" },
-  { icon: "🗓️", label: "განრიგი", value: "ყოველ ორშაბათსა და ოთხშაბათს" },
-  { icon: "🕗", label: "დრო", value: "20:00 - 22:00" },
-  { icon: "🌐", label: "ენა", value: "ქართული" },
+  { label: "ხანგრძლივობა", value: "7 ოქტომბერი - 16 დეკემბერი, 2026" },
+  { label: "შეხვედრები", value: "21 შეხვედრა | 42 საათი" },
+  { label: "ფორმატი", value: "ონლაინ | Microsoft Teams" },
+  { label: "განრიგი", value: "ყოველ ორშაბათსა და ოთხშაბათს" },
+  { label: "დრო", value: "20:00 - 22:00" },
+  { label: "ენა", value: "ქართული" },
 ];
 
 const FOR_YOU = [
