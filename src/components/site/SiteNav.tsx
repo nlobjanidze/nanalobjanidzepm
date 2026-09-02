@@ -64,8 +64,6 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onHero = !scrolled && !open;
-
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
@@ -77,7 +75,7 @@ export function SiteNav() {
       <div className="container-x flex h-[76px] md:h-[92px] items-center justify-between gap-4">
 
         {/* Logo */}
-        <a
+        
           href="#top"
           className="flex shrink-0 items-center"
           aria-label="ნანა ლობჯანიძე"
@@ -85,12 +83,7 @@ export function SiteNav() {
           <img
             src={logo}
             alt="ნანა ლობჯანიძე"
-            className="h-14 md:h-[76px] w-auto object-contain transition-[filter] duration-300"
-            style={
-              onHero
-                ? { filter: "brightness(0) invert(1)" }
-                : undefined
-            }
+            className="h-14 md:h-[76px] w-auto object-contain"
           />
         </a>
 
@@ -105,13 +98,9 @@ export function SiteNav() {
               }
               onMouseLeave={() => setOpenMenu(null)}
             >
-              <a
+              
                 href={n.href}
-                className={`inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-semibold tracking-wide py-3 transition-colors duration-300 ${
-                  onHero
-                    ? "text-white/90 hover:text-white"
-                    : "text-ink-soft hover:text-ink"
-                }`}
+                className="inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-semibold tracking-wide py-3 transition-colors duration-300 text-ink-soft hover:text-ink"
               >
                 {n.label}
 
@@ -129,7 +118,7 @@ export function SiteNav() {
                 <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50">
                   <div className="min-w-[260px] rounded-2xl border border-line bg-white shadow-[var(--shadow-soft)] p-2">
                     {n.items.map((i) => (
-                      <a
+                      
                         key={i.href + i.label}
                         href={i.href}
                         onClick={() => setOpenMenu(null)}
@@ -152,26 +141,14 @@ export function SiteNav() {
             type="button"
             onClick={() => setLanguage("ka")}
             className={`inline-flex items-center gap-1.5 ${
-              language === "ka"
-                ? onHero
-                  ? "text-white"
-                  : "text-ink"
-                : onHero
-                  ? "text-white/50"
-                  : "text-ink-soft/50"
+              language === "ka" ? "text-ink" : "text-ink-soft/50"
             }`}
           >
             <span>🇬🇪</span>
             <span>KA</span>
           </button>
 
-          <span
-            className={
-              onHero
-                ? "text-white/40"
-                : "text-ink-soft/30"
-            }
-          >
+          <span className="text-ink-soft/30">
             |
           </span>
 
@@ -179,13 +156,7 @@ export function SiteNav() {
             type="button"
             onClick={() => setLanguage("en")}
             className={`inline-flex items-center gap-1.5 ${
-              language === "en"
-                ? onHero
-                  ? "text-white"
-                  : "text-ink"
-                : onHero
-                  ? "text-white/50"
-                  : "text-ink-soft/50"
+              language === "en" ? "text-ink" : "text-ink-soft/50"
             }`}
           >
             <span>🇬🇧</span>
@@ -195,7 +166,7 @@ export function SiteNav() {
         </div>
 
         {/* Consultation Button */}
-        <a
+        
           href="#contact"
           className="hidden md:inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-4.5 py-2 text-[13px] font-bold transition-all hover:-translate-y-0.5"
           style={{
@@ -209,11 +180,7 @@ export function SiteNav() {
         {/* Mobile Menu Button */}
         <button
           aria-label="Menu"
-          className={`lg:hidden inline-flex shrink-0 items-center justify-center h-10 w-10 rounded-md border transition-colors duration-300 ${
-            onHero
-              ? "border-white/40 text-white"
-              : "border-line text-ink"
-          }`}
+          className="lg:hidden inline-flex shrink-0 items-center justify-center h-10 w-10 rounded-md border transition-colors duration-300 border-line text-ink"
           onClick={() => setOpen((o) => !o)}
         >
           <span>≡</span>
@@ -250,7 +217,7 @@ export function SiteNav() {
                   {mobileOpen === n.label && (
                     <div className="pl-3 pb-2 flex flex-col">
                       {n.items.map((i) => (
-                        <a
+                        
                           key={i.href + i.label}
                           href={i.href}
                           onClick={() => setOpen(false)}
@@ -264,7 +231,7 @@ export function SiteNav() {
 
                 </div>
               ) : (
-                <a
+                
                   key={n.label}
                   href={n.href}
                   onClick={() => setOpen(false)}
@@ -311,7 +278,7 @@ export function SiteNav() {
             </div>
 
             {/* Mobile Consultation Button */}
-            <a
+            
               href="#contact"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded-full px-5 py-3 font-bold"
