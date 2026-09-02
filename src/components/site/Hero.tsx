@@ -58,7 +58,7 @@ export function Hero() {
             className="mt-4 text-balance text-navy-deep"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(1.7rem, 3.1vw, 2.7rem)",
+              fontSize: "clamp(1.6rem, 2.6vw, 2.3rem)",
               lineHeight: 1.22,
               fontWeight: 800,
               letterSpacing: "-0.025em",
@@ -85,17 +85,17 @@ export function Hero() {
             ))}
           </ul>
 
-                    <div className="mt-5 flex flex-wrap gap-3">
+          <div className="mt-5 flex flex-wrap gap-3">
             
               href="#contact"
-              className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all hover:-translate-y-0.5 cta-btn"
               style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
             >
               დაჯავშნე კონსულტაცია
             </a>
             
               href="#services"
-              className="inline-flex items-center rounded-full border px-6 py-3.5 font-semibold transition-colors border-line text-navy-deep hover:bg-surface"
+              className="inline-flex items-center rounded-full border px-6 py-3.5 font-semibold transition-colors border-line text-navy-deep hover:bg-surface cta-btn"
             >
               გაიგე მეტი →
             </a>
