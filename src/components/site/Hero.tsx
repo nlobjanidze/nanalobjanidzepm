@@ -1,4 +1,4 @@
-import hero from "@/assets/nana-portrait-transparent.png";
+import hero from "@/assets/nana-header-banner.png";
 
 const STATS = [
   { k: "+8", v: "წლის მენეჯერული გამოცდილება" },
@@ -20,55 +20,22 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-[100px] md:pt-[120px] lg:pt-[128px] pb-12 md:pb-16"
-      style={{
-        background:
-          "radial-gradient(120% 90% at 100% 50%, rgba(23,227,178,0.10), transparent 55%), radial-gradient(90% 80% at 0% 0%, rgba(46,123,191,0.18), transparent 60%), linear-gradient(135deg, #0A2748 0%, #0E3D6B 55%, #103F70 100%)",
-      }}
+      className="relative overflow-hidden pt-[100px] md:pt-[120px] lg:pt-[128px] pb-12 md:pb-16 bg-white"
     >
-      {/* Unified decorative canvas - spans full hero */}
+      {/* Soft mint wash, echoes the banner artwork without competing with it */}
       <div className="absolute inset-0 -z-0 overflow-hidden pointer-events-none" aria-hidden>
-        {/* Large mint arc, top-left */}
         <div
-          className="absolute -top-[22%] -left-[14%] h-[720px] w-[720px] rounded-full opacity-90"
+          className="absolute -top-[18%] -left-[10%] h-[520px] w-[520px] rounded-full opacity-70"
           style={{
             background:
-              "radial-gradient(circle at 55% 45%, rgba(23,227,178,0.55), rgba(23,227,178,0.18) 45%, transparent 70%)",
-            filter: "blur(2px)",
+              "radial-gradient(circle at 50% 50%, var(--mint-soft), transparent 70%)",
           }}
         />
-        {/* Solid mint blob near portrait - creates continuity */}
         <div
-          className="absolute -top-[10%] right-[-8%] h-[560px] w-[560px] rounded-full"
-          style={{
-            background: "linear-gradient(140deg, #17E3B2 0%, #14C79C 60%, #0E3D6B 120%)",
-            opacity: 0.9,
-          }}
-        />
-        {/* Azure circle overlap - layered depth */}
-        <div
-          className="absolute top-[18%] right-[-18%] h-[680px] w-[680px] rounded-full"
+          className="absolute bottom-[-12%] right-[-8%] h-[420px] w-[420px] rounded-full opacity-60"
           style={{
             background:
-              "radial-gradient(circle at 40% 50%, rgba(46,123,191,0.85), rgba(20,93,160,0.35) 55%, transparent 78%)",
-          }}
-        />
-        {/* Small mint bottom-left accent */}
-        <div
-          className="absolute bottom-[-10%] left-[-6%] h-[320px] w-[320px] rounded-full opacity-60"
-          style={{
-            background:
-              "radial-gradient(circle at center, rgba(23,227,178,0.45), transparent 70%)",
-          }}
-        />
-        {/* Fine grid overlay for texture */}
-        <div
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "72px 72px",
-            maskImage: "radial-gradient(70% 60% at 50% 40%, black, transparent 85%)",
+              "radial-gradient(circle at 50% 50%, var(--mint-soft), transparent 70%)",
           }}
         />
       </div>
@@ -78,8 +45,7 @@ export function Hero() {
         <div className="lg:pr-4">
 
           <span
-            className="inline-flex items-center gap-2 text-[0.72rem] font-extrabold tracking-[0.22em] uppercase"
-            style={{ color: "#7BE9C8" }}
+            className="inline-flex items-center gap-2 text-[0.72rem] font-extrabold tracking-[0.22em] uppercase text-navy-soft"
           >
             <span
               className="inline-block h-[2px] w-7 rounded"
@@ -89,23 +55,19 @@ export function Hero() {
           </span>
 
           <h1
-            className="mt-4 text-balance"
+            className="mt-4 text-balance text-navy-deep"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(1.7rem, 3.1vw, 2.7rem)",
               lineHeight: 1.22,
               fontWeight: 800,
               letterSpacing: "-0.025em",
-              color: "#FFFFFF",
             }}
           >
             ქაოსური პროექტებიდან - მკაფიო, დაგეგმილ და მართვად პროცესებამდე
           </h1>
 
-          <p
-            className="mt-3 text-base md:text-[16px] leading-relaxed max-w-xl"
-            style={{ color: "rgba(230, 242, 252, 0.82)" }}
-          >
+          <p className="mt-3 text-base md:text-[16px] leading-relaxed max-w-xl text-ink-soft">
             ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში, დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული მიდგომებით.
           </p>
 
@@ -114,12 +76,9 @@ export function Hero() {
               <li key={item} className="flex items-start gap-3">
                 <span
                   className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full"
-                  style={{ background: "var(--mint)", boxShadow: "0 0 0 4px rgba(23,227,178,0.15)" }}
+                  style={{ background: "var(--mint)", boxShadow: "0 0 0 4px var(--mint-soft)" }}
                 />
-                <span
-                  className="text-sm md:text-[14px] leading-relaxed"
-                  style={{ color: "rgba(220, 236, 250, 0.85)" }}
-                >
+                <span className="text-sm md:text-[14px] leading-relaxed text-ink-soft">
                   {item}
                 </span>
               </li>
@@ -127,74 +86,47 @@ export function Hero() {
           </ul>
 
           <div className="mt-5 flex flex-wrap gap-3">
-            <a
+            
               href="#contact"
               className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all hover:-translate-y-0.5"
               style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
             >
               დაჯავშნე კონსულტაცია
             </a>
-            <a
+            
               href="#services"
-              className="inline-flex items-center rounded-full border px-6 py-3.5 font-semibold transition-colors"
-              style={{
-                borderColor: "rgba(255,255,255,0.25)",
-                color: "#FFFFFF",
-                background: "rgba(255,255,255,0.06)",
-                backdropFilter: "blur(6px)",
-              }}
+              className="inline-flex items-center rounded-full border px-6 py-3.5 font-semibold transition-colors border-line text-navy-deep hover:bg-surface"
             >
               გაიგე მეტი →
             </a>
           </div>
 
-          <p
-            className="mt-2 text-xs tracking-wide"
-            style={{ color: "rgba(220, 236, 250, 0.6)" }}
-          >
+          <p className="mt-2 text-xs tracking-wide text-ink-soft/80">
             PMP® Certified · Project Management Practitioner · PMI Leadership Experience
           </p>
         </div>
 
-        {/* RIGHT - integrated portrait, no card, no mask */}
-        <div className="relative flex justify-center lg:justify-end lg:self-start">
-          <div className="relative lg:-mt-10 xl:-mt-14">
-
-            {/* Soft glow behind portrait */}
-            <div
-              className="absolute inset-0 -z-10 rounded-full"
-              style={{
-                background:
-                  "radial-gradient(55% 55% at 50% 45%, rgba(23,227,178,0.25), transparent 70%)",
-                transform: "scale(1.12)",
-                filter: "blur(18px)",
-              }}
-              aria-hidden
-            />
-            <img
-              src={hero}
-              alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
-              loading="eager"
-              className="relative block h-[360px] md:h-[460px] lg:h-[520px] w-auto object-contain"
-              style={{
-                filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.25))",
-              }}
-            />
-          </div>
+        {/* RIGHT - full banner artwork (portrait + built-in decoration) */}
+        <div className="relative flex justify-center lg:justify-end lg:self-center">
+          <img
+            src={hero}
+            alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
+            loading="eager"
+            className="relative block w-full max-w-[560px] h-auto object-contain"
+          />
         </div>
       </div>
 
-      {/* Statistics - glass row on dark canvas */}
+      {/* Statistics - light cards on white canvas */}
       <div className="container-x mt-8 md:mt-12 relative z-10">
         <dl className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
           {STATS.map((s) => (
             <div
               key={s.v}
-              className="text-center px-5 py-6 rounded-2xl transition-all hover:-translate-y-0.5"
+              className="text-center px-5 py-6 rounded-2xl transition-all hover:-translate-y-0.5 bg-white"
               style={{
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                backdropFilter: "blur(10px)",
+                border: "1px solid var(--line)",
+                boxShadow: "var(--shadow-soft)",
               }}
             >
               <dt
@@ -203,10 +135,7 @@ export function Hero() {
               >
                 {s.k}
               </dt>
-              <dd
-                className="mt-2 text-xs md:text-sm leading-snug"
-                style={{ color: "rgba(220, 236, 250, 0.8)" }}
-              >
+              <dd className="mt-2 text-xs md:text-sm leading-snug text-ink-soft">
                 {s.v}
               </dd>
             </div>
