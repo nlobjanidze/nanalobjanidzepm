@@ -213,6 +213,13 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
 @utility ring-mint {
   box-shadow: 0 0 0 1px var(--mint), 0 12px 32px -12px oklch(0.72 0.14 168 / 0.35);
 }
+header {
+  font-family: var(--font-display);
+}
+
+@utility cta-btn {
+  font-family: var(--font-display);
+}
 
 @utility hairline {
   height: 1px;
