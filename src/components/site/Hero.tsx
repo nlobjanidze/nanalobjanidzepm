@@ -85,7 +85,7 @@ export function Hero() {
             ))}
           </ul>
 
-          <div className="mt-5 flex flex-wrap gap-3">
+                    <div className="mt-5 flex flex-wrap gap-3">
             
               href="#contact"
               className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all hover:-translate-y-0.5"
