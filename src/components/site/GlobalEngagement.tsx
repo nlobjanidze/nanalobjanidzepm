@@ -182,7 +182,7 @@ export function GlobalEngagement() {
                 )}
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between">
-                    <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">{s.org}</p>
+                    <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">{s.org}</p>
                     <span className="text-xs font-black tabular-nums" style={{ color: "var(--navy)" }}>{s.date}</span>
                   </div>
                   <h4 className="mt-2 font-extrabold text-ink leading-tight">{s.title}</h4>
@@ -228,7 +228,7 @@ export function GlobalEngagement() {
                     <p className="mt-2 text-sm text-ink-soft leading-relaxed">{e.intro}</p>
                   </div>
                   <div>
-                    <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">პასუხისმგებლობები</p>
+                    <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">პასუხისმგებლობები</p>
                     <ul className="mt-2 space-y-1.5">
                       {e.roles.map((r) => (
                         <li key={r} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
@@ -239,7 +239,7 @@ export function GlobalEngagement() {
                     </ul>
                   </div>
                   <div>
-                    <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">მიღწევები & სპიკერები</p>
+                    <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">მიღწევები & სპიკერები</p>
                     <ul className="mt-2 space-y-1.5">
                       {e.highlights.map((h) => (
                         <li key={h} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
@@ -267,7 +267,7 @@ export function GlobalEngagement() {
           >
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">Euronews Georgia · ნოემბერი 2025</p>
+                <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">Euronews Georgia · ნოემბერი 2025</p>
                 <h4 className="mt-2 font-extrabold text-ink leading-tight">
                   Euronews Georgia - IPM Day-ის გაშუქება ეროვნულ ტელევიზიაზე
                 </h4>
