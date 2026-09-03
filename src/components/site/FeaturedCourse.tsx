@@ -50,7 +50,7 @@ function RegisterButton({ className = "" }: { className?: string }) {
       href={REGISTER_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-bold transition-all hover:-translate-y-0.5 ${className}`}
+      className={`cta-btn inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-bold transition-all hover:-translate-y-0.5 ${className}`}
       style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
     >
       კურსზე რეგისტრაცია →
@@ -117,7 +117,7 @@ export function FeaturedCourse() {
                 href={SYLLABUS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3.5 text-[15px] font-bold text-ink transition-all hover:-translate-y-0.5"
+                className="cta-btn inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3.5 text-[15px] font-bold text-ink transition-all hover:-translate-y-0.5"
               >
                 იხილე სრული სილაბუსი →
               </a>
@@ -219,7 +219,7 @@ export function FeaturedCourse() {
               href={SYLLABUS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3.5 text-[15px] font-bold text-ink transition-all hover:-translate-y-0.5"
+              className="cta-btn inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3.5 text-[15px] font-bold text-ink transition-all hover:-translate-y-0.5"
             >
               იხილე სრული სილაბუსი →
             </a>
