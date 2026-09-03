@@ -1,4 +1,5 @@
 import hero from "@/assets/nana-hero-photo.png.jpeg";
+import heroBanner from "@/assets/nana-header-banner.png";
 
 const STATS = [
   { k: "+8", v: "წლის მენეჯერული გამოცდილება" },
@@ -18,111 +19,81 @@ const VALUE_BULLETS = [
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden pt-[88px] md:pt-[104px] lg:pt-[112px] pb-8 md:pb-10 bg-white"
-    >
-      {/* Soft mint wash */}
-      <div
-        className="absolute inset-0 -z-0 overflow-hidden pointer-events-none"
-        aria-hidden
-      >
-        <div
-          className="absolute -top-[18%] -left-[10%] h-[520px] w-[520px] rounded-full opacity-70"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 50%, var(--mint-soft), transparent 70%)",
-          }}
-        />
+    <section id="top" className="relative overflow-hidden bg-white">
+      <div className="relative overflow-hidden pt-[88px] md:pt-[104px] lg:pt-[100px] pb-8 md:pb-10 lg:min-h-[560px] xl:min-h-[620px] lg:flex lg:items-center">
+        {/* Full-bleed banner photo - desktop/large screens */}
+        <div className="hidden lg:block absolute inset-0 -z-0" aria-hidden>
+          <img
+            src={heroBanner}
+            alt=""
+            loading="eager"
+            className="absolute inset-0 h-full w-full object-cover object-[64%_center]"
+          />
+        </div>
 
+        {/* Soft mint wash - mobile/tablet only (banner carries its own graphics on desktop) */}
         <div
-          className="absolute bottom-[-12%] right-[-8%] h-[420px] w-[420px] rounded-full opacity-60"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 50%, var(--mint-soft), transparent 70%)",
-          }}
-        />
-      </div>
-
-      {/* LEFT DECORATIVE LINES */}
-      <div
-        className="absolute left-0 top-[15%] hidden lg:block pointer-events-none z-0"
-        aria-hidden="true"
-      >
-        <svg
-          width="150"
-          height="360"
-          viewBox="0 0 150 360"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+          className="lg:hidden absolute inset-0 -z-0 overflow-hidden pointer-events-none"
+          aria-hidden
         >
-          {/* Main curved line */}
-          <path
-            d="M-35 35 C25 35, 45 70, 45 125 C45 185, 10 215, 55 265 C75 288, 105 292, 132 270"
-            stroke="var(--mint)"
-            strokeWidth="2"
-            strokeLinecap="round"
-            opacity="0.65"
+          <div
+            className="absolute -top-[18%] -left-[10%] h-[520px] w-[520px] rounded-full opacity-70"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 50%, var(--mint-soft), transparent 70%)",
+            }}
           />
-
-          {/* Second curved line */}
-          <path
-            d="M-45 85 C5 85, 20 105, 20 145 C20 190, -5 220, 30 250"
-            stroke="var(--mint)"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            opacity="0.35"
+          <div
+            className="absolute bottom-[-12%] right-[-8%] h-[420px] w-[420px] rounded-full opacity-60"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 50%, var(--mint-soft), transparent 70%)",
+            }}
           />
+        </div>
 
-          {/* Upper diagonal line */}
-          <path
-            d="M8 0 L55 48"
-            stroke="var(--mint)"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            opacity="0.5"
-          />
+        {/* Flowing accent lines - left side, echoes the wave motif already in the banner photo (right side) */}
+        <div
+          className="hidden lg:block absolute inset-y-0 left-0 w-[46%] -z-0 overflow-hidden pointer-events-none"
+          aria-hidden
+        >
+          <svg
+            viewBox="0 0 520 600"
+            className="absolute left-[-70px] bottom-[-30px] h-[115%] w-auto"
+            fill="none"
+          >
+            <path
+              d="M-40 560 C 90 525, 150 460, 220 400 C 290 340, 330 260, 410 180 C 450 140, 480 100, 530 40"
+              stroke="var(--mint)"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              opacity="0.55"
+            />
+            <path
+              d="M-40 520 C 100 498, 160 435, 235 375 C 305 320, 345 245, 425 165 C 465 128, 495 92, 545 32"
+              stroke="var(--mint)"
+              strokeWidth="1.3"
+              strokeLinecap="round"
+              opacity="0.4"
+            />
+            <path
+              d="M-40 480 C 110 472, 170 410, 250 350 C 320 300, 360 230, 440 150 C 480 115, 510 82, 560 24"
+              stroke="var(--mint)"
+              strokeWidth="1"
+              strokeLinecap="round"
+              opacity="0.28"
+            />
+            <path
+              d="M-40 440 C 120 447, 180 385, 265 325 C 335 280, 375 215, 455 135 C 495 100, 525 72, 575 16"
+              stroke="var(--mint)"
+              strokeWidth="0.8"
+              strokeLinecap="round"
+              opacity="0.18"
+            />
+          </svg>
+        </div>
 
-          {/* Small arrow */}
-          <path
-            d="M124 264 L132 270 L123 276"
-            stroke="var(--mint)"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity="0.7"
-          />
-
-          {/* Small arrow on upper line */}
-          <path
-            d="M47 39 L55 48 L43 47"
-            stroke="var(--mint)"
-            strokeWidth="1.7"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity="0.6"
-          />
-
-          {/* Small decorative dots */}
-          <circle
-            cx="45"
-            cy="125"
-            r="3"
-            fill="var(--mint)"
-            opacity="0.45"
-          />
-
-          <circle
-            cx="55"
-            cy="265"
-            r="3"
-            fill="var(--mint)"
-            opacity="0.45"
-          />
-        </svg>
-      </div>
-
-      <div className="container-x relative z-10 grid lg:grid-cols-[55fr_45fr] gap-6 lg:gap-12 items-center">
+      <div className="container-x relative z-10 grid lg:grid-cols-[55fr_45fr] gap-6 lg:gap-12 items-center w-full">
         {/* LEFT - text */}
         <div className="lg:pr-4">
           <span className="inline-flex items-center gap-2 text-[0.72rem] font-extrabold tracking-[0.18em] uppercase text-navy-soft">
@@ -191,20 +162,20 @@ export function Hero() {
           </div>
 
           <p className="mt-1.5 text-xs tracking-wide text-ink-soft/80">
-            PMP® Certified · Project Management Practitioner · PMI Leadership
-            Experience
+            PMP® Certified · Project Management Practitioner · PMI Leadership Experience
           </p>
         </div>
 
-        {/* RIGHT - hero photo */}
-        <div className="relative flex justify-center lg:justify-end lg:self-center">
+        {/* RIGHT - hero photo (mobile/tablet only; desktop uses the full-bleed banner above) */}
+        <div className="relative flex justify-center lg:hidden">
           <img
             src={hero}
             alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
             loading="eager"
-            className="relative block w-full max-w-none h-auto object-contain lg:scale-110 lg:origin-right"
+            className="relative block w-full max-w-none h-auto object-contain"
           />
         </div>
+      </div>
       </div>
 
       {/* Statistics */}
@@ -224,6 +195,7 @@ export function Hero() {
                 style={{
                   color: "var(--mint)",
                   letterSpacing: "-0.02em",
+                  fontFamily: "var(--font-display)",
                 }}
               >
                 {s.k}
