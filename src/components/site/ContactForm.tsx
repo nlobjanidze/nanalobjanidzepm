@@ -174,7 +174,7 @@ export function ContactForm() {
 
 
                 <div className="mt-5">
-                  <p className="text-[11px] font-black uppercase tracking-widest mb-3" style={{ color: "var(--navy-soft)" }}>დაინტერესება</p>
+                  <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] mb-3" style={{ color: "var(--navy-soft)" }}>დაინტერესება</p>
                   <div className="flex flex-wrap gap-2">
                     {INTERESTS.map((i) => (
                       <button
@@ -195,7 +195,7 @@ export function ContactForm() {
                 </div>
 
                 <div className="mt-5">
-                  <label className="block text-[11px] font-black uppercase tracking-widest mb-2" style={{ color: "var(--navy-soft)" }}>
+                  <label className="block text-[0.72rem] font-extrabold uppercase tracking-[0.22em] mb-2" style={{ color: "var(--navy-soft)" }}>
                     მოგვწერე შენი მიზნის შესახებ
                   </label>
                   <textarea
@@ -218,7 +218,7 @@ export function ContactForm() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="mt-6 w-full sm:w-auto inline-flex items-center justify-center rounded-full px-7 py-4 font-extrabold transition disabled:opacity-60"
+                  className="cta-btn mt-6 w-full sm:w-auto inline-flex items-center justify-center rounded-full px-7 py-4 font-extrabold transition disabled:opacity-60"
                   style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
                 >
                   {sending ? "იგზავნება…" : "გაგზავნა →"}
@@ -262,7 +262,7 @@ function Field({
 }: { label: string; name: string; type?: string; required?: boolean; error?: string }) {
   return (
     <div>
-      <label htmlFor={name} className="block text-[11px] font-black uppercase tracking-widest mb-2" style={{ color: "var(--navy-soft)" }}>
+      <label htmlFor={name} className="block text-[0.72rem] font-extrabold uppercase tracking-[0.22em] mb-2" style={{ color: "var(--navy-soft)" }}>
         {label}
         {required && <span className="ml-0.5" style={{ color: "var(--mint)" }}>*</span>}
       </label>
