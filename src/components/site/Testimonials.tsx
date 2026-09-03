@@ -1,3 +1,4 @@
+import { Bullet } from "./Bullet";
 type Recommendation = {
   text: string;
   bullets?: string[];
@@ -167,26 +168,23 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="mt-12 max-w-4xl mx-auto space-y-8">
+        <div className="mt-10 grid lg:grid-cols-2 gap-6 items-start">
           {RECOMMENDATIONS.map((r, idx) => (
-            <figure key={idx} className="surface-card p-8 md:p-12 relative">
+            <figure key={idx} className="surface-card p-6 md:p-7 relative h-full flex flex-col">
               <span
-                className="absolute top-6 right-8 text-8xl leading-none font-serif select-none"
+                className="absolute top-4 right-6 text-6xl leading-none font-serif select-none"
                 style={{ color: "var(--mint)", opacity: 0.35 }}
                 aria-hidden
               >
                 "
               </span>
-              <blockquote className="text-base md:text-lg leading-relaxed text-ink relative z-10">
+              <blockquote className="text-[14px] md:text-[15px] leading-relaxed text-ink relative z-10 flex-1">
                 <Paragraphs text={r.text} />
                 {r.bullets && (
                   <ul className="mt-4 space-y-2">
                     {r.bullets.map((b, i) => (
                       <li key={i} className="flex gap-3">
-                        <span
-                          className="mt-2.5 h-1.5 w-1.5 rounded-full shrink-0"
-                          style={{ background: "var(--mint)" }}
-                        />
+                        <Bullet />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -198,15 +196,15 @@ export function Testimonials() {
                   </div>
                 )}
               </blockquote>
-              <figcaption className="mt-8 pt-6 border-t border-line flex items-center gap-5">
+              <figcaption className="mt-6 pt-5 border-t border-line flex items-center gap-4">
                 <span
-                  className="h-14 w-14 rounded-full inline-flex items-center justify-center font-black text-xl shrink-0"
+                  className="h-12 w-12 rounded-full inline-flex items-center justify-center font-black text-lg shrink-0"
                   style={{ background: "var(--navy-deep)", color: "var(--mint)" }}
                 >
                   {r.initials}
                 </span>
                 <div>
-                  <p className="font-extrabold text-base text-ink">{r.name}</p>
+                  <p className="font-extrabold text-[15px] text-ink">{r.name}</p>
                   {r.role && <p className="text-sm text-ink-soft mt-0.5">{r.role}</p>}
                   {r.org && <p className="text-xs text-navy font-bold mt-0.5">{r.org}</p>}
                 </div>
