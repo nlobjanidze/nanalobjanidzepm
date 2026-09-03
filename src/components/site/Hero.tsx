@@ -121,7 +121,7 @@ export function Hero() {
               className="mt-3 text-balance text-navy-deep"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(1.55rem, 2.45vw, 2.15rem)",
+                fontSize: "clamp(1.3rem, 1.9vw, 1.75rem)",
                 lineHeight: 1.2,
                 fontWeight: 800,
                 letterSpacing: "-0.025em",
@@ -133,7 +133,7 @@ export function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="mt-2.5 text-base md:text-[16px] leading-relaxed max-w-xl text-navy-deep">
+            <p className="mt-2.5 text-sm md:text-[14px] leading-relaxed max-w-xl text-white">
               ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში,
               დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული
               მიდგომებით.
@@ -154,7 +154,7 @@ export function Hero() {
                     }}
                   />
 
-                  <span className="text-sm md:text-[14px] leading-relaxed text-navy-deep">
+                  <span className="text-xs md:text-[13px] leading-relaxed text-white">
                     {item}
                   </span>
                 </li>
@@ -184,7 +184,7 @@ export function Hero() {
             </div>
 
             {/* Credentials */}
-            <p className="mt-4 text-xs tracking-wide text-navy-soft">
+            <p className="mt-4 text-[11px] md:text-xs tracking-wide text-white/90">
               PMP® Certified · Project Management Practitioner · PMI Leadership Experience
             </p>
           </div>
