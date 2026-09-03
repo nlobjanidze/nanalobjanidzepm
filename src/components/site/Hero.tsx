@@ -44,6 +44,84 @@ export function Hero() {
         />
       </div>
 
+      {/* LEFT DECORATIVE LINES */}
+      <div
+        className="absolute left-0 top-[15%] hidden lg:block pointer-events-none z-0"
+        aria-hidden="true"
+      >
+        <svg
+          width="150"
+          height="360"
+          viewBox="0 0 150 360"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {/* Main curved line */}
+          <path
+            d="M-35 35 C25 35, 45 70, 45 125 C45 185, 10 215, 55 265 C75 288, 105 292, 132 270"
+            stroke="var(--mint)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            opacity="0.65"
+          />
+
+          {/* Second curved line */}
+          <path
+            d="M-45 85 C5 85, 20 105, 20 145 C20 190, -5 220, 30 250"
+            stroke="var(--mint)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            opacity="0.35"
+          />
+
+          {/* Upper diagonal line */}
+          <path
+            d="M8 0 L55 48"
+            stroke="var(--mint)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            opacity="0.5"
+          />
+
+          {/* Small arrow */}
+          <path
+            d="M124 264 L132 270 L123 276"
+            stroke="var(--mint)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            opacity="0.7"
+          />
+
+          {/* Small arrow on upper line */}
+          <path
+            d="M47 39 L55 48 L43 47"
+            stroke="var(--mint)"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            opacity="0.6"
+          />
+
+          {/* Small decorative dots */}
+          <circle
+            cx="45"
+            cy="125"
+            r="3"
+            fill="var(--mint)"
+            opacity="0.45"
+          />
+
+          <circle
+            cx="55"
+            cy="265"
+            r="3"
+            fill="var(--mint)"
+            opacity="0.45"
+          />
+        </svg>
+      </div>
+
       <div className="container-x relative z-10 grid lg:grid-cols-[55fr_45fr] gap-6 lg:gap-12 items-center">
         {/* LEFT - text */}
         <div className="lg:pr-4">
@@ -125,12 +203,6 @@ export function Hero() {
             alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
             loading="eager"
             className="relative block w-full max-w-none h-auto object-contain lg:scale-110 lg:origin-right"
-            style={{
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent 0%, black 10%, black 100%)",
-              maskImage:
-                "linear-gradient(to right, transparent 0%, black 10%, black 100%)",
-            }}
           />
         </div>
       </div>
