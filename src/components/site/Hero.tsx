@@ -1,5 +1,4 @@
 ```tsx
-import hero from "@/assets/nana-hero-photo.png.jpeg";
 import heroBanner from "@/assets/nana-header-banner.png";
 
 const STATS = [
@@ -23,9 +22,9 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden bg-white">
       <div className="relative overflow-hidden pt-[88px] md:pt-[104px] lg:pt-[100px] pb-8 md:pb-10 lg:min-h-[560px] xl:min-h-[620px] lg:flex lg:items-center">
 
-        {/* Full-bleed banner photo - desktop/large screens */}
+        {/* Full-bleed banner photo - all screen sizes */}
         <div
-          className="hidden lg:block absolute inset-0 -z-0"
+          className="absolute inset-0 -z-0"
           aria-hidden
         >
           <img
@@ -33,28 +32,6 @@ export function Hero() {
             alt=""
             loading="eager"
             className="absolute inset-0 h-full w-full object-cover object-[64%_5%]"
-          />
-        </div>
-
-        {/* Soft mint wash - mobile/tablet only */}
-        <div
-          className="lg:hidden absolute inset-0 -z-0 overflow-hidden pointer-events-none"
-          aria-hidden
-        >
-          <div
-            className="absolute -top-[18%] -left-[10%] h-[520px] w-[520px] rounded-full opacity-70"
-            style={{
-              background:
-                "radial-gradient(circle at 50% 50%, var(--mint-soft), transparent 70%)",
-            }}
-          />
-
-          <div
-            className="absolute bottom-[-12%] right-[-8%] h-[420px] w-[420px] rounded-full opacity-60"
-            style={{
-              background:
-                "radial-gradient(circle at 50% 50%, var(--mint-soft), transparent 70%)",
-            }}
           />
         </div>
 
@@ -134,7 +111,7 @@ export function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="mt-2.5 text-sm md:text-[14px] leading-relaxed max-w-xl text-ink-soft lg:text-white">
+            <p className="mt-2.5 text-sm md:text-[14px] leading-relaxed max-w-xl text-white">
               ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში,
               დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული
               მიდგომებით.
@@ -155,7 +132,7 @@ export function Hero() {
                     }}
                   />
 
-                  <span className="text-xs md:text-[13px] leading-relaxed text-ink-soft lg:text-white">
+                  <span className="text-xs md:text-[13px] leading-relaxed text-white">
                     {item}
                   </span>
                 </li>
@@ -185,19 +162,9 @@ export function Hero() {
             </div>
 
             {/* Credentials */}
-            <p className="mt-4 text-[11px] md:text-xs tracking-wide text-ink-soft lg:text-white/90">
+            <p className="mt-4 text-[11px] md:text-xs tracking-wide text-white/90">
               PMP® Certified · Project Management Practitioner · PMI Leadership Experience
             </p>
-          </div>
-
-          {/* RIGHT - hero photo (mobile/tablet only; desktop uses banner) */}
-          <div className="relative flex justify-center lg:hidden">
-            <img
-              src={hero}
-              alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
-              loading="eager"
-              className="relative block w-full max-w-none h-auto object-contain"
-            />
           </div>
         </div>
       </div>
