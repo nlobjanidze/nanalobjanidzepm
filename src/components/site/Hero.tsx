@@ -31,7 +31,7 @@ export function Hero() {
             src={heroBanner}
             alt=""
             loading="eager"
-            className="absolute inset-0 h-full w-full object-cover object-[64%_6%]"
+            className="absolute inset-0 h-full w-full object-cover object-[64%_8%]"
           />
         </div>
 
