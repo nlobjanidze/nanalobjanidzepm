@@ -40,7 +40,7 @@ export function FAQ() {
           <p className="mt-4 text-ink-soft">
             თუ პასუხს ვერ პოულობ - დაგვიკავშირდი პირდაპირ ფორმის გავლით.
           </p>
-          <a href="#contact" className="mt-6 inline-flex items-center rounded-full bg-navy-deep px-5 py-3 font-bold text-white hover:bg-navy transition text-sm">
+          <a href="#contact" className="cta-btn mt-6 inline-flex items-center rounded-full bg-navy-deep px-5 py-3 font-bold text-white hover:bg-navy transition text-sm">
             დასვი კითხვა →
           </a>
         </div>
