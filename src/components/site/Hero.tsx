@@ -1,4 +1,4 @@
-```tsx
+import hero from "@/assets/nana-hero-photo.png.jpeg";
 import heroBanner from "@/assets/nana-header-banner.png";
 
 const STATS = [
@@ -22,9 +22,9 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden bg-white">
       <div className="relative overflow-hidden pt-[88px] md:pt-[104px] lg:pt-[100px] pb-8 md:pb-10 lg:min-h-[560px] xl:min-h-[620px] lg:flex lg:items-center">
 
-        {/* Full-bleed banner photo - all screen sizes */}
+        {/* Full-bleed banner photo - desktop/large screens */}
         <div
-          className="absolute inset-0 -z-0"
+          className="hidden lg:block absolute inset-0 -z-0"
           aria-hidden
         >
           <img
@@ -32,6 +32,28 @@ export function Hero() {
             alt=""
             loading="eager"
             className="absolute inset-0 h-full w-full object-cover object-[64%_5%]"
+          />
+        </div>
+
+        {/* Soft mint wash - mobile/tablet only */}
+        <div
+          className="lg:hidden absolute inset-0 -z-0 overflow-hidden pointer-events-none"
+          aria-hidden
+        >
+          <div
+            className="absolute -top-[18%] -left-[10%] h-[520px] w-[520px] rounded-full opacity-70"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 50%, var(--mint-soft), transparent 70%)",
+            }}
+          />
+
+          <div
+            className="absolute bottom-[-12%] right-[-8%] h-[420px] w-[420px] rounded-full opacity-60"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 50%, var(--mint-soft), transparent 70%)",
+            }}
           />
         </div>
 
@@ -99,7 +121,7 @@ export function Hero() {
               className="mt-3 text-balance text-navy-deep"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(1.3rem, 1.9vw, 1.75rem)",
+                fontSize: "clamp(1.55rem, 2.45vw, 2.15rem)",
                 lineHeight: 1.2,
                 fontWeight: 800,
                 letterSpacing: "-0.025em",
@@ -111,7 +133,7 @@ export function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="mt-2.5 text-sm md:text-[14px] leading-relaxed max-w-xl text-white">
+            <p className="mt-2.5 text-base md:text-[16px] leading-relaxed max-w-xl text-navy-deep">
               ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში,
               დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული
               მიდგომებით.
@@ -132,7 +154,7 @@ export function Hero() {
                     }}
                   />
 
-                  <span className="text-xs md:text-[13px] leading-relaxed text-white">
+                  <span className="text-sm md:text-[14px] leading-relaxed text-navy-deep">
                     {item}
                   </span>
                 </li>
@@ -162,9 +184,19 @@ export function Hero() {
             </div>
 
             {/* Credentials */}
-            <p className="mt-4 text-[11px] md:text-xs tracking-wide text-white/90">
+            <p className="mt-4 text-xs tracking-wide text-navy-soft">
               PMP® Certified · Project Management Practitioner · PMI Leadership Experience
             </p>
+          </div>
+
+          {/* RIGHT - hero photo (mobile/tablet only; desktop uses banner) */}
+          <div className="relative flex justify-center lg:hidden">
+            <img
+              src={hero}
+              alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
+              loading="eager"
+              className="relative block w-full max-w-none h-auto object-contain"
+            />
           </div>
         </div>
       </div>
@@ -202,4 +234,3 @@ export function Hero() {
     </section>
   );
 }
-```
