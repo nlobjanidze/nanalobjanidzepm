@@ -100,7 +100,7 @@ export function LeadershipRecognition() {
               {ROLES.map((r) => (
                 <li key={r.org + r.title} className="p-5 flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">{r.org}</p>
+                    <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">{r.org}</p>
                     <p className="mt-1 font-extrabold text-ink">{r.title}</p>
                   </div>
                   <span className="shrink-0 text-xs font-black tabular-nums mt-1" style={{ color: "var(--navy)" }}>{r.period}</span>
@@ -110,7 +110,7 @@ export function LeadershipRecognition() {
 
             {/* PMI Chapter Leader - dedicated section */}
             <div className="mt-6 surface-card p-6">
-              <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">PMI Chapter Leader · 2025 - 2026</p>
+              <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">PMI Chapter Leader · 2025 - 2026</p>
               <h4 className="mt-1 font-extrabold text-lg text-ink">PMI Chapter Leadership Program</h4>
               <p className="mt-2 text-sm text-ink-soft leading-relaxed">
                 PMI-ის გლობალური Chapter Leader ბეიჯები ზედიზედ ორი წლისთვის - ლიდერობის, ზრდისა და
@@ -134,7 +134,7 @@ export function LeadershipRecognition() {
               <div className="flex items-start gap-5">
                 <img src={sageLogo} alt="SAGE Georgia" className="h-14 w-auto object-contain shrink-0" />
                 <div>
-                  <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft">SAGE Georgia</p>
+                  <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">SAGE Georgia</p>
                   <h4 className="mt-1 font-extrabold text-lg text-ink">საერთაშორისო საგანმანათლებლო და სამეწარმეო პლატფორმა</h4>
                 </div>
               </div>
