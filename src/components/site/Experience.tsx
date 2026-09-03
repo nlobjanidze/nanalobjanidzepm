@@ -252,7 +252,7 @@ export function Experience() {
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}
-              className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-navy hover:bg-[var(--surface)] transition"
+              className="cta-btn inline-flex items-center gap-2 rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-navy hover:bg-[var(--surface)] transition"
             >
               {expanded ? "დახურე სრული კარიერული გზა" : "View Full Career Journey - ნახე ადრეული გამოცდილება"}
               <ChevronDown
