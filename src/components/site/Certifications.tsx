@@ -28,34 +28,22 @@ const EDUCATION = [
   { name: "ბიზნეს ადმინისტრირება და ფინანსები - ბაკალავრი", issuer: "Gori State Teaching University", year: "2007–2011" },
 ];
 
-function Group({ title, items }: { title: string; items: { name: string; issuer: string; year: string }[] }) {
+const ALL_CERTS = [...PMI, ...PROFESSIONAL];
+
+function CertItem({ i }: { i: { name: string; issuer: string; year: string } }) {
   return (
-    <div className="surface-card p-7 md:p-8 hover:-translate-y-0.5 h-full">
-      <div className="flex items-center gap-3">
-        <span
-          className="h-8 w-8 shrink-0 rounded-lg inline-flex items-center justify-center text-xs font-black border"
-          style={{ background: "var(--mint-soft)", color: "var(--navy-deep)", borderColor: "var(--mint)" }}
-        >
-          ✦
-        </span>
-        <h3 className="font-extrabold text-lg md:text-xl text-ink">{title}</h3>
+    <li className="h-full rounded-2xl border border-line bg-white p-4 md:p-5 flex items-start justify-between gap-4">
+      <div className="min-w-0">
+        <p className="font-semibold text-sm md:text-[15px] text-ink leading-snug">{i.name}</p>
+        <p className="text-xs md:text-sm text-ink-soft mt-1">{i.issuer}</p>
       </div>
-      <ul className="mt-5 divide-y divide-line">
-        {items.map((i) => (
-          <li key={i.name} className="py-3.5 flex items-start justify-between gap-4">
-            <div className="min-w-0">
-              <p className="font-semibold text-sm md:text-base text-ink">{i.name}</p>
-              <p className="text-xs md:text-sm text-ink-soft mt-0.5">{i.issuer}</p>
-            </div>
-            {i.year && (
-              <span className="shrink-0 text-xs font-black mt-1 tabular-nums" style={{ color: "var(--navy)" }}>{i.year}</span>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+      {i.year && (
+        <span className="shrink-0 text-xs font-black mt-0.5 tabular-nums" style={{ color: "var(--navy)" }}>{i.year}</span>
+      )}
+    </li>
   );
 }
+
 
 export function Certifications() {
   return (
