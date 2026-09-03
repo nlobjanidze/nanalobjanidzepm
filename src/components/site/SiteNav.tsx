@@ -168,7 +168,7 @@ export function SiteNav() {
         {/* Consultation Button */}
         <a
           href="#contact"
-          className="hidden md:inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-4.5 py-2 text-[13px] font-bold transition-all hover:-translate-y-0.5"
+          className="cta-btn hidden md:inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-4.5 py-2 text-[13px] font-bold transition-all hover:-translate-y-0.5"
           style={{
             background: "var(--mint)",
             color: "var(--navy-deep)",
@@ -281,7 +281,7 @@ export function SiteNav() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full px-5 py-3 font-bold"
+              className="cta-btn mt-2 inline-flex items-center justify-center rounded-full px-5 py-3 font-bold"
               style={{
                 background: "var(--mint)",
                 color: "var(--navy-deep)",
