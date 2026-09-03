@@ -1,3 +1,4 @@
+import { Bullet } from "./Bullet";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
@@ -186,17 +187,17 @@ const ARCHIVE: Role[] = [
 
 function RoleCard({ r }: { r: Role }) {
   return (
-    <div className="surface-card p-6 md:p-7 hover:-translate-y-0.5">
+    <div className="surface-card p-5 md:p-6 hover:-translate-y-0.5">
       <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
         <h3 className="text-lg md:text-xl font-extrabold text-ink">{r.org}</h3>
         <p className="text-xs font-black tracking-widest uppercase text-navy-soft tabular-nums">{r.period}</p>
       </div>
       <p className="mt-1 text-sm font-semibold text-navy">{r.role}</p>
       {r.highlights.length > 0 && (
-        <ul className="mt-4 space-y-2">
+        <ul className="mt-3 space-y-1.5">
           {r.highlights.map((h) => (
             <li key={h} className="flex gap-2.5 text-sm text-ink leading-relaxed">
-              <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: "var(--mint)" }} />
+              <Bullet />
               <span>{h}</span>
             </li>
           ))}
@@ -223,9 +224,9 @@ export function Experience() {
           </p>
         </div>
 
-        <div className="mt-12 relative">
+        <div className="mt-8 relative">
           <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-line to-transparent" aria-hidden />
-          <ol className="space-y-6">
+          <ol className="space-y-4">
             {PRIMARY.map((r, i) => (
               <li key={r.period + r.org + i} className="relative pl-12">
                 <span
@@ -247,7 +248,7 @@ export function Experience() {
               ))}
           </ol>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}

@@ -108,7 +108,7 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; scroll-padding-top: 104px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 112px; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -141,13 +141,13 @@ src: url("/dachi-the-lynx.woff2") format("woff2");  font-weight: 400 900;
 @utility text-balance { text-wrap: balance; }
 
 @utility section-y {
-  padding-block: 3.5rem;
+  padding-block: 3rem;
 }
 @media (min-width: 768px) {
-  .section-y { padding-block: 4.5rem; }
+  .section-y { padding-block: 3.75rem; }
 }
 @media (min-width: 1280px) {
-  .section-y { padding-block: 5.5rem; }
+  .section-y { padding-block: 4.5rem; }
 }
 
 @utility eyebrow {

@@ -1,3 +1,4 @@
+import { Bullet } from "./Bullet";
 import ipmDay from "@/assets/ipm-day-2025.jpg";
 import agm2025 from "@/assets/agm-2025.jpg";
 import ciuLecture from "@/assets/ciu-lecture.jpeg";
@@ -121,7 +122,7 @@ const EVENTS = [
     ],
     highlights: [
       "მოწვეული სპიკერი: Pablo Lledó - PMI Global-ის Board of Directors-ის წევრი, თემით „პროექტის წარმატება: ღირებულების შექმნა, გავლენის მიღწევა“",
-      "მოწვეული სპიკერი: გია კაპანაძე - Flutter-ის CIO და PMI საქართველოს წარმომადგენლობის პრეზიდენტი (2026 წლიდან), თემით „Beyond Delivery - მიწოდების მიღმა“",
+      "მოწვეული სპიკერი: ანრი ჯიქია - Flutter-ის CIO და PMI საქართველოს წარმომადგენლობის პრეზიდენტი (2026 წლიდან), თემით „Beyond Delivery - მიწოდების მიღმა“",
     ],
     image: agm2025,
   },
@@ -185,7 +186,14 @@ export function GlobalEngagement() {
                     <span className="text-xs font-black tabular-nums" style={{ color: "var(--navy)" }}>{s.date}</span>
                   </div>
                   <h4 className="mt-2 font-extrabold text-ink leading-tight">{s.title}</h4>
-                  <p className="mt-3 text-sm text-ink-soft leading-relaxed">{s.desc}</p>
+                  <ul className="mt-3 space-y-2">
+                    {s.desc.split(/(?<=\.)\s+/).filter(Boolean).map((line) => (
+                      <li key={line} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
+                        <Bullet />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
                   {s.link && (
                     <a
                       href={s.link}
@@ -224,7 +232,7 @@ export function GlobalEngagement() {
                     <ul className="mt-2 space-y-1.5">
                       {e.roles.map((r) => (
                         <li key={r} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
-                          <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: "var(--mint)" }} />
+                          <Bullet />
                           <span>{r}</span>
                         </li>
                       ))}
@@ -235,7 +243,7 @@ export function GlobalEngagement() {
                     <ul className="mt-2 space-y-1.5">
                       {e.highlights.map((h) => (
                         <li key={h} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
-                          <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: "var(--navy)" }} />
+                          <Bullet tone="navy" />
                           <span>{h}</span>
                         </li>
                       ))}
