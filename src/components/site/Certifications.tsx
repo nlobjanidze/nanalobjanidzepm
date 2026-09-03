@@ -115,11 +115,24 @@ export function Certifications() {
           </div>
         </div>
 
-        {/* Certifications grid */}
-        <div className="mt-8 grid lg:grid-cols-2 gap-6 items-start">
-          <Group title="PMI სერტიფიკატები" items={PMI} />
-          <Group title="საერთაშორისო პროფესიული სერტიფიკატები" items={PROFESSIONAL} />
+        {/* Certifications - unified grid */}
+        <div className="mt-8 surface-card p-6 md:p-8">
+          <div className="flex items-center gap-3">
+            <span
+              className="h-8 w-8 shrink-0 rounded-lg inline-flex items-center justify-center text-xs font-black border"
+              style={{ background: "var(--mint-soft)", color: "var(--navy-deep)", borderColor: "var(--mint)" }}
+            >
+              ✦
+            </span>
+            <h3 className="font-extrabold text-lg md:text-xl text-ink">სერტიფიკატები და პროფესიული განვითარება</h3>
+          </div>
+          <ul className="mt-5 grid md:grid-cols-2 gap-4 items-stretch">
+            {ALL_CERTS.map((i) => (
+              <CertItem key={i.name} i={i} />
+            ))}
+          </ul>
         </div>
+
       </div>
     </section>
   );
