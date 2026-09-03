@@ -1,3 +1,4 @@
+import { Bullet } from "./Bullet";
 const PROJECTS = [
   {
     donor: "EU · M4EG",
@@ -98,7 +99,7 @@ export function Projects() {
   return (
     <section id="projects" className="section-y bg-surface">
       <div className="container-x">
-        <div className="max-w-2xl">
+        <div className="max-w-4xl">
           <span className="eyebrow">განხორციელებული პროექტები</span>
           <h2 className="heading-lg mt-4 text-balance">
             განხორციელებული <span className="text-navy">პროექტები</span>
@@ -112,7 +113,7 @@ export function Projects() {
           </p>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-6 items-stretch">
+        <div className="mt-10 grid md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
           {PROJECTS.map((p) => (
             <article key={p.title} className="surface-card p-6 md:p-8 flex flex-col hover:-translate-y-1 h-full">
               <div className="flex items-center justify-between">
@@ -132,7 +133,7 @@ export function Projects() {
                 <ul className="space-y-2">
                   {p.outcomes.map((o) => (
                     <li key={o} className="flex gap-2.5 text-sm text-ink">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: "var(--mint)" }} />
+                      <Bullet />
                       <span>{o}</span>
                     </li>
                   ))}

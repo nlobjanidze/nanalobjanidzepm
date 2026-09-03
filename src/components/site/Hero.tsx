@@ -1,4 +1,3 @@
-```tsx
 import hero from "@/assets/nana-hero-photo.png.jpeg";
 
 const STATS = [
@@ -160,4 +159,3 @@ export function Hero() {
     </section>
   );
 }
-```

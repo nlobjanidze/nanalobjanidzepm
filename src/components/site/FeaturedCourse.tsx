@@ -1,4 +1,5 @@
 import poster from "@/assets/ba-pm-course-poster.png";
+import { Bullet } from "./Bullet";
 
 const REGISTER_URL = "https://forms.gle/PgG8npciSifdQgHD6";
 const SYLLABUS_URL = "/BA_PM_Integrated_Syllabus.pdf";
@@ -147,7 +148,7 @@ export function FeaturedCourse() {
         {/* Why */}
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <div className="surface-card p-6 md:p-8 bg-white">
-            <h3 className="heading-md">🎯 რატომ ეს კურსი?</h3>
+            <h3 className="heading-md">რატომ ეს კურსი?</h3>
             <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
               ეს არის ერთი პროფესიული გზა, სადაც ხედავ, როგორ გადადის ბიზნეს საჭიროება ღირებულებაში, ანალიზი - მოთხოვნებში, მოთხოვნები -
               პროექტის გეგმაში, ხოლო გეგმა - რეალურ შედეგში.
@@ -159,11 +160,11 @@ export function FeaturedCourse() {
           </div>
 
           <div className="surface-card p-6 md:p-8 bg-white">
-            <h3 className="heading-md">👥 კურსი შენთვისაა, თუ:</h3>
+            <h3 className="heading-md">კურსი შენთვისაა, თუ:</h3>
             <ul className="mt-4 space-y-3">
               {FOR_YOU.map((t) => (
                 <li key={t} className="flex gap-2.5 text-[15px] leading-relaxed text-ink-soft">
-                  <span aria-hidden>🔹</span>
+                  <Bullet />
                   <span>{t}</span>
                 </li>
               ))}
@@ -173,11 +174,11 @@ export function FeaturedCourse() {
 
         {/* Outcomes */}
         <div className="mt-6 surface-card p-6 md:p-8 bg-white">
-          <h3 className="heading-md">💡 რას მიიღებ კურსის ბოლოს?</h3>
+          <h3 className="heading-md">რას მიიღებ კურსის ბოლოს?</h3>
           <ul className="mt-4 grid gap-3 md:grid-cols-2">
             {OUTCOMES.map((t) => (
               <li key={t} className="flex gap-2.5 rounded-xl px-4 py-3 text-[15px] leading-relaxed text-ink-soft surface-soft">
-                <span aria-hidden>🔹</span>
+                <Bullet />
                 <span>{t}</span>
               </li>
             ))}
@@ -186,7 +187,7 @@ export function FeaturedCourse() {
 
         {/* Trainers */}
         <div className="mt-6">
-          <h3 className="heading-md">🎙️ პროგრამის ტრენერები</h3>
+          <h3 className="heading-md">პროგრამის ტრენერები</h3>
           <div className="mt-4 grid gap-6 md:grid-cols-2">
             {TRAINERS.map((t) => (
               <div key={t.name} className="surface-card p-6 bg-white flex gap-4">
@@ -208,7 +209,7 @@ export function FeaturedCourse() {
 
         {/* Final CTA */}
         <div className="mt-8 surface-card p-6 md:p-8 bg-white flex flex-col items-center gap-4 text-center">
-          <h3 className="heading-md">📄 სრული სილაბუსი</h3>
+          <h3 className="heading-md">სრული სილაბუსი</h3>
           <p className="text-[15px] text-ink-soft max-w-[62ch]">
             სილაბუსში მოცემულია კურსის სრული პროგრამა - 21 შეხვედრა, პრაქტიკული დავალებები, BA/PM თემები, ინსტრუმენტები და Premium Bonus
             Package.

@@ -72,7 +72,7 @@ export function SiteNav() {
           : "bg-white/0 border-b border-white/10"
       }`}
     >
-      <div className="container-x flex h-[76px] md:h-[92px] items-center justify-between gap-4">
+      <div className="container-x flex h-[82px] md:h-[100px] items-center justify-between gap-4">
 
         {/* Logo */}
         <a
@@ -83,7 +83,7 @@ export function SiteNav() {
           <img
             src={logo}
             alt="ნანა ლობჯანიძე"
-            className="h-14 md:h-[76px] w-auto object-contain"
+            className="h-16 md:h-[88px] w-auto object-contain"
           />
         </a>
 
