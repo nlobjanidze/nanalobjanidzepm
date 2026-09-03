@@ -34,6 +34,7 @@ export function Hero() {
               "radial-gradient(circle at 50% 50%, var(--mint-soft), transparent 70%)",
           }}
         />
+
         <div
           className="absolute bottom-[-12%] right-[-8%] h-[420px] w-[420px] rounded-full opacity-60"
           style={{
@@ -112,7 +113,8 @@ export function Hero() {
           </div>
 
           <p className="mt-1.5 text-xs tracking-wide text-ink-soft/80">
-            PMP® Certified · Project Management Practitioner · PMI Leadership Experience
+            PMP® Certified · Project Management Practitioner · PMI Leadership
+            Experience
           </p>
         </div>
 
@@ -123,6 +125,12 @@ export function Hero() {
             alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
             loading="eager"
             className="relative block w-full max-w-none h-auto object-contain lg:scale-110 lg:origin-right"
+            style={{
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent 0%, black 10%, black 100%)",
+              maskImage:
+                "linear-gradient(to right, transparent 0%, black 10%, black 100%)",
+            }}
           />
         </div>
       </div>
