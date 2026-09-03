@@ -21,7 +21,7 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-white">
       <div className="relative overflow-hidden pt-[88px] md:pt-[104px] lg:pt-[100px] pb-8 md:pb-10 lg:min-h-[560px] xl:min-h-[620px] lg:flex lg:items-center">
-        
+
         {/* Full-bleed banner photo - desktop/large screens */}
         <div
           className="hidden lg:block absolute inset-0 -z-0"
@@ -31,7 +31,7 @@ export function Hero() {
             src={heroBanner}
             alt=""
             loading="eager"
-            className="absolute inset-0 h-full w-full object-cover object-[64%_8%]"
+            className="absolute inset-0 h-full w-full object-cover object-[64%_5%]"
           />
         </div>
 
@@ -102,9 +102,11 @@ export function Hero() {
         </div>
 
         <div className="container-x relative z-10 grid lg:grid-cols-[55fr_45fr] gap-6 lg:gap-12 items-center w-full">
-          
+
           {/* LEFT - text */}
           <div className="lg:pr-4">
+
+            {/* Name / certification line */}
             <span className="inline-flex items-center gap-2 text-[0.72rem] font-extrabold tracking-[0.18em] uppercase text-navy-soft">
               <span
                 className="inline-block h-[2px] w-7 rounded"
@@ -114,6 +116,7 @@ export function Hero() {
               NANA LOBJANIDZE · PMP® CERTIFIED PROJECT MANAGEMENT CONSULTANT
             </span>
 
+            {/* Main heading */}
             <h1
               className="mt-3 text-balance text-navy-deep"
               style={{
@@ -124,16 +127,20 @@ export function Hero() {
                 letterSpacing: "-0.025em",
               }}
             >
-              ქაოსური პროექტებიდან - მკაფიო, დაგეგმილ და მართვად პროცესებამდე
+              ქაოსური პროექტებიდან - მკაფიო, დაგეგმილ
+              <br />
+              და მართვად პროცესებამდე
             </h1>
 
-            <p className="mt-2.5 text-base md:text-[16px] leading-relaxed max-w-xl text-ink-soft">
+            {/* Description */}
+            <p className="mt-2.5 text-base md:text-[16px] leading-relaxed max-w-xl text-navy-deep">
               ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში,
               დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული
               მიდგომებით.
             </p>
 
-            <ul className="mt-3 grid sm:grid-cols-2 gap-1.5 max-w-2xl">
+            {/* Value bullets */}
+            <ul className="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-3 max-w-2xl">
               {VALUE_BULLETS.map((item) => (
                 <li
                   key={item}
@@ -147,14 +154,15 @@ export function Hero() {
                     }}
                   />
 
-                  <span className="text-sm md:text-[14px] leading-relaxed text-ink-soft">
+                  <span className="text-sm md:text-[14px] leading-relaxed text-navy-deep">
                     {item}
                   </span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-4 flex flex-wrap gap-3">
+            {/* CTA buttons */}
+            <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href="#contact"
                 className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all hover:-translate-y-0.5 cta-btn"
@@ -175,7 +183,8 @@ export function Hero() {
               </a>
             </div>
 
-            <p className="mt-1.5 text-xs tracking-wide text-ink-soft/80">
+            {/* Credentials */}
+            <p className="mt-4 text-xs tracking-wide text-navy-soft">
               PMP® Certified · Project Management Practitioner · PMI Leadership Experience
             </p>
           </div>
