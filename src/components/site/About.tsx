@@ -27,7 +27,7 @@ export function About() {
                 და საერთაშორისო სექტორში.
               </p>
               <div>
-                <h3 className="text-[11px] font-black uppercase tracking-widest text-navy-soft">მიდგომა</h3>
+                <h3 className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">მიდგომა</h3>
                 <p className="mt-2">
                   ვმუშაობ Agile, Waterfall და Hybrid მეთოდოლოგიებით და მჯერა, რომ წარმატებული
                   პროექტი მხოლოდ პროცესების მართვა არ არის - ეს არის ადამიანების, კომუნიკაციისა
@@ -35,7 +35,7 @@ export function About() {
                 </p>
               </div>
               <div>
-                <h3 className="text-[11px] font-black uppercase tracking-widest text-navy-soft">პორტფელი</h3>
+                <h3 className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">პორტფელი</h3>
                 <p className="mt-2">
                   ჩემი პროექტების პორტფელი მოიცავს მუნიციპალური განვითარების ინიციატივებს,
                   საერთაშორისოდ დაფინანსებულ პროექტებს (EU, UNDP, GIZ, იაპონიის საელჩო და სხვ.),
@@ -46,7 +46,7 @@ export function About() {
             </div>
 
             <div className="mt-7 surface-soft p-5 md:p-6">
-              <p className="text-[11px] font-black uppercase tracking-widest text-navy-soft mb-3">პროექტების მართვა ჩემთვის ნიშნავს</p>
+              <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft mb-3">პროექტების მართვა ჩემთვის ნიშნავს</p>
               <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 text-sm md:text-base text-ink">
                 {[
                   "იდეების რეალობად ქცევას",
