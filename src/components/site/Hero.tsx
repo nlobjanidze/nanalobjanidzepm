@@ -116,15 +116,15 @@ export function Hero() {
           </p>
         </div>
 
-   {/* RIGHT - hero photo */}
-      className="absolute inset-y-0 left-0 w-[38%] pointer-events-none"
-      style={{
-        background:
-          "linear-gradient(to right, white 0%, rgba(255,255,255,0.9) 20%, rgba(255,255,255,0.45) 55%, transparent 100%)",
-      }}
-    />
-  </div>
-</div>
+        {/* RIGHT - hero photo */}
+        <div className="relative flex justify-center lg:justify-end lg:self-center">
+          <img
+            src={hero}
+            alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
+            loading="eager"
+            className="relative block w-full max-w-none h-auto object-contain lg:scale-110 lg:origin-right"
+          />
+        </div>
       </div>
 
       {/* Statistics */}
