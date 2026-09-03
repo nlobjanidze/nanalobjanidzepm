@@ -117,14 +117,6 @@ export function Hero() {
         </div>
 
    {/* RIGHT - hero photo */}
-<div className="relative flex justify-center lg:justify-end lg:self-center">
-  <img
-    src={hero}
-    alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
-    loading="eager"
-    className="relative block w-full max-w-none h-auto object-contain lg:scale-110 lg:origin-right"
-  />
-</div>
       className="absolute inset-y-0 left-0 w-[38%] pointer-events-none"
       style={{
         background:
