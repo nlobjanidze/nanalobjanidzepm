@@ -83,7 +83,7 @@ export function SiteNav() {
           <img
             src={logo}
             alt="ნანა ლობჯანიძე"
-            className="h-16 md:h-[88px] w-auto object-contain"
+            className="h-20 md:h-[110px] w-auto object-contain"
           />
         </a>
 
