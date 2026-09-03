@@ -1,3 +1,4 @@
+```tsx
 import hero from "@/assets/nana-hero-photo.png.jpeg";
 import heroBanner from "@/assets/nana-header-banner.png";
 
@@ -133,7 +134,7 @@ export function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="mt-2.5 text-sm md:text-[14px] leading-relaxed max-w-xl text-white">
+            <p className="mt-2.5 text-sm md:text-[14px] leading-relaxed max-w-xl text-ink-soft lg:text-white">
               ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში,
               დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული
               მიდგომებით.
@@ -154,7 +155,7 @@ export function Hero() {
                     }}
                   />
 
-                  <span className="text-xs md:text-[13px] leading-relaxed text-white">
+                  <span className="text-xs md:text-[13px] leading-relaxed text-ink-soft lg:text-white">
                     {item}
                   </span>
                 </li>
@@ -184,7 +185,7 @@ export function Hero() {
             </div>
 
             {/* Credentials */}
-            <p className="mt-4 text-[11px] md:text-xs tracking-wide text-white/90">
+            <p className="mt-4 text-[11px] md:text-xs tracking-wide text-ink-soft lg:text-white/90">
               PMP® Certified · Project Management Practitioner · PMI Leadership Experience
             </p>
           </div>
@@ -234,3 +235,4 @@ export function Hero() {
     </section>
   );
 }
+```
