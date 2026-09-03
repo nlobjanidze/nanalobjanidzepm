@@ -803,7 +803,7 @@ function CategoryCard({ c }: { c: Category }) {
         <div className="lg:col-span-3 flex lg:justify-end">
           <button
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center gap-2 rounded-full px-5 py-3 font-bold transition"
+            className="cta-btn inline-flex items-center gap-2 rounded-full px-5 py-3 font-bold transition"
             style={{
               background: dark ? "var(--mint)" : "var(--navy-deep)",
               color: dark ? "var(--navy-deep)" : "white",
@@ -866,7 +866,7 @@ function TrainingItem({
         </span>
         <a
           href="#contact"
-          className="text-[11px] font-black uppercase tracking-widest rounded-full px-3 py-1.5 border transition"
+          className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] rounded-full px-3 py-1.5 border transition"
           style={{
             color: dark ? "var(--mint-bright)" : "var(--navy)",
             borderColor: dark ? "rgba(255,255,255,0.25)" : "var(--line)",
