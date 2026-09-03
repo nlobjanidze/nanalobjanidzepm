@@ -366,7 +366,7 @@ export function Services() {
           </div>
           <a
             href="#contact"
-            className="self-start inline-flex items-center rounded-full px-6 py-3 font-bold transition-all"
+            className="cta-btn self-start inline-flex items-center rounded-full px-6 py-3 font-bold transition-all"
             style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
           >
             დაგეგმე ზარი →
@@ -375,7 +375,7 @@ export function Services() {
 
         {/* Problem framing */}
         <div className="mt-10 surface-card p-6 md:p-7">
-          <p className="text-[11px] font-black uppercase tracking-widest" style={{ color: "var(--navy-soft)" }}>
+          <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em]" style={{ color: "var(--navy-soft)" }}>
             თქვენი პრობლემა გამოიყურება ასე
           </p>
           <ul className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2.5">
@@ -409,7 +409,7 @@ export function Services() {
             </p>
             <a
               href="#contact"
-              className="mt-6 inline-flex items-center rounded-full px-6 py-3.5 font-bold transition"
+              className="cta-btn mt-6 inline-flex items-center rounded-full px-6 py-3.5 font-bold transition"
               style={{ background: "var(--mint)", color: "var(--navy-deep)" }}
             >
               დაჯავშნე უფასო კონსულტაცია
@@ -484,7 +484,7 @@ function CategoryCard({ c }: { c: Category }) {
         <div className="lg:col-span-3 flex lg:justify-end">
           <button
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center gap-2 rounded-full px-5 py-3 font-bold transition"
+            className="cta-btn inline-flex items-center gap-2 rounded-full px-5 py-3 font-bold transition"
             style={{
               background: dark ? "var(--mint)" : "var(--navy-deep)",
               color: dark ? "var(--navy-deep)" : "white",
