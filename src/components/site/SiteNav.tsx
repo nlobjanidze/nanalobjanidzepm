@@ -100,7 +100,7 @@ export function SiteNav() {
             >
               <a
                 href={n.href}
-                className="inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-semibold tracking-wide py-3 transition-colors duration-300 text-ink-soft hover:text-ink"
+                className="inline-flex items-center gap-1 whitespace-nowrap text-[12px] font-semibold tracking-wide py-3 transition-colors duration-300 text-ink-soft hover:text-ink"
               >
                 {n.label}
 
@@ -122,7 +122,7 @@ export function SiteNav() {
                         key={i.href + i.label}
                         href={i.href}
                         onClick={() => setOpenMenu(null)}
-                        className="block rounded-xl px-3.5 py-2.5 text-[13px] font-semibold text-ink-soft hover:text-ink hover:bg-surface transition-colors"
+                        className="block rounded-xl px-3.5 py-2.5 text-[12px] font-semibold text-ink-soft hover:text-ink hover:bg-surface transition-colors"
                       >
                         {i.label}
                       </a>
@@ -168,7 +168,7 @@ export function SiteNav() {
         {/* Consultation Button */}
         <a
           href="#contact"
-          className="cta-btn hidden md:inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-4.5 py-2 text-[13px] font-bold transition-all hover:-translate-y-0.5"
+          className="cta-btn hidden md:inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-4.5 py-2 text-[12px] font-bold transition-all hover:-translate-y-0.5"
           style={{
             background: "var(--mint)",
             color: "var(--navy-deep)",

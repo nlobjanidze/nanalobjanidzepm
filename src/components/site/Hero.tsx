@@ -107,7 +107,7 @@ export function Hero() {
           <div className="lg:pr-4">
 
             {/* Name / certification line */}
-            <span className="inline-flex items-center gap-2 text-[0.72rem] font-extrabold tracking-[0.18em] uppercase text-navy-soft">
+            <span className="inline-flex items-center gap-2 text-[0.64rem] font-extrabold tracking-[0.18em] uppercase text-navy-soft">
               <span
                 className="inline-block h-[2px] w-7 rounded"
                 style={{ background: "var(--mint)" }}
@@ -121,7 +121,7 @@ export function Hero() {
               className="mt-3 text-balance text-navy-deep"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(1.55rem, 2.45vw, 2.15rem)",
+                fontSize: "clamp(1.35rem, 2.15vw, 1.9rem)",
                 lineHeight: 1.2,
                 fontWeight: 800,
                 letterSpacing: "-0.025em",
