@@ -165,7 +165,7 @@ export function Hero() {
             <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href="#contact"
-                className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all hover:-translate-y-0.5 cta-btn"
+                className="inline-flex items-center rounded-full px-7 py-3.5 text-[14px] font-bold transition-all hover:-translate-y-0.5 cta-btn"
                 style={{
                   background: "var(--mint)",
                   color: "var(--navy-deep)",
@@ -177,7 +177,7 @@ export function Hero() {
 
               <a
                 href="#services"
-                className="inline-flex items-center rounded-full border px-6 py-3.5 font-semibold transition-colors border-line text-navy-deep hover:bg-surface cta-btn"
+                className="inline-flex items-center rounded-full border px-6 py-3.5 text-[14px] font-semibold transition-colors border-line text-navy-deep hover:bg-surface cta-btn"
               >
                 გაიგე მეტი →
               </a>
