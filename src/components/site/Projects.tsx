@@ -125,7 +125,7 @@ export function Projects() {
                 </span>
                 <span className="text-xs font-black tabular-nums" style={{ color: "var(--navy)" }}>{p.impact}</span>
               </div>
-              <h3 className="mt-4 text-base md:text-lg font-extrabold leading-tight text-ink">{p.title}</h3>
+              <h3 className="mt-4 text-sm md:text-base font-extrabold leading-tight text-ink">{p.title}</h3>
               <p className="mt-3 text-sm text-ink-soft leading-relaxed">{p.summary}</p>
 
               <div className="mt-5 pt-5 border-t border-line">

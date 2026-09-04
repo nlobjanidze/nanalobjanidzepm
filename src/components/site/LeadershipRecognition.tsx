@@ -95,7 +95,7 @@ export function LeadershipRecognition() {
         {/* Roles + awards */}
         <div className="mt-12 grid lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7">
-            <h3 className="text-xl md:text-2xl font-black text-navy-deep">ლიდერული როლები</h3>
+            <h3 className="text-lg md:text-xl font-black text-navy-deep">ლიდერული როლები</h3>
             <ul className="mt-5 divide-y divide-line surface-card p-2">
               {ROLES.map((r) => (
                 <li key={r.org + r.title} className="p-5 flex items-start justify-between gap-4">
@@ -111,7 +111,7 @@ export function LeadershipRecognition() {
             {/* PMI Chapter Leader - dedicated section */}
             <div className="mt-6 surface-card p-6">
               <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">PMI Chapter Leader · 2025 - 2026</p>
-              <h4 className="mt-1 font-extrabold text-lg text-ink">PMI Chapter Leadership Program</h4>
+              <h4 className="mt-1 font-extrabold text-base text-ink">PMI Chapter Leadership Program</h4>
               <p className="mt-2 text-sm text-ink-soft leading-relaxed">
                 PMI-ის გლობალური Chapter Leader ბეიჯები ზედიზედ ორი წლისთვის - ლიდერობის, ზრდისა და
                 გავლენის ფორმალური აღიარება PMI Tbilisi, Georgia Chapter-ის სამმართველოს დირექტორის როლისთვის.
@@ -135,7 +135,7 @@ export function LeadershipRecognition() {
                 <img src={sageLogo} alt="SAGE Georgia" className="h-14 w-auto object-contain shrink-0" />
                 <div>
                   <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">SAGE Georgia</p>
-                  <h4 className="mt-1 font-extrabold text-lg text-ink">საერთაშორისო საგანმანათლებლო და სამეწარმეო პლატფორმა</h4>
+                  <h4 className="mt-1 font-extrabold text-base text-ink">საერთაშორისო საგანმანათლებლო და სამეწარმეო პლატფორმა</h4>
                 </div>
               </div>
               <p className="mt-3 text-sm md:text-[0.95rem] text-ink-soft leading-relaxed">
@@ -151,7 +151,7 @@ export function LeadershipRecognition() {
           </div>
 
           <div className="lg:col-span-5">
-            <h3 className="text-xl md:text-2xl font-black text-navy-deep">ჯილდოები &amp; აღიარება</h3>
+            <h3 className="text-lg md:text-xl font-black text-navy-deep">ჯილდოები &amp; აღიარება</h3>
             <div className="mt-5 space-y-4">
               {AWARDS.map((a) => (
                 <article key={a.title} className="surface-card p-5 hover:-translate-y-0.5">

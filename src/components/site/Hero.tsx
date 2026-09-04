@@ -107,7 +107,7 @@ export function Hero() {
           <div className="lg:pr-4">
 
             {/* Name / certification line */}
-            <span className="inline-flex items-center gap-2 text-[0.72rem] font-extrabold tracking-[0.18em] uppercase text-navy-soft">
+            <span className="inline-flex items-center gap-2 text-[0.64rem] font-extrabold tracking-[0.18em] uppercase text-navy-soft">
               <span
                 className="inline-block h-[2px] w-7 rounded"
                 style={{ background: "var(--mint)" }}
@@ -121,7 +121,7 @@ export function Hero() {
               className="mt-3 text-balance text-navy-deep"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(1.55rem, 2.45vw, 2.15rem)",
+                fontSize: "clamp(1.35rem, 2.15vw, 1.9rem)",
                 lineHeight: 1.2,
                 fontWeight: 800,
                 letterSpacing: "-0.025em",
@@ -165,7 +165,7 @@ export function Hero() {
             <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href="#contact"
-                className="inline-flex items-center rounded-full px-7 py-3.5 font-bold transition-all hover:-translate-y-0.5 cta-btn"
+                className="inline-flex items-center rounded-full px-7 py-3.5 text-[14px] font-bold transition-all hover:-translate-y-0.5 cta-btn"
                 style={{
                   background: "var(--mint)",
                   color: "var(--navy-deep)",
@@ -177,7 +177,7 @@ export function Hero() {
 
               <a
                 href="#services"
-                className="inline-flex items-center rounded-full border px-6 py-3.5 font-semibold transition-colors border-line text-navy-deep hover:bg-surface cta-btn"
+                className="inline-flex items-center rounded-full border px-6 py-3.5 text-[14px] font-semibold transition-colors border-line text-navy-deep hover:bg-surface cta-btn"
               >
                 გაიგე მეტი →
               </a>

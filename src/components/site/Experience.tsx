@@ -189,7 +189,7 @@ function RoleCard({ r }: { r: Role }) {
   return (
     <div className="surface-card p-5 md:p-6 hover:-translate-y-0.5">
       <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
-        <h3 className="text-lg md:text-xl font-extrabold text-ink">{r.org}</h3>
+        <h3 className="text-base md:text-lg font-extrabold text-ink">{r.org}</h3>
         <p className="text-xs font-black tracking-widest uppercase text-navy-soft tabular-nums">{r.period}</p>
       </div>
       <p className="mt-1 text-sm font-semibold text-navy">{r.role}</p>

@@ -69,7 +69,7 @@ export function About() {
               <div key={p.t} className="surface-card p-5 hover:-translate-y-0.5 h-full flex flex-col">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-black border" style={{ background: "var(--mint-soft)", color: "var(--navy-deep)", borderColor: "var(--mint)" }}>●</span>
-                  <h3 className="font-extrabold text-base md:text-lg text-ink" dangerouslySetInnerHTML={{ __html: p.t }} />
+                  <h3 className="font-extrabold text-sm md:text-base text-ink" dangerouslySetInnerHTML={{ __html: p.t }} />
                 </div>
                 <p className="mt-2 text-sm text-ink-soft leading-relaxed" dangerouslySetInnerHTML={{ __html: p.d }} />
               </div>

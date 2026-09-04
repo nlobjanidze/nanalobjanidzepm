@@ -876,7 +876,7 @@ function TrainingItem({
         </a>
       </div>
       <h4
-        className="mt-3 text-base md:text-lg font-extrabold leading-tight"
+        className="mt-3 text-sm md:text-base font-extrabold leading-tight"
         style={{ color: dark ? "white" : "var(--ink)" }}
       >
         {t.title}

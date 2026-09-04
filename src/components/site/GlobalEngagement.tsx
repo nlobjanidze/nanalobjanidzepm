@@ -145,7 +145,7 @@ export function GlobalEngagement() {
 
         {/* International */}
         <div className="mt-12">
-          <h3 className="text-xl md:text-2xl font-black text-navy-deep">საერთაშორისო მონაწილეობა & ლიდერობა</h3>
+          <h3 className="text-lg md:text-xl font-black text-navy-deep">საერთაშორისო მონაწილეობა & ლიდერობა</h3>
           <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {INTERNATIONAL.map((i) => (
               <article key={i.title} className="surface-card p-6 hover:-translate-y-0.5 h-full">
@@ -167,7 +167,7 @@ export function GlobalEngagement() {
 
         {/* Speaking */}
         <div className="mt-12">
-          <h3 className="text-xl md:text-2xl font-black text-navy-deep">სპიკერობა & საუნივერსიტეტო ლექციები</h3>
+          <h3 className="text-lg md:text-xl font-black text-navy-deep">სპიკერობა & საუნივერსიტეტო ლექციები</h3>
           <div className="mt-5 grid md:grid-cols-2 gap-5">
             {SPEAKING.map((s) => (
               <article key={s.title} className="surface-card overflow-hidden hover:-translate-y-0.5 flex flex-col h-full">
@@ -212,7 +212,7 @@ export function GlobalEngagement() {
 
         {/* Events */}
         <div className="mt-12">
-          <h3 className="text-xl md:text-2xl font-black text-navy-deep">ივენთ-მენეჯმენტი</h3>
+          <h3 className="text-lg md:text-xl font-black text-navy-deep">ივენთ-მენეჯმენტი</h3>
           <div className="mt-5 grid md:grid-cols-2 gap-5 items-stretch">
             {EVENTS.map((e) => (
               <article key={e.title} className="surface-card overflow-hidden hover:-translate-y-0.5 flex flex-col h-full">
@@ -258,7 +258,7 @@ export function GlobalEngagement() {
 
         {/* Media */}
         <div className="mt-12">
-          <h3 className="text-xl md:text-2xl font-black text-navy-deep">მედია & საჯარო გამოჩენა</h3>
+          <h3 className="text-lg md:text-xl font-black text-navy-deep">მედია & საჯარო გამოჩენა</h3>
           <a
             href="https://www.youtube.com/watch?v=7WEBNNZAWdE"
             target="_blank"
