@@ -4,10 +4,13 @@ type Module = { title: string; items: string[] };
 type Training = {
   code: string;
   title: string;
+  subtitle?: string;
   audience: string;
   duration: string;
   price: string;
   summary: string;
+  overview?: string[];
+  ctaLabel?: string;
   modules: Module[];
 };
 type Category = {
