@@ -1133,6 +1133,14 @@ function TrainingItem({
       >
         {t.title}
       </h4>
+      {t.subtitle && (
+        <p
+          className="mt-1.5 text-[12.5px] md:text-[13px] font-semibold leading-snug"
+          style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}
+        >
+          {t.subtitle}
+        </p>
+      )}
       <div className="mt-3 grid gap-1.5 text-[12.5px]" style={{ color: dark ? "rgba(255,255,255,0.78)" : "var(--ink-soft)" }}>
         <p><span className="font-bold" style={{ color: dark ? "white" : "var(--ink)" }}>ვისთვის:</span> {t.audience}</p>
         <p><span className="font-bold" style={{ color: dark ? "white" : "var(--ink)" }}>ხანგრძლივობა:</span> {t.duration}</p>
@@ -1150,7 +1158,7 @@ function TrainingItem({
         style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}
         aria-expanded={active}
       >
-        {active ? "დახურე" : "სრული სილაბუსი"} <span className={`transition ${active ? "rotate-180" : ""}`}>▾</span>
+        {active ? "დახურე" : (t.ctaLabel ?? "სრული სილაბუსი")} <span className={`transition ${active ? "rotate-180" : ""}`}>▾</span>
       </button>
 
       {active && (
@@ -1158,6 +1166,19 @@ function TrainingItem({
           className="mt-4 space-y-4 pt-4"
           style={{ borderTop: `1px dashed ${dark ? "rgba(255,255,255,0.18)" : "var(--line)"}` }}
         >
+          {t.overview && (
+            <div className="space-y-3">
+              {t.overview.map((p) => (
+                <p
+                  key={p.slice(0, 32)}
+                  className="text-[13px] md:text-sm leading-relaxed"
+                  style={{ color: dark ? "rgba(255,255,255,0.85)" : "var(--ink)" }}
+                >
+                  {p}
+                </p>
+              ))}
+            </div>
+          )}
           {t.modules.map((m) => (
             <div key={m.title}>
               <p
