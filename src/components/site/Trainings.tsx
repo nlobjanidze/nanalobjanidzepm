@@ -1,4 +1,5 @@
 import { useState } from "react";
+import coursePoster from "@/assets/ba-pm-course-poster.png";
 
 type Module = { title: string; items: string[] };
 type Training = {
@@ -11,6 +12,10 @@ type Training = {
   summary: string;
   overview?: string[];
   ctaLabel?: string;
+  poster?: string;
+  registrationUrl?: string;
+  syllabusUrl?: string;
+  details?: { label: string; value: string }[];
   modules: Module[];
 };
 type Category = {
@@ -124,6 +129,74 @@ const ST: Training[] = [
 ];
 
 const DD: Training[] = [
+  {
+    code: "BA/PM",
+    title: "IT ბიზნეს ანალიზი & პროექტების მართვა",
+    subtitle: "ბიზნეს საჭიროებიდან - ღირებულების შექმნამდე. ორი პროფესია, ერთი კურსი, ერთი პროექტი.",
+    audience: "ბიზნეს ანალიზის ან პროექტების მართვის მიმართულებით განვითარებით დაინტერესებული მონაწილეები",
+    duration: "21 შეხვედრა | 42 საათი · 7 ოქტომბერი - 16 დეკემბერი, 2026",
+    price: "",
+    summary: "თუ ბიზნეს ანალიზის ან პროექტების მართვის მიმართულებით განვითარებას გეგმავ, ალბათ უკვე იცი, რომ რეალურ პროექტში ეს ორი მიმართულება ერთმანეთისგან დამოუკიდებლად არ მუშაობს.",
+    overview: [
+      "ბიზნეს ანალიტიკოსი ეძებს პასუხს კითხვაზე - რა გვჭირდება და რატომ?",
+      "პროექტის მენეჯერი კი ამ საჭიროებას გარდაქმნის რეალურ გეგმად - როგორ გავაკეთებთ, რა რესურსით, რა ვადაში და როგორ მივიყვანთ შედეგამდე?",
+      "სწორედ ამ კავშირზეა აგებული ჩვენი ახალი ინტეგრირებული პროგრამა: IT ბიზნეს ანალიზი & პროექტების მართვა",
+    ],
+    ctaLabel: "იხილე ტრენინგი",
+    poster: coursePoster,
+    registrationUrl: "https://forms.gle/PgG8npciSifdQgHD6",
+    syllabusUrl: "/BA_PM_Integrated_Syllabus.pdf",
+    details: [
+      { label: "რეგისტრაცია", value: "1 სექტემბერი - 5 ოქტომბერი, 2026" },
+      { label: "ფასდაკლება", value: "EARLY BIRD - 10% ფასდაკლება. დარეგისტრირდი 10 სექტემბრამდე და მიიღე 10% ფასდაკლება" },
+      { label: "ფორმატი", value: "ონლაინ | Microsoft Teams" },
+      { label: "განრიგი", value: "ყოველ ორშაბათსა და ოთხშაბათს" },
+      { label: "დრო", value: "20:00 - 22:00" },
+      { label: "ენა", value: "ქართული" },
+    ],
+    modules: [
+      {
+        title: "რატომ ეს კურსი?",
+        items: [
+          "ეს არის ერთი პროფესიული გზა, სადაც ხედავ, როგორ გადადის ბიზნეს საჭიროება ღირებულებაში, ანალიზი - მოთხოვნებში, მოთხოვნები - პროექტის გეგმაში, ხოლო გეგმა - რეალურ შედეგში.",
+          "კურსის განმავლობაში მუშაობ ერთ საერთო პროექტზე და ნაბიჯ-ნაბიჯ ქმნი იმ პრაქტიკულ შედეგებსა და არტეფაქტებს, რომლებიც რეალურ სამუშაო გარემოში ერთმანეთთან არის დაკავშირებული.",
+        ],
+      },
+      {
+        title: "კურსი შენთვისაა, თუ:",
+        items: [
+          "გინდა კარიერის დაწყება ბიზნეს ანალიზის ან პროექტების მართვის მიმართულებით;",
+          "უკვე მუშაობ პროექტებთან და გინდა ცოდნის სტრუქტურირება;",
+          "უკვე ხარ BA ან PM და გინდა მეორე მიმართულების უკეთ გაგება;",
+          "გინდა დაინახო პროექტის სრული გზა და არა მხოლოდ მისი ცალკეული ეტაპები.",
+        ],
+      },
+      {
+        title: "რას მიიღებ კურსის ბოლოს?",
+        items: [
+          "გაიცემა სერტიფიკატი;",
+          "ერთ საერთო პროექტზე შექმნილი პრაქტიკული ნამუშევარი;",
+          "BA და PM-ის ძირითადი არტეფაქტების პრაქტიკული გამოცდილება;",
+          "პროფესიული ინსტრუმენტების გამოყენების გამოცდილება - მათ შორის Miro, Jira/Trello და Draw.io;",
+          "Professional Templates Library;",
+          "AI Prompt Library for BA & PM;",
+          "1-თვიანი post-course mentoring;",
+          "Alumni Community-ში ჩართულობის შესაძლებლობა.",
+        ],
+      },
+      {
+        title: "პროგრამის ტრენერები",
+        items: [
+          "თინათინ პაპაშვილი - CBAP®: CBAP®, PRINCE2®, PSPO II® და AAC® სერტიფიკაციებითა და 10+ წლიანი გამოცდილებით, თინათინი გაგატარებს ბიზნეს საჭიროებიდან მოთხოვნების ანალიზამდე, სტრუქტურირებამდე და მოდელირებამდე.",
+          "ნანა ლობჯანიძე - PMP®: 8+ წლიანი მენეჯერული გამოცდილებით ნანა გაჩვენებს, როგორ გარდაიქმნება ბიზნეს საჭიროება კონკრეტულ პროექტად - დაწყებიდან დაგეგმვამდე, აღსრულებიდან მონიტორინგამდე და საბოლოო შედეგამდე.",
+        ],
+      },
+      {
+        title: "სრული სილაბუსი",
+        items: ["სილაბუსში მოცემულია კურსის სრული პროგრამა - 21 შეხვედრა, პრაქტიკული დავალებები, BA/PM თემები, ინსტრუმენტები და Premium Bonus Package."],
+      },
+    ],
+  },
   {
     code: "DD-1",
     title: "პროექტის მართვის საფუძვლები - 0-დან პროფესიამდე",
@@ -1117,14 +1190,16 @@ function TrainingItem({
           {t.code}
         </span>
         <a
-          href="#contact"
+          href={t.registrationUrl ?? "#contact"}
+          target={t.registrationUrl ? "_blank" : undefined}
+          rel={t.registrationUrl ? "noopener noreferrer" : undefined}
           className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] rounded-full px-3 py-1.5 border transition"
           style={{
             color: dark ? "var(--mint-bright)" : "var(--navy)",
             borderColor: dark ? "rgba(255,255,255,0.25)" : "var(--line)",
           }}
         >
-          დამიკავშირდით
+          {t.registrationUrl ? "კურსზე რეგისტრაცია →" : "დამიკავშირდით"}
         </a>
       </div>
       <h4
@@ -1166,6 +1241,16 @@ function TrainingItem({
           className="mt-4 space-y-4 pt-4"
           style={{ borderTop: `1px dashed ${dark ? "rgba(255,255,255,0.18)" : "var(--line)"}` }}
         >
+          {t.poster && (
+            <img src={t.poster} alt={`${t.title} - კურსის პოსტერი`} className="w-full h-auto max-h-[500px] object-contain" loading="lazy" />
+          )}
+          {t.details && (
+            <dl className="space-y-2 text-[13px] md:text-sm" style={{ color: dark ? "white" : "var(--ink)" }}>
+              {t.details.map((detail) => (
+                <div key={detail.label}><dt className="inline font-bold">{detail.label}: </dt><dd className="inline">{detail.value}</dd></div>
+              ))}
+            </dl>
+          )}
           {t.overview && (
             <div className="space-y-3">
               {t.overview.map((p) => (
@@ -1201,6 +1286,12 @@ function TrainingItem({
               </ul>
             </div>
           ))}
+          {t.syllabusUrl && t.registrationUrl && (
+            <div className="flex flex-wrap gap-3 pt-2 text-xs font-extrabold uppercase tracking-widest">
+              <a href={t.syllabusUrl} target="_blank" rel="noopener noreferrer" className="cta-btn underline" style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}>იხილე სრული სილაბუსი →</a>
+              <a href={t.registrationUrl} target="_blank" rel="noopener noreferrer" className="cta-btn underline" style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}>კურსზე რეგისტრაცია →</a>
+            </div>
+          )}
         </div>
       )}
     </div>

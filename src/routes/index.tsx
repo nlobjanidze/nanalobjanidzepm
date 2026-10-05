@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site/SiteNav";
 import { Hero } from "@/components/site/Hero";
-import { FeaturedCourse } from "@/components/site/FeaturedCourse";
+import { CurrentProjects } from "@/components/site/CurrentProjects";
 import { About } from "@/components/site/About";
 import { Certifications } from "@/components/site/Certifications";
 import { Services } from "@/components/site/Services";
@@ -17,6 +17,16 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "ნანა ლობჯანიძე | PMP® პროექტების მართვის კონსულტანტი" },
+      { name: "description", content: "ნანა ლობჯანიძე - დამოუკიდებელი პროექტებისა და პროცესების მართვის კონსულტანტი. მიმდინარე პროექტები, პროფესიული ტრენინგები და საკონსულტაციო მომსახურება." },
+      { property: "og:title", content: "ნანა ლობჯანიძე | პროექტების მართვის კონსულტანტი" },
+      { property: "og:description", content: "დამოუკიდებელი საკონსულტაციო საქმიანობა, მიმდინარე პროექტები და პროფესიული ტრენინგები." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
 });
 
 function Index() {
@@ -25,7 +35,7 @@ function Index() {
       <SiteNav />
       <main>
         <Hero />
-        <FeaturedCourse />
+        <CurrentProjects />
         <About />
         <Services />
         <Trainings />
