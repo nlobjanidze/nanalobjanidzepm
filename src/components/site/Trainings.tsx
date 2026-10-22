@@ -1,5 +1,8 @@
 import { useState } from "react";
 import coursePoster from "@/assets/ba-pm-course-poster.png";
+import { educationalPrograms } from "@/lib/training-programs";
+import { Bullet } from "@/components/site/Bullet";
+import { Button } from "@/components/ui/button";
 
 type Module = { title: string; items: string[] };
 type Training = {
@@ -8,7 +11,7 @@ type Training = {
   subtitle?: string;
   audience: string;
   duration: string;
-  price: string;
+  price?: string;
   summary: string;
   overview?: string[];
   ctaLabel?: string;
@@ -16,6 +19,10 @@ type Training = {
   registrationUrl?: string;
   syllabusUrl?: string;
   details?: { label: string; value: string }[];
+  outcomes?: string[];
+  portfolio?: string[];
+  moduleAccordion?: boolean;
+  contactLabel?: string;
   modules: Module[];
 };
 type Category = {
@@ -129,6 +136,7 @@ const ST: Training[] = [
 ];
 
 const DD: Training[] = [
+  ...educationalPrograms,
   {
     code: "BA/PM",
     title: "IT ბიზნეს ანალიზი & პროექტების მართვა",
@@ -1199,7 +1207,7 @@ function TrainingItem({
             borderColor: dark ? "rgba(255,255,255,0.25)" : "var(--line)",
           }}
         >
-          {t.registrationUrl ? "კურსზე რეგისტრაცია →" : "დამიკავშირდით"}
+          {t.registrationUrl ? "კურსზე რეგისტრაცია →" : (t.contactLabel ?? "დამიკავშირდით")}
         </a>
       </div>
       <h4
@@ -1227,14 +1235,26 @@ function TrainingItem({
         {t.summary}
       </p>
 
-      <button
+      {t.outcomes && (
+        <div className="mt-4 text-[13px] leading-relaxed text-ink-soft">
+          <p className="font-extrabold text-navy-deep">ცოდნა და უნარები - რას შეძლებ</p>
+          <ul className="mt-2 space-y-1.5">
+            {t.outcomes.map((outcome) => (
+              <li key={outcome} className="flex gap-2.5"><Bullet /><span>{outcome}</span></li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <Button
         onClick={onToggle}
-        className="mt-4 inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest"
+        variant="link"
+        className="mt-4 h-auto justify-start whitespace-normal p-0 text-xs font-extrabold uppercase tracking-widest"
         style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}
         aria-expanded={active}
       >
         {active ? "დახურე" : (t.ctaLabel ?? "სრული სილაბუსი")} <span className={`transition ${active ? "rotate-180" : ""}`}>▾</span>
-      </button>
+      </Button>
 
       {active && (
         <div
@@ -1264,7 +1284,24 @@ function TrainingItem({
               ))}
             </div>
           )}
-          {t.modules.map((m) => (
+          {t.portfolio && (
+            <div className="text-[13px] leading-relaxed text-ink">
+              <p className="font-extrabold text-navy-deep">პრაქტიკული შედეგები - რა დოკუმენტებს შექმნი</p>
+              <ul className="mt-2 space-y-1.5">
+                {t.portfolio.map((item) => <li key={item} className="flex gap-2.5"><Bullet /><span>{item}</span></li>)}
+              </ul>
+            </div>
+          )}
+          {t.moduleAccordion ? t.modules.map((m) => (
+            <details key={m.title} className="group border-b border-line pb-3">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-3 text-[12.5px] font-extrabold text-navy-deep [&::-webkit-details-marker]:hidden">
+                <span>{m.title}</span><span aria-hidden className="shrink-0 transition-transform group-open:rotate-180">▾</span>
+              </summary>
+              <ul className="mt-3 space-y-1.5">
+                {m.items.map((item) => <li key={item} className="flex gap-2.5 text-[13px] leading-relaxed text-ink"><Bullet /><span>{item}</span></li>)}
+              </ul>
+            </details>
+          )) : t.modules.map((m) => (
             <div key={m.title}>
               <p
                 className="text-[12.5px] font-extrabold"
@@ -1286,6 +1323,11 @@ function TrainingItem({
               </ul>
             </div>
           ))}
+          {t.contactLabel && (
+            <Button asChild variant="link" className="h-auto whitespace-normal p-0 text-xs font-extrabold text-navy">
+              <a href="#contact">დაინტერესების შემთხვევაში დაგვიკავშირდით →</a>
+            </Button>
+          )}
           {t.syllabusUrl && t.registrationUrl && (
             <div className="flex flex-wrap gap-3 pt-2 text-xs font-extrabold uppercase tracking-widest">
               <a href={t.syllabusUrl} target="_blank" rel="noopener noreferrer" className="cta-btn underline" style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}>იხილე სრული სილაბუსი →</a>
