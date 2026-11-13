@@ -225,3 +225,7 @@ header {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--line), transparent);
 }
+
+.collaboration-banner {
+  background: var(--gradient-hero);
+}

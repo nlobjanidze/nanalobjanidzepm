@@ -76,25 +76,25 @@ export function CurrentProjects() {
         {ENGAGEMENTS.map((e) => (
           <div key={e.org} className="mt-8">
             {/* Organisation header */}
-            <div className="surface-card p-6 md:p-8" style={{ background: "var(--gradient-hero)" }}>
-              <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-                <div className="flex items-center gap-5">
-                  <img src={nanaLogo} alt="Nana Lobjanidze" className="h-10 w-auto object-contain md:h-12" />
-                  <span aria-hidden className="text-2xl font-light" style={{ color: "var(--mint)" }}>
+            <div className="surface-card collaboration-banner grid items-center gap-7 p-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-8 md:p-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-10">
+                <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto_minmax(0,1.1fr)] items-center gap-3 sm:gap-5">
+                  {/* Frame the original artwork, excluding only its transparent canvas margin. */}
+                  <svg role="img" aria-label="Nana Lobjanidze" viewBox="385 602 704 296" className="block w-full" preserveAspectRatio="xMidYMid meet">
+                    <image href={nanaLogo} width="1500" height="1500" />
+                  </svg>
+                  <span aria-hidden className="shrink-0 text-2xl font-light text-mint">
                     ×
                   </span>
-                  <img src={e.logo} alt={e.logoAlt} className="h-10 w-auto object-contain md:h-12" />
+                  <img src={e.logo} alt={e.logoAlt} className="block h-auto w-full min-w-0 object-contain" />
                 </div>
-                <div className="md:text-right">
-                  <div className="text-[13px] font-extrabold uppercase tracking-wider" style={{ color: "var(--navy-deep)" }}>
+                <div className="min-w-0 text-center md:text-right">
+                  <div className="text-[13px] font-extrabold uppercase leading-relaxed text-navy-deep">
                     Independent Project &amp; Process Management Consultant
                   </div>
-                  <div className="mt-1 text-sm font-semibold text-ink-soft">{e.org}</div>
+                  <div className="mt-2 text-sm font-semibold leading-relaxed text-ink-soft">{e.org}</div>
+                  <p className="mt-5 text-[15px] leading-relaxed text-ink-soft">{e.intro}</p>
+                  <p className="mt-3 text-[15px] font-semibold leading-relaxed text-ink">{e.lead}</p>
                 </div>
-              </div>
-
-              <p className="mt-6 text-[15px] leading-relaxed text-ink-soft max-w-[78ch]">{e.intro}</p>
-              <p className="mt-3 text-[15px] font-semibold text-ink max-w-[78ch]">{e.lead}</p>
             </div>
 
             {/* Projects */}
