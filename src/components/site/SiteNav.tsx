@@ -154,7 +154,7 @@ export function SiteNav() {
           <button
             type="button"
             onClick={() => setLanguage("ka")}
-            className={`inline-flex items-center gap-1.5 ${
+            className={`inline-flex items-center gap-1.5 cursor-pointer rounded-md px-1 py-1 transition-colors duration-150 hover:bg-ink/5 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
               language === "ka" ? "text-ink" : "text-ink-soft/50"
             }`}
           >
@@ -169,7 +169,7 @@ export function SiteNav() {
           <button
             type="button"
             onClick={() => setLanguage("en")}
-            className={`inline-flex items-center gap-1.5 ${
+            className={`inline-flex items-center gap-1.5 cursor-pointer rounded-md px-1 py-1 transition-colors duration-150 hover:bg-ink/5 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
               language === "en" ? "text-ink" : "text-ink-soft/50"
             }`}
           >
@@ -262,7 +262,7 @@ export function SiteNav() {
               <button
                 type="button"
                 onClick={() => setLanguage("ka")}
-                className={`inline-flex items-center gap-1.5 ${
+                className={`inline-flex items-center gap-1.5 cursor-pointer rounded-md px-1 py-1 transition-colors duration-150 hover:bg-ink/5 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
                   language === "ka"
                     ? "text-ink"
                     : "text-ink-soft/50"
@@ -279,7 +279,7 @@ export function SiteNav() {
               <button
                 type="button"
                 onClick={() => setLanguage("en")}
-                className={`inline-flex items-center gap-1.5 ${
+                className={`inline-flex items-center gap-1.5 cursor-pointer rounded-md px-1 py-1 transition-colors duration-150 hover:bg-ink/5 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
                   language === "en"
                     ? "text-ink"
                     : "text-ink-soft/50"
