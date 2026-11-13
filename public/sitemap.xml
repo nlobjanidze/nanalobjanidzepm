@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://nanalobjanidze.ge/</loc>
-  </url>
+  <url><loc>https://nanalobjanidze.ge/</loc></url>
+  <url><loc>https://nanalobjanidze.ge/trainings/</loc></url>
+  <url><loc>https://nanalobjanidze.ge/consulting/</loc></url>
+  <url><loc>https://nanalobjanidze.ge/en/trainings/</loc></url>
+  <url><loc>https://nanalobjanidze.ge/en/consulting/</loc></url>
 </urlset>
