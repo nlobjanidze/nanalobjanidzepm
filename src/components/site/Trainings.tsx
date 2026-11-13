@@ -1,3 +1,4 @@
+import { EN_TRAINING_MODULES } from "@/lib/training-en";
 import { useLanguage } from "@/lib/LanguageContext";
 import { useState } from "react";
 import coursePoster from "@/assets/ba-pm-course-poster.png";
@@ -1195,7 +1196,7 @@ function CategoryCard({ c }: { c: Category }) {
         >
           {c.items.map((t) => (
             <TrainingItem
-              key={t.code}
+              key={en && t.code.startsWith("სფ-") ? `SC-${t.code.slice(3)}` : t.code}
               t={t}
               dark={dark}
               accent={s}
@@ -1225,6 +1226,7 @@ function TrainingItem({
   const { language } = useLanguage();
   const en = language === "en";
   const translated = EN_COURSES[t.code];
+  const displayModules = en ? (EN_TRAINING_MODULES[t.code] ?? []) : t.modules;
   return (
     <div
       className="rounded-2xl p-5 md:p-6 border transition"
@@ -1238,7 +1240,7 @@ function TrainingItem({
           className="text-[10px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full"
           style={{ background: accent.bg, color: accent.text, border: `1px solid ${accent.border}` }}
         >
-          {t.code}
+          {en && t.code.startsWith("სფ-") ? `SC-${t.code.slice(3)}` : t.code}
         </span>
         <a
           href={t.registrationUrl ?? "#contact"}
@@ -1257,7 +1259,7 @@ function TrainingItem({
         className="mt-3 text-sm md:text-base font-extrabold leading-tight"
         style={{ color: dark ? "white" : "var(--ink)" }}
       >
-        {en ? translated?.title ?? t.title : t.title}
+        {en ? translated?.title ?? "Training Programme" : t.title}
       </h4>
       {t.subtitle && !en && (
         <p
@@ -1275,10 +1277,10 @@ function TrainingItem({
         className="mt-3 text-[13px] md:text-sm leading-relaxed"
         style={{ color: dark ? "rgba(255,255,255,0.82)" : "var(--ink-soft)" }}
       >
-        {en ? translated?.summary ?? t.summary : t.summary}
+        {en ? translated?.summary ?? "Contact me for course information." : t.summary}
       </p>
 
-      {t.outcomes && (
+      {!en && t.outcomes && (
         <div className="mt-4 text-[13px] leading-relaxed text-ink-soft">
           <p className="font-extrabold text-navy-deep">{en ? "Knowledge and skills - what you will be able to do" : "ცოდნა და უნარები - რას შეძლებ"}</p>
           <ul className="mt-2 space-y-1.5">
@@ -1305,29 +1307,19 @@ function TrainingItem({
           style={{ borderTop: `1px dashed ${dark ? "rgba(255,255,255,0.18)" : "var(--line)"}` }}
         >
           {t.poster && (
-            <img src={t.poster} alt={`${en ? translated?.title ?? t.title : t.title} - ${en ? "course poster" : "კურსის პოსტერი"}`} className="w-full h-auto max-h-[500px] object-contain" loading="lazy" />
+            <img src={t.poster} alt={`${en ? translated?.title ?? "Training Programme" : t.title} - ${en ? "course poster" : "კურსის პოსტერი"}`} className="w-full h-auto max-h-[500px] object-contain" loading="lazy" />
           )}
-          {t.details && (
+          {!en && t.details && (
             <dl className="space-y-2 text-[13px] md:text-sm" style={{ color: dark ? "white" : "var(--ink)" }}>
               {t.details.map((detail) => (
                 <div key={detail.label}><dt className="inline font-bold">{detail.label}: </dt><dd className="inline">{detail.value}</dd></div>
               ))}
             </dl>
           )}
-          {t.overview && (
-            <div className="space-y-3">
-              {t.overview.map((p) => (
-                <p
-                  key={p.slice(0, 32)}
-                  className="text-[13px] md:text-sm leading-relaxed"
-                  style={{ color: dark ? "rgba(255,255,255,0.85)" : "var(--ink)" }}
-                >
-                  {p}
-                </p>
-              ))}
-            </div>
-          )}
-          {t.portfolio && (
+          {(en ? (t.code === "სფ-1" ? ["Excellent customer service depends not only on products and processes, but also on the human experience at every touchpoint: branch, hotline or online channel.", "This three-day programme covers the complete service cycle, from first impressions and professional communication to complaints, emotional resilience and teamwork.", "Interactive exercises, role plays and realistic workplace scenarios help participants apply new skills immediately."] : []) : t.overview)?.map((p) => (
+            <p key={p.slice(0, 32)} className="text-[13px] md:text-sm leading-relaxed" style={{ color: dark ? "rgba(255,255,255,0.85)" : "var(--ink)" }}>{p}</p>
+          ))}
+          {!en && t.portfolio && (
             <div className="text-[13px] leading-relaxed text-ink">
               <p className="font-extrabold text-navy-deep">{en ? "Practical outputs - documents you will create" : "პრაქტიკული შედეგები - რა დოკუმენტებს შექმნი"}</p>
               <ul className="mt-2 space-y-1.5">
@@ -1335,7 +1327,7 @@ function TrainingItem({
               </ul>
             </div>
           )}
-          {t.moduleAccordion ? t.modules.map((m) => (
+          {t.moduleAccordion ? displayModules.map((m) => (
             <details key={m.title} className="group border-b border-line pb-3">
               <summary className="flex cursor-pointer list-none items-start justify-between gap-3 text-[12.5px] font-extrabold text-navy-deep [&::-webkit-details-marker]:hidden">
                 <span>{m.title}</span><span aria-hidden className="shrink-0 transition-transform group-open:rotate-180">▾</span>
@@ -1344,7 +1336,7 @@ function TrainingItem({
                 {m.items.map((item) => <li key={item} className="flex gap-2.5 text-[13px] leading-relaxed text-ink"><Bullet /><span>{item}</span></li>)}
               </ul>
             </details>
-          )) : t.modules.map((m) => (
+          )) : displayModules.map((m) => (
             <div key={m.title}>
               <p
                 className="text-[12.5px] font-extrabold"
