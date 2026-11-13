@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 type SubService = {
   code: string;
@@ -350,18 +351,19 @@ function accentStyle(a: Category["accent"]) {
 }
 
 export function Services() {
+  const { language } = useLanguage();
+  const en = language === "en";
   return (
     <section id="services" className="section-y bg-white">
       <div className="container-x">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div className="max-w-2xl">
-            <span className="eyebrow">სერვისები</span>
+            <span className="eyebrow">{en ? "SERVICES" : "სერვისები"}</span>
             <h2 className="heading-lg mt-4 text-balance">
-              ჩვენი მიდგომა - <span className="text-navy">სისტემა, შესრულება, შედეგი</span>
+              {en ? <>My approach - <span className="text-navy">structure, delivery and results</span></> : <>ჩვენი მიდგომა - <span className="text-navy">სისტემა, შესრულება, შედეგი</span></>}
             </h2>
             <p className="mt-4 text-ink-soft text-base md:text-lg">
-              ჩვენ არ ვაკეთებთ უბრალოდ კონსულტაციას - ვაშენებთ სისტემას, ვმართავთ შესრულებას და ვქმნით შედეგს.
-              ოთხი ფოკუსირებული მიმართულება ბიზნესის, NGO-სა და საჯარო სექტორისთვის.
+              {en ? "I go beyond advice: I build systems, support delivery and focus on measurable outcomes across four service areas for businesses, NGOs and the public sector." : "ჩვენ არ ვაკეთებთ უბრალოდ კონსულტაციას - ვაშენებთ სისტემას, ვმართავთ შესრულებას და ვქმნით შედეგს. ოთხი ფოკუსირებული მიმართულება ბიზნესის, NGO-სა და საჯარო სექტორისთვის."}
             </p>
           </div>
           <a
@@ -369,14 +371,14 @@ export function Services() {
             className="cta-btn self-start inline-flex items-center rounded-full px-6 py-3 font-bold transition-all"
             style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
           >
-            დაგეგმე ზარი →
+            {en ? "Schedule a Call →" : "დაგეგმე ზარი →"}
           </a>
         </div>
 
         {/* Problem framing */}
         <div className="mt-10 surface-card p-6 md:p-7">
           <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em]" style={{ color: "var(--navy-soft)" }}>
-            თქვენი პრობლემა გამოიყურება ასე
+            {en ? "DO THESE CHALLENGES SOUND FAMILIAR?" : "თქვენი პრობლემა გამოიყურება ასე"}
           </p>
           <ul className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2.5">
             {PROBLEMS.map((p) => (
@@ -399,20 +401,20 @@ export function Services() {
           style={{ background: "var(--navy-deep)", color: "white" }}
         >
           <div className="lg:col-span-8 p-8 md:p-12">
-            <span className="eyebrow" style={{ color: "var(--mint-bright)" }}>დიაგნოსტიკა</span>
+            <span className="eyebrow" style={{ color: "var(--mint-bright)" }}>{en ? "PROJECT DIAGNOSTICS" : "დიაგნოსტიკა"}</span>
             <h3 className="heading-md mt-4 text-balance" style={{ color: "white" }}>
-              გჭირდებათ თქვენზე მორგებული ინდივიდუალური მიდგომა?{" "}
-              <span style={{ color: "var(--mint)" }}>ვიმუშაოთ ერთად.</span>
+              {en ? "Looking for an approach tailored to your needs?" : "გჭირდებათ თქვენზე მორგებული ინდივიდუალური მიდგომა?"}{" "}
+              <span style={{ color: "var(--mint)" }}>{en ? "Work together." : "ვიმუშაოთ ერთად."}</span>
             </h3>
             <p className="mt-4 text-white/75 max-w-xl">
-              დავიწყოთ უფასო 30-წუთიანი დიაგნოსტიკით - გავარკვიოთ, რომელი მიდგომა მუშაობს თქვენთვის.
+              {en ? "Start with a free 30-minute discovery call to identify the approach that works best for you." : "დავიწყოთ უფასო 30-წუთიანი დიაგნოსტიკით - გავარკვიოთ, რომელი მიდგომა მუშაობს თქვენთვის."}
             </p>
             <a
               href="#contact"
               className="cta-btn mt-6 inline-flex items-center rounded-full px-6 py-3.5 font-bold transition"
               style={{ background: "var(--mint)", color: "var(--navy-deep)" }}
             >
-              დაჯავშნე უფასო კონსულტაცია
+              {en ? "Book a Free Consultation" : "დაჯავშნე უფასო კონსულტაცია"}
             </a>
           </div>
           <div
@@ -421,7 +423,7 @@ export function Services() {
           >
             <div className="text-center">
               <p className="text-5xl md:text-6xl font-black text-white">30’</p>
-              <p className="mt-2 text-sm uppercase tracking-widest text-white/85 font-bold">უფასო ზარი</p>
+              <p className="mt-2 text-sm uppercase tracking-widest text-white/85 font-bold">{en ? "FREE CALL" : "უფასო ზარი"}</p>
             </div>
           </div>
         </div>

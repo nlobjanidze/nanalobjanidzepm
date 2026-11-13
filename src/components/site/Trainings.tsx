@@ -1,3 +1,4 @@
+import { useLanguage } from "@/lib/LanguageContext";
 import { useState } from "react";
 import coursePoster from "@/assets/ba-pm-course-poster.png";
 import { educationalPrograms } from "@/lib/training-programs";
@@ -1034,29 +1035,31 @@ function accentStyle(a: Category["accent"]) {
 }
 
 export function Trainings() {
+  const { language } = useLanguage();
+  const en = language === "en";
   return (
     <section id="trainings" className="section-y bg-surface">
       <div className="container-x">
         <div className="max-w-3xl">
-          <span className="eyebrow">ტრენინგ პროგრამები</span>
+          <span className="eyebrow">{en ? "TRAINING PROGRAMMES" : "ტრენინგ პროგრამები"}</span>
           <h2 className="heading-lg mt-4 text-balance">
-            პროფესიული ტრენინგები - <span className="text-navy">პროექტების მართვა, ლიდერობა, Agile და გუნდის განვითარება</span>
+            {en ? <>Professional Training - <span className="text-navy">Project Management, Leadership, Agile and Team Development</span></> : <>პროფესიული ტრენინგები - <span className="text-navy">პროექტების მართვა, ლიდერობა, Agile და გუნდის განვითარება</span></>}
           </h2>
           <p className="mt-4 text-ink-soft text-base md:text-lg">
-            პრაქტიკული სასწავლო პროგრამები პროექტების მენეჯერებისთვის, ლიდერებისთვის, გუნდის ხელმძღვანელებისთვის, Agile პრაქტიკოსებისთვის და პროფესიული განვითარების მსურველებისთვის. კურსები აერთიანებს პროექტების მართვას, ლიდერობას, გუნდის მართვას, Agile მიდგომებსა და პროფესიული ზრდის ინსტრუმენტებს.
+            {en ? "Practical learning programmes for project managers, leaders, team leads, Agile practitioners and professionals seeking growth. The courses combine project management, leadership, team management, Agile approaches and tools for professional development." : "პრაქტიკული სასწავლო პროგრამები პროექტების მენეჯერებისთვის, ლიდერებისთვის, გუნდის ხელმძღვანელებისთვის, Agile პრაქტიკოსებისთვის და პროფესიული განვითარების მსურველებისთვის. კურსები აერთიანებს პროექტების მართვას, ლიდერობას, გუნდის მართვას, Agile მიდგომებსა და პროფესიული ზრდის ინსტრუმენტებს."}
           </p>
           <p className="mt-3 text-ink-soft text-base md:text-lg">
-            ფორმატი: ონლაინ (Google Meet / MS Teams / Zoom) ან ფიზიკურად (თბილისი). რეგიონებში ჩატარება შესაძლებელია წინასწარი შეთანხმებით. ენა: ქართული.
+            {en ? "Format: online (Google Meet / MS Teams / Zoom) or in person in Tbilisi. Delivery in other regions can be arranged. Training language: Georgian; English delivery can be discussed upon request." : "ფორმატი: ონლაინ (Google Meet / MS Teams / Zoom) ან ფიზიკურად (თბილისი). რეგიონებში ჩატარება შესაძლებელია წინასწარი შეთანხმებით. ენა: ქართული."}
           </p>
           <div className="mt-6 rounded-2xl border p-5 md:p-6" style={{ borderColor: "var(--line)", background: "white" }}>
             <h3 className="text-sm font-black tracking-[0.18em] uppercase" style={{ color: "var(--navy-deep)" }}>
-              სასწავლო მასალები და რესურსები
+              {en ? "LEARNING MATERIALS & RESOURCES" : "სასწავლო მასალები და რესურსები"}
             </h3>
             <p className="mt-3 text-sm md:text-base text-ink-soft leading-relaxed">
-              სასწავლო პროგრამა ეფუძნება საერთაშორისო პროფესიულ სტანდარტებს, თანამედროვე მეთოდოლოგიებსა და პრაქტიკულ მიდგომებს. სასწავლო პროცესში გამოყენებულია ტრენერის მიერ მომზადებული მასალები, პროფესიული რესურსები და რეალურ სამუშაო გარემოზე დაფუძნებული პრაქტიკული მაგალითები.
+              {en ? "Programmes are based on international professional standards, modern methodologies and practical approaches. Learning combines trainer-developed materials, professional resources and examples drawn from real work environments." : "სასწავლო პროგრამა ეფუძნება საერთაშორისო პროფესიულ სტანდარტებს, თანამედროვე მეთოდოლოგიებსა და პრაქტიკულ მიდგომებს. სასწავლო პროცესში გამოყენებულია ტრენერის მიერ მომზადებული მასალები, პროფესიული რესურსები და რეალურ სამუშაო გარემოზე დაფუძნებული პრაქტიკული მაგალითები."}
             </p>
             <p className="mt-3 text-sm md:text-base text-ink-soft leading-relaxed">
-              მონაწილეები მიიღებენ:
+              {en ? "Participants receive:" : "მონაწილეები მიიღებენ:"}
             </p>
             <ul className="mt-2 space-y-2 text-sm md:text-base text-ink-soft leading-relaxed list-disc pl-5">
               <li>ტრენერის მიერ მომზადებულ სტრუქტურირებულ სალექციო და სასწავლო მასალებს;</li>
@@ -1067,7 +1070,7 @@ export function Trainings() {
               <li>პრაქტიკულ დავალებებს, რომლებიც ხელს უწყობს მიღებული ცოდნის რეალურ სამუშაო გარემოში გამოყენებას.</li>
             </ul>
             <p className="mt-4 text-sm md:text-base text-ink-soft leading-relaxed">
-              სასწავლო მასალები და რესურსები შერჩეულია პროგრამის მიზნებისა და მონაწილეთა პრაქტიკული საჭიროებების შესაბამისად, რათა სწავლის პროცესი იყოს პრაქტიკული, თანამედროვე და უშუალოდ სამუშაოზე ორიენტირებული.
+              {en ? "LEARNING MATERIALS & RESOURCES" : "სასწავლო მასალები და რესურსები"} შერჩეულია პროგრამის მიზნებისა და მონაწილეთა პრაქტიკული საჭიროებების შესაბამისად, რათა სწავლის პროცესი იყოს პრაქტიკული, თანამედროვე და უშუალოდ სამუშაოზე ორიენტირებული.
             </p>
           </div>
         </div>

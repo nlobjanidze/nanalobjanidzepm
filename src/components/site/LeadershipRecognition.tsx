@@ -1,3 +1,4 @@
+import { useLanguage } from "@/lib/LanguageContext";
 import { useState } from "react";
 import limPortrait from "@/assets/lim-portrait.jpeg";
 import limPassStage from "@/assets/lim-pass-stage.jpeg";
@@ -28,19 +29,23 @@ const GALLERY = [
 
 
 export function LeadershipRecognition() {
+  const { language } = useLanguage();
+  const en = language === "en";
+  const roles = en ? ROLES.map(r => ({ ...r, period: r.period.replace("დღემდე", "Present") })) : ROLES;
+  const awards = en ? AWARDS.map((a,i) => ({ ...a, org: i === 0 ? "Project Management Institute · Contribution to the development of PMI Tbilisi, Georgia Chapter" : a.org })) : AWARDS;
+  const gallery = en ? GALLERY.map((g,i) => ({...g, caption: ["Europe Leadership Institute Meeting 2026 · Group photo", "Europe Leadership Institute Meeting 2026 · On stage", "We maximize project success to elevate our world. · PMI"][i]})) : GALLERY;
   const [lightbox, setLightbox] = useState<string | null>(null);
 
   return (
     <section id="leadership" className="section-y bg-white">
       <div className="container-x">
         <div className="max-w-2xl">
-          <span className="eyebrow">ლიდერობა &amp; აღიარება</span>
+          <span className="eyebrow">{en ? "Leadership & Recognition" : "ლიდერობა & აღიარება"}</span>
           <h2 className="heading-lg mt-4 text-balance">
-            აღიარებები და <span className="text-navy">ლიდერული როლები</span>
+            {en ? "Recognition &" : "აღიარებები და"} <span className="text-navy">{en ? "Leadership Roles" : "ლიდერული როლები"}</span>
           </h2>
           <p className="mt-4 text-ink-soft text-base md:text-lg">
-            PMI-ის გლობალური ლიდერული ინიციატივები, ჩაფტერის სამმართველო, საერთაშორისო
-            მენტორული პროგრამები და პროფესიული ჯილდოები.
+            {en ? "Global PMI leadership initiatives, chapter board service, international mentoring and professional recognition." : "PMI-ის გლობალური ლიდერული ინიციატივები, ჩაფტერის სამმართველო, საერთაშორისო მენტორული პროგრამები და პროფესიული ჯილდოები."}
           </p>
         </div>
 
@@ -55,10 +60,7 @@ export function LeadershipRecognition() {
               PMI Europe Leadership Institute Meeting (LIM) 2026
             </h3>
             <p className="mt-4 text-white/85 leading-relaxed">
-              PMI-ის გლობალური ლიდერული განვითარების ფლაგმანი ღონისძიება, რომელშიც
-              მონაწილეობას იღებენ PMI Chapter-ების ლიდერები მთელი მსოფლიოდან.
-              ფოკუსი - ლიდერობა, Chapter-ის ზრდა, სტრატეგიული დაგეგმვა, მოხალისეების მართვა
-              და თემის განვითარება. ლისაბონი, 2026.
+              {en ? "PMI’s flagship global leadership development gathering brings together chapter leaders from around the world. Topics include leadership, chapter growth, strategic planning, volunteer management and community development. Lisbon, 2026." : "PMI-ის გლობალური ლიდერული განვითარების ფლაგმანი ღონისძიება, რომელშიც მონაწილეობას იღებენ PMI Chapter-ების ლიდერები მთელი მსოფლიოდან. ფოკუსი - ლიდერობა, Chapter-ის ზრდა, სტრატეგიული დაგეგმვა, მოხალისეების მართვა და თემის განვითარება. ლისაბონი, 2026."}
             </p>
             <ul className="mt-6 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-white/85">
               {["Leadership Development","Chapter Growth","Strategic Planning","Volunteer Management","Community Development","Global PMI Network"].map((x) => (
@@ -76,7 +78,7 @@ export function LeadershipRecognition() {
 
         {/* Gallery - clickable */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
-          {GALLERY.map((g) => (
+          {gallery.map((g) => (
             <button
               key={g.src}
               type="button"
@@ -95,9 +97,9 @@ export function LeadershipRecognition() {
         {/* Roles + awards */}
         <div className="mt-12 grid lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7">
-            <h3 className="text-lg md:text-xl font-black text-navy-deep">ლიდერული როლები</h3>
+            <h3 className="text-lg md:text-xl font-black text-navy-deep">{en ? "Leadership Roles" : "ლიდერული როლები"}</h3>
             <ul className="mt-5 divide-y divide-line surface-card p-2">
-              {ROLES.map((r) => (
+              {roles.map((r) => (
                 <li key={r.org + r.title} className="p-5 flex items-start justify-between gap-4">
                   <div>
                     <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">{r.org}</p>
@@ -113,8 +115,7 @@ export function LeadershipRecognition() {
               <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">PMI Chapter Leader · 2025 - 2026</p>
               <h4 className="mt-1 font-extrabold text-base text-ink">PMI Chapter Leadership Program</h4>
               <p className="mt-2 text-sm text-ink-soft leading-relaxed">
-                PMI-ის გლობალური Chapter Leader ბეიჯები ზედიზედ ორი წლისთვის - ლიდერობის, ზრდისა და
-                გავლენის ფორმალური აღიარება PMI Tbilisi, Georgia Chapter-ის სამმართველოს დირექტორის როლისთვის.
+                {en ? "PMI Chapter Leader badges awarded in consecutive years recognize leadership, growth and impact in my role as a board director of PMI Tbilisi, Georgia Chapter." : "PMI-ის გლობალური Chapter Leader ბეიჯები ზედიზედ ორი წლისთვის - ლიდერობის, ზრდისა და გავლენის ფორმალური აღიარება PMI Tbilisi, Georgia Chapter-ის სამმართველოს დირექტორის როლისთვის."}
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-6">
                 <div className="flex flex-col items-center">
@@ -135,13 +136,11 @@ export function LeadershipRecognition() {
                 <img src={sageLogo} alt="SAGE Georgia" className="h-14 w-auto object-contain shrink-0" />
                 <div>
                   <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">SAGE Georgia</p>
-                  <h4 className="mt-1 font-extrabold text-base text-ink">საერთაშორისო საგანმანათლებლო და სამეწარმეო პლატფორმა</h4>
+                  <h4 className="mt-1 font-extrabold text-base text-ink">{en ? "International Education and Entrepreneurship Platform" : "საერთაშორისო საგანმანათლებლო და სამეწარმეო პლატფორმა"}</h4>
                 </div>
               </div>
               <p className="mt-3 text-sm md:text-[0.95rem] text-ink-soft leading-relaxed">
-                SAGE Georgia ხელს უწყობს ახალგაზრდულ მეწარმეობას, ინოვაციას, ლიდერობას და
-                SDG-ზე დაფუძნებულ პროექტურ ინიციატივებს. ორგანიზაცია აერთიანებს მენტორებს,
-                ახალგაზრდებსა და საერთაშორისო პარტნიორებს ლოკალური და გლობალური ინიციატივების მეშვეობით.
+                {en ? "SAGE Georgia supports youth entrepreneurship, innovation, leadership and SDG-aligned projects, connecting mentors, young people and international partners through local and global initiatives." : "SAGE Georgia ხელს უწყობს ახალგაზრდულ მეწარმეობას, ინოვაციას, ლიდერობას და SDG-ზე დაფუძნებულ პროექტურ ინიციატივებს. ორგანიზაცია აერთიანებს მენტორებს, ახალგაზრდებსა და საერთაშორისო პარტნიორებს ლოკალური და გლობალური ინიციატივების მეშვეობით."}
               </p>
               <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold">
                 <span className="px-3 py-1 rounded-full" style={{ background: "var(--mint-soft)", color: "var(--navy-deep)", border: "1px solid var(--mint)" }}>Mentor</span>
@@ -151,9 +150,9 @@ export function LeadershipRecognition() {
           </div>
 
           <div className="lg:col-span-5">
-            <h3 className="text-lg md:text-xl font-black text-navy-deep">ჯილდოები &amp; აღიარება</h3>
+            <h3 className="text-lg md:text-xl font-black text-navy-deep">{en ? "Awards & Recognition" : "ჯილდოები & აღიარება"}</h3>
             <div className="mt-5 space-y-4">
-              {AWARDS.map((a) => (
+              {awards.map((a) => (
                 <article key={a.title} className="surface-card p-5 hover:-translate-y-0.5">
                   <div className="flex items-center justify-between">
                     <span className="h-9 w-9 rounded-full inline-flex items-center justify-center" style={{ background: "var(--mint-soft)", color: "var(--navy-deep)", border: "1px solid var(--mint)" }}>★</span>

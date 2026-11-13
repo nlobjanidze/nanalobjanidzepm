@@ -1,5 +1,6 @@
 import hero from "@/assets/nana-hero-photo.png.jpeg";
 import heroBanner from "@/assets/nana-header-banner.png";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const STATS = [
   { k: "+8", v: "წლის მენეჯერული გამოცდილება" },
@@ -18,6 +19,22 @@ const VALUE_BULLETS = [
 ];
 
 export function Hero() {
+  const { language } = useLanguage();
+  const en = language === "en";
+  const stats = en ? [
+    { k: "+8", v: "years of management experience" },
+    { k: "+4", v: "years in project management" },
+    { k: "€60K", v: "in grants awarded" },
+    { k: "80+", v: "successful projects" },
+    { k: "PMP®", v: "PMI certified · 2024" },
+    { k: "₾1.75M+", v: "projects managed" },
+  ] : STATS;
+  const bullets = en ? [
+    "Bringing clarity to timelines and responsibilities",
+    "Turning complex projects into structured, actionable plans",
+    "Improving processes and building effective control systems",
+    "Strengthening team performance and delivery",
+  ] : VALUE_BULLETS;
   return (
     <section id="top" className="relative overflow-hidden bg-white">
       <div className="relative overflow-hidden pt-[88px] md:pt-[104px] lg:pt-[100px] pb-8 md:pb-10 lg:min-h-[560px] xl:min-h-[620px] lg:flex lg:items-center">
@@ -113,7 +130,7 @@ export function Hero() {
                 style={{ background: "var(--mint)" }}
               />
 
-              NANA LOBJANIDZE · PMP® CERTIFIED PROJECT MANAGEMENT CONSULTANT
+              {en ? "NANA LOBJANIDZE · PMP® CERTIFIED PROJECT MANAGEMENT CONSULTANT" : "NANA LOBJANIDZE · PMP® CERTIFIED PROJECT MANAGEMENT CONSULTANT"}
             </span>
 
             {/* Main heading */}
@@ -127,21 +144,17 @@ export function Hero() {
                 letterSpacing: "-0.025em",
               }}
             >
-              ქაოსური პროექტებიდან - მკაფიო, დაგეგმილ
-              <br />
-              და მართვად პროცესებამდე
+              {en ? <>From project chaos to clear, structured and manageable delivery</> : <>ქაოსური პროექტებიდან - მკაფიო, დაგეგმილ<br />და მართვად პროცესებამდე</>}
             </h1>
 
             {/* Description */}
             <p className="mt-2.5 text-base md:text-[16px] leading-relaxed max-w-xl text-navy-deep">
-              ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში,
-              დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული
-              მიდგომებით.
+              {en ? "I help organizations and teams structure, plan and deliver projects effectively through practical project management approaches." : "ვეხმარები ორგანიზაციებსა და გუნდებს პროექტების სტრუქტურირებაში, დაგეგმვასა და ეფექტურად შესრულებაში პროექტების მართვის პრაქტიკული მიდგომებით."}
             </p>
 
             {/* Value bullets */}
             <ul className="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-3 max-w-2xl">
-              {VALUE_BULLETS.map((item) => (
+              {bullets.map((item) => (
                 <li
                   key={item}
                   className="flex items-start gap-3"
@@ -172,14 +185,14 @@ export function Hero() {
                   boxShadow: "var(--shadow-mint)",
                 }}
               >
-                დაჯავშნე კონსულტაცია
+                {en ? "Book a Consultation" : "დაჯავშნე კონსულტაცია"}
               </a>
 
               <a
                 href="#services"
                 className="inline-flex items-center rounded-full border px-6 py-3.5 text-[14px] font-semibold transition-colors border-line text-navy-deep hover:bg-surface cta-btn"
               >
-                გაიგე მეტი →
+                {en ? "Explore Services →" : "გაიგე მეტი →"}
               </a>
             </div>
 
@@ -193,7 +206,7 @@ export function Hero() {
           <div className="relative flex justify-center lg:hidden">
             <img
               src={hero}
-              alt="ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"
+              alt={en ? "Nana Lobjanidze - PMP® Certified Project Management Consultant" : "ნანა ლობჯანიძე - PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი"}
               loading="eager"
               className="relative block w-full max-w-none h-auto object-contain"
             />
@@ -204,7 +217,7 @@ export function Hero() {
       {/* Statistics */}
       <div className="container-x mt-6 md:mt-8 relative z-10">
         <dl className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
-          {STATS.map((s) => (
+          {stats.map((s) => (
             <div
               key={s.v}
               className="text-center px-5 py-6 rounded-2xl transition-all hover:-translate-y-0.5 bg-white"

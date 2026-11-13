@@ -1,3 +1,5 @@
+import { useLanguage } from "@/lib/LanguageContext";
+import { EnglishFeaturedCourse } from "./EnglishFeaturedCourse";
 import poster from "@/assets/ba-pm-course-poster.png";
 import { Bullet } from "./Bullet";
 
@@ -58,7 +60,7 @@ function RegisterButton({ className = "" }: { className?: string }) {
   );
 }
 
-export function FeaturedCourse() {
+function GeorgianFeaturedCourse() {
   return (
     <section id="featured-course" className="section-y relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <div className="container-x">
@@ -229,4 +231,9 @@ export function FeaturedCourse() {
       </div>
     </section>
   );
+}
+
+export function FeaturedCourse() {
+  const { language } = useLanguage();
+  return language === "en" ? <EnglishFeaturedCourse /> : <GeorgianFeaturedCourse />;
 }

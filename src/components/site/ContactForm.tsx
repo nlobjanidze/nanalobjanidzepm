@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { useServerFn } from "@tanstack/react-start";
 import { sendContactNotification } from "@/lib/contact.functions";
@@ -28,6 +29,8 @@ const SOCIALS = [
 type FieldErrors = Partial<Record<"name" | "email" | "phone" | "message", string>>;
 
 export function ContactForm() {
+  const { language } = useLanguage();
+  const en = language === "en";
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -115,24 +118,21 @@ export function ContactForm() {
       <div className="container-x">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           <div className="lg:col-span-5">
-            <span className="eyebrow">დაკავშირება</span>
+            <span className="eyebrow">{en ? "GET IN TOUCH" : "დაკავშირება"}</span>
             <h2 className="heading-lg mt-4 text-balance">
-              დავიწყოთ <span className="text-navy">საუბრით.</span>
+              {en ? <>Let’s start a <span className="text-navy">conversation.</span></> : <>დავიწყოთ <span className="text-navy">საუბრით.</span></>}
             </h2>
             <p className="mt-4 text-ink-soft text-base md:text-lg leading-relaxed">
-              თუ გსურთ ვისაუბროთ პროექტების მართვაზე, ტრენინგებზე, პროფესიულ განვითარებაზე,
-              ღონისძიებებზე, სპიკერობაზე ან თანამშრომლობის შესაძლებლობებზე - სიამოვნებით მოგისმენთ.
+              {en ? "If you would like to discuss project management, training, professional development, events, speaking or collaboration opportunities, I would be happy to hear from you." : "თუ გსურთ ვისაუბროთ პროექტების მართვაზე, ტრენინგებზე, პროფესიულ განვითარებაზე, ღონისძიებებზე, სპიკერობაზე ან თანამშრომლობის შესაძლებლობებზე - სიამოვნებით მოგისმენთ."}
             </p>
             <p className="mt-3 text-ink-soft text-base leading-relaxed">
-              მომწერეთ და ერთად განვიხილოთ, როგორ შეიძლება თქვენი იდეის, პროექტის ან
-              ინიციატივის მხარდაჭერა. ღია ვარ როგორც ორგანიზაციებთან, ისე ცალკეულ
-              პროფესიონალებთან პარტნიორობისთვის.
+              {en ? "Send me a message and let’s explore how I can support your idea, project or initiative. I welcome partnerships with organizations and individual professionals." : "მომწერეთ და ერთად განვიხილოთ, როგორ შეიძლება თქვენი იდეის, პროექტის ან ინიციატივის მხარდაჭერა. ღია ვარ როგორც ორგანიზაციებთან, ისე ცალკეულ პროფესიონალებთან პარტნიორობისთვის."}
             </p>
 
             <div className="mt-8 space-y-3">
               {[
-                { l: "ელფოსტა", v: TO_EMAIL, href: `mailto:${TO_EMAIL}` },
-                { l: "ტელეფონი", v: "+995 599 18 36 35", href: "tel:+995599183635" },
+                { l: en ? "Email" : "ელფოსტა", v: TO_EMAIL, href: `mailto:${TO_EMAIL}` },
+                { l: en ? "Phone" : "ტელეფონი", v: "+995 599 18 36 35", href: "tel:+995599183635" },
               ].map((c) => (
                 <a
                   key={c.l}
@@ -155,26 +155,26 @@ export function ContactForm() {
                 >
                   ✓
                 </div>
-                <h3 className="mt-5 heading-md">გმადლობთ!</h3>
+                <h3 className="mt-5 heading-md">{en ? "Thank you!" : "გმადლობთ!"}</h3>
                 <p className="mt-2 text-ink-soft">
-                  გმადლობთ შეტყობინებისთვის. პასუხს უმოკლეს დროში დაგიბრუნებთ.
+                  {en ? "Thank you for your message. I will get back to you as soon as possible." : "გმადლობთ შეტყობინებისთვის. პასუხს უმოკლეს დროში დაგიბრუნებთ."}
                 </p>
               </div>
             ) : (
               <>
-                <h3 className="heading-md">დაჯავშნე უფასო კონსულტაცია</h3>
-                <p className="mt-2 text-sm text-ink-soft">30 წუთი · გაირკვევა შენი მიზნები და მომდევნო ნაბიჯები</p>
+                <h3 className="heading-md">{en ? "Book a Free Consultation" : "დაჯავშნე უფასო კონსულტაცია"}</h3>
+                <p className="mt-2 text-sm text-ink-soft">{en ? "30 minutes · clarify your goals and next steps" : "30 წუთი · გაირკვევა შენი მიზნები და მომდევნო ნაბიჯები"}</p>
 
                 <div className="mt-6 grid sm:grid-cols-2 gap-4">
-                  <Field label="სახელი და გვარი" name="name" required error={errors.name} />
-                  <Field label="ელფოსტა" name="email" type="email" required error={errors.email} />
-                  <Field label="ტელეფონი" name="phone" error={errors.phone} />
-                  <Field label="ორგანიზაცია (არასავალდებულო)" name="org" />
+                  <Field label={en ? "Full Name" : "სახელი და გვარი"} name="name" required error={errors.name} />
+                  <Field label={en ? "Email Address" : "ელფოსტა"} name="email" type="email" required error={errors.email} />
+                  <Field label={en ? "Phone" : "ტელეფონი"} name="phone" error={errors.phone} />
+                  <Field label={en ? "Organization (optional)" : "ორგანიზაცია (არასავალდებულო)"} name="org" />
                 </div>
 
 
                 <div className="mt-5">
-                  <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] mb-3" style={{ color: "var(--navy-soft)" }}>დაინტერესება</p>
+                  <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] mb-3" style={{ color: "var(--navy-soft)" }}>{en ? "YOUR AREA OF INTEREST" : "დაინტერესება"}</p>
                   <div className="flex flex-wrap gap-2">
                     {INTERESTS.map((i) => (
                       <button
@@ -188,7 +188,7 @@ export function ContactForm() {
                             : { background: "white", borderColor: "var(--line)", color: "var(--ink)" }
                         }
                       >
-                        {i}
+                        {en ? ({ "კონსულტაცია": "Consulting", "ტრენინგი / კურსი": "Training / Course", "PMO დანერგვა": "PMO Implementation", "გრანტების მართვა": "Grant Management", "კორპორატიული ტრენინგი": "Corporate Training", "მენტორინგი": "Mentoring", "სხვა": "Other" } as Record<string, string>)[i] : i}
                       </button>
                     ))}
                   </div>
@@ -196,7 +196,7 @@ export function ContactForm() {
 
                 <div className="mt-5">
                   <label className="block text-[0.72rem] font-extrabold uppercase tracking-[0.22em] mb-2" style={{ color: "var(--navy-soft)" }}>
-                    მოგვწერე შენი მიზნის შესახებ
+                    {en ? "Tell me about your goals" : "მოგვწერე შენი მიზნის შესახებ"}
                   </label>
                   <textarea
                     name="message"
@@ -205,7 +205,7 @@ export function ContactForm() {
                     aria-invalid={!!errors.message}
                     className="w-full rounded-xl bg-white border px-4 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 transition"
                     style={{ borderColor: errors.message ? "#c0392b" : "var(--line)" }}
-                    placeholder="რა გამოწვევაა შენი გუნდის წინაშე?"
+                    placeholder={en ? "What challenge is your team facing?" : "რა გამოწვევაა შენი გუნდის წინაშე?"}
                   />
                   {errors.message && (
                     <p className="mt-1.5 text-xs font-semibold" style={{ color: "#c0392b" }}>{errors.message}</p>
@@ -221,10 +221,10 @@ export function ContactForm() {
                   className="cta-btn mt-6 w-full sm:w-auto inline-flex items-center justify-center rounded-full px-7 py-4 font-extrabold transition disabled:opacity-60"
                   style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
                 >
-                  {sending ? "იგზავნება…" : "გაგზავნა →"}
+                  {sending ? (en ? "Sending…" : "იგზავნება…") : (en ? "Send Message →" : "გაგზავნა →")}
                 </button>
                 <p className="mt-3 text-xs text-ink-soft/80">
-                  შენი მონაცემები გამოყენებული იქნება მხოლოდ ჩვენი კომუნიკაციისთვის.
+                  {en ? "Your information will only be used to respond to your enquiry." : "შენი მონაცემები გამოყენებული იქნება მხოლოდ ჩვენი კომუნიკაციისთვის."}
                 </p>
               </>
             )}

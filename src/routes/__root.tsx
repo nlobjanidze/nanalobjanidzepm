@@ -6,7 +6,6 @@ import {
   useRouter,
   HeadContent,
   Scripts,
-  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -35,7 +34,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: ErrorComponentProps) {
+function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -88,6 +87,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "ნანა ლობჯანიძე | PMP® პროექტების მართვის კონსულტანტი" },
       { name: "twitter:description", content: "PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი, ტრენერი და მენტორი." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/kKCpSX41qLPhV9OsfzlRRKUxvmv1/social-images/social-1780747023014-Blue_Professional_Business_Project_Presentation_.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/kKCpSX41qLPhV9OsfzlRRKUxvmv1/social-images/social-1780747023014-Blue_Professional_Business_Project_Presentation_.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

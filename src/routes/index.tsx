@@ -14,6 +14,8 @@ import { GlobalEngagement } from "@/components/site/GlobalEngagement";
 import { Testimonials } from "@/components/site/Testimonials";
 import { ContactForm } from "@/components/site/ContactForm";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { LanguageProvider } from "@/lib/LanguageContext";
+import { LocalizedMetadata } from "@/lib/LocalizedMetadata";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -31,6 +33,8 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
+    <LanguageProvider>
+    <LocalizedMetadata />
     <div className="min-h-screen bg-background text-foreground">
       <SiteNav />
       <main>
@@ -50,5 +54,6 @@ function Index() {
       </main>
       <SiteFooter />
     </div>
+    </LanguageProvider>
   );
 }
