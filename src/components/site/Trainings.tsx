@@ -1259,7 +1259,7 @@ function TrainingItem({
       >
         {en ? translated?.title ?? t.title : t.title}
       </h4>
-      {!en && t.subtitle && (
+      {t.subtitle && !en && (
         <p
           className="mt-1.5 text-[12.5px] md:text-[13px] font-semibold leading-snug"
           style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}
@@ -1278,9 +1278,9 @@ function TrainingItem({
         {en ? translated?.summary ?? t.summary : t.summary}
       </p>
 
-      {!en && t.outcomes && (
+      {t.outcomes && (
         <div className="mt-4 text-[13px] leading-relaxed text-ink-soft">
-          <p className="font-extrabold text-navy-deep">ცოდნა და უნარები - რას შეძლებ</p>
+          <p className="font-extrabold text-navy-deep">{en ? "Knowledge and skills - what you will be able to do" : "ცოდნა და უნარები - რას შეძლებ"}</p>
           <ul className="mt-2 space-y-1.5">
             {t.outcomes.map((outcome) => (
               <li key={outcome} className="flex gap-2.5"><Bullet /><span>{outcome}</span></li>
@@ -1299,19 +1299,13 @@ function TrainingItem({
         {en ? (active ? "Close" : "Course Details") : (active ? "დახურე" : (t.ctaLabel ?? "სრული სილაბუსი"))} <span className={`transition ${active ? "rotate-180" : ""}`}>▾</span>
       </Button>
 
-      {active && en && (
-        <div className="mt-4 pt-4 text-sm" style={{ borderTop: "1px dashed var(--line)" }}>
-          <p>For the full syllabus, session breakdown and delivery options, please get in touch.</p>
-          <a className="mt-3 inline-block font-bold underline" href="#contact">Request the full course outline →</a>
-        </div>
-      )}
-      {active && !en && (
+      {active && (
         <div
           className="mt-4 space-y-4 pt-4"
           style={{ borderTop: `1px dashed ${dark ? "rgba(255,255,255,0.18)" : "var(--line)"}` }}
         >
           {t.poster && (
-            <img src={t.poster} alt={`${t.title} - კურსის პოსტერი`} className="w-full h-auto max-h-[500px] object-contain" loading="lazy" />
+            <img src={t.poster} alt={`${en ? translated?.title ?? t.title : t.title} - ${en ? "course poster" : "კურსის პოსტერი"}`} className="w-full h-auto max-h-[500px] object-contain" loading="lazy" />
           )}
           {t.details && (
             <dl className="space-y-2 text-[13px] md:text-sm" style={{ color: dark ? "white" : "var(--ink)" }}>
@@ -1335,7 +1329,7 @@ function TrainingItem({
           )}
           {t.portfolio && (
             <div className="text-[13px] leading-relaxed text-ink">
-              <p className="font-extrabold text-navy-deep">პრაქტიკული შედეგები - რა დოკუმენტებს შექმნი</p>
+              <p className="font-extrabold text-navy-deep">{en ? "Practical outputs - documents you will create" : "პრაქტიკული შედეგები - რა დოკუმენტებს შექმნი"}</p>
               <ul className="mt-2 space-y-1.5">
                 {t.portfolio.map((item) => <li key={item} className="flex gap-2.5"><Bullet /><span>{item}</span></li>)}
               </ul>
@@ -1374,13 +1368,13 @@ function TrainingItem({
           ))}
           {t.contactLabel && (
             <Button asChild variant="link" className="h-auto whitespace-normal p-0 text-xs font-extrabold text-navy">
-              <a href="#contact">დაინტერესების შემთხვევაში დაგვიკავშირდით →</a>
+              <a href="#contact">{en ? "Contact me to learn more →" : "დაინტერესების შემთხვევაში დაგვიკავშირდით →"}</a>
             </Button>
           )}
           {t.syllabusUrl && t.registrationUrl && (
             <div className="flex flex-wrap gap-3 pt-2 text-xs font-extrabold uppercase tracking-widest">
-              <a href={t.syllabusUrl} target="_blank" rel="noopener noreferrer" className="cta-btn underline" style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}>იხილე სრული სილაბუსი →</a>
-              <a href={t.registrationUrl} target="_blank" rel="noopener noreferrer" className="cta-btn underline" style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}>კურსზე რეგისტრაცია →</a>
+              <a href={t.syllabusUrl} target="_blank" rel="noopener noreferrer" className="cta-btn underline" style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}>{en ? "View Full Syllabus →" : "იხილე სრული სილაბუსი →"}</a>
+              <a href={t.registrationUrl} target="_blank" rel="noopener noreferrer" className="cta-btn underline" style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}>{en ? "Register for Course →" : "კურსზე რეგისტრაცია →"}</a>
             </div>
           )}
         </div>
