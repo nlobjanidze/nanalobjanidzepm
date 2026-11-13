@@ -1021,6 +1021,40 @@ const CATEGORIES: Category[] = [
   },
 ];
 
+
+// English-facing course summaries. The Georgian catalogue remains the source of
+// the complete Georgian syllabi; English visitors can request the full outline.
+const EN_COURSES: Record<string, { title: string; summary: string }> = {
+  "ST-1": { title: "Introduction to Project Management for Beginners", summary: "An introduction to project lifecycles, the project manager's role, planning and practical project management tools." },
+  "ST-2": { title: "Agile Mini-Course: Scrum in Practice", summary: "A practical introduction to Agile principles, Scrum roles, events and teamwork." },
+  "ST-3": { title: "Stakeholders: Identification and Management", summary: "Identify stakeholders, understand their expectations and develop effective engagement approaches." },
+  "BA/PM": { title: "IT Business Analysis and Project Management", summary: "A combined programme covering business analysis, requirements and project delivery in an IT context." },
+  "DD-1": { title: "Project Management Fundamentals: From Zero to Practice", summary: "A comprehensive programme covering the project lifecycle, planning, execution, monitoring and closing." },
+  "DD-2": { title: "Agile, Scrum, Kanban and Lean: In-Depth Course", summary: "Explore adaptive approaches and apply Agile, Scrum, Kanban and Lean methods to real work." },
+  "DD-3": { title: "The Project Manager as a Leader", summary: "Develop leadership, communication, team management and decision-making skills for project environments." },
+  "TH-1": { title: "Risk Management: In-Depth Course", summary: "Learn to identify, analyse, prioritise and respond to project risks." },
+  "TH-2": { title: "Communication in Projects: A Practical Guide", summary: "Build communication plans and strengthen reporting, feedback and collaboration." },
+  "TH-3": { title: "Strategic Stakeholder Management", summary: "Map stakeholder interests and influence, and plan engagement and communication." },
+  "TH-4": { title: "Organisational Culture and Project Leadership", summary: "Understand the impact of organisational culture on leadership, teams and project delivery." },
+  "TH-5": { title: "Agile Mindset and the Scrum Master Path", summary: "Explore Agile values, Scrum facilitation and the responsibilities of a Scrum Master." },
+  "CORP-1": { title: "Project Management Fundamentals for Non-PM Teams", summary: "Practical project management skills tailored to teams outside formal PM roles." },
+  "CORP-2": { title: "Agile Introduction for Leadership", summary: "An introduction to Agile ways of working for managers and organisational leaders." },
+  "CORP-3": { title: "Risk Workshop for Project Teams", summary: "A hands-on workshop for identifying and responding to project risks as a team." },
+  "CORP-4": { title: "Stakeholder Management for Executives", summary: "Executive-level approaches to stakeholder engagement and alignment." },
+  "სფ-1": { title: "Service Excellence", summary: "A practical programme on service quality, customer interactions, communication and handling challenging situations." },
+  "სფ-2": { title: "Service Culture and Effective Communication", summary: "Develop active listening, professional communication and customer service skills." },
+  "სფ-3": { title: "Handling Difficult Situations and Customers", summary: "Practice conflict management, complaint handling and de-escalation techniques." },
+  "სფ-4": { title: "Stress Management, Emotional Intelligence and Teamwork", summary: "Strengthen emotional intelligence, stress management and collaboration in service teams." },
+};
+
+const EN_CATEGORY_COPY: Record<string, { title: string; intro: string; tag?: string }> = {
+  short: { title: "Short-Format Trainings (ST)", intro: "Focused introductory courses delivered over one week. Ideal for exploring project management or developing a specific skill." },
+  deep: { title: "In-Depth Trainings (Deep Dive - DD)", intro: "Three-week programmes offering comprehensive learning with practical application to participants' projects." },
+  thematic: { title: "Specialised Thematic Trainings (TH)", intro: "Focused learning in risk management, communication, stakeholder engagement, organisational culture and Scrum." },
+  corporate: { title: "Corporate Trainings for Organisations", intro: "Courses can be adapted to your organisation's sector, team size and goals, with tailored case studies. On-site or online delivery." },
+  service: { title: "Specialised Trainings for Service Teams", intro: "Practical soft-skills training in customer communication, difficult situations, emotional intelligence, stress management and teamwork.", tag: "Specialised Trainings" },
+};
+
 function accentStyle(a: Category["accent"]) {
   switch (a) {
     case "mint":
@@ -1062,15 +1096,15 @@ export function Trainings() {
               {en ? "Participants receive:" : "მონაწილეები მიიღებენ:"}
             </p>
             <ul className="mt-2 space-y-2 text-sm md:text-base text-ink-soft leading-relaxed list-disc pl-5">
-              <li>ტრენერის მიერ მომზადებულ სტრუქტურირებულ სალექციო და სასწავლო მასალებს;</li>
-              <li>დამატებით პროფესიულ რესურსებს, სასარგებლო ბმულებსა და ელექტრონულ სასწავლო მასალებს;</li>
-              <li>რეალურ პრაქტიკაზე დაფუძნებულ ქართულ და საერთაშორისო Case Study-ებს;</li>
-              <li>ბიზნეს-სცენარებსა და პრაქტიკულ სიმულაციებს;</li>
-              <li>ინდივიდუალურ და ჯგუფურ პრაქტიკულ სავარჯიშოებს;</li>
-              <li>პრაქტიკულ დავალებებს, რომლებიც ხელს უწყობს მიღებული ცოდნის რეალურ სამუშაო გარემოში გამოყენებას.</li>
+              <li>{en ? "Structured lecture and learning materials prepared by the trainer" : "ტრენერის მიერ მომზადებულ სტრუქტურირებულ სალექციო და სასწავლო მასალებს;"}</li>
+              <li>{en ? "Additional professional resources, useful links and digital learning materials" : "დამატებით პროფესიულ რესურსებს, სასარგებლო ბმულებსა და ელექტრონულ სასწავლო მასალებს;"}</li>
+              <li>{en ? "Georgian and international case studies based on real practice" : "რეალურ პრაქტიკაზე დაფუძნებულ ქართულ და საერთაშორისო Case Study-ებს;"}</li>
+              <li>{en ? "Business scenarios and practical simulations" : "ბიზნეს-სცენარებსა და პრაქტიკულ სიმულაციებს;"}</li>
+              <li>{en ? "Individual and group practical exercises" : "ინდივიდუალურ და ჯგუფურ პრაქტიკულ სავარჯიშოებს;"}</li>
+              <li>{en ? "Practical assignments that support applying new knowledge at work" : "პრაქტიკულ დავალებებს, რომლებიც ხელს უწყობს მიღებული ცოდნის რეალურ სამუშაო გარემოში გამოყენებას."}</li>
             </ul>
             <p className="mt-4 text-sm md:text-base text-ink-soft leading-relaxed">
-              {en ? "LEARNING MATERIALS & RESOURCES" : "სასწავლო მასალები და რესურსები"} შერჩეულია პროგრამის მიზნებისა და მონაწილეთა პრაქტიკული საჭიროებების შესაბამისად, რათა სწავლის პროცესი იყოს პრაქტიკული, თანამედროვე და უშუალოდ სამუშაოზე ორიენტირებული.
+              {en ? "Learning materials and resources are selected to match programme goals and participants’ practical needs, making the learning experience relevant, modern and directly applicable to work." : "სასწავლო მასალები და რესურსები შერჩეულია პროგრამის მიზნებისა და მონაწილეთა პრაქტიკული საჭიროებების შესაბამისად, რათა სწავლის პროცესი იყოს პრაქტიკული, თანამედროვე და უშუალოდ სამუშაოზე ორიენტირებული."}
             </p>
           </div>
         </div>
@@ -1086,6 +1120,9 @@ export function Trainings() {
 }
 
 function CategoryCard({ c }: { c: Category }) {
+  const { language } = useLanguage();
+  const en = language === "en";
+  const translated = EN_CATEGORY_COPY[c.key];
   const [open, setOpen] = useState(false);
   const [activeCode, setActiveCode] = useState<string | null>(null);
   const s = accentStyle(c.accent);
@@ -1114,26 +1151,26 @@ function CategoryCard({ c }: { c: Category }) {
               className="text-[10px] font-black tracking-[0.22em] uppercase"
               style={{ color: dark ? "var(--mint-bright)" : "var(--navy-soft)" }}
             >
-              {c.tag}
+              {en ? (translated?.tag ?? c.tag) : c.tag}
             </span>
             <span
               className="text-[11px] font-black px-2.5 py-1 rounded-full"
               style={{ background: dark ? "rgba(255,255,255,0.08)" : "var(--surface)", color: dark ? "white" : "var(--navy-deep)" }}
             >
-              {c.items.length} {c.items.length === 1 ? "კურსი" : "კურსი"}
+              {c.items.length} {en ? (c.items.length === 1 ? "Course" : "Courses") : "კურსი"}
             </span>
           </div>
           <h3
             className="heading-md mt-4"
             style={{ color: dark ? "white" : "var(--navy-deep)" }}
           >
-            {c.title}
+            {en ? translated?.title ?? c.title : c.title}
           </h3>
           <p
             className="mt-3 max-w-2xl text-sm md:text-base leading-relaxed"
             style={{ color: dark ? "rgba(255,255,255,0.82)" : "var(--ink-soft)" }}
           >
-            {c.intro}
+            {en ? translated?.intro ?? c.intro : c.intro}
           </p>
         </div>
         <div className="lg:col-span-3 flex lg:justify-end">
@@ -1146,7 +1183,7 @@ function CategoryCard({ c }: { c: Category }) {
             }}
             aria-expanded={open}
           >
-            {open ? "დახურე" : "ნახე ყველა კურსი"} <span className={`transition ${open ? "rotate-90" : ""}`}>→</span>
+            {en ? (open ? "Close" : "View All Courses") : (open ? "დახურე" : "ნახე ყველა კურსი")} <span className={`transition ${open ? "rotate-90" : ""}`}>→</span>
           </button>
         </div>
       </header>
@@ -1185,6 +1222,9 @@ function TrainingItem({
   active: boolean;
   onToggle: () => void;
 }) {
+  const { language } = useLanguage();
+  const en = language === "en";
+  const translated = EN_COURSES[t.code];
   return (
     <div
       className="rounded-2xl p-5 md:p-6 border transition"
@@ -1210,16 +1250,16 @@ function TrainingItem({
             borderColor: dark ? "rgba(255,255,255,0.25)" : "var(--line)",
           }}
         >
-          {t.registrationUrl ? "კურსზე რეგისტრაცია →" : (t.contactLabel ?? "დამიკავშირდით")}
+          {en ? (t.registrationUrl ? "Register for Course →" : "Contact Me") : (t.registrationUrl ? "კურსზე რეგისტრაცია →" : (t.contactLabel ?? "დამიკავშირდით"))}
         </a>
       </div>
       <h4
         className="mt-3 text-sm md:text-base font-extrabold leading-tight"
         style={{ color: dark ? "white" : "var(--ink)" }}
       >
-        {t.title}
+        {en ? translated?.title ?? t.title : t.title}
       </h4>
-      {t.subtitle && (
+      {!en && t.subtitle && (
         <p
           className="mt-1.5 text-[12.5px] md:text-[13px] font-semibold leading-snug"
           style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}
@@ -1228,17 +1268,17 @@ function TrainingItem({
         </p>
       )}
       <div className="mt-3 grid gap-1.5 text-[12.5px]" style={{ color: dark ? "rgba(255,255,255,0.78)" : "var(--ink-soft)" }}>
-        <p><span className="font-bold" style={{ color: dark ? "white" : "var(--ink)" }}>ვისთვის:</span> {t.audience}</p>
-        <p><span className="font-bold" style={{ color: dark ? "white" : "var(--ink)" }}>ხანგრძლივობა:</span> {t.duration}</p>
+        {!en && <p><span className="font-bold" style={{ color: dark ? "white" : "var(--ink)" }}>ვისთვის:</span> {t.audience}</p>}
+        {!en && <p><span className="font-bold" style={{ color: dark ? "white" : "var(--ink)" }}>ხანგრძლივობა:</span> {t.duration}</p>}
       </div>
       <p
         className="mt-3 text-[13px] md:text-sm leading-relaxed"
         style={{ color: dark ? "rgba(255,255,255,0.82)" : "var(--ink-soft)" }}
       >
-        {t.summary}
+        {en ? translated?.summary ?? t.summary : t.summary}
       </p>
 
-      {t.outcomes && (
+      {!en && t.outcomes && (
         <div className="mt-4 text-[13px] leading-relaxed text-ink-soft">
           <p className="font-extrabold text-navy-deep">ცოდნა და უნარები - რას შეძლებ</p>
           <ul className="mt-2 space-y-1.5">
@@ -1256,10 +1296,16 @@ function TrainingItem({
         style={{ color: dark ? "var(--mint-bright)" : "var(--navy)" }}
         aria-expanded={active}
       >
-        {active ? "დახურე" : (t.ctaLabel ?? "სრული სილაბუსი")} <span className={`transition ${active ? "rotate-180" : ""}`}>▾</span>
+        {en ? (active ? "Close" : "Course Details") : (active ? "დახურე" : (t.ctaLabel ?? "სრული სილაბუსი"))} <span className={`transition ${active ? "rotate-180" : ""}`}>▾</span>
       </Button>
 
-      {active && (
+      {active && en && (
+        <div className="mt-4 pt-4 text-sm" style={{ borderTop: "1px dashed var(--line)" }}>
+          <p>For the full syllabus, session breakdown and delivery options, please get in touch.</p>
+          <a className="mt-3 inline-block font-bold underline" href="#contact">Request the full course outline →</a>
+        </div>
+      )}
+      {active && !en && (
         <div
           className="mt-4 space-y-4 pt-4"
           style={{ borderTop: `1px dashed ${dark ? "rgba(255,255,255,0.18)" : "var(--line)"}` }}

@@ -211,7 +211,7 @@ export function CurrentProjects() {
             className="cta-btn inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-bold transition-all hover:-translate-y-0.5"
             style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
           >
-            დავიწყოთ თანამშრომლობა →
+            {english ? "Let’s Work Together →" : "დავიწყოთ თანამშრომლობა →"}
           </a>
         </div>
       </div>
