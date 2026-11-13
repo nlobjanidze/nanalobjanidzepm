@@ -21,13 +21,16 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "ნანა ლობჯანიძე | PMP® პროექტების მართვის კონსულტანტი" },
-      { name: "description", content: "ნანა ლობჯანიძე - დამოუკიდებელი პროექტებისა და პროცესების მართვის კონსულტანტი. მიმდინარე პროექტები, პროფესიული ტრენინგები და საკონსულტაციო მომსახურება." },
-      { property: "og:title", content: "ნანა ლობჯანიძე | პროექტების მართვის კონსულტანტი" },
-      { property: "og:description", content: "დამოუკიდებელი საკონსულტაციო საქმიანობა, მიმდინარე პროექტები და პროფესიული ტრენინგები." },
+      { title: "პროექტების მართვის ტრენინგები და კონსულტაცია | ნანა ლობჯანიძე" },
+      { name: "description", content: "PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი და ტრენერი საქართველოში. კორპორაციული ტრენინგები, პროექტების მართვის კონსულტაცია და მენტორინგი." },
+      { property: "og:title", content: "პროექტების მართვის ტრენინგები და კონსულტაცია | ნანა ლობჯანიძე" },
+      { property: "og:description", content: "პროექტების მართვის კორპორაციული ტრენინგები, კონსულტაცია და მენტორინგი საქართველოში." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://nanalobjanidze.ge/" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://nanalobjanidze.ge/" }],
   }),
 });
 

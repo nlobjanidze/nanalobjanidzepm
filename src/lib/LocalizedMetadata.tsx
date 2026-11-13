@@ -3,12 +3,12 @@ import { useLanguage } from "./LanguageContext";
 
 const metadata = {
   ka: {
-    title: "ნანა ლობჯანიძე | PMP® პროექტების მართვის კონსულტანტი",
-    description: "ნანა ლობჯანიძე, PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი, ტრენერი და მენტორი. პროექტების მართვა, ტრენინგები და კონსულტაცია.",
+    title: "პროექტების მართვის ტრენინგები და კონსულტაცია | ნანა ლობჯანიძე",
+    description: "PMP® სერტიფიცირებული პროექტების მართვის კონსულტანტი და ტრენერი საქართველოში. კორპორაციული ტრენინგები, პროექტების მართვის კონსულტაცია და მენტორინგი.",
   },
   en: {
-    title: "Nana Lobjanidze | PMP® Project Management Consultant & Trainer",
-    description: "Nana Lobjanidze is a PMP® certified project management consultant, trainer and mentor. Project delivery, professional training, mentoring and consulting.",
+    title: "Project Management Training & Consulting in Georgia | Nana Lobjanidze",
+    description: "PMP®-certified project management consultant and corporate trainer in Georgia. Project management workshops, consulting and professional mentoring.",
   },
 } as const;
 
