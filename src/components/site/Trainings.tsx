@@ -1026,6 +1026,14 @@ const CATEGORIES: Category[] = [
 // English-facing course summaries. The Georgian catalogue remains the source of
 // the complete Georgian syllabi; English visitors can request the full outline.
 const EN_COURSES: Record<string, { title: string; summary: string }> = {
+  "პროგრამა 1": {
+    title: "Project Management Fundamentals",
+    summary: "A 24-hour practical programme delivered in 12 sessions. Learn to take a project from an initial idea through initiation, planning, execution, monitoring and closing, while creating essential project documents."
+  },
+  "პროგრამა 2": {
+    title: "Project Lifecycle: Practical Workshops",
+    summary: "A 12-hour series of four interactive workshops, with 75–80% practical work. Apply project management knowledge to realistic scenarios, decisions, teamwork, changes and project closure."
+  },
   "ST-1": { title: "Introduction to Project Management for Beginners", summary: "An introduction to project lifecycles, the project manager's role, planning and practical project management tools." },
   "ST-2": { title: "Agile Mini-Course: Scrum in Practice", summary: "A practical introduction to Agile principles, Scrum roles, events and teamwork." },
   "ST-3": { title: "Stakeholders: Identification and Management", summary: "Identify stakeholders, understand their expectations and develop effective engagement approaches." },
@@ -1196,7 +1204,7 @@ function CategoryCard({ c }: { c: Category }) {
         >
           {c.items.map((t) => (
             <TrainingItem
-              key={en && t.code.startsWith("სფ-") ? `SC-${t.code.slice(3)}` : t.code}
+              key={en && t.code.startsWith("სფ-") ? `SC-${t.code.slice(3)}` : en && t.code.startsWith("პროგრამა ") ? `Programme ${t.code.split(" ")[1]}` : t.code}
               t={t}
               dark={dark}
               accent={s}
@@ -1240,7 +1248,7 @@ function TrainingItem({
           className="text-[10px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full"
           style={{ background: accent.bg, color: accent.text, border: `1px solid ${accent.border}` }}
         >
-          {en && t.code.startsWith("სფ-") ? `SC-${t.code.slice(3)}` : t.code}
+          {en && t.code.startsWith("სფ-") ? `SC-${t.code.slice(3)}` : en && t.code.startsWith("პროგრამა ") ? `Programme ${t.code.split(" ")[1]}` : t.code}
         </span>
         <a
           href={t.registrationUrl ?? "#contact"}

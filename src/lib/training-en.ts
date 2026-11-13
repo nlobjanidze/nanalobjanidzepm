@@ -1,6 +1,171 @@
 // English training curricula. Georgian originals remain unchanged in Trainings.tsx.
 export type EnglishTrainingModule = { title: string; items: string[] };
 export const EN_TRAINING_MODULES: Record<string, EnglishTrainingModule[]> = {
+  "პროგრამა 1": [
+  {
+    "title": "Module 1: Introduction | Projects, Lifecycle and Approaches",
+    "items": [
+      "Projects versus operations and the project manager's role",
+      "Lifecycle: initiation, planning, execution, monitoring and control, closing",
+      "Success dimensions: scope, schedule, budget, quality and value",
+      "Introduction to predictive, Agile and hybrid approaches",
+      "Team formation, case study and practical exercise"
+    ]
+  },
+  {
+    "title": "Module 2: Initiation | Needs, Problems and Business Case",
+    "items": [
+      "Distinguish the problem from the proposed solution",
+      "Root-cause analysis using the Five Whys",
+      "SMART objectives and success criteria",
+      "Compare alternatives, benefits and business-case options",
+      "Exercise: define the problem and draft a short business case"
+    ]
+  },
+  {
+    "title": "Module 3: Initiation | Project Charter",
+    "items": [
+      "Purpose and contents of a project charter",
+      "Sponsor and project manager roles and authority",
+      "Responsibilities, assumptions and constraints",
+      "High-level risks and charter review exercise",
+      "Deliverable: project charter"
+    ]
+  },
+  {
+    "title": "Module 4: Initiation | Stakeholder Management",
+    "items": [
+      "Identify and register stakeholders",
+      "Create a stakeholder register and map",
+      "Apply a power–interest matrix",
+      "Plan engagement, including public-sector stakeholders",
+      "Exercise: stakeholder register and engagement map"
+    ]
+  },
+  {
+    "title": "Module 5: Planning | Scope, Deliverables and Acceptance Criteria",
+    "items": [
+      "Distinguish project scope from product scope",
+      "Define deliverables and what is in or out of scope",
+      "Set acceptance criteria",
+      "Compare scope management in predictive and Agile environments",
+      "Exercise: prepare a scope statement"
+    ]
+  },
+  {
+    "title": "Module 6: Planning | WBS and Budget",
+    "items": [
+      "Create a work breakdown structure (WBS)",
+      "Work packages and the 100% rule",
+      "Estimate costs and contingency reserves",
+      "Exercise: build and peer-review a WBS",
+      "Deliverable: WBS and preliminary budget estimate"
+    ]
+  },
+  {
+    "title": "Module 7: Planning | Schedule and Milestones",
+    "items": [
+      "Sequence activities and identify dependencies",
+      "Estimate activity durations",
+      "Define milestones and introduce the critical path",
+      "Build a Gantt chart and schedule baseline",
+      "Exercise: prepare a milestone-based schedule"
+    ]
+  },
+  {
+    "title": "Module 8: Planning | Team, RACI and Communication",
+    "items": [
+      "Define team roles and responsibilities",
+      "Create a RACI matrix",
+      "Prepare a communication plan",
+      "Plan meetings, reporting and public communications",
+      "Exercise: RACI and communication plan"
+    ]
+  },
+  {
+    "title": "Module 9: Planning | Risk Management and Baseline",
+    "items": [
+      "Distinguish risks from issues",
+      "Assess probability and impact",
+      "Choose risk response strategies",
+      "Prepare a risk register",
+      "Review and approve the project plan",
+      "Deliverables: risk register and plan approval checklist"
+    ]
+  },
+  {
+    "title": "Module 10: Approaches | Agile and Hybrid Delivery",
+    "items": [
+      "Understand why Agile emerged and iterative, incremental delivery",
+      "Manage a backlog and prioritise using MoSCoW",
+      "Introduction to Scrum and Kanban",
+      "Compare predictive, Agile and hybrid approaches",
+      "Exercise: choose a delivery approach for the case project"
+    ]
+  },
+  {
+    "title": "Module 11: Execution and Control | Delivery, Monitoring and Changes",
+    "items": [
+      "Coordinate project work and team activities",
+      "Monitor progress against the plan",
+      "Prepare status reports and manage issues",
+      "Assess and document change requests",
+      "Exercise: project status update and change decision"
+    ]
+  },
+  {
+    "title": "Module 12: Closing | Lessons Learned and Final Presentation",
+    "items": [
+      "Confirm acceptance of deliverables",
+      "Close project activities and hand over results",
+      "Document lessons learned and complete the closure checklist",
+      "Present the team project and receive feedback",
+      "Deliverables: final presentation and closure documents"
+    ]
+  }
+],
+  "პროგრამა 2": [
+  {
+    "title": "Module 1: Needs and Initiation | From Idea to Mandate",
+    "items": [
+      "Analyse a project need and identify the underlying problem",
+      "Clarify objectives, benefits and success criteria",
+      "Identify stakeholders and their expectations",
+      "Make initiation decisions and prepare a project charter",
+      "Workshop: move a project idea toward authorisation"
+    ]
+  },
+  {
+    "title": "Module 2: Scope and Planning | The Plan Meets Reality",
+    "items": [
+      "Define project scope and deliverables",
+      "Break down work, estimate time and resources",
+      "Identify dependencies, constraints and key risks",
+      "Review planning trade-offs and revise assumptions",
+      "Workshop: respond to changing planning conditions"
+    ]
+  },
+  {
+    "title": "Module 3: Execution | Teamwork and Communication",
+    "items": [
+      "Assign responsibilities and coordinate project execution",
+      "Communicate with stakeholders and the delivery team",
+      "Handle disagreements, obstacles and competing priorities",
+      "Make decisions under time and resource pressure",
+      "Workshop: simulate project delivery and team communication"
+    ]
+  },
+  {
+    "title": "Module 4: Monitoring, Change and Closure",
+    "items": [
+      "Track performance and identify deviations",
+      "Evaluate change requests and their impacts",
+      "Decide on corrective actions and communicate updates",
+      "Confirm deliverables, capture lessons learned and close the project",
+      "Workshop: manage change and present project outcomes"
+    ]
+  }
+],
   "ST-1": [
     {
       "title": "Module 1: What is a project and who is the project manager?",
