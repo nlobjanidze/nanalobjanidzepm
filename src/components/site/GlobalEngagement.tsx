@@ -1,3 +1,4 @@
+import { useLanguage } from "@/lib/LanguageContext";
 import { Bullet } from "./Bullet";
 import ipmDay from "@/assets/ipm-day-2025.jpg";
 import agm2025 from "@/assets/agm-2025.jpg";
@@ -128,26 +129,33 @@ const EVENTS = [
   },
 ];
 
+const INTERNATIONAL_EN = [["Agile Forum 2026 · Organizer", "Global online event hosted by PMI Galicia Spain Chapter, bringing together 14 PMI chapters."], ["Eastern Europe’s First Virtual PM Summit · Organizer", "A collaboration between PMI chapters in Georgia, Armenia, Kazakhstan, Lithuania and Ukraine."], ["Project Management Without Borders · Speaker & PM", "International webinar in partnership with UNKLESA: “Aligning Project Communication with Corporate Culture.”"], ["NATO–Georgia Professional Development Program", "Co-organized a meeting with the NATO team on behalf of PMI Tbilisi."], ["UN House · Emerging Leaders Meeting", "Joint event with the British Embassy and the Innovations and Reforms Center."], ["Winter School on Public Administration Reform", "UNDP Georgia · Borjomi · Five-day intensive program on public administration reform."]];
+const SPEAKING_EN = [["27 May 2026", "Caucasus International University", "Public Lecture: Project Manager: Myths, Reality and Your Opportunity in the Profession", "An interactive lecture organized by the Faculty of Business and Technology at Caucasus International University. I discussed the realities of project management, common misconceptions, career opportunities and the skills needed to enter and grow in the profession. I shared practical advice and answered questions from students and faculty."], ["14 May 2026", "PMI Tbilisi × IIBA Georgia", "PM or BA: Where Do I Begin? A Starter Guide to Two Essential Roles", "I co-presented this joint PMI and IIBA Georgia webinar with Tinatin Papashvili. We explored the differences and connections between project management and business analysis, including responsibilities, career paths and professional development opportunities."], ["9 May 2026", "SAGE Georgia", "Trainer: Who Says What, to Whom, and How · Marketing Communication in Projects", "Delivered an interactive training session for teams and mentors preparing for the SAGE 2026 Innovation & Entrepreneurship Championship. The session covered target audiences, effective messaging and communicating project value through practical examples."], ["12 November 2024", "Sulkhan-Saba Orbeliani University", "Workshop: Project Management and Proposal Writing", "Facilitated a workshop in collaboration with PMI Tbilisi, Georgia Chapter. Participants explored project phases, proposal preparation, objectives, activities, budgets and contemporary project management practices."]];
+const EVENTS_EN = [{"date": "6 November 2025", "title": "IPM Day 2025 · Project Manager & Moderator", "intro": "PMI Tbilisi’s flagship International Project Management Day event, themed “Project Horizon,” brought together 260+ professionals, students and industry leaders at Holiday Inn Tbilisi.", "roles": ["Led event planning as project manager", "Managed budget and schedule", "Coordinated partners and stakeholders", "Supported speaker selection and preparation", "Organized the exhibition hall, networking and prize draws", "Moderated the agenda and audience engagement"], "highlights": ["Keynote: Mohammed Gad, TDS General Manager, on leading global projects", "Keynote: Ilia Revia, PMP®, on aligning project management with organizational strategy", "Coverage on national television"]}, {"date": "2025", "title": "Annual General Assembly 2025 · Moderator", "intro": "PMI Tbilisi, Georgia Chapter’s annual governance gathering brought together more than 100 members and professionals to review results, strategic priorities and organizational decisions.", "roles": ["Coordinated the event as moderator", "Guided the agenda", "Managed timing across sessions and discussions", "Engaged more than 100 participants"], "highlights": ["Guest speaker Pablo Lledó, PMI Global Board of Directors, on project success and value creation", "Guest speaker Anri Jikia, Flutter CIO and incoming PMI Georgia Chapter President, on going beyond delivery"]}];
 export function GlobalEngagement() {
+  const { language } = useLanguage();
+  const en = language === "en";
+  const international = en ? INTERNATIONAL.map((v,i) => ({...v,title: INTERNATIONAL_EN[i][0],desc: INTERNATIONAL_EN[i][1]})) : INTERNATIONAL;
+  const speaking = en ? SPEAKING.map((v,i) => ({...v,date:SPEAKING_EN[i][0],org:SPEAKING_EN[i][1],title:SPEAKING_EN[i][2],desc:SPEAKING_EN[i][3]})) : SPEAKING;
+  const events = en ? EVENTS.map((v,i) => ({...v,...EVENTS_EN[i]})) : EVENTS;
   return (
     <section id="engagement" className="section-y bg-surface">
       <div className="container-x">
         <div className="max-w-2xl">
-          <span className="eyebrow">საერთაშორისო ჩართულობა</span>
+          <span className="eyebrow">{en ? "Global Engagement" : "საერთაშორისო ჩართულობა"}</span>
           <h2 className="heading-lg mt-4 text-balance">
-            გლობალური მონაწილეობა, <span className="text-navy">სპიკერობა და მედია</span>
+            {en ? "Global Participation," : "გლობალური მონაწილეობა,"} <span className="text-navy">{en ? "Speaking & Media" : "სპიკერობა და მედია"}</span>
           </h2>
           <p className="mt-4 text-ink-soft text-base md:text-lg">
-            PMI-ის გლობალური ინიციატივები, საერთაშორისო პარტნიორობები, საუნივერსიტეტო
-            ლექციები, ივენთ-მენეჯმენტი და მედია-აქტივობები.
+            {en ? "Global PMI initiatives, international partnerships, university lectures, event management and media appearances." : "PMI-ის გლობალური ინიციატივები, საერთაშორისო პარტნიორობები, საუნივერსიტეტო ლექციები, ივენთ-მენეჯმენტი და მედია-აქტივობები."}
           </p>
         </div>
 
         {/* International */}
         <div className="mt-12">
-          <h3 className="text-lg md:text-xl font-black text-navy-deep">საერთაშორისო მონაწილეობა & ლიდერობა</h3>
+          <h3 className="text-lg md:text-xl font-black text-navy-deep">{en ? "International Participation & Leadership" : "საერთაშორისო მონაწილეობა & ლიდერობა"}</h3>
           <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {INTERNATIONAL.map((i) => (
+            {international.map((i) => (
               <article key={i.title} className="surface-card p-6 hover:-translate-y-0.5 h-full">
                 <div className="flex items-center justify-between">
                   <span
@@ -167,9 +175,9 @@ export function GlobalEngagement() {
 
         {/* Speaking */}
         <div className="mt-12">
-          <h3 className="text-lg md:text-xl font-black text-navy-deep">სპიკერობა & საუნივერსიტეტო ლექციები</h3>
+          <h3 className="text-lg md:text-xl font-black text-navy-deep">{en ? "Speaking & University Lectures" : "სპიკერობა & საუნივერსიტეტო ლექციები"}</h3>
           <div className="mt-5 grid md:grid-cols-2 gap-5">
-            {SPEAKING.map((s) => (
+            {speaking.map((s) => (
               <article key={s.title} className="surface-card overflow-hidden hover:-translate-y-0.5 flex flex-col h-full">
                 {s.image && (
                   <div className={`aspect-[16/10] overflow-hidden bg-line ${s.fit === "contain" ? "p-3" : ""}`}>
@@ -201,7 +209,7 @@ export function GlobalEngagement() {
                       rel="noopener noreferrer"
                       className="mt-4 inline-flex w-fit text-sm font-bold text-navy hover:underline"
                     >
-                      იხილეთ ღონისძიება →
+                      {en ? "View event →" : "იხილეთ ღონისძიება →"}
                     </a>
                   )}
                 </div>
@@ -212,9 +220,9 @@ export function GlobalEngagement() {
 
         {/* Events */}
         <div className="mt-12">
-          <h3 className="text-lg md:text-xl font-black text-navy-deep">ივენთ-მენეჯმენტი</h3>
+          <h3 className="text-lg md:text-xl font-black text-navy-deep">{en ? "Event Management" : "ივენთ-მენეჯმენტი"}</h3>
           <div className="mt-5 grid md:grid-cols-2 gap-5 items-stretch">
-            {EVENTS.map((e) => (
+            {events.map((e) => (
               <article key={e.title} className="surface-card overflow-hidden hover:-translate-y-0.5 flex flex-col h-full">
                 {e.image && (
                   <div className="aspect-[16/9] overflow-hidden bg-line">
@@ -228,7 +236,7 @@ export function GlobalEngagement() {
                     <p className="mt-2 text-sm text-ink-soft leading-relaxed">{e.intro}</p>
                   </div>
                   <div>
-                    <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">პასუხისმგებლობები</p>
+                    <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">{en ? "Responsibilities" : "პასუხისმგებლობები"}</p>
                     <ul className="mt-2 space-y-1.5">
                       {e.roles.map((r) => (
                         <li key={r} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
@@ -239,7 +247,7 @@ export function GlobalEngagement() {
                     </ul>
                   </div>
                   <div>
-                    <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">მიღწევები & სპიკერები</p>
+                    <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">{en ? "Highlights & Speakers" : "მიღწევები & სპიკერები"}</p>
                     <ul className="mt-2 space-y-1.5">
                       {e.highlights.map((h) => (
                         <li key={h} className="flex gap-2.5 text-sm text-ink-soft leading-relaxed">
@@ -258,7 +266,7 @@ export function GlobalEngagement() {
 
         {/* Media */}
         <div className="mt-12">
-          <h3 className="text-lg md:text-xl font-black text-navy-deep">მედია & საჯარო გამოჩენა</h3>
+          <h3 className="text-lg md:text-xl font-black text-navy-deep">{en ? "Media & Public Appearances" : "მედია & საჯარო გამოჩენა"}</h3>
           <a
             href="https://www.youtube.com/watch?v=7WEBNNZAWdE"
             target="_blank"
@@ -267,11 +275,11 @@ export function GlobalEngagement() {
           >
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">Euronews Georgia · ნოემბერი 2025</p>
+                <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-navy-soft">{en ? "Euronews Georgia · November 2025" : "Euronews Georgia · ნოემბერი 2025"}</p>
                 <h4 className="mt-2 font-extrabold text-ink leading-tight">
-                  Euronews Georgia - IPM Day-ის გაშუქება ეროვნულ ტელევიზიაზე
+                  {en ? "Euronews Georgia · National Coverage of IPM Day" : "Euronews Georgia - IPM Day-ის გაშუქება ეროვნულ ტელევიზიაზე"}
                 </h4>
-                <p className="mt-2 text-sm text-ink-soft">PMI Tbilisi-ის IPM Day 2025 - ეთერი Euronews Georgia-ზე.</p>
+                <p className="mt-2 text-sm text-ink-soft">{en ? "PMI Tbilisi’s IPM Day 2025 featured on Euronews Georgia." : "PMI Tbilisi-ის IPM Day 2025 - ეთერი Euronews Georgia-ზე."}</p>
               </div>
               <span className="shrink-0 text-sm font-bold text-navy">YouTube →</span>
             </div>

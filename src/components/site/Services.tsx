@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 type SubService = {
   code: string;
@@ -327,6 +328,58 @@ const CATEGORIES: Category[] = [
   },
 ];
 
+
+// English content is kept separate so the original Georgian service catalog remains unchanged.
+const EN_CATEGORIES: Pick<Category, "title" | "audience" | "subs">[] = [
+  {
+    title: "Project management, strategic delivery and leadership",
+    audience: "Businesses, NGOs, startups, public institutions, individual project managers and donor-funded organizations.",
+    subs: [
+      { code: "A", title: "End-to-end project management", includes: ["Project initiation and scope definition", "Project charter and roadmap development", "Work breakdown structure (WBS)", "Schedule and resource planning", "Budget monitoring and control", "Risk and issue management (RAID log)", "Stakeholder management and communication plan", "Daily and weekly progress tracking", "Agile, predictive or hybrid delivery", "Project delivery, closure and lessons learned"], outcomes: ["Greater control and predictability", "Fewer delays and cost overruns", "Better stakeholder confidence and visibility"], price: "1,200–2,800 GEL / month · online / in person (Tbilisi)" },
+      { code: "B", title: "Project audit and diagnostics", includes: ["Review of current processes", "Root-cause analysis", "Review of schedules, budgets and resources", "Assessment of communication and governance", "Identification of risk gaps and bottlenecks", "Actionable improvement plan"], outcomes: ["Clear visibility into project bottlenecks", "Practical corrective actions", "Quick impact with focused effort"], price: "600–1,200 GEL (one-time)" },
+      { code: "C", title: "Grant development and management", includes: ["Grant proposal writing", "Alignment with donor requirements", "Budget structuring", "Compliance and reporting framework", "Implementation planning", "Monitoring and evaluation (M&E)", "Subgrant management system design"], outcomes: ["Stronger grant applications", "Reliable donor reporting", "Financially and operationally sound projects"], price: "800–2,000 GEL (proposal) · 500–1,000 GEL / month (management)" },
+      { code: "D", title: "Event and project initiative management", includes: ["Concept development", "End-to-end event planning", "Speaker and partner coordination", "Logistics and operations", "Communications and marketing", "Run of show and on-site delivery", "Post-event analysis"], outcomes: ["Well-structured, professionally delivered events", "Less disruption and a better participant experience"], price: "500–2,500 GEL" },
+    ],
+  },
+  {
+    title: "Team mentoring, process improvement and operational systems",
+    audience: "Companies, teams, HR departments and managers.",
+    subs: [
+      { code: "A", title: "Project management system setup (Jira / Asana / ClickUp / Trello)", includes: ["Project management tool setup", "Workflow configuration", "Task structure and board setup", "Team training", "Dashboards and reporting", "KPI tracking setup"], outcomes: ["One shared view of all projects", "More systematic teamwork", "Better oversight and predictability"], price: "500–1,300 GEL" },
+      { code: "B", title: "Operating model design", includes: ["Analysis of existing processes", "Organizational structure review", "Roles and responsibilities (RACI)", "Decision-making framework", "Workflow optimization", "Escalation procedures"], outcomes: ["Less overload and confusion", "Clear accountability", "More effective internal communication"], price: "1,000–2,500 GEL" },
+      { code: "C", title: "Team mentoring and performance coaching", includes: ["Review of employee workflows", "Individual 1:1 mentoring", "Time and task management", "Coaching on real projects", "Prioritization and delivery support", "Better meetings and communication", "Support during leadership transitions"], outcomes: ["More independent teams", "Less micromanagement", "Higher quality of delivery"], price: "150–250 GEL / session · 500–850 GEL / 4 sessions · 800–2,500 GEL / month (organization)" },
+      { code: "D", title: "Communication and stakeholder management systems", includes: ["Communication strategy", "Internal and external communication flows", "Reporting structure", "Meeting system design", "Escalation policy", "Stakeholder mapping"], outcomes: ["Fewer team misunderstandings", "Clear information flow", "Faster decisions"], price: "400–900 GEL" },
+    ],
+  },
+  {
+    title: "Team mentoring, leadership and performance improvement",
+    audience: "Junior and mid-level project managers, team leads, managers and professionals transitioning into leadership roles.",
+    subs: [
+      { code: "A", title: "One-to-one project management mentoring", includes: ["Review of working practices", "Task and priority management", "Practical guidance on live projects", "Improving Jira, Asana or ClickUp workflows", "Meeting and communication structure", "Deadline and delivery management", "Resolving blockers using real cases", "Personal development and career direction"], outcomes: ["Greater independence at work", "Fewer errors and less overload", "More consistent, higher-quality delivery"], price: "150–250 GEL / session (60–90 min) · 500–850 GEL / package (4 sessions)" },
+      { code: "B", title: "Team performance mentoring", includes: ["Team workflow assessment", "Clarifying roles and responsibilities", "Weekly planning system", "Task tracking and delivery monitoring", "Improving meeting structure", "Optimizing communication and coordination", "Identifying and resolving blockers"], outcomes: ["More structured teamwork", "Fewer disruptions and missed deadlines", "Better delivery visibility and predictability"], price: "800–2,500 GEL / month" },
+      { code: "C", title: "Leadership and management mentoring", includes: ["Support with leadership decisions", "Improving delegation", "Difficult conversations and conflict management", "Performance feedback practices", "Managing expectations with senior leadership", "Team motivation and engagement"], outcomes: ["Stronger leadership capabilities", "More effective team management", "Less micromanagement"], price: "150–300 GEL / session" },
+      { code: "D", title: "Organizational performance improvement program", includes: ["Organizational process assessment", "Team structure review", "Workflow redesign", "Communication system design", "KPI and accountability framework", "Improving project delivery systems", "Coaching for managers"], outcomes: ["A more integrated operating system", "Improved delivery quality", "More effective and scalable teams"], price: "1,000–2,500 GEL / month" },
+    ],
+  },
+  {
+    title: "Grant management and grantmaking systems",
+    audience: "NGOs, public and private organizations, international organizations and foundations.",
+    subs: [
+      { code: "A", title: "Grant acquisition and management", includes: ["Grant proposal writing (EU / UNDP / GIZ / embassy programs)", "Donor requirements analysis and alignment", "Budget structuring and justification", "Implementation plan and timeline", "Compliance and eligibility checks", "Monitoring and evaluation (M&E) framework", "Narrative and financial reporting", "Subgrant management"], outcomes: ["Strong, competitive proposals", "Alignment with donor requirements", "Reliable implementation and reporting"], price: "800–2,000 GEL (application) · 500–1,000 GEL / month (management)" },
+      { code: "B", title: "Grantmaking program and system design", includes: ["Grant program design", "Evaluation criteria and framework", "Application process design", "Selection committees and procedures", "Contracts and compliance framework", "Disbursement process", "Monitoring and reporting system", "Impact measurement"], outcomes: ["An in-house grantmaking system", "Transparent, standardized selection", "Controlled financial and results management"], price: "1,000–2,500 GEL (depending on project scope)" },
+    ],
+  },
+];
+
+const EN_PROBLEMS = [
+  "Projects run late and budgets keep growing",
+  "Teams lack structure and responsibilities are unclear",
+  "Communication is fragmented across spreadsheets and chats",
+  "Grant opportunities are missed or delivery falls short",
+  "Results are difficult to demonstrate to donors or management",
+  "Leadership and ownership are lacking",
+];
+
 const PROBLEMS = [
   "პროექტები იგვიანებს და ბიუჯეტი იზრდება",
   "გუნდი არ არის დალაგებული და პასუხისმგებლობები ბუნდოვანია",
@@ -350,18 +403,19 @@ function accentStyle(a: Category["accent"]) {
 }
 
 export function Services() {
+  const { language } = useLanguage();
+  const en = language === "en";
   return (
     <section id="services" className="section-y bg-white">
       <div className="container-x">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div className="max-w-2xl">
-            <span className="eyebrow">სერვისები</span>
+            <span className="eyebrow">{en ? "SERVICES" : "სერვისები"}</span>
             <h2 className="heading-lg mt-4 text-balance">
-              ჩვენი მიდგომა - <span className="text-navy">სისტემა, შესრულება, შედეგი</span>
+              {en ? <>My approach - <span className="text-navy">structure, delivery and results</span></> : <>ჩვენი მიდგომა - <span className="text-navy">სისტემა, შესრულება, შედეგი</span></>}
             </h2>
             <p className="mt-4 text-ink-soft text-base md:text-lg">
-              ჩვენ არ ვაკეთებთ უბრალოდ კონსულტაციას - ვაშენებთ სისტემას, ვმართავთ შესრულებას და ვქმნით შედეგს.
-              ოთხი ფოკუსირებული მიმართულება ბიზნესის, NGO-სა და საჯარო სექტორისთვის.
+              {en ? "I go beyond advice: I build systems, support delivery and focus on measurable outcomes across four service areas for businesses, NGOs and the public sector." : "ჩვენ არ ვაკეთებთ უბრალოდ კონსულტაციას - ვაშენებთ სისტემას, ვმართავთ შესრულებას და ვქმნით შედეგს. ოთხი ფოკუსირებული მიმართულება ბიზნესის, NGO-სა და საჯარო სექტორისთვის."}
             </p>
           </div>
           <a
@@ -369,17 +423,17 @@ export function Services() {
             className="cta-btn self-start inline-flex items-center rounded-full px-6 py-3 font-bold transition-all"
             style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
           >
-            დაგეგმე ზარი →
+            {en ? "Schedule a Call →" : "დაგეგმე ზარი →"}
           </a>
         </div>
 
         {/* Problem framing */}
         <div className="mt-10 surface-card p-6 md:p-7">
           <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.22em]" style={{ color: "var(--navy-soft)" }}>
-            თქვენი პრობლემა გამოიყურება ასე
+            {en ? "DO THESE CHALLENGES SOUND FAMILIAR?" : "თქვენი პრობლემა გამოიყურება ასე"}
           </p>
           <ul className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2.5">
-            {PROBLEMS.map((p) => (
+            {(en ? EN_PROBLEMS : PROBLEMS).map((p) => (
               <li key={p} className="flex gap-2.5 text-sm md:text-[0.95rem] text-ink">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: "var(--mint)" }} />
                 <span>{p}</span>
@@ -389,8 +443,8 @@ export function Services() {
         </div>
 
         <div className="mt-12 space-y-6">
-          {CATEGORIES.map((c) => (
-            <CategoryCard key={c.key} c={c} />
+          {CATEGORIES.map((c, i) => (
+            <CategoryCard key={c.key} c={en ? { ...c, ...EN_CATEGORIES[i] } : c} en={en} />
           ))}
         </div>
 
@@ -399,20 +453,20 @@ export function Services() {
           style={{ background: "var(--navy-deep)", color: "white" }}
         >
           <div className="lg:col-span-8 p-8 md:p-12">
-            <span className="eyebrow" style={{ color: "var(--mint-bright)" }}>დიაგნოსტიკა</span>
+            <span className="eyebrow" style={{ color: "var(--mint-bright)" }}>{en ? "PROJECT DIAGNOSTICS" : "დიაგნოსტიკა"}</span>
             <h3 className="heading-md mt-4 text-balance" style={{ color: "white" }}>
-              გჭირდებათ თქვენზე მორგებული ინდივიდუალური მიდგომა?{" "}
-              <span style={{ color: "var(--mint)" }}>ვიმუშაოთ ერთად.</span>
+              {en ? "Looking for an approach tailored to your needs?" : "გჭირდებათ თქვენზე მორგებული ინდივიდუალური მიდგომა?"}{" "}
+              <span style={{ color: "var(--mint)" }}>{en ? "Work together." : "ვიმუშაოთ ერთად."}</span>
             </h3>
             <p className="mt-4 text-white/75 max-w-xl">
-              დავიწყოთ უფასო 30-წუთიანი დიაგნოსტიკით - გავარკვიოთ, რომელი მიდგომა მუშაობს თქვენთვის.
+              {en ? "Start with a free 30-minute discovery call to identify the approach that works best for you." : "დავიწყოთ უფასო 30-წუთიანი დიაგნოსტიკით - გავარკვიოთ, რომელი მიდგომა მუშაობს თქვენთვის."}
             </p>
             <a
               href="#contact"
               className="cta-btn mt-6 inline-flex items-center rounded-full px-6 py-3.5 font-bold transition"
               style={{ background: "var(--mint)", color: "var(--navy-deep)" }}
             >
-              დაჯავშნე უფასო კონსულტაცია
+              {en ? "Book a Free Consultation" : "დაჯავშნე უფასო კონსულტაცია"}
             </a>
           </div>
           <div
@@ -421,7 +475,7 @@ export function Services() {
           >
             <div className="text-center">
               <p className="text-5xl md:text-6xl font-black text-white">30’</p>
-              <p className="mt-2 text-sm uppercase tracking-widest text-white/85 font-bold">უფასო ზარი</p>
+              <p className="mt-2 text-sm uppercase tracking-widest text-white/85 font-bold">{en ? "FREE CALL" : "უფასო ზარი"}</p>
             </div>
           </div>
         </div>
@@ -430,7 +484,7 @@ export function Services() {
   );
 }
 
-function CategoryCard({ c }: { c: Category }) {
+function CategoryCard({ c, en }: { c: Category; en: boolean }) {
   const [open, setOpen] = useState(false);
   const [activeCode, setActiveCode] = useState<string | null>(null);
   const s = accentStyle(c.accent);
@@ -465,7 +519,7 @@ function CategoryCard({ c }: { c: Category }) {
               className="text-[11px] font-black px-2.5 py-1 rounded-full"
               style={{ background: dark ? "rgba(255,255,255,0.08)" : "var(--surface)", color: dark ? "white" : "var(--navy-deep)" }}
             >
-              {c.subs.length} სერვისი
+              {c.subs.length} {en ? "services" : "სერვისი"}
             </span>
           </div>
           <h3
@@ -478,7 +532,7 @@ function CategoryCard({ c }: { c: Category }) {
             className="mt-3 text-sm md:text-base"
             style={{ color: dark ? "rgba(255,255,255,0.82)" : "var(--ink-soft)" }}
           >
-            <span className="font-bold" style={{ color: dark ? "white" : "var(--ink)" }}>ვისთვის:</span> {c.audience}
+            <span className="font-bold" style={{ color: dark ? "white" : "var(--ink)" }}>{en ? "For:" : "ვისთვის:"}</span> {c.audience}
           </p>
         </div>
         <div className="lg:col-span-3 flex lg:justify-end">
@@ -491,7 +545,7 @@ function CategoryCard({ c }: { c: Category }) {
             }}
             aria-expanded={open}
           >
-            {open ? "დახურე" : "ნახე ყველა სერვისი"} <span className={`transition ${open ? "rotate-90" : ""}`}>→</span>
+            {open ? (en ? "Close" : "დახურე") : (en ? "View all services" : "ნახე ყველა სერვისი")} <span className={`transition ${open ? "rotate-90" : ""}`}>→</span>
           </button>
         </div>
       </header>
@@ -544,7 +598,7 @@ function CategoryCard({ c }: { c: Category }) {
                           }}
                           className="underline underline-offset-4 cursor-pointer"
                         >
-                          დამიკავშირდით
+                          {en ? "Contact me" : "დამიკავშირდით"}
                         </span>
                       </span>
                     </span>
@@ -575,7 +629,7 @@ function CategoryCard({ c }: { c: Category }) {
                         className="text-[11px] font-black tracking-widest uppercase"
                         style={{ color: dark ? "rgba(255,255,255,0.65)" : "var(--navy-soft)" }}
                       >
-                        რას მოიცავს
+                        {en ? "WHAT IS INCLUDED" : "რას მოიცავს"}
                       </p>
                       <ul className="mt-3 space-y-2">
                         {sub.includes.map((d) => (
@@ -595,7 +649,7 @@ function CategoryCard({ c }: { c: Category }) {
                         className="text-[11px] font-black tracking-widest uppercase"
                         style={{ color: dark ? "rgba(255,255,255,0.65)" : "var(--navy-soft)" }}
                       >
-                        მოსალოდნელი შედეგი
+                        {en ? "EXPECTED OUTCOMES" : "მოსალოდნელი შედეგი"}
                       </p>
                       <ul className="mt-3 space-y-2">
                         {sub.outcomes.map((d) => (

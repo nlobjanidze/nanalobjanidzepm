@@ -1,3 +1,4 @@
+import { useLanguage } from "@/lib/LanguageContext";
 const AWARDS = [
   {
     year: "2024",
@@ -17,17 +18,18 @@ const AWARDS = [
 ];
 
 export function Recognition() {
+  const { language } = useLanguage();
+  const en = language === "en";
   return (
     <section id="recognition" className="section-y bg-white">
       <div className="container-x">
         <div className="max-w-2xl">
-          <span className="eyebrow">პროფესიული აღიარება</span>
+          <span className="eyebrow">{en ? "Professional recognition" : "პროფესიული აღიარება"}</span>
           <h2 className="heading-lg mt-4 text-balance">
-            აღიარება &amp; <span className="text-navy">ჯილდოები</span>
+            {en ? "Recognition & " : "აღიარება & "}<span className="text-navy">{en ? "Awards" : "ჯილდოები"}</span>
           </h2>
           <p className="mt-4 text-ink-soft text-base md:text-lg">
-            PMI Tbilisi-სა და Junior Achievement Georgia-ს მიერ აღიარებული წვლილი
-            პროფესიულ თემსა და განათლების სფეროში.
+            {en ? "Contributions to the project management community and education recognized by PMI Tbilisi, Georgia Chapter and Junior Achievement Georgia." : "PMI Tbilisi-სა და Junior Achievement Georgia-ს მიერ აღიარებული წვლილი პროფესიულ თემსა და განათლების სფეროში."}
           </p>
         </div>
 

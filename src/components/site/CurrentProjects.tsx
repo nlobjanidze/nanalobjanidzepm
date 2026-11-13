@@ -1,3 +1,4 @@
+import { useLanguage } from "@/lib/LanguageContext";
 import nanaLogo from "@/assets/nana-logo.svg";
 import coachingUpLogo from "@/assets/coaching-up-logo.png";
 import { Bullet } from "./Bullet";
@@ -67,34 +68,83 @@ const ENGAGEMENTS: Engagement[] = [
   },
 ];
 
+
+const ENGAGEMENTS_EN: Engagement[] = [
+  {
+    org: "Nana Lobjanidze × Coaching-UP University Georgia",
+    role: "Independent Project & Process Management Consultant",
+    logo: coachingUpLogo,
+    logoAlt: "Coaching-UP University Georgia",
+    intro: "I help organizations structure their processes, improve operational systems, and build more effective business functions.",
+    lead: "My ongoing collaboration with Coaching-UP University Georgia focuses on two key areas:",
+    projects: [
+      {
+        number: "01",
+        title: "Structuring Educational Program Operations",
+        intro: "The goal is to make the full delivery cycle of educational programs more structured, transparent, and manageable for both trainers and administrative teams.",
+        items: [
+          "Analyzing existing processes and organizing essential information",
+          "Developing the Student Journey and Program Workflow",
+          "Defining processes, stages, and responsibilities",
+          "Preparing a RACI matrix",
+          "Designing SOPs and work instruction structures",
+          "Creating practical guides for trainers and staff",
+          "Developing recommendations for process improvement",
+        ],
+      },
+      {
+        number: "02",
+        title: "Establishing a Sales Department",
+        intro: "I am helping establish a sales function and put the foundations in place for effective, sustainable operations.",
+        items: [
+          "Structuring sales functions and workflows",
+          "Defining the sales role and candidate profile",
+          "Preparing job descriptions and recruitment processes",
+          "Screening CVs and communicating with candidates",
+          "Creating interview questions and candidate evaluation forms",
+          "Participating in candidate selection",
+          "Defining sales plans and key performance indicators",
+          "Preparing sales presentations",
+          "Creating sales scripts and communication templates",
+          "Structuring lead management and follow-up processes",
+          "Developing an onboarding guide for new team members",
+        ],
+      },
+    ],
+  },
+];
+
 export function CurrentProjects() {
+  const { language } = useLanguage();
+  const english = language === "en";
+  const engagements = english ? ENGAGEMENTS_EN : ENGAGEMENTS;
   return (
     <section id="current-projects" className="section-y bg-white">
       <div className="container-x">
-        <h2 className="heading-lg">მიმდინარე პროექტები</h2>
+        <h2 className="heading-lg">{english ? "Current Projects" : "მიმდინარე პროექტები"}</h2>
 
-        {ENGAGEMENTS.map((e) => (
+        {engagements.map((e) => (
           <div key={e.org} className="mt-8">
             {/* Organisation header */}
-            <div className="surface-card collaboration-banner grid items-center gap-7 p-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-8 md:p-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-10">
-                <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto_minmax(0,1.1fr)] items-center gap-3 sm:gap-5">
-                  {/* Frame the original artwork, excluding only its transparent canvas margin. */}
-                  <svg role="img" aria-label="Nana Lobjanidze" viewBox="385 602 704 296" className="block w-full" preserveAspectRatio="xMidYMid meet">
-                    <image href={nanaLogo} width="1500" height="1500" />
-                  </svg>
-                  <span aria-hidden className="shrink-0 text-2xl font-light text-mint">
+            <div className="surface-card p-6 md:p-8" style={{ background: "var(--gradient-hero)" }}>
+              <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                <div className="flex items-center gap-5">
+                  <img src={nanaLogo} alt="Nana Lobjanidze" className="h-10 w-auto object-contain md:h-12" />
+                  <span aria-hidden className="text-2xl font-light" style={{ color: "var(--mint)" }}>
                     ×
                   </span>
-                  <img src={e.logo} alt={e.logoAlt} className="block h-auto w-full min-w-0 object-contain" />
+                  <img src={e.logo} alt={e.logoAlt} className="h-10 w-auto object-contain md:h-12" />
                 </div>
-                <div className="min-w-0 text-center md:text-right">
-                  <div className="text-[13px] font-extrabold uppercase leading-relaxed text-navy-deep">
+                <div className="md:text-right">
+                  <div className="text-[13px] font-extrabold uppercase tracking-wider" style={{ color: "var(--navy-deep)" }}>
                     Independent Project &amp; Process Management Consultant
                   </div>
-                  <div className="mt-2 text-sm font-semibold leading-relaxed text-ink-soft">{e.org}</div>
-                  <p className="mt-5 text-[15px] leading-relaxed text-ink-soft">{e.intro}</p>
-                  <p className="mt-3 text-[15px] font-semibold leading-relaxed text-ink">{e.lead}</p>
+                  <div className="mt-1 text-sm font-semibold text-ink-soft">{e.org}</div>
                 </div>
+              </div>
+
+              <p className="mt-6 text-[15px] leading-relaxed text-ink-soft max-w-[78ch]">{e.intro}</p>
+              <p className="mt-3 text-[15px] font-semibold text-ink max-w-[78ch]">{e.lead}</p>
             </div>
 
             {/* Projects */}
@@ -113,7 +163,7 @@ export function CurrentProjects() {
 
                   <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">{p.intro}</p>
 
-                  <p className="mt-5 text-sm font-bold text-ink">ჩემი ჩართულობა მოიცავს:</p>
+                  <p className="mt-5 text-sm font-bold text-ink">{english ? "My work includes:" : "ჩემი ჩართულობა მოიცავს:"}</p>
                   <ul className="mt-3 space-y-2.5">
                     {p.items.map((it) => (
                       <li key={it} className="flex gap-2.5 text-[15px] leading-relaxed text-ink-soft">
@@ -133,10 +183,10 @@ export function CurrentProjects() {
         {/* Approach */}
         <div className="mt-6 grid gap-6 lg:grid-cols-[1.4fr_0.6fr] items-stretch">
           <div className="surface-card p-6 md:p-8 bg-white">
-            <h3 className="heading-md">შედეგზე ორიენტირებული საკონსულტაციო მიდგომა</h3>
+            <h3 className="heading-md">{english ? "A Results-Oriented Consulting Approach" : "შედეგზე ორიენტირებული საკონსულტაციო მიდგომა"}</h3>
             <p className="mt-4 text-[15px] leading-relaxed text-ink-soft max-w-[78ch]">
-              ჩემი მიზანია არა მხოლოდ რეკომენდაციების გაცემა, არამედ ისეთი პრაქტიკული სისტემებისა და სამუშაო ინსტრუმენტების შექმნა,
-              რომელთა გამოყენებაც ორგანიზაციას ყოველდღიურ საქმიანობაში შეუძლია.
+              {english ? "My goal is not simply to offer recommendations, but to develop practical systems and tools that organizations can use in their day-to-day operations." : <> ჩემი მიზანია არა მხოლოდ რეკომენდაციების გაცემა, არამედ ისეთი პრაქტიკული სისტემებისა და სამუშაო ინსტრუმენტების შექმნა,
+              რომელთა გამოყენებაც ორგანიზაციას ყოველდღიურ საქმიანობაში შეუძლია. </>}
             </p>
           </div>
           <div
@@ -151,17 +201,17 @@ export function CurrentProjects() {
 
         {/* CTA */}
         <div className="mt-6 surface-card p-6 md:p-8 bg-white flex flex-col items-center gap-4 text-center">
-          <h3 className="heading-md">თანამშრომლობისთვის</h3>
+          <h3 className="heading-md">{english ? "Let’s Work Together" : "თანამშრომლობისთვის"}</h3>
           <p className="text-[15px] leading-relaxed text-ink-soft max-w-[72ch]">
-            თუ თქვენს ორგანიზაციას სჭირდება პროცესების სტრუქტურირება, ოპერაციული სისტემების გაუმჯობესება, ახალი ბიზნეს ფუნქციის შექმნა ან
-            კონკრეტული პროექტის სისტემატიზაცია, სიამოვნებით განვიხილავ თანამშრომლობის შესაძლებლობას.
+            {english ? "If your organization needs to structure processes, improve operations, build a new business function, or bring greater clarity to a project, I would be happy to discuss how we can work together." : <> თუ თქვენს ორგანიზაციას სჭირდება პროცესების სტრუქტურირება, ოპერაციული სისტემების გაუმჯობესება, ახალი ბიზნეს ფუნქციის შექმნა ან
+            კონკრეტული პროექტის სისტემატიზაცია, სიამოვნებით განვიხილავ თანამშრომლობის შესაძლებლობას. </>}
           </p>
           <a
             href="#contact"
             className="cta-btn inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-bold transition-all hover:-translate-y-0.5"
             style={{ background: "var(--mint)", color: "var(--navy-deep)", boxShadow: "var(--shadow-mint)" }}
           >
-            დავიწყოთ თანამშრომლობა →
+            {english ? "Let’s Work Together →" : "დავიწყოთ თანამშრომლობა →"}
           </a>
         </div>
       </div>

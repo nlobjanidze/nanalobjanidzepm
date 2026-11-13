@@ -1,3 +1,4 @@
+import { useLanguage } from "@/lib/LanguageContext";
 import { Bullet } from "./Bullet";
 type Recommendation = {
   text: string;
@@ -154,22 +155,68 @@ function Paragraphs({ text }: { text: string }) {
   );
 }
 
+const RECOMMENDATIONS_EN = [
+  {
+    "text": "I had the opportunity to work with Nana Lobjanidze through a joint initiative between PMI Tbilisi, Georgia Chapter and IIBA Georgia Chapter. As the founding president of IIBA Georgia Chapter, I co-hosted the webinar “PM or BA: Where Do I Begin? A Starter Guide to Two Essential Roles” with Nana, who served as PMI Tbilisi’s Director of Communications, Marketing and Social Media.\n\nThe initiative brought together two leading professional communities in Georgia to help emerging and practicing professionals better understand the differences, intersections and career opportunities in project management and business analysis.\n\nThroughout our collaboration, Nana demonstrated outstanding professionalism, accountability and organization. Her clear communication, process coordination and attention to detail were instrumental in planning and delivering the event effectively.\n\nNana has a talent for turning collaboration between professional communities into valuable, results-oriented initiatives. Her engagement, proactive attitude and positivity contribute significantly to shared goals and to strengthening Georgia’s professional ecosystem.\n\nI am glad to have worked with Nana and confident that her expertise, experience and leadership will continue to contribute to professional communities and high-quality initiatives.",
+    "name": "Tinatin Papashvili",
+    "role": "Founding President · CBAP® • PRINCE2® • PSPO II® • AAC® • CPOA®",
+    "initials": "TP"
+  },
+  {
+    "text": "During her time at FINCA Bank Georgia, Nana Lobjanidze demonstrated a high level of professionalism, leadership and a results-driven approach. As Operations Manager, she made a significant contribution to improving service quality and to effective team management and development. Her responsibilities included:",
+    "bullets": [
+      "Organizing and overseeing customer service processes efficiently;",
+      "Coordinating sales of banking products and services;",
+      "Planning staff workflows and allocating resources effectively;",
+      "Resolving complex and non-standard cases promptly;",
+      "Supporting staff motivation, training and professional development;",
+      "Participating actively in recruitment and onboarding;",
+      "Creating a customer-focused environment and maintaining high service standards."
+    ],
+    "after": "Nana’s ability to manage a team effectively, make timely and considered decisions and address diverse operational challenges is particularly noteworthy.\n\nI am confident that Nana will be a valuable professional for any organization and will contribute meaningfully to its success through her expertise, experience and sense of responsibility.",
+    "name": "Lela Ghirdaladze",
+    "initials": "LG"
+  },
+  {
+    "text": "Nana Lobjanidze held the position of Project Manager at Job Deal. She proved to be a manager focused on sound planning and risk mitigation.\n\nHer attention to detail was especially evident in the quality of the documents she prepared. Nana is committed to continuous development.\n\nI wish her success at every stage of her career!",
+    "name": "Giga Chanturia",
+    "role": "Supporting Leaders Through Organizational Change",
+    "initials": "GC"
+  },
+  {
+    "text": "Working with Nana is always a pleasure. She stands out for her responsibility, initiative and the distinctive dedication she brings to every project. She manages processes effectively, communicates easily with teams and stakeholders, approaches challenges responsibly and continually invests in her professional development. I am confident that her professionalism, organization and interpersonal skills will be a valuable asset to any team.",
+    "name": "Tamta Basilaia",
+    "role": "Project Management Consultant | Mentor",
+    "initials": "TB"
+  },
+  {
+    "text": "During her time at Credo Bank, Nana Lobjanidze demonstrated high professionalism, leadership and a results-oriented approach. As a Retail Manager, she made a significant contribution to improving branch business results, managing and developing her team effectively and maintaining high customer service standards.\n\nHer strong communication skills, accountability, analytical thinking and ability to manage both daily operations and a sales-focused team deserve particular recognition. She consistently showed initiative, professionalism and readiness to make decisions important to the organization’s success.\n\nI am confident that Nana will be a valuable professional for any organization, contributing to its growth and success through her experience, leadership and results-oriented mindset.",
+    "name": "Badri Barjadze",
+    "role": "Branch Manager",
+    "org": "Credo Bank",
+    "initials": "BB"
+  }
+];
+
 export function Testimonials() {
+  const { language } = useLanguage();
+  const en = language === "en";
+  const recommendations: Recommendation[] = en ? RECOMMENDATIONS.map((r,i) => i < 5 ? r : ({...r,...RECOMMENDATIONS_EN[i-5]})) : RECOMMENDATIONS;
   return (
     <section id="recommendation" className="section-y bg-white">
       <div className="container-x">
         <div className="max-w-2xl">
-          <span className="eyebrow">რეკომენდაციები</span>
+          <span className="eyebrow">{en ? "Testimonials" : "რეკომენდაციები"}</span>
           <h2 className="heading-lg mt-4 text-balance">
-            პარტნიორების <span className="text-navy">პროფესიული შეფასებები</span>
+            {en ? "Professional" : "პარტნიორების"} <span className="text-navy">{en ? "Recommendations" : "პროფესიული შეფასებები"}</span>
           </h2>
           <p className="mt-4 text-ink-soft text-base md:text-lg">
-            საერთაშორისო დონორების, პროფესიული ორგანიზაციებისა და თანამშრომლების წერილობითი რეკომენდაციები.
+            {en ? "Written recommendations from international partners, professional organizations and colleagues." : "საერთაშორისო დონორების, პროფესიული ორგანიზაციებისა და თანამშრომლების წერილობითი რეკომენდაციები."}
           </p>
         </div>
 
         <div className="mt-10 grid lg:grid-cols-2 gap-6 items-start">
-          {RECOMMENDATIONS.map((r, idx) => (
+          {recommendations.map((r, idx) => (
             <figure key={idx} className="surface-card p-6 md:p-7 relative h-full flex flex-col">
               <span
                 className="absolute top-4 right-6 text-6xl leading-none font-serif select-none"

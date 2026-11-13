@@ -1,3 +1,4 @@
+import { useLanguage } from "@/lib/LanguageContext";
 import pmpBadge from "@/assets/pmp-badge.jpeg";
 
 const PMI = [
@@ -29,6 +30,15 @@ const EDUCATION = [
 ];
 
 const ALL_CERTS = [...PMI, ...PROFESSIONAL];
+const EDUCATION_EN = [
+  { name: "MA in International Business Management", issuer: "Caucasus International University", year: "2025 – Present" },
+  { name: "BA in Business Administration and Finance", issuer: "Gori State Teaching University", year: "2007–2011" },
+];
+const ALL_CERTS_EN = ALL_CERTS.map((cert) => ({
+  ...cert,
+  name: cert.name === "საზოგადოებრივი მონაწილეობა ადგილობრივი განვითარებისთვის" ? "Public Participation for Local Development" : cert.name,
+  issuer: cert.issuer === "სამოქალაქო საზოგადოების ინსტიტუტი" ? "Civil Society Institute" : cert.issuer,
+}));
 
 function CertItem({ i }: { i: { name: string; issuer: string; year: string } }) {
   return (
@@ -46,17 +56,21 @@ function CertItem({ i }: { i: { name: string; issuer: string; year: string } }) 
 
 
 export function Certifications() {
+  const { language } = useLanguage();
+  const english = language === "en";
+  const education = english ? EDUCATION_EN : EDUCATION;
+  const certifications = english ? ALL_CERTS_EN : ALL_CERTS;
   return (
     <section id="certifications" className="section-y bg-surface scroll-mt-28">
       <div className="container-x">
         <div className="max-w-2xl">
-          <span className="eyebrow">განათლება &amp; სერტიფიკატები</span>
+          <span className="eyebrow">{english ? "Education & Certifications" : "განათლება & სერტიფიკატები"}</span>
           <h2 className="heading-lg mt-4 text-balance">
-            საერთაშორისო ცოდნა, <span className="text-navy">უწყვეტი განვითარება</span> და პრაქტიკული გამოცდილება
+            {english ? "International Knowledge, " : "საერთაშორისო ცოდნა, "}<span className="text-navy">{english ? "Continuous Learning" : "უწყვეტი განვითარება"}</span>{english ? " and Practical Experience" : " და პრაქტიკული გამოცდილება"}
           </h2>
           <p className="mt-4 text-ink-soft text-base md:text-lg">
-            PMP® სერტიფიცირება, PMI-ის და სხვა საერთაშორისო ინსტიტუტების სასწავლო პროგრამები,
-            უმაღლესი განათლება - ერთ პროფესიულ პროფილში.
+            {english ? "PMP® certification, learning programs from PMI and other international institutions, and higher education, all brought together in one professional profile." : <> PMP® სერტიფიცირება, PMI-ის და სხვა საერთაშორისო ინსტიტუტების სასწავლო პროგრამები,
+            უმაღლესი განათლება - ერთ პროფესიულ პროფილში. </>}
           </p>
         </div>
 
@@ -80,14 +94,14 @@ export function Certifications() {
             </div>
           </div>
           <div className="lg:col-span-8">
-            <span className="eyebrow" style={{ color: "var(--mint-bright)" }}>PMP® სერტიფიცირება</span>
+            <span className="eyebrow" style={{ color: "var(--mint-bright)" }}>{english ? "PMP® Certification" : "PMP® სერტიფიცირება"}</span>
             <h3 className="heading-md mt-4 text-balance" style={{ color: "white" }}>
               Project Management Professional <span style={{ color: "var(--mint)" }}>(PMI)</span>
             </h3>
             <p className="mt-4 text-white/80 max-w-2xl leading-relaxed">
-              მსოფლიოში ერთ-ერთი ყველაზე პრესტიჟული და ფართოდ აღიარებული სერტიფიცირება პროექტების მართვის სფეროში.
+              {english ? "One of the most widely recognized credentials in project management worldwide. It demonstrates the ability to plan, deliver, monitor, and successfully complete projects in line with international standards and established best practices." : <> მსოფლიოში ერთ-ერთი ყველაზე პრესტიჟული და ფართოდ აღიარებული სერტიფიცირება პროექტების მართვის სფეროში.
               ადასტურებს პროექტების დაგეგმვის, შესრულების, მონიტორინგისა და წარმატებით დასრულების უნარს
-              საერთაშორისო სტანდარტებისა და საუკეთესო პრაქტიკის შესაბამისად.
+              საერთაშორისო სტანდარტებისა და საუკეთესო პრაქტიკის შესაბამისად. </>}
             </p>
             <p className="mt-4 text-sm font-bold" style={{ color: "var(--mint-bright)" }}>2024–2027</p>
           </div>
@@ -102,10 +116,10 @@ export function Certifications() {
             >
               ✦
             </span>
-            <h3 className="font-extrabold text-lg md:text-xl text-ink">უმაღლესი განათლება</h3>
+            <h3 className="font-extrabold text-lg md:text-xl text-ink">{english ? "Higher Education" : "უმაღლესი განათლება"}</h3>
           </div>
           <div className="mt-5 grid md:grid-cols-2 gap-4 items-stretch">
-            {EDUCATION.map((e) => (
+            {education.map((e) => (
               <div key={e.name} className="h-full rounded-2xl border border-line bg-white p-5">
                 <p className="font-semibold text-sm md:text-base text-ink">{e.name}</p>
                 <p className="text-xs md:text-sm text-ink-soft mt-1">{e.issuer}</p>
@@ -124,10 +138,10 @@ export function Certifications() {
             >
               ✦
             </span>
-            <h3 className="font-extrabold text-lg md:text-xl text-ink">სერტიფიკატები და პროფესიული განვითარება</h3>
+            <h3 className="font-extrabold text-lg md:text-xl text-ink">{english ? "Certifications and Professional Development" : "სერტიფიკატები და პროფესიული განვითარება"}</h3>
           </div>
           <ul className="mt-5 grid md:grid-cols-2 gap-4 items-stretch">
-            {ALL_CERTS.map((i) => (
+            {certifications.map((i) => (
               <CertItem key={i.name} i={i} />
             ))}
           </ul>

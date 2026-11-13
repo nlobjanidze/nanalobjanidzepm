@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 
-const ITEMS = [
+const ITEMS_KA = [
   {
     q: "რა გამოცდილება გჭირდება PMP®-ის ჩასაბარებლად?",
     a: "PMI მოითხოვს 36 თვის პროექტის მართვის გამოცდილებას (ბაკალავრიატის შემთხვევაში) ან 60 თვის (გვერდითი განათლების შემთხვევაში) + 35 საათი PM სწავლება. ჩვენი PMP® Prep ტრენინგი ფარავს ამ 35 საათს და ემზადებით გამოცდისთვის.",
@@ -27,21 +28,33 @@ const ITEMS = [
   },
 ];
 
+const ITEMS_EN = [
+  { q: "What experience is required for the PMP® exam?", a: "PMI generally requires 36 months of project leadership experience with a four-year degree, or 60 months with a secondary-school diploma, along with 35 hours of project management education or an accepted alternative. Check PMI's current eligibility criteria before applying." },
+  { q: "How long does it take to introduce a PMO?", a: "A typical initial rollout takes around 8–12 weeks: discovery, process and template design, then training and implementation. The exact schedule depends on your organization's size and needs." },
+  { q: "Are training sessions online or in person?", a: "Both formats are available, depending on the program and the client's requirements." },
+  { q: "Can I book a one-off consultation or longer-term support?", a: "Both are possible: a one-time diagnostic consultation or ongoing project management support, depending on the scope." },
+  { q: "Do you work with international clients?", a: "Yes. Remote consulting and international collaboration are possible, drawing on experience with donor-funded initiatives." },
+  { q: "Which languages are available?", a: "Georgian is the primary delivery language. English is available for international client and donor communication." },
+];
+
 export function FAQ() {
   const [open, setOpen] = useState(0);
+  const { language } = useLanguage();
+  const en = language === "en";
+  const ITEMS = en ? ITEMS_EN : ITEMS_KA;
   return (
     <section id="faq" className="section-y bg-surface">
       <div className="container-x grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
-          <span className="eyebrow">ხშირი კითხვები</span>
+          <span className="eyebrow">{en ? "Frequently asked questions" : "ხშირი კითხვები"}</span>
           <h2 className="heading-lg mt-4 text-balance">
-            გაქვს კითხვა? <span className="text-navy">აქ ნახე პასუხი.</span>
+            {en ? "Have a question? " : "გაქვს კითხვა? "}<span className="text-navy">{en ? "Find the answer here." : "აქ ნახე პასუხი."}</span>
           </h2>
           <p className="mt-4 text-ink-soft">
-            თუ პასუხს ვერ პოულობ - დაგვიკავშირდი პირდაპირ ფორმის გავლით.
+            {en ? "If you cannot find an answer, get in touch using the contact form." : "თუ პასუხს ვერ პოულობ - დაგვიკავშირდი პირდაპირ ფორმის გავლით."}
           </p>
           <a href="#contact" className="cta-btn mt-6 inline-flex items-center rounded-full bg-navy-deep px-5 py-3 font-bold text-white hover:bg-navy transition text-sm">
-            დასვი კითხვა →
+            {en ? "Ask a question →" : "დასვი კითხვა →"}
           </a>
         </div>
         <div className="lg:col-span-8">

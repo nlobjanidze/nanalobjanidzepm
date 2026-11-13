@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import logo from "@/assets/nana-logo.svg";
+import { useLanguage } from "@/lib/LanguageContext";
 
 type Item = { href: string; label: string };
 type NavEntry = { label: string; href?: string; items?: Item[] };
@@ -49,7 +50,20 @@ const NAV: NavEntry[] = [
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
-  const [language, setLanguage] = useState<"ka" | "en">("ka");
+  const { language, setLanguage } = useLanguage();
+  const label = (value: string) => language === "ka" ? value : ({
+    "მიმდინარე პროექტები": "Current Projects", "შესახებ": "About",
+    "სერვისები": "Services", "პროექტების მართვა": "Project Management",
+    "პროცესების გაუმჯობესება": "Process Improvement", "მენტორინგი & ლიდერობა": "Mentoring & Leadership",
+    "გრანტების მართვა": "Grant Management", "ტრენინგები": "Training",
+    "მოკლე ფორმატის ტრენინგები": "Short Courses", "სიღრმისეული ტრენინგები": "In-depth Courses",
+    "სპეციალიზებული თემატური ტრენინგები": "Specialized Training", "კორპორატიული ტრენინგები": "Corporate Training",
+    "გამოცდილება": "Experience", "პროფესიული გამოცდილება": "Professional Experience",
+    "პროექტები": "Projects", "ლიდერობა": "Leadership",
+    "სპიკერობა & გლობალური მონაწილეობა": "Speaking & Global Engagement",
+    "პროფილი": "Profile", "განათლება და სერტიფიკატები": "Education & Certifications",
+    "რეკომენდაციები": "Testimonials"
+  } as Record<string,string>)[value] || value;
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
@@ -102,7 +116,7 @@ export function SiteNav() {
                 href={n.href}
                 className="inline-flex items-center gap-1 whitespace-nowrap text-[12px] font-semibold tracking-wide py-3 transition-colors duration-300 text-ink-soft hover:text-ink"
               >
-                {n.label}
+                {label(n.label)}
 
                 {n.items && (
                   <span
@@ -124,7 +138,7 @@ export function SiteNav() {
                         onClick={() => setOpenMenu(null)}
                         className="block rounded-xl px-3.5 py-2.5 text-[12px] font-semibold text-ink-soft hover:text-ink hover:bg-surface transition-colors"
                       >
-                        {i.label}
+                        {label(i.label)}
                       </a>
                     ))}
                   </div>
@@ -174,7 +188,7 @@ export function SiteNav() {
             color: "var(--navy-deep)",
           }}
         >
-          დაჯავშნე კონსულტაცია
+          {language === "ka" ? "დაჯავშნე კონსულტაცია" : "Book a Consultation"}
         </a>
 
         {/* Mobile Menu Button */}
@@ -204,7 +218,7 @@ export function SiteNav() {
                     }
                     className="w-full flex items-center justify-between py-3 text-base font-semibold text-ink"
                   >
-                    <span>{n.label}</span>
+                    <span>{label(n.label)}</span>
 
                     <span
                       aria-hidden
@@ -223,7 +237,7 @@ export function SiteNav() {
                           onClick={() => setOpen(false)}
                           className="py-2.5 text-sm font-medium text-ink-soft"
                         >
-                          {i.label}
+                          {label(i.label)}
                         </a>
                       ))}
                     </div>
@@ -237,7 +251,7 @@ export function SiteNav() {
                   onClick={() => setOpen(false)}
                   className="py-3 text-base font-semibold text-ink"
                 >
-                  {n.label}
+                  {label(n.label)}
                 </a>
               )
             )}
@@ -287,7 +301,7 @@ export function SiteNav() {
                 color: "var(--navy-deep)",
               }}
             >
-              დაჯავშნე კონსულტაცია
+              {language === "ka" ? "დაჯავშნე კონსულტაცია" : "Book a Consultation"}
             </a>
 
           </div>
