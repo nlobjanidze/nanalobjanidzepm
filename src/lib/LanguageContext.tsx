@@ -7,8 +7,14 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>("ka");
   useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("lang");
+    // Explicit locale in a shared link takes precedence over a previous visit.
     const saved = window.localStorage.getItem("nana-site-language");
-    if (saved === "ka" || saved === "en") setLanguageState(saved);
+    const next = requested === "ka" || requested === "en" ? requested : saved;
+    if (next === "ka" || next === "en") {
+      setLanguageState(next);
+      window.localStorage.setItem("nana-site-language", next);
+    }
   }, []);
   const setLanguage = (next: Language) => {
     setLanguageState(next);
