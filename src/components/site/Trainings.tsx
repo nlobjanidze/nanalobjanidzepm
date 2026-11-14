@@ -1,7 +1,6 @@
 import { EN_TRAINING_MODULES } from "@/lib/training-en";
 import { useLanguage } from "@/lib/LanguageContext";
 import { useState } from "react";
-import coursePoster from "@/assets/ba-pm-course-poster.png";
 import { educationalPrograms } from "@/lib/training-programs";
 import { Bullet } from "@/components/site/Bullet";
 import { Button } from "@/components/ui/button";
@@ -153,7 +152,6 @@ const DD: Training[] = [
       "სწორედ ამ კავშირზეა აგებული ჩვენი ახალი ინტეგრირებული პროგრამა: IT ბიზნეს ანალიზი & პროექტების მართვა",
     ],
     ctaLabel: "იხილე ტრენინგი",
-    poster: coursePoster,
     registrationUrl: "https://forms.gle/PgG8npciSifdQgHD6",
     syllabusUrl: "/BA_PM_Integrated_Syllabus.pdf",
     details: [
