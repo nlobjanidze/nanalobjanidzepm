@@ -6,6 +6,9 @@ on:
     branches:
       - main
       - feature/english-language
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
